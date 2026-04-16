@@ -60,11 +60,6 @@ sqlmap -u "https://target.com/page?id=1" \
   --payload-file=sqlmap_timebased_final.xml \
   --tamper=space2comment,between,randomcase
 ```
-
-## هدف
-
-Provide high-quality, real-world payloads beyond basic wordlists.
-
 ---
 
 ⚠️ This repository is for educational and authorized security testing only.
