@@ -1,4 +1,4 @@
-![Project logo](.github/PayloadBase.png)
+![Project logo](/PayloadBase.png)
 
 ### About PayloadBase
 
