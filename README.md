@@ -2,7 +2,7 @@
 
 ### About PayloadBase
 
-PayloadBase is the security tester's payload companion. It's a curated collection of offensive payloads designed for fuzzing, exploitation, and vulnerability research — collected in one place. Payload types include SQL injection, XSS, SSRF, LFI/RFI, command injection, API/JSON fuzzing, polyglot payloads, and many more. The goal is to enable a security tester to pull this repository onto a new testing box and have access to every type of payload that may be needed.
+PayloadBase is the security tester's payload companion. It's a curated collection of offensive payloads designed for fuzzing, exploitation, and vulnerability research collected in one place. Payload types include SQL injection, XSS, SSRF, LFI/RFI, command injection, API/JSON fuzzing, polyglot payloads, and many more. The goal is to enable a security tester to pull this repository onto a new testing box and have access to every type of payload that may be needed.
 
 This project is maintained by [ayodyadsr](https://github.com/ayodyadsr).
 
