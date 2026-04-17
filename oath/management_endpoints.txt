@@ -1,0 +1,17 @@
+/oauth/admin
+/auth/admin
+/admin/oauth
+/admin/clients
+/admin/applications
+/admin/tokens
+/oauth/clients
+/oauth/applications
+/oauth/apps
+/oauth/scopes
+/oauth/grants
+/clients
+/applications
+/apps
+/api_keys
+/api-keys
+/apikeys
