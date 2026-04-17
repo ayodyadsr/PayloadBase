@@ -1,0 +1,16 @@
+/api/mobile/auth
+/api/mobile/login
+/api/mobile/logout
+/api/mobile/register
+/api/mobile/refresh
+/api/mobile/token
+/api/mobile/session
+/api/mobile/sso
+/api/mobile/otp
+/api/mobile/pin
+/mobile/auth
+/mobile/login
+/mobile/token
+/app/auth
+/app/login
+/app/token
