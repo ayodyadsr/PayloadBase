@@ -55,7 +55,7 @@ git clone https://github.com/ayodyadsr/PayloadBase.git
 | `idor/` | IDOR Numeric IDs, UUID variants, object-specific IDs, parameter pollution patterns, indirect ref fields |
 | `oauth/` | OAuth2/OIDC core endpoints, SAML, social login callbacks, .well-known, token management |
 | `hidden_params/` | Debug flags, admin escalation, role injection, price manipulation, validation bypass, framework-specific |
-| `mobile_api/` | Mobile base paths, push notification endpoints, deep links, version check, IAP, sync |
+| `mobile/` | Mobile base paths, push notification endpoints, deep links, version check, IAP, sync |
 
 - - -
 
