@@ -3,7 +3,9 @@
 ### About PayloadBase
 
 PayloadBase is a modern payload arsenal for security researchers and bug bounty hunters, focused on real-world exploitation and modern attack surfaces (APIs, GraphQL, mobile, and cloud).
+
 Unlike traditional wordlists, PayloadBase emphasizes structured payloads, mutation-driven variations, and context-aware fuzzing sets designed for practical testing scenarios.
+
 The repository includes categorized payloads for SQL injection, XSS, SSRF, LFI, command injection, GraphQL security testing, IDOR, JWT weaknesses, OAuth flows, hidden parameters, mobile-specific vectors, and WAF bypass techniques.
 
 This project is maintained by [ayodyadsr](https://github.com/ayodyadsr).
