@@ -42,28 +42,27 @@ git clone https://github.com/ayodyadsr/PayloadBase.git
 
 | Category | Description |
 |---|---|
-| `sqli/` | SQL Injection — time-based, boolean, error-based, OOB, WAF bypass |
-| `xss/` | Cross-Site Scripting — reflected, stored, DOM, blind, polyglot |
-| `ssrf/` | Server-Side Request Forgery — cloud metadata, bypass, internal ports |
-| `lfi/` | Local/Remote File Inclusion — path traversal, null byte, Windows |
+| `api/` | API and JSON fuzzing payloads |
 | `cmdi/` | Command Injection — Unix, Windows, blind OOB |
-| `xxe/` | XML External Entity — file read, SSRF, blind OOB, bypass |
-| `ssti/` | Server-Side Template Injection — Jinja2, Twig, Freemarker, ERB, Pebble |
-| `open_redirect/` | Open Redirect — protocol bypass, @-based, header injection |
-| `nosqli/` | NoSQL Injection — MongoDB, CouchDB, operator injection |
 | `crlf/` | CRLF Injection — header injection, response splitting |
 | `csrf/` | CSRF — token bypass, SameSite tricks |
-| `prototype_pollution/` | Prototype Pollution — client-side, server-side (Node.js) |
-| `api/` | API and JSON fuzzing payloads |
-| `polyglot/` | Multi-context polyglot payloads |
-| `mutation/` | WAF bypass mutation payloads XSS (Cloudflare/ModSec), SQLi encoding, path traversal variants, CMDi, HTTP smuggling headers |
 | `graphql/` | GraphQL Endpoint paths, query/mutation names, field names sensitif, type names, introspection bypass |
-| `jwt/` | JWT Weak secrets, framework defaults, language-specific, year-based patterns |
-| `idor/` | IDOR Numeric IDs, UUID variants, object-specific IDs, parameter pollution patterns, indirect ref fields |
-| `oauth/` | OAuth2/OIDC core endpoints, SAML, social login callbacks, .well-known, token management |
 | `hidden_params/` | Debug flags, admin escalation, role injection, price manipulation, validation bypass, framework-specific |
+| `idor/` | IDOR Numeric IDs, UUID variants, object-specific IDs, parameter pollution patterns, indirect ref fields |
+| `jwt/` | JWT Weak secrets, framework defaults, language-specific, year-based patterns |
+| `lfi/` | Local/Remote File Inclusion — path traversal, null byte, Windows |
 | `mobile/` | Mobile base paths, push notification endpoints, deep links, version check, IAP, sync |
-
+| `mutation/` | WAF bypass mutation payloads XSS (Cloudflare/ModSec), SQLi encoding, path traversal variants, CMDi, HTTP smuggling headers |
+| `nosqli/` | NoSQL Injection — MongoDB, CouchDB, operator injection |
+| `oauth/` | OAuth2/OIDC core endpoints, SAML, social login callbacks, .well-known, token management |
+| `open_redirect/` | Open Redirect — protocol bypass, @-based, header injection |
+| `polyglot/` | Multi-context polyglot payloads |
+| `prototype_pollution/` | Prototype Pollution — client-side, server-side (Node.js) |
+| `sqli/` | SQL Injection — time-based, boolean, error-based, OOB, WAF bypass |
+| `ssrf/` | Server-Side Request Forgery — cloud metadata, bypass, internal ports |
+| `ssti/` | Server-Side Template Injection — Jinja2, Twig, Freemarker, ERB, Pebble |
+| `xss/` | Cross-Site Scripting — reflected, stored, DOM, blind, polyglot |
+| `xxe/` | XML External Entity — file read, SSRF, blind OOB, bypass |
 - - -
 
 ### Usage
