@@ -11,6 +11,7 @@ This project is maintained by [ayodyadsr](https://github.com/ayodyadsr).
 ### Repository details
 
 ![Repo size](https://img.shields.io/github/repo-size/ayodyadsr/PayloadBase.svg)
+[![Repo size](https://img.shields.io/github/repo-size/ayodyadsr/PayloadBase.svg)](https://github.com/ayodyadsr/PayloadBase)
 ![Last commit](https://img.shields.io/github/last-commit/ayodyadsr/PayloadBase.svg)
 ![License](https://img.shields.io/github/license/ayodyadsr/PayloadBase.svg)
 
