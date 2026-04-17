@@ -1,0 +1,13 @@
+myapp
+myapp_secret
+myapp-secret
+myapp123
+webapp
+webapp_secret
+api_secret
+apiserver
+backend
+backend_secret
+frontend
+service
+microservice
