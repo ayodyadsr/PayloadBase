@@ -77,6 +77,7 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 ### ⚠️ Disclaimer
 
 This repository is intended for educational purposes and authorized security testing only. Unauthorized use is strictly prohibited. The maintainer assumes no liability for misuse.
+
 ---
 
 ### License
