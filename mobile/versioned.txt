@@ -1,0 +1,17 @@
+/api/mobile
+/api/mobile/v1
+/api/mobile/v2
+/api/mobile/v3
+/api/app
+/api/app/v1
+/api/app/v2
+/api/ios
+/api/ios/v1
+/api/android
+/api/android/v1
+/v1/mobile
+/v2/mobile
+/v1/app
+/v2/app
+/v1/ios
+/v1/android
