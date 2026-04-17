@@ -1,0 +1,17 @@
+/api/version
+/api/versions
+/api/app/version
+/api/mobile/version
+/api/update
+/api/update/check
+/api/upgrade
+/version
+/versioncheck
+/checkversion
+/appversion
+/app_version
+/mobile/version
+/mobile/update
+/mobile/upgrade
+/app/version
+/app/update
