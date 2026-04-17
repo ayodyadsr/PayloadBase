@@ -1,0 +1,13 @@
+/api/mobile/admin
+/api/mobile/internal
+/api/mobile/debug
+/api/mobile/test
+/api/mobile/beta
+/api/mobile/staging
+/api/mobile/experimental
+/mobile/admin
+/mobile/debug
+/mobile/internal
+/app/admin
+/app/debug
+/app/internal
