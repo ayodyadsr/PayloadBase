@@ -1,0 +1,12 @@
+/session
+/sessions
+/session/new
+/session/create
+/session/destroy
+/sessions/current
+/api/session
+/api/sessions
+/logout
+/signout
+/sign-out
+/sign_out
