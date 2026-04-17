@@ -1,0 +1,7 @@
+{__typename}
+{__schema{types{name}}}
+{__type(name:"User"){fields{name}}}
+fragment on User{password}
+query{users{password email token}}
+mutation{deleteUser(id:"1"){id}}
+query{me{roles permissions isAdmin}}
