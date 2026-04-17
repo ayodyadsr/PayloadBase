@@ -1,0 +1,16 @@
+/api/payment
+/api/payments
+/api/pay
+/api/checkout
+/api/purchase
+/api/subscription
+/api/apple_pay
+/api/google_pay
+/api/iap
+/api/in_app_purchase
+/api/inAppPurchase
+/api/receipt
+/api/receipt/verify
+/api/receipt/validate
+/api/store
+/api/restore
