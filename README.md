@@ -4,21 +4,21 @@
 
 PayloadBase is a modern payload arsenal for security researchers and bug bounty hunters, focused on high-impact and emerging attack surfaces such as GraphQL, business logic flaws, IDOR, race conditions, OAuth2/OIDC, and JWT-based authentication.
 
-It covers a wide range of vulnerabilities including API and JSON fuzzing, WAF bypass techniques, injection classes (SQLi, NoSQLi, SSTI, CMDi), client-side attacks (XSS, prototype pollution), access control issues, and modern attack vectors across web, mobile, and distributed systems.
+It provides structured and categorized payloads covering API and JSON fuzzing, WAF bypass techniques, injection classes (SQLi, NoSQLi, SSTI, CMDi), client-side attacks (XSS, prototype pollution), access control issues, and modern attack vectors across web, mobile, and distributed systems.
 
-This project is maintained by [ayodyadsr](https://github.com/ayodyadsr).
+Maintained by [ayodyadsr](https://github.com/ayodyadsr).
 
-- - -
+---
 
-### Repository details
+### Repository Details
 
 [![Repo size](https://img.shields.io/github/repo-size/ayodyadsr/PayloadBase.svg)](https://github.com/ayodyadsr/PayloadBase)
 [![Last commit](https://img.shields.io/github/last-commit/ayodyadsr/PayloadBase.svg)](https://github.com/ayodyadsr/PayloadBase)
 [![License](https://img.shields.io/github/license/ayodyadsr/PayloadBase.svg)](https://github.com/ayodyadsr/PayloadBase)
 
-- - -
+---
 
-### Install
+### Installation
 
 **Zip**
 ```bash
