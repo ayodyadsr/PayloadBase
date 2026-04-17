@@ -1,0 +1,11 @@
+/oauth/authorize?response_type=token
+/oauth/authorize?response_type=code
+/oauth/authorize?response_type=id_token
+/oauth2/authorize?response_type=token&redirect_uri=https://evil.com
+/auth/callback?code=FUZZ
+/auth/callback?token=FUZZ
+/auth/callback?error=FUZZ
+/auth/redirect?next=//evil.com
+/auth/redirect?return=//evil.com
+/auth/redirect?url=//evil.com
+/auth/redirect?to=//evil.com
