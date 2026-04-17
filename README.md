@@ -70,8 +70,14 @@ git clone https://github.com/ayodyadsr/PayloadBase.git
 
 **ffuf**
 ```bash
-ffuf -u https://target.com/FUZZ -w sqli/time-based.txt
-ffuf -u "https://target.com/page?id=FUZZ" -w sqli/boolean.txt
+# Example: fuzz parameters
+ffuf -u "https://target.com/page?FUZZ=test" -w hidden_params/basic.txt
+
+# Example: test SSRF params
+ffuf -u "https://target.com/?FUZZ=http://127.0.0.1" -w ssrf/parameter_names.txt
+
+# Example: GraphQL endpoint discovery
+ffuf -u https://target.com/FUZZ -w graphql/endpoints.txt
 ```
  
 **Burp Suite Intruder**
