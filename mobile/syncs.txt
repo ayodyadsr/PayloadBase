@@ -1,0 +1,13 @@
+/api/sync
+/api/sync/pull
+/api/sync/push
+/api/offline
+/api/bulk
+/api/batch
+/sync
+/sync/data
+/mobile/sync
+/app/sync
+/offline_sync
+/delta
+/api/delta
