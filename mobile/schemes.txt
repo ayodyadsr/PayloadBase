@@ -1,0 +1,7 @@
+intent://
+intent://open#Intent;scheme=http;package=com.target.app;end
+app://
+myapp://
+target://
+deeplink://
+custom://
