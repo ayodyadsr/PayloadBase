@@ -1,0 +1,6 @@
+X-HTTP-Method-Override: DELETE
+X-HTTP-Method-Override: PUT
+X-HTTP-Method-Override: PATCH
+X-Method-Override: DELETE
+_method=DELETE
+_method=PUT
