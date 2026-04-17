@@ -6,7 +6,7 @@ PayloadBase is a modern payload arsenal for security researchers and bug bounty 
 
 It provides structured and categorized payloads covering API and JSON fuzzing, WAF bypass techniques, injection classes (SQLi, NoSQLi, SSTI, CMDi), client-side attacks (XSS, prototype pollution), access control issues, and modern attack vectors across web, mobile, and distributed systems.
 
-Maintained by [ayodyadsr](https://github.com/ayodyadsr).(https://github.com/ayodyadsr).(https://github.com/ayodyadsr).(https://github.com/ayodyadsr).(https://github.com/ayodyadsr).(https://github.com/ayodyadsr).(https://github.com/ayodyadsr).(https://github.com/ayodyadsr).(https://github.com/ayodyadsr).
+Maintained by [ayodyadsr](https://github.com/ayodyadsr)
 
 ---
 
