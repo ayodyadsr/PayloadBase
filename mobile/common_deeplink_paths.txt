@@ -1,0 +1,12 @@
+/deeplink
+/deep-link
+/app-link
+/universal-link
+/app_link
+/open
+/redirect
+/launch
+/navigate
+/intent
+/deferred
+/deferred_deeplink
