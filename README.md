@@ -2,7 +2,7 @@
 
 ### About PayloadBase
 
-PayloadBase is a modern payload arsenal for bug hunters — focused on APIs, GraphQL, business logic, and WAF bypass. The repository covers a wide range of vulnerabilities including API and JSON fuzzing, WAF bypass techniques, injection classes (SQLi, NoSQLi, SSTI, CMDi), client-side attacks (XSS, prototype pollution), access control issues, and modern application attack vectors across web, mobile, and distributed systems.
+PayloadBase is a modern payload arsenal for bug hunters focused on APIs, GraphQL, business logic, and WAF bypass. The repository covers a wide range of vulnerabilities including API and JSON fuzzing, WAF bypass techniques, injection classes (SQLi, NoSQLi, SSTI, CMDi), client-side attacks (XSS, prototype pollution), access control issues, and modern application attack vectors across web, mobile, and distributed systems.
 
 This project is maintained by [ayodyadsr](https://github.com/ayodyadsr).
 
