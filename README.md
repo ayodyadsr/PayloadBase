@@ -42,11 +42,18 @@ git clone https://github.com/ayodyadsr/PayloadBase.git
 
 | Category | Description |
 |---|---|
-| `sqli/` | SQL Injection payloads — time-based, boolean, error-based, OOB |
-| `xss/` | Cross-Site Scripting payloads — reflected, stored, DOM |
-| `ssrf/` | Server-Side Request Forgery payloads |
-| `lfi/` | Local and Remote File Inclusion payloads |
-| `cmdi/` | Command Injection payloads |
+| `sqli/` | SQL Injection — time-based, boolean, error-based, OOB, WAF bypass |
+| `xss/` | Cross-Site Scripting — reflected, stored, DOM, blind, polyglot |
+| `ssrf/` | Server-Side Request Forgery — cloud metadata, bypass, internal ports |
+| `lfi/` | Local/Remote File Inclusion — path traversal, null byte, Windows |
+| `cmdi/` | Command Injection — Unix, Windows, blind OOB |
+| `xxe/` | XML External Entity — file read, SSRF, blind OOB, bypass |
+| `ssti/` | Server-Side Template Injection — Jinja2, Twig, Freemarker, ERB, Pebble |
+| `open_redirect/` | Open Redirect — protocol bypass, @-based, header injection |
+| `nosqli/` | NoSQL Injection — MongoDB, CouchDB, operator injection |
+| `crlf/` | CRLF Injection — header injection, response splitting |
+| `csrf/` | CSRF — token bypass, SameSite tricks |
+| `prototype_pollution/` | Prototype Pollution — client-side, server-side (Node.js) |
 | `api/` | API and JSON fuzzing payloads |
 | `polyglot/` | Multi-context polyglot payloads |
 | `mutation/` | WAF bypass mutation payloads XSS (Cloudflare/ModSec), SQLi encoding, path traversal variants, CMDi, HTTP smuggling headers |
