@@ -1,0 +1,5 @@
+http://127.0.0.1:2375/version
+http://127.0.0.1:2375/containers/json
+http://127.0.0.1:2375/images/json
+http://127.0.0.1:2376/version
+http://localhost:2375/v1.24/containers/json
