@@ -47,13 +47,13 @@ git clone https://github.com/ayodyadsr/PayloadBase.git
 | `cmdi/` | Command Injection — Unix, Windows, blind OOB |
 | `crlf/` | CRLF Injection — header injection, response splitting |
 | `csrf/` | CSRF — token bypass, SameSite tricks |
-| `graphql/` | GraphQL Endpoint paths, query/mutation names, field names sensitif, type names, introspection bypass |
+| `graphql/` | GraphQL Endpoint paths, query/mutation names, sensitive field names, type names, introspection bypass |
 | `hidden_params/` | Debug flags, admin escalation, role injection, price manipulation, validation bypass, framework-specific |
 | `idor/` | IDOR Numeric IDs, UUID variants, object-specific IDs, parameter pollution patterns, indirect ref fields |
 | `jwt/` | JWT Weak secrets, framework defaults, language-specific, year-based patterns |
 | `lfi/` | Local/Remote File Inclusion — path traversal, null byte, Windows |
 | `mobile/` | Mobile base paths, push notification endpoints, deep links, version check, IAP, sync |
-| `mutation/` | WAF bypass mutation payloads XSS (Cloudflare/ModSec), SQLi encoding, path traversal variants, CMDi, HTTP smuggling headers |
+| `mutation/` | WAF bypass mutation payloads — XSS (Cloudflare/ModSecurity), SQLi encoding, path traversal variants, CMDi, HTTP smuggling |
 | `nosqli/` | NoSQL Injection — MongoDB, CouchDB, operator injection |
 | `oauth/` | OAuth2/OIDC core endpoints, SAML, social login callbacks, .well-known, token management |
 | `open_redirect/` | Open Redirect — protocol bypass, @-based, header injection |
