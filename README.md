@@ -2,7 +2,7 @@
 
 ### About PayloadBase
 
-PayloadBase is a modern payload arsenal for security researchers and bug hunters, focused on high-impact and emerging attack surfaces such as GraphQL, business logic flaws, IDOR, race conditions, OAuth, and JWT.
+PayloadBase is a modern payload collection for security researchers and bug hunters, focused on high-impact and emerging attack surfaces such as GraphQL, business logic flaws, IDOR, race conditions, OAuth, and JWT.
 
 It provides structured and categorized payloads covering API and JSON fuzzing, WAF bypass techniques, injection classes (SQLi, NoSQLi, SSTI, CMDi), client-side attacks (XSS, prototype pollution), access control issues, and modern attack vectors across web, mobile, and distributed systems.
 
