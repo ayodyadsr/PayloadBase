@@ -2,8 +2,6 @@
 
 ### About PayloadBase
 
-### About PayloadBase
-
 PayloadBase is a modern payload arsenal for security researchers and bug bounty hunters, focused on high-impact and emerging attack surfaces such as GraphQL, business logic flaws, IDOR, race conditions, OAuth2/OIDC, and JWT-based authentication.
 
 Unlike traditional wordlists, PayloadBase emphasizes structured payload organization, mutation-driven variations, and real-world testing scenarios.
