@@ -2,7 +2,7 @@
 
 ### About PayloadBase
 
-PayloadBase is a modern payload arsenal for security researchers and bug bounty hunters, focused on real-world attack surfaces across APIs, GraphQL, mobile, and web applications.
+PayloadBase is a modern payload arsenal for security researchers and bug bounty hunters, focused on emerging and high-impact attack surfaces such as IDOR, GraphQL, business logic flaws, race condition, OAuth2, and JWT.
 
 The repository provides structured and categorized payloads covering API and JSON fuzzing, business logic abuse, WAF and filter bypass techniques, command injection, CRLF injection, CSRF, GraphQL security testing, hidden parameters, IDOR, JWT weaknesses, LFI, mobile-specific attack surfaces, mutation-based payloads, NoSQL injection, OAuth2/OIDC flows, open redirects, polyglots, prototype pollution, race conditions, SQL injection, SSRF, SSTI, XSS, and XXE.
 
