@@ -1,0 +1,4 @@
+http://127.0.0.1:9200/
+http://127.0.0.1:9200/_cat/indices
+http://127.0.0.1:9200/_cluster/state
+http://127.0.0.1:9200/_nodes
