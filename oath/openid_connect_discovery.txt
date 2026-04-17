@@ -1,0 +1,11 @@
+/.well-known/openid-configuration
+/.well-known/oauth-authorization-server
+/.well-known/jwks.json
+/.well-known/jwks
+/.well-known/openid_configuration
+/.well-known/oidc-configuration
+/openid-configuration
+/openid_configuration
+/.well-known/webfinger
+/.well-known/uma2-configuration
+/.well-known/smart-configuration
