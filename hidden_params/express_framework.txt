@@ -1,0 +1,3 @@
+_method
+X-HTTP-Method-Override
+X-Method-Override
