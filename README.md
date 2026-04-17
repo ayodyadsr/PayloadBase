@@ -64,15 +64,6 @@ git clone https://github.com/ayodyadsr/PayloadBase.git
 
 - - -
 
-### Similar Projects
-
-- [SecLists](https://github.com/danielmiessler/SecLists): The security tester's companion — usernames, passwords, URLs, fuzzing payloads, web shells, and more.
-- [PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings): A list of useful payloads and bypasses for web application security and pentest/CTF.
-- [FuzzDB](https://github.com/fuzzdb-project/fuzzdb): Dictionary of attack patterns and primitives for black-box application fault injection.
-- [IntruderPayloads](https://github.com/1N3/IntruderPayloads): A collection of Burp Suite Intruder payloads and fuzz lists.
-
-- - -
-
 ### Contributing
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change or add.
