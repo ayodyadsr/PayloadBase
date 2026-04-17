@@ -1,0 +1,1 @@
+TargetApp/1.0.0 (com.target.app; build:100; iOS 17.0.0) CFNetwork/1410.0.3
