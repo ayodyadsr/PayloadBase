@@ -1,0 +1,14 @@
+/device
+/device/register
+/device/enroll
+/device/token
+/device/push_token
+/device/fcm_token
+/device/apns_token
+/device/info
+/device/status
+/devices
+/devices/register
+/devices/push
+/mobile/devices
+/mobile/device/register
