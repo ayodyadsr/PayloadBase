@@ -6,7 +6,7 @@ PayloadBase is a modern payload arsenal for security researchers and bug bounty 
 
 It provides structured and categorized payloads covering API and JSON fuzzing, WAF bypass techniques, injection classes (SQLi, NoSQLi, SSTI, CMDi), client-side attacks (XSS, prototype pollution), access control issues, and modern attack vectors across web, mobile, and distributed systems.
 
-Maintained by [ayodyadsr](https://github.com/ayodyadsr).
+Maintained by [ayodyadsr](https://github.com/ayodyadsr).(https://github.com/ayodyadsr).(https://github.com/ayodyadsr).(https://github.com/ayodyadsr).(https://github.com/ayodyadsr).(https://github.com/ayodyadsr).(https://github.com/ayodyadsr).(https://github.com/ayodyadsr).(https://github.com/ayodyadsr).
 
 ---
 
@@ -25,12 +25,12 @@ Maintained by [ayodyadsr](https://github.com/ayodyadsr).
 wget -c https://github.com/ayodyadsr/PayloadBase/archive/main.zip -O PayloadBase.zip && unzip PayloadBase.zip && rm -f PayloadBase.zip
 ```
  
-**Git — No commit history (faster)**
+**Git (shallow clone)**
 ```bash
 git clone --depth 1 https://github.com/ayodyadsr/PayloadBase.git
 ```
  
-**Git — Complete**
+**Git (full history)**
 ```bash
 git clone https://github.com/ayodyadsr/PayloadBase.git
 ```
@@ -76,11 +76,10 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 ### ⚠️ Disclaimer
 
-This repository is intended for **educational purposes and authorized security testing only**. Use of these payloads against systems you do not own or have explicit written permission to test is illegal and unethical. The maintainer assumes no liability for misuse.
-
+This repository is intended for educational purposes and authorized security testing only. Unauthorized use is strictly prohibited. The maintainer assumes no liability for misuse.
 ---
 
-### Licensing
+### License
 
 This project is licensed under the [MIT License](LICENSE).
 
