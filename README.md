@@ -41,23 +41,26 @@ git clone https://github.com/ayodyadsr/PayloadBase.git
 | Category | Description |
 |---|---|
 | `api/` | API and JSON fuzzing payloads |
+| `business_logic/` | Business logic abuse — workflow bypass, price manipulation, state tampering |
+| `bypass/` | WAF and filter bypass techniques — method override, header tricks |
 | `cmdi/` | Command Injection — Unix, Windows, blind OOB |
 | `crlf/` | CRLF Injection — header injection, response splitting |
 | `csrf/` | CSRF — token bypass, SameSite tricks |
-| `graphql/` | GraphQL Endpoint paths, query/mutation names, sensitive field names, type names, introspection bypass |
+| `graphql/` | GraphQL endpoint paths, query/mutation names, sensitive field names, type names, introspection bypass |
 | `hidden_params/` | Debug flags, admin escalation, role injection, price manipulation, validation bypass, framework-specific |
-| `idor/` | IDOR Numeric IDs, UUID variants, object-specific IDs, parameter pollution patterns, indirect ref fields |
-| `jwt/` | JWT Weak secrets, framework defaults, language-specific, year-based patterns |
-| `lfi/` | Local/Remote File Inclusion — path traversal, null byte, Windows |
-| `mobile/` | Mobile base paths, push notification endpoints, deep links, version check, IAP, sync |
-| `mutation/` | WAF bypass mutation payloads — XSS (Cloudflare/ModSecurity), SQLi encoding, path traversal variants, CMDi, HTTP smuggling |
+| `idor/` | IDOR — numeric IDs, UUID variants, object-specific IDs, parameter pollution patterns, indirect reference fields |
+| `jwt/` | JWT — weak secrets, framework defaults, language-specific, year-based patterns |
+| `lfi/` | Local/Remote File Inclusion — path traversal, null byte bypass, Windows |
+| `mobile/` | Mobile attack surface — base paths, push endpoints, deep links, versioning, IAP, sync |
+| `mutation/` | Mutation payloads — XSS (Cloudflare/ModSecurity), SQLi encoding, path traversal variants, CMDi, HTTP smuggling |
 | `nosqli/` | NoSQL Injection — MongoDB, CouchDB, operator injection |
-| `oauth/` | OAuth2/OIDC core endpoints, SAML, social login callbacks, .well-known, token management |
-| `open_redirect/` | Open Redirect — protocol bypass, @-based, header injection |
-| `polyglot/` | Multi-context polyglot payloads |
-| `prototype_pollution/` | Prototype Pollution — client-side, server-side (Node.js) |
+| `oauth/` | OAuth2/OIDC — core endpoints, SAML, social login callbacks, .well-known, token management |
+| `open_redirect/` | Open Redirect — protocol bypass, @ tricks, header injection |
+| `polyglot/` | Polyglot payloads — multi-context execution (XSS, HTML, JS) |
+| `prototype_pollution/` | Prototype Pollution — client-side and Node.js server-side |
+| `race_condition/` | Race condition — concurrent requests, state desynchronization, double-spend |
 | `sqli/` | SQL Injection — time-based, boolean, error-based, OOB, WAF bypass |
-| `ssrf/` | Server-Side Request Forgery — cloud metadata, bypass, internal ports |
+| `ssrf/` | Server-Side Request Forgery — cloud metadata, bypass, internal services |
 | `ssti/` | Server-Side Template Injection — Jinja2, Twig, Freemarker, ERB, Pebble |
 | `xss/` | Cross-Site Scripting — reflected, stored, DOM, blind, polyglot |
 | `xxe/` | XML External Entity — file read, SSRF, blind OOB, bypass |
