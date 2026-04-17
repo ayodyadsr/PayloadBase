@@ -1,0 +1,3 @@
+authenticity_token
+utf8
+_rails_error
