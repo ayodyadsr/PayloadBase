@@ -19,20 +19,17 @@ This project is maintained by [ayodyadsr](https://github.com/ayodyadsr).
 ### Install
 
 **Zip**
-
-```
+```bash
 wget -c https://github.com/ayodyadsr/PayloadBase/archive/main.zip -O PayloadBase.zip && unzip PayloadBase.zip && rm -f PayloadBase.zip
 ```
-
-**Git: No commit history (faster)**
-
-```
+ 
+**Git — No commit history (faster)**
+```bash
 git clone --depth 1 https://github.com/ayodyadsr/PayloadBase.git
 ```
-
-**Git: Complete**
-
-```
+ 
+**Git — Complete**
+```bash
 git clone https://github.com/ayodyadsr/PayloadBase.git
 ```
 
