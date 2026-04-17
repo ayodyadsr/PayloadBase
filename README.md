@@ -35,7 +35,7 @@ git clone --depth 1 https://github.com/ayodyadsr/PayloadBase.git
 git clone https://github.com/ayodyadsr/PayloadBase.git
 ```
 
-- - -
+---
 
 ### Categories
 
@@ -66,19 +66,19 @@ git clone https://github.com/ayodyadsr/PayloadBase.git
 | `xss/` | Cross-Site Scripting — reflected, stored, DOM, blind, polyglot |
 | `xxe/` | XML External Entity — file read, SSRF, blind OOB, bypass |
 
-- - -
+---
 
 ### Contributing
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change or add.
 
-- - -
+---
 
 ### ⚠️ Disclaimer
 
 This repository is intended for **educational purposes and authorized security testing only**. Use of these payloads against systems you do not own or have explicit written permission to test is illegal and unethical. The maintainer assumes no liability for misuse.
 
-- - -
+---
 
 ### Licensing
 
