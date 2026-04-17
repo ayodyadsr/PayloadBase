@@ -42,18 +42,18 @@ git clone https://github.com/ayodyadsr/PayloadBase.git
 
 | Category | Description |
 |---|---|
-| `SQLi/` | SQL Injection payloads — time-based, boolean, error-based, OOB |
-| `XSS/` | Cross-Site Scripting payloads — reflected, stored, DOM |
-| `SSRF/` | Server-Side Request Forgery payloads |
-| `LFI-RFI/` | Local and Remote File Inclusion payloads |
-| `CMDi/` | Command Injection payloads |
-| `API-JSON/` | API and JSON fuzzing payloads |
-| `Polyglot/` | Multi-context polyglot payloads |
-| `Mutation/` | WAF bypass mutation payloads XSS (Cloudflare/ModSec), SQLi encoding, path traversal variants, CMDi, HTTP smuggling headers |
-| `GraphQL/` | GraphQL Endpoint paths, query/mutation names, field names sensitif, type names, introspection bypass |
-| `JWT/` | JWT Weak secrets, framework defaults, language-specific, year-based patterns |
-| `IDOR/` | IDOR Numeric IDs, UUID variants, object-specific IDs, parameter pollution patterns, indirect ref fields |
-| `OATH/` | OAuth2/OIDC core endpoints, SAML, social login callbacks, .well-known, token management |
+| `sqli/` | SQL Injection payloads — time-based, boolean, error-based, OOB |
+| `xss/` | Cross-Site Scripting payloads — reflected, stored, DOM |
+| `ssrf/` | Server-Side Request Forgery payloads |
+| `lfi/` | Local and Remote File Inclusion payloads |
+| `cmdi/` | Command Injection payloads |
+| `api/` | API and JSON fuzzing payloads |
+| `polyglot/` | Multi-context polyglot payloads |
+| `mutation/` | WAF bypass mutation payloads XSS (Cloudflare/ModSec), SQLi encoding, path traversal variants, CMDi, HTTP smuggling headers |
+| `graphql/` | GraphQL Endpoint paths, query/mutation names, field names sensitif, type names, introspection bypass |
+| `jwt/` | JWT Weak secrets, framework defaults, language-specific, year-based patterns |
+| `idor/` | IDOR Numeric IDs, UUID variants, object-specific IDs, parameter pollution patterns, indirect ref fields |
+| `oauth/` | OAuth2/OIDC core endpoints, SAML, social login callbacks, .well-known, token management |
 | `hidden_params/` | Debug flags, admin escalation, role injection, price manipulation, validation bypass, framework-specific |
 | `mobile_api/` | Mobile base paths, push notification endpoints, deep links, version check, IAP, sync |
 
