@@ -1,0 +1,9 @@
+email
+username
+user
+login
+handle
+alias
+slug
+identifier
+ident
