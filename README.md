@@ -50,7 +50,7 @@ git clone https://github.com/ayodyadsr/PayloadBase.git
 | `API-JSON/` | API and JSON fuzzing payloads |
 | `Polyglot/` | Multi-context polyglot payloads |
 | `Mutation/` | WAF bypass mutation payloads XSS (Cloudflare/ModSec), SQLi encoding, path traversal variants, CMDi, HTTP smuggling headers |
-| `GrapghQL/` | GrapghQL Endpoint paths, query/mutation names, field names sensitif, type names, introspection bypass |
+| `GraphQL/` | GraphQL Endpoint paths, query/mutation names, field names sensitif, type names, introspection bypass |
 | `JWT/` | JWT Weak secrets, framework defaults, language-specific, year-based patterns |
 | `IDOR/` | IDOR Numeric IDs, UUID variants, object-specific IDs, parameter pollution patterns, indirect ref fields |
 | `OATH/` | OAuth2/OIDC core endpoints, SAML, social login callbacks, .well-known, token management |
