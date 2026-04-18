@@ -14,3 +14,7 @@
 /app/auth
 /app/login
 /app/token
+/api/mobile/biometric
+/api/auth/mobile
+/api/auth/device
+/api/auth/biometric
