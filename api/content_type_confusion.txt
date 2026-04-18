@@ -1,0 +1,10 @@
+application/json
+application/x-www-form-urlencoded
+multipart/form-data
+text/xml
+application/xml
+text/plain
+application/octet-stream
+application/graphql
+application/vnd.api+json
+application/ld+json
