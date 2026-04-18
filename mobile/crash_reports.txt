@@ -1,0 +1,10 @@
+/api/crash
+/api/crash_report
+/api/crashlytics
+/api/analytics
+/api/events
+/api/telemetry
+/api/logs/mobile
+/api/diagnostics
+/api/metrics/app
+/api/performance
