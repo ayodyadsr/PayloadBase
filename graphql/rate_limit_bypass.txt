@@ -1,0 +1,5 @@
+[
+  {"query":"{ user(id: 1) { id email } }"},
+  {"query":"{ user(id: 2) { id email } }"},
+  {"query":"{ user(id: 3) { id email } }"}
+]
