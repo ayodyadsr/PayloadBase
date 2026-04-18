@@ -1,0 +1,2 @@
+{"query":"mutation { createPost(title: \"<script>alert(1)</script>\", body: \"test\") { id } }"}
+{"query":"mutation { updateProfile(bio: \"<img src=x onerror=alert(1)>\") { id } }"}
