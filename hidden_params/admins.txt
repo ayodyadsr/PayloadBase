@@ -31,3 +31,6 @@ force
 force=true
 sudo
 sudo=true
+isAdmin=true
+isSuperAdmin
+is_superuser
