@@ -1,0 +1,6 @@
+# ---- Indirect Reference Patterns ----
+# Object reference via email/username:
+/api/users/admin@target.com/profile
+/api/users/admin/profile
+/api/profile?username=admin
+/api/data?email=victim@target.com
