@@ -1,0 +1,2 @@
+{"query":"{ user { ...on User { password token secretKey } } }"}
+{"query":"fragment f on User { password } { me { ...f } }"}
