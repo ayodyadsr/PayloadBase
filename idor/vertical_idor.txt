@@ -1,0 +1,8 @@
+# ---- Vertical IDOR — Privilege Escalation ----
+# Change your own ID to admin ID in request body:
+{"user_id": 1}
+{"user_id": "admin"}
+{"role": "admin"}
+{"isAdmin": true}
+{"admin": true}
+{"permission_level": 99}
