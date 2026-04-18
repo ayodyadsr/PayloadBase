@@ -1,0 +1,16 @@
+X-Internal: true
+X-Debug: true
+X-Admin: true
+X-Forwarded-For: 127.0.0.1
+X-Real-IP: 127.0.0.1
+X-Original-URL: /admin
+X-Rewrite-URL: /admin
+X-Custom-IP-Authorization: 127.0.0.1
+X-Originating-IP: 127.0.0.1
+X-Remote-IP: 127.0.0.1
+X-Remote-Addr: 127.0.0.1
+X-ProxyUser-Ip: 127.0.0.1
+True-Client-IP: 127.0.0.1
+X-Override-URL: /admin
+X-Requested-With: XMLHttpRequest
+X-CSRF-Bypass: true
