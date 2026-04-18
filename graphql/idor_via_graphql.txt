@@ -1,0 +1,4 @@
+{"query":"{ user(id: 1) { id email phone address } }"}
+{"query":"{ user(id: 2) { id email phone address } }"}
+{"query":"{ order(id: 1) { id items total card } }"}
+{"query":"{ invoice(id: \"550e8400-e29b-41d4-a716-446655440000\") { pdf url } }"}
