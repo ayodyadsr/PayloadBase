@@ -1,0 +1,11 @@
+/api/v0/admin
+/api/v1/admin
+/api/v2/admin
+/api/v99/admin
+/api/v1.1/admin
+/api/alpha/admin
+/api/beta/admin
+/api/dev/admin
+/api/internal/admin
+/api/legacy/admin
+/api/old/admin
