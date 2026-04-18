@@ -11,3 +11,5 @@
 /offline_sync
 /delta
 /api/delta
+/api/sync/delta
+/api/changes
