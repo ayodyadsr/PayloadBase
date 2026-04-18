@@ -1,3 +1,4 @@
 _method
 X-HTTP-Method-Override
 X-Method-Override
+X-HTTP-Method-Override: DELETE
