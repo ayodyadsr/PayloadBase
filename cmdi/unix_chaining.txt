@@ -1,0 +1,16 @@
+; ls -la
+& ls -la
+| ls -la
+|| ls -la
+&& ls -la
+`ls -la`
+$(ls -la)
+;ls -la;
+|ls${IFS}-la
+;{ls,-la}
+;ls$IFS-la
+%0als
+%0als -la
+%0a id
+\nid
+\n id
