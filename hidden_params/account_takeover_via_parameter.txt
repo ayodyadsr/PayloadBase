@@ -1,0 +1,14 @@
+email
+email=attacker@evil.com
+username=admin
+user_id=1
+userId=1
+account_id=1
+owner_id=1
+impersonate=1
+impersonate_user=admin
+act_as=1
+on_behalf_of=1
+switch_user=1
+delegate_to=1
+become=1
