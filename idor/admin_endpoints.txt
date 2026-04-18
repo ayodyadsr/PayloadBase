@@ -1,0 +1,6 @@
+/api/admin/users
+/api/admin/users/1
+/api/admin/export
+/api/admin/config
+/api/internal/users
+/api/private/accounts
