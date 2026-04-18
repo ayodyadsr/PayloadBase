@@ -1,0 +1,11 @@
+/api/feed
+/api/timeline
+/api/home
+/api/discover
+/api/explore
+/api/trending
+/api/recommendations
+/api/nearby
+/api/contacts/sync
+/api/phonebook
+/api/friends/suggest
