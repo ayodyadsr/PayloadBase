@@ -1,0 +1,6 @@
+# ---- Encoded / Obfuscated IDs ----
+# If IDs look like base64, decode and re-encode:
+# Original: dXNlcjox = base64("user:1")
+# Modify: base64("user:2") = dXNlcjoy
+# Original: eyJ1c2VyIjoxfQ== = base64({"user":1})
+# Modify: eyJ1c2VyIjoyfQ== = base64({"user":2})
