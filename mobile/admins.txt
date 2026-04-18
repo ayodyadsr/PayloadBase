@@ -11,3 +11,5 @@
 /app/admin
 /app/debug
 /app/internal
+/debug/mobile
+/api/debug/device
