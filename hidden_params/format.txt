@@ -1,0 +1,14 @@
+format=json
+format=xml
+format=csv
+output=json
+pretty=true
+expand=all
+include=all
+fields=all
+select=*
+raw=true
+full=true
+verbose=true
+details=true
+extended=true
