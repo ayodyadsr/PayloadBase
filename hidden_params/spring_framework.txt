@@ -1,2 +1,3 @@
 _csrf
 X-CSRF-TOKEN
+_csrf=bypass
