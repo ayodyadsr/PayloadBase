@@ -1,0 +1,3 @@
+# ---- DNS Rebinding ----
+# Point your domain to 169.254.169.254 with short TTL
+http://YOUR-REBIND-DOMAIN.com/
