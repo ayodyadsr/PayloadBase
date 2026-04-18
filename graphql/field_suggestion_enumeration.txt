@@ -1,0 +1,6 @@
+# ---- Field Suggestion Enumeration ----
+# Send invalid field, observe "Did you mean X?" in error
+{"query":"{ usr { id } }"}
+{"query":"{ usser { id } }"}
+{"query":"{ admin { id } }"}
+{"query":"{ adminUser { id } }"}
