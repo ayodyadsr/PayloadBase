@@ -1,0 +1,6 @@
+powershell whoami
+powershell -c whoami
+powershell -exec bypass whoami
+powershell -nop -c "whoami"
+powershell.exe whoami
+pwsh -c whoami
