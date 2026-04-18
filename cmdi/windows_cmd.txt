@@ -1,0 +1,6 @@
+cmd /c whoami
+cmd /c dir
+cmd /c type C:\Windows\win.ini
+cmd.exe /c whoami
+%COMSPEC% /c whoami
+%SystemRoot%\system32\cmd.exe /c whoami
