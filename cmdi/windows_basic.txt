@@ -1,0 +1,13 @@
+;whoami
+|whoami
+||whoami
+&&whoami
+&whoami
+`whoami`
+$(whoami)
+;dir
+;ipconfig
+;type C:\Windows\win.ini
+;net user
+;net localgroup administrators
+;systeminfo
