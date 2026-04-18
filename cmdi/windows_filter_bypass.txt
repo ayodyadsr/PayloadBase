@@ -1,0 +1,7 @@
+wh"o"ami
+who^ami
+who$ami
+w\ho\am\i
+cmd /c "who"+"ami"
+cmd /c echo whoami|cmd
+set cmd=who& set cmd2=ami & %cmd%%cmd2%
