@@ -1,0 +1,7 @@
+{
+  a1: login(email:"admin@target.com", password:"password1"){ token }
+  a2: login(email:"admin@target.com", password:"password2"){ token }
+  a3: login(email:"admin@target.com", password:"password3"){ token }
+  a4: login(email:"admin@target.com", password:"admin"){ token }
+  a5: login(email:"admin@target.com", password:"123456"){ token }
+}
