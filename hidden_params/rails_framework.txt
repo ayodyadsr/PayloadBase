@@ -1,3 +1,5 @@
 authenticity_token
 utf8
 _rails_error
+_method=DELETE
+_method=PUT
