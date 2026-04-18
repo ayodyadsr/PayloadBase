@@ -9,8 +9,11 @@
 /api/iap
 /api/in_app_purchase
 /api/inAppPurchase
+/api/in-app-purchase
 /api/receipt
 /api/receipt/verify
 /api/receipt/validate
 /api/store
 /api/restore
+/api/payment/mobile
+/api/subscription/verify
