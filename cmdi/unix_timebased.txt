@@ -1,0 +1,7 @@
+;sleep 5
+&&sleep 5
+||sleep 5
+`sleep 5`
+$(sleep 5)
+;sleep 5;
+%0asleep 5
