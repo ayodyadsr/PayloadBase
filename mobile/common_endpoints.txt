@@ -34,3 +34,9 @@
 /api/share
 /api/invite
 /api/referral
+/api/geolocation
+/api/notifications
+/api/badge
+/api/help
+/api/onboarding
+/api/tutorial
