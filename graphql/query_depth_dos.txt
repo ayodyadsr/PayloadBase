@@ -1,0 +1,2 @@
+{ user { friends { friends { friends { friends { friends { friends { id } } } } } } } }
+{ a { b { c { d { e { f { g { h { id } } } } } } } } }
