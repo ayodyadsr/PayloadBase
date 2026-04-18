@@ -1,0 +1,2 @@
+<a id=x><a id=x name=y href="javascript:alert(1)">
+<form id=x><input id=y name=action value=javascript:alert(1)>
