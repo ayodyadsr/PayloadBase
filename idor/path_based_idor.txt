@@ -1,3 +1,17 @@
+# ---- Path-Based IDOR ----
+# Swap user ID in URL: /api/users/FUZZ/profile
+/api/users/1/profile
+/api/users/2/profile
+/api/users/0/profile
+/api/users/me/../1/profile
+/api/users/../admin/profile
+/api/users/admin/profile
+/api/users/self/profile
+/api/orders/1/details
+/api/orders/2/details
+/api/invoices/1/download
+/api/files/1/content
+/api/documents/1/view
 1
 2
 3
