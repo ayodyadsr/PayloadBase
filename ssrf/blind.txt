@@ -1,0 +1,6 @@
+# ---- Blind SSRF — OOB Detection ----
+http://COLLABORATOR
+https://COLLABORATOR
+http://COLLABORATOR/ssrf-test
+http://x.COLLABORATOR
+http://COLLABORATOR.s3.amazonaws.com
