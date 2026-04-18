@@ -1,0 +1,4 @@
+{"query":"{ __schema { directives { name description locations args { name type { name } } } } }"}
+{"query":"{ serverInfo { version environment debug uptime } }"}
+{"query":"{ systemStatus { database redis connections } }"}
+{"query":"{ config { secretKey databaseUrl apiKeys } }"}
