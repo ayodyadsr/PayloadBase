@@ -1,0 +1,3 @@
+{"query":"{ user(email: \"admin'--\") { id token } }"}
+{"query":"{ user(username: \"' OR '1'='1\") { id } }"}
+{"query":"{ search(q: \"' UNION SELECT 1,2,3--\") { results } }"}
