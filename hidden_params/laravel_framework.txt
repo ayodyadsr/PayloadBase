@@ -1,2 +1,3 @@
 _token
 X-XSRF-TOKEN
+_token=bypass
