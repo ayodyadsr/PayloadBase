@@ -34,3 +34,4 @@
 /app/graphql
 /backend/graphql
 /service/graphql
+/api/gql
