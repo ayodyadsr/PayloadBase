@@ -33,3 +33,14 @@
 /oauth2/register
 /oauth2/device
 /oauth2/par
+/auth/oauth
+/auth/oauth2
+/auth/callback
+/auth/token
+/auth/refresh
+/auth/revoke
+/auth/authorize
+/.well-known/openid-configuration
+/.well-known/oauth-authorization-server
+/.well-known/jwks.json
+/.well-known/jwks
