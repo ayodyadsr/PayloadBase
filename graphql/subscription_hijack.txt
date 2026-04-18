@@ -1,0 +1,3 @@
+subscription { userUpdated { id email password token } }
+subscription { messageReceived { from to content } }
+subscription { paymentProcessed { amount card status } }
