@@ -2,4 +2,5 @@ http://100.100.100.200
 http://100.100.100.200/latest/meta-data
 http://100.100.100.200/latest/meta-data/
 http://100.100.100.200/latest/meta-data/ram/security-credentials
+http://100.100.100.200/latest/meta-data/ram/security-credentials/
 http://100.100.100.200/latest/user-data
