@@ -1,3 +1,6 @@
 action
 nonce
 _wpnonce
+action=admin
+nonce=bypass
+_wpnonce=bypass
