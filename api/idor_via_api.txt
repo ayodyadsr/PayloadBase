@@ -1,0 +1,8 @@
+GET /api/v1/users/1
+GET /api/v1/users/2
+GET /api/v1/users/0
+GET /api/v1/users/-1
+GET /api/v1/users/me/../1
+GET /api/v1/users/*/profile
+GET /api/v1/orders/1
+GET /api/v1/orders/2
