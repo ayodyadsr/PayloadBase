@@ -16,3 +16,12 @@ possibleTypes
 enumValues
 inputFields
 ofType
+{"query":"{__schema{types{name fields{name type{name kind ofType{name kind}}}}}}"}
+{"query":"{__schema{queryType{name} mutationType{name} subscriptionType{name} types{name kind description fields{name description args{name type{name kind}} type{name kind}}}}}"}
+{"query":"{\n  __schema {\n    types {\n      name\n      kind\n      fields {\n        name\n        type {\n          name\n        }\n      }\n    }\n  }\n}"}
+{__schema{types{name}}}
+{__typename}
+{__schema{queryType{name}}}
+{__type(name:"User"){fields{name type{name}}}}
+{__type(name:"Query"){fields{name}}}
+{__type(name:"Mutation"){fields{name}}}
