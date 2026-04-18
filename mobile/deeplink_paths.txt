@@ -10,3 +10,5 @@
 /intent
 /deferred
 /deferred_deeplink
+/branch
+/adjust
