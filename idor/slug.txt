@@ -1,0 +1,2 @@
+/api/posts/admin-post
+/api/profiles/johndoe
