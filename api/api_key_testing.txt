@@ -1,0 +1,9 @@
+# ---- API Key / Token Formats (for discovery/testing) ----
+# Headers to test for unauthenticated access:
+# Remove: Authorization header
+# Replace with: Authorization: Bearer invalid
+# Replace with: Authorization: Bearer null
+# Replace with: Authorization: Basic YWRtaW46YWRtaW4=
+# Try: X-API-Key: test
+# Try: X-API-Key: undefined
+# Try: X-Auth-Token: test
