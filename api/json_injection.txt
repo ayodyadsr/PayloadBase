@@ -1,0 +1,19 @@
+{"key": "<script>alert(1)</script>"}
+{"key": "' OR '1'='1"}
+{"key": "{{7*7}}"}
+{"key": "../../../etc/passwd"}
+{"key": ";id"}
+{"key": "\u0000"}
+{"key": null}
+{"key": true}
+{"key": false}
+{"key": 0}
+{"key": -1}
+{"key": 9999999999}
+{"key": 1.1e308}
+{"key": []}
+{"key": {}}
+{"key": [1,2,3]}
+{"key": {"nested": "value"}}
+{"__proto__": {"polluted": true}}
+{"constructor": {"prototype": {"polluted": true}}}
