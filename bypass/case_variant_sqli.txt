@@ -1,7 +1,7 @@
-' Or '1'='1
 ' oR '1'='1
+' Or '1'='1
 ' OR '1'='1
-' Union Select NULL--
-' uNiOn SeLeCt NULL--
-' UNION ALL SELECT NULL--
 ' UnIoN AlL SeLeCt NULL--
+' UNION ALL SELECT NULL--
+' uNiOn SeLeCt NULL--
+' Union Select NULL--
