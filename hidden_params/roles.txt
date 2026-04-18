@@ -33,3 +33,9 @@ feature_flags
 featureFlags
 flag
 flags
+user_type=admin
+userType=admin
+account_type=admin
+accountType=admin
+tier=admin
+subscription_status=active
