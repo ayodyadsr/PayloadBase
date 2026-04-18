@@ -1,0 +1,2 @@
+{"query":"{ users(filter: { id: { _gt: 0 } }) { id email password } }"}
+{"query":"{ users(where: { role: { _eq: \"admin\" } }) { id email token } }"}
