@@ -17,3 +17,9 @@
 /remote_config
 /remote-config
 /remoteconfig
+/api/remote_config
+/api/remoteconfig
+/api/flags
+/api/experiments
+/api/ab_test
+/api/abtest
