@@ -15,3 +15,4 @@
 /mobile/upgrade
 /app/version
 /app/update
+/force-update
