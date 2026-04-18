@@ -1,0 +1,6 @@
+;ping -n 6 127.0.0.1
+&ping -n 6 127.0.0.1
+|ping -n 6 127.0.0.1
+||ping -n 6 127.0.0.1
+;timeout /T 5 /NOBREAK
+;powershell -c "Start-Sleep -s 5"
