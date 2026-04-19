@@ -42,7 +42,7 @@ git clone https://github.com/ayodyadsr/PayloadBase.git
 | `API` | API and JSON fuzzing payloads |
 | `Business Logic` | Business logic abuse — workflow bypass, price manipulation, state tampering |
 | `Bypass` | WAF and filter bypass techniques — method override, header tricks |
-| `Command Injection/` | Command Injection — Unix, Windows, blind OOB |
+| `Command Injection` | Command Injection — Unix, Windows, blind OOB |
 | `CRLF` | CRLF Injection — header injection, response splitting |
 | `CSRF` | CSRF — token bypass, SameSite tricks |
 | `GraphQL` | GraphQL endpoint paths, query/mutation names, sensitive field names, type names, introspection bypass |
