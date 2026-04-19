@@ -3,7 +3,7 @@
 # PayloadBase
 
 A focused payload collection for web application security testing.
-Organized by vulnerability class load any file directly into Burp, ffuf, or nuclei and go.
+Organized by vulnerability class load any file directly into Burp, ffuf, or nuclei and gobuster.
 
 Maintained by [ayodyadsr](https://github.com/ayodyadsr)
 
