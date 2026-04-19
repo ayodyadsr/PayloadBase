@@ -1,0 +1,63 @@
+# ============================================================
+# Insecure Source Code Management — SVN / Other SCM
+# ============================================================
+
+# ---- SVN Files ----
+/.svn/
+/.svn/entries
+/.svn/format
+/.svn/wc.db
+/.svn/pristine/
+/.svn/tmp/
+/.svn/props/
+
+# ---- SVN Exploitation ----
+# Dump with: svn checkout svn://target.com/repos/
+# Or download: /.svn/wc.db (SQLite database with all file contents)
+
+# ---- Mercurial (hg) ----
+/.hg/
+/.hg/store/
+/.hg/dirstate
+/.hg/requires
+/.hg/00changelog.i
+
+# ---- Bazaar ----
+/.bzr/
+/.bzr/branch-format
+/.bzr/checkout/
+/.bzr/repository/
+
+# ---- CVS ----
+/CVS/
+/CVS/Root
+/CVS/Entries
+/CVS/Repository
+
+# ---- IDE / Editor Files ----
+/.idea/
+/.idea/workspace.xml
+/.idea/dataSources.xml
+/.vscode/
+/.vscode/settings.json
+/.vscode/launch.json
+
+# ---- Build / CI Artifacts ----
+/.travis.yml
+/.circleci/config.yml
+/.github/workflows/
+/Jenkinsfile
+/.drone.yml
+/bitbucket-pipelines.yml
+/gitlab-ci.yml
+
+# ---- Backup Files ----
+/backup.zip
+/backup.tar.gz
+/source.zip
+/www.zip
+/html.zip
+/public_html.zip
+/site.tar.gz
+index.php.bak
+config.php.bak

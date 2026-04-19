@@ -1,0 +1,57 @@
+# ============================================================
+# Brute Force / Rate Limit — OTP & 2FA Bypass
+# ============================================================
+
+# ---- 6-Digit OTP Brute Force ----
+000000
+000001
+000002
+# ... up to 999999 (1M total)
+# For 4-digit: 0000-9999
+
+# ---- Common OTP Patterns ----
+123456
+654321
+000000
+111111
+123123
+112233
+121212
+123321
+999999
+888888
+777777
+666666
+555555
+444444
+333333
+222222
+
+# ---- OTP Skip / Step Bypass ----
+# Try accessing next step directly without completing OTP
+# POST /api/2fa/verify with invalid code
+# GET /dashboard (skip /2fa entirely)
+# Replay old OTP codes
+
+# ---- OTP in Response ----
+# Check if OTP returned in HTTP response, SMS confirmation message, or error message
+# Monitor API response for leaked OTP
+
+# ---- Rate Limit Bypass via Account Enumeration ----
+# Use different usernames/emails to reset rate limit counter
+# Test: 5 attempts on account A, switch to account B, switch back
+
+# ---- Time-Based OTP Prediction ----
+# TOTP codes valid for 30s window ±1 window = 90s of valid codes
+# HOTP counter prediction: try current ± drift values
+
+# ---- Backup Code Brute Force ----
+# 8-character alphanumeric: A-Z0-9
+# Try common backup codes from known services
+
+# ---- SMS Bombing / Flood ----
+# Request OTP multiple times — check if rate limited on send endpoint
+# Try sending to different phone numbers
+
+# ---- Token Reuse After Success ----
+# After successful 2FA, try replaying the same OTP code

@@ -1,0 +1,84 @@
+# ============================================================
+# Open Redirect — Common Parameter Names
+# ============================================================
+
+# ---- Most Common ----
+url
+redirect
+redirect_url
+redirect_uri
+redirectUrl
+redirectUri
+next
+next_url
+nextUrl
+return
+return_url
+returnUrl
+returnTo
+goto
+target
+dest
+destination
+forward
+forward_url
+forwardUrl
+location
+to
+continue
+continueTo
+checkout_url
+callback
+callbackUrl
+callback_url
+success
+success_url
+failure
+failure_url
+cancel
+cancel_url
+
+# ---- Less Common ----
+link
+path
+jump
+navigate
+navigate_to
+go
+host
+site
+page
+view
+data
+reference
+service
+window
+out
+document
+folder
+from
+http
+https://
+req
+request
+session
+redir
+q
+src
+source
+u
+
+# ---- Framework-Specific ----
+# Django
+next
+# Rails
+redirect_to
+back
+# Express
+returnTo
+redirectTo
+# Laravel
+redirect
+intended
+# Spring
+spring-security-redirect

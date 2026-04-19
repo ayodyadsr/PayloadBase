@@ -1,0 +1,55 @@
+# ============================================================
+# Race Condition — TOCTOU (Time-of-Check Time-of-Use)
+# ============================================================
+
+# ---- Balance Check Race ----
+# Server logic:
+#   1. Check balance >= amount
+#   2. Process transfer
+#   3. Deduct amount
+# Race: send multiple transfers simultaneously
+# If check (1) passes before deduct (3) → overdraft
+
+# ---- Inventory Race ----
+# Server logic:
+#   1. Check item.stock > 0
+#   2. Reserve item
+#   3. Decrement stock
+# Race: multiple users order same last item simultaneously
+
+# ---- Session Invalidation Race ----
+# Scenario: "logout all devices" + make privileged request simultaneously
+# Request 1: POST /api/logout-all (starts session invalidation)
+# Request 2: POST /api/admin-action (uses session before it's invalidated)
+
+# ---- Multi-Step Form Race ----
+# Step 1: Fill out form
+# Step 2: Submit → server validates step 1 then does privileged action
+# Race: submit step 2 multiple times simultaneously
+
+# ---- OTP Validation Race ----
+# OTP "used" flag set AFTER validation completes
+# Window: between "is valid?" check and "mark as used"
+
+# ---- File Write Race ----
+# App writes temp file, then renames
+# Race: read/modify temp file between write and rename
+
+# ---- Email Change Race ----
+# 1. Request email change → token sent to OLD email
+# 2. Simultaneously request email change to NEW email
+# Token for old email may verify new email change
+
+# ---- Verification Race ----
+# Email/phone verification race:
+# 1. Start verification for email A
+# 2. Immediately change to email B
+# 3. Use verification token → verifies email B
+
+# ---- Delete + Use Race ----
+# Delete account while maintaining active session
+# Session may still be valid briefly after deletion
+
+# ---- Concurrent Lock Bypass ----
+# If app uses distributed locks with small TTL:
+# Race within lock window

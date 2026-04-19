@@ -1,0 +1,43 @@
+# ============================================================
+# Upload — MIME Type Bypass (Content-Type Header Values)
+# ============================================================
+
+# ---- Image MIME Spoofing ----
+image/jpeg
+image/png
+image/gif
+image/bmp
+image/webp
+image/svg+xml
+image/tiff
+image/x-icon
+
+# ---- Allowed MIME Types to Inject Script ----
+text/plain
+text/html
+text/xml
+text/csv
+application/json
+application/xml
+application/octet-stream
+application/x-www-form-urlencoded
+
+# ---- Rarely Blocked ----
+application/zip
+application/x-zip-compressed
+application/pdf
+application/msword
+application/vnd.ms-excel
+application/vnd.openxmlformats-officedocument.wordprocessingml.document
+application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+
+# ---- Bypass via Encoding ----
+application/x-php
+application/php
+application/x-httpd-php
+application/x-httpd-php-source
+application/phtml
+x-application/php
+
+# ---- Empty / Null Content-Type ----
+# (send empty Content-Type header or remove it entirely)

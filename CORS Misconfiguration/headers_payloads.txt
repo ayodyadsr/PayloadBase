@@ -1,0 +1,42 @@
+# ============================================================
+# CORS — Header Payloads (send in requests)
+# ============================================================
+
+# ---- Origin Header Variants ----
+Origin: https://evil.com
+Origin: null
+Origin: https://target.com.evil.com
+Origin: https://evil.target.com
+Origin: http://localhost
+Origin: https://localhost
+Origin: file://
+Origin: *
+
+# ---- Access-Control Headers (malicious server responses) ----
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Origin: https://evil.com
+Access-Control-Allow-Origin: null
+Access-Control-Allow-Credentials: true
+Access-Control-Allow-Methods: GET, POST, PUT, DELETE, PATCH, OPTIONS, HEAD, TRACE, CONNECT
+Access-Control-Allow-Headers: Authorization, X-Auth-Token, Cookie, X-CSRF-Token, Content-Type, *
+Access-Control-Max-Age: 99999
+Access-Control-Expose-Headers: Authorization, X-Auth-Token, Set-Cookie
+
+# ---- Vary Header (caching check) ----
+Vary: Origin
+
+# ---- Request Headers for Testing ----
+Access-Control-Request-Method: GET
+Access-Control-Request-Method: POST
+Access-Control-Request-Method: DELETE
+Access-Control-Request-Headers: Authorization
+Access-Control-Request-Headers: X-Custom-Header, Authorization, Content-Type
+
+# ---- ACAO Reflection Test ----
+# Send Origin and check if it's reflected in Access-Control-Allow-Origin response
+# curl -H "Origin: https://evil.com" -I https://target.com/api/endpoint
+
+# ---- CORB Bypass Attempts ----
+Content-Type: application/json
+Content-Type: text/plain
+X-Requested-With: XMLHttpRequest

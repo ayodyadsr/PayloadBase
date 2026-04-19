@@ -1,0 +1,79 @@
+# ============================================================
+# API Key Leaks — Common Leak Locations
+# ============================================================
+
+# ---- Source Code / Config Files ----
+.env
+.env.local
+.env.production
+.env.development
+.env.backup
+.env.bak
+config.js
+config.json
+config.yaml
+config.yml
+settings.py
+settings.json
+appsettings.json
+appsettings.Development.json
+application.properties
+application.yml
+secrets.json
+credentials.json
+serviceAccountKey.json
+database.yml
+database.json
+
+# ---- Infrastructure Files ----
+terraform.tfvars
+terraform.tfstate
+.terraform/
+*.tfstate
+docker-compose.yml
+docker-compose.override.yml
+Dockerfile
+.dockerenv
+kubernetes/*.yaml
+helm/values.yaml
+helm/secrets.yaml
+.kube/config
+
+# ---- JavaScript Bundle Sources ----
+# Search in: /static/js/main.*.js, /static/js/chunk.*.js
+# Look for: process.env.REACT_APP_*, window.API_KEY, var apiKey =
+
+# ---- Mobile App Binaries ----
+# APK: strings app.apk | grep -E 'AIza|sk-|AKIA'
+# IPA: strings app.ipa | grep -E 'AIza|sk-|AKIA'
+# Android: /res/values/strings.xml, BuildConfig.java
+
+# ---- Git History ----
+git log --all -p | grep -E 'AKIA|sk_live|AIza'
+git log --diff-filter=D -- '*.env'
+truffleHog --regex --entropy=False file://./
+
+# ---- Browser / JavaScript ----
+# Check: Network tab for Authorization headers
+# Check: window/localStorage for tokens
+# Check: JS source for hardcoded keys
+
+# ---- Public Paste Sites ----
+# Search Pastebin, GitHub Gist, Sourcegraph:
+# "AKIA" site:pastebin.com
+# "sk_live_" site:github.com
+
+# ---- Cloud Metadata ----
+# AWS: http://169.254.169.254/latest/meta-data/iam/security-credentials/
+# GCP: http://metadata.google.internal/computeMetadata/v1/instance/service-accounts/default/token
+
+# ---- Error Messages ----
+# Stack traces, debug output often contain connection strings with credentials
+# MongoDB URI: mongodb://user:PASS@host:27017/db
+# PostgreSQL: postgresql://user:PASS@host:5432/db
+
+# ---- GitHub Search Dorks ----
+# "company-name" api_key language:javascript
+# "company-name" aws_access_key_id
+# filename:.env "SECRET_KEY"
+# filename:config.js apiKey

