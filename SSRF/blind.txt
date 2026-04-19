@@ -1,4 +1,3 @@
-# ---- Blind SSRF — OOB Detection ----
 http://COLLABORATOR
 https://COLLABORATOR
 http://COLLABORATOR/ssrf-test

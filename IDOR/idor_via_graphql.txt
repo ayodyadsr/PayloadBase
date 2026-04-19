@@ -1,4 +1,3 @@
-# ---- Indirect Object via GraphQL ----
 {"query":"{ order(id: 1) { id total card user { email } } }"}
 {"query":"{ order(id: 2) { id total card user { email } } }"}
 {"query":"{ invoice(id: \"00000000-0000-0000-0000-000000000001\") { pdf total } }"}

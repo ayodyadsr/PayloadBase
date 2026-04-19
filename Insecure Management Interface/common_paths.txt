@@ -1,8 +1,3 @@
-# ============================================================
-# Insecure Management Interface — Common Admin Paths
-# ============================================================
-
-# ---- Generic Admin ----
 /admin
 /admin/
 /administrator
@@ -30,7 +25,6 @@
 /internal
 /private
 
-# ---- Framework-Specific ----
 /wp-admin
 /wp-login.php
 /wp-admin/admin.php
@@ -60,7 +54,6 @@
 /phpinfo.php
 /info.php
 
-# ---- API / Service Management ----
 /actuator
 /actuator/health
 /actuator/env
@@ -78,7 +71,6 @@
 /trace
 /status
 
-# ---- Database Admin ----
 /phpmyadmin/
 /pma/
 /dbadmin/
@@ -90,7 +82,6 @@
 /mongodb/
 /redis/
 
-# ---- Monitoring / Log Tools ----
 /kibana
 /grafana
 /prometheus

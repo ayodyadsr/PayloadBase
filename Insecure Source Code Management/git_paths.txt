@@ -1,8 +1,3 @@
-# ============================================================
-# Insecure Source Code Management — Git Exposure
-# ============================================================
-
-# ---- Git Directory Files ----
 /.git/
 /.git/HEAD
 /.git/config
@@ -23,17 +18,8 @@
 /.git/objects/info/packs
 /.git/objects/pack/
 
-# ---- Git Config (credentials leak) ----
 /.git/config
-# Contains: remote URLs with credentials, user info
 
-# ---- Tools to Exploit ----
-# git-dumper: python3 git_dumper.py https://target.com/.git output/
-# GitHack: python3 GitHack.py https://target.com/.git/
-# Gitjacker: gitjacker https://target.com/.git/
-# truffleHog: truffleHog file://./output/ --regex
-
-# ---- Common Sensitive Files After Dump ----
 .env
 .env.local
 .env.production

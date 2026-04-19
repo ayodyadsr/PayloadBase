@@ -1,19 +1,12 @@
-# ---- Internal Services ----
-# Docker daemon
 http://127.0.0.1:2375/version
 http://127.0.0.1:2375/containers/json
 http://127.0.0.1:2375/images/json
-# Elasticsearch
 http://127.0.0.1:9200/_cat/indices
 http://127.0.0.1:9200/_cluster/state
 http://127.0.0.1:9200/_nodes
-# Memcached
 http://127.0.0.1:11211/stats
-# Consul
 http://127.0.0.1:8500/v1/catalog/services
 http://127.0.0.1:8500/v1/kv/?recurse
-# Prometheus
 http://127.0.0.1:9090/metrics
 http://127.0.0.1:9090/api/v1/targets
-# Grafana
 http://127.0.0.1:3000/api/datasources

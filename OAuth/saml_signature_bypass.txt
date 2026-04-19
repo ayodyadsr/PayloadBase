@@ -1,3 +1,0 @@
-# SAML signature bypass — comment injection in username:
-# admin<!-- comment -->
-# admin\x00attacker

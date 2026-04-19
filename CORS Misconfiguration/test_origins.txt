@@ -1,8 +1,3 @@
-# ============================================================
-# CORS — Test Origin Values
-# ============================================================
-
-# ---- Reflection Attack (replace target.com) ----
 https://evil.com
 https://attacker.com
 null
@@ -16,13 +11,11 @@ https://evilTarget.com
 https://target.cOm
 https://Target.com
 
-# ---- Subdomain Bypass ----
 https://sub.target.com
 https://any.sub.target.com
 https://xss.target.com
 https://evil.sub.target.com
 
-# ---- Pre/Suffix Tricks ----
 https://target.com.evil.com
 https://target.com-evil.com
 https://eviltarget.com
@@ -30,19 +23,16 @@ https://target.com.attacker.com
 https://target.comasdf.com
 https://target.com.
 
-# ---- Protocol Tricks ----
 http://target.com
 http://evil.com
 file://
 null
 data://
 
-# ---- Wildcard Test ----
 *
 http://*
 https://*
 
-# ---- Trusted Origins to Test Against (common patterns) ----
 https://localhost
 https://localhost:3000
 https://localhost:8080

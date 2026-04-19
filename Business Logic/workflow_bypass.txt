@@ -1,55 +1,12 @@
-# ============================================================
-# Business Logic — Workflow & Step Bypass
-# ============================================================
-
-# ---- Skip Verification Steps ----
-# Skip email verification:
-# POST /register → POST /dashboard (skip /verify-email)
-# Access protected endpoints before completing required steps
-
-# ---- Parameter Tampering ----
-# Manipulate hidden fields controlling workflow state:
 step=4  (skip to final step)
 completed=true
 verified=1
 approved=true
 payment_done=true
 
-# ---- Direct Object Reference in Workflow ----
-# Skip workflow by directly hitting endpoint:
 GET /order/123/confirm (skip payment step)
 POST /admin/approve?id=123 (skip review)
 
-# ---- 2FA Bypass ----
-# After entering username/password, skip 2FA:
-# Navigate directly to /dashboard
-# Remove 2fa_required=true from session cookie
-# Skip POST /verify-otp endpoint
-
-# ---- Multi-Factor Enrollment Bypass ----
-# Begin MFA enrollment, abandon halfway
-# Account may be in half-enrolled state with weakened security
-
-# ---- Infinite Loops ----
-# Repeatedly apply discount until price hits 0
-# Loop through trial period
-
-# ---- State Confusion ----
-# After password reset, old session still valid
-# After account deletion, credentials still work briefly
-
-# ---- Forced Browsing ----
-# Access admin function without going through normal flow
 /admin/users/delete?id=victim (no confirmation step)
 /api/export-all-data (no approval workflow)
 /account/upgrade?plan=enterprise (no payment)
-
-# ---- Replay Attacks ----
-# Replay successful payment request
-# Replay coupon redemption request
-# Replay approval notification to self
-
-# ---- Order of Operations ----
-# Apply coupon before adding items (coupon for 0 items)
-# Check out with empty cart (0-price order)
-# Pay, then modify cart, then fulfill

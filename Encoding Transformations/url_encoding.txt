@@ -1,8 +1,3 @@
-# ============================================================
-# Encoding Transformations — URL Encoding
-# ============================================================
-
-# ---- URL Encode Special Characters ----
 %20  = space
 %21  = !
 %22  = "
@@ -38,7 +33,6 @@
 %00  = NULL
 %09  = TAB
 
-# ---- Double URL Encoding ----
 %2520 = %20 = space
 %252f = %2f = /
 %255c = %5c = \
@@ -48,19 +42,14 @@
 %2529 = %29 = )
 %2500 = %00 = NULL
 
-# ---- Unicode/UTF-8 Overlong Encoding ----
 %c0%af = / (overlong UTF-8)
 %c0%ae = . (overlong UTF-8)
 %c1%9c = \ (overlong UTF-8)
 %e0%80%af = / (3-byte overlong)
 %f0%80%80%af = / (4-byte overlong)
 
-# ---- WAF Bypass via Encoding ----
-# Block: SELECT → bypass with URL encoding:
 %53%45%4c%45%43%54
-# Block: UNION → bypass:
 %55%4e%49%4f%4e
-# Block: ../  → bypass:
 %2e%2e%2f
 ..%2f
 %2e%2e/

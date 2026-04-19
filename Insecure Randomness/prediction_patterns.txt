@@ -1,61 +1,9 @@
-# ============================================================
-# Insecure Randomness — Token Prediction Patterns
-# ============================================================
-
-# ---- Weak PRNG Sources ----
-# PHP rand() / mt_rand() — predictable seed from timestamp
-# Java Math.random() — not cryptographically secure
-# Python random.random() — Mersenne Twister, not crypto-safe
-# JavaScript Math.random() — predictable in some engines
-
-# ---- Time-Based Token Prediction ----
-# Token = md5(timestamp)
-# If you know approximate time: brute-force within window
-# Python: [hashlib.md5(str(t).encode()).hexdigest() for t in range(start, end)]
-
-# ---- Sequential Token Patterns ----
-# Detect by requesting multiple tokens:
-# Token 1: aaa001
-# Token 2: aaa002
-# Token 3: aaa003
-# → increment to predict future tokens
-
-# ---- UUID v1 Analysis ----
-# UUID v1 includes timestamp + MAC address
-# Structure: time_low-time_mid-time_high_version-clock_seq-node
-# Example: 6ba7b810-9dad-11d1-80b4-00c04fd430c8
-# Tools: uuid6 cracker, foresight
-
-# ---- Session Token Entropy Check ----
-# Test: collect 100+ tokens, analyze:
-# - Length (short = predictable)
-# - Character set (hex only = 4 bits/char)
-# - Timestamp correlation
-# - Sequential patterns
-# Tools: dieharder, ent
-
-# ---- PHP mt_rand() Prediction ----
-# If token = mt_rand():
-# 1. Get two tokens (request twice)
-# 2. Use php_mt_seed to crack PRNG seed
-# 3. Predict all other tokens
-# Tool: https://github.com/ambionics/mt_rand-predictor
-
-# ---- Java Random Prediction ----
-# java.util.Random is seeded with nanoTime
-# Predictable within ~1ms window
-# Use: https://github.com/d-chante/JavaRandCracker
-
-# ---- Python random.seed() ----
-# If seeded with time.time() (float seconds):
-# Brute force seed within time window
 import random, time
 for seed in range(int(time.time())-60, int(time.time())+1):
     random.seed(seed)
     token = random.getrandbits(32)
     # compare with captured token
 
-# ---- Common Insecure Token Implementations ----
 md5(time())
 sha1(time())
 uniqid()  # PHP - based on microseconds

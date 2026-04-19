@@ -1,8 +1,3 @@
-# ============================================================
-# Upload — Extension Bypass
-# ============================================================
-
-# ---- PHP Extensions ----
 shell.php
 shell.php3
 shell.php4
@@ -20,14 +15,12 @@ shell.hphp
 shell.ctp
 shell.module
 
-# ---- PHP Uppercase/Mixed ----
 shell.PHP
 shell.PhP
 shell.pHp
 shell.PHp
 shell.pHP
 
-# ---- Double Extension ----
 shell.php.jpg
 shell.php.png
 shell.php.gif
@@ -40,7 +33,6 @@ shell.php%00
 shell.php%20
 shell.php.
 
-# ---- ASP/ASPX Extensions ----
 shell.asp
 shell.aspx
 shell.asa
@@ -54,7 +46,6 @@ shell.cdx
 shell.ASP
 shell.ASPX
 
-# ---- JSP Extensions ----
 shell.jsp
 shell.jspx
 shell.jsw
@@ -65,33 +56,27 @@ shell.do
 shell.action
 shell.JSP
 
-# ---- ColdFusion ----
 shell.cfm
 shell.cfml
 shell.cfc
 shell.dbm
 shell.CFM
 
-# ---- Perl ----
 shell.pl
 shell.cgi
 
-# ---- Python ----
 shell.py
 shell.pyc
 
-# ---- Node.js ----
 shell.js
 shell.json
 
-# ---- Other Script Extensions ----
 shell.sh
 shell.bash
 shell.rb
 shell.rhtml
 shell.erb
 
-# ---- Polyglot / Trick Extensions ----
 shell.php;.jpg
 shell.php%3B.jpg
 shell.php%252e jpg

