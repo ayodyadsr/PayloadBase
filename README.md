@@ -3,7 +3,7 @@
 ### About PayloadBase
 
 A focused payload collection for web application security testing.
-Organized by vulnerability class load any file directly into Burp, ffuf, or nuclei and gobuster.
+Organized by vulnerability class — load any file directly into Burp, ffuf, nuclei, or gobuster.
 
 Maintained by [ayodyadsr](https://github.com/ayodyadsr)
 
@@ -48,13 +48,13 @@ git clone https://github.com/ayodyadsr/PayloadBase.git
 | `CSS Injection` | Property injection, `@import` SSRF, attribute selector-based data exfiltration |
 | `LDAP Injection` | Authentication bypass, blind character extraction, filter escape |
 | `LaTeX Injection` | File read via `\input`, RCE via `\write18`, SSRF via `document()` |
-| `Nosqli` | MongoDB operator injection, Redis/CouchDB/Elasticsearch payloads |
+| `NoSQL Injection` | MongoDB operator injection, Redis/CouchDB/Elasticsearch payloads |
 | `Prompt Injection` | Direct, indirect (document/email), jailbreaks, system prompt extraction |
 | `SAML Injection` | XML signature wrapping (XSW), XXE in SAML response, attribute and condition tampering |
 | `Server Side Include Injection` | `exec`, `include`, `printenv` — file read and RCE via SSI directives |
 | `SQL Injection` | Boolean, time-based, error-based, OOB, WAF bypass; per-database: MySQL, MSSQL, PostgreSQL, Oracle, SQLite |
 | `SSTI` | Jinja2, Twig, Freemarker, Velocity, Pebble, ERB, Smarty, Mako, Handlebars, EJS, Nunjucks |
-| `XPATH Injection` | Authentication bypass, blind extraction via XPath string functions |
+| `XPath Injection` | Authentication bypass, blind extraction via XPath string functions |
 | `XSLT Injection` | SSRF via `document()`, RCE via Saxon, Xalan, MSXSL, PHP `registerPHPFunctions` |
 | `XXE` | File read, SSRF, blind OOB, XInclude, SVG/SOAP vectors, PHP filter chains |
 
@@ -94,7 +94,7 @@ git clone https://github.com/ayodyadsr/PayloadBase.git
 |---|---|
 | `Directory Traversal` | Unix/Windows path traversal, encoding bypass (URL, double-URL, unicode, null byte) |
 | `LFI` | Path traversal, null byte bypass, Windows LFI, RFI, log poisoning, LFI-to-RCE chains |
-| `Upload Insecure Files` | Extension bypass, MIME type spoofing, magic bytes polyglot, web shells, path traversal via filename |
+| `File Upload` | Extension bypass, MIME type spoofing, magic bytes polyglot, web shells, path traversal via filename |
 | `Zip Slip` | Malicious `.zip`/`.tar`/`.jar` — overwrites files outside extraction directory |
 
 **Server-Side**
@@ -126,13 +126,13 @@ git clone https://github.com/ayodyadsr/PayloadBase.git
 | `GraphQL` | Endpoint paths, introspection bypass, query/mutation names, sensitive fields, DoS |
 | `HTTP Parameter Pollution` | Duplicate parameter behavior across servers, prototype pollution via HPP, WAF bypass |
 | `Web Cache Deception` | Static extension path manipulation, cache poisoning via unkeyed headers |
-| `Web Sockets` | CSWSH PoC, handshake header injection, SQLi/SSRF/XSS via WebSocket message |
+| `WebSockets` | CSWSH PoC, handshake header injection, SQLi/SSRF/XSS via WebSocket message |
 
 **Business Logic**
 
 | Category | Description |
 |---|---|
-| `Business Logic Errors` | Price manipulation, currency confusion, workflow bypass, replay attacks, 2FA skip |
+| `Business Logic` | Price manipulation, currency confusion, workflow bypass, replay attacks, 2FA skip |
 | `Hidden Params` | Debug flags, admin escalation, role injection, framework-specific parameters |
 | `Open Redirect` | Protocol bypass, @ tricks, domain confusion, encoding bypass, parameter name wordlist |
 
