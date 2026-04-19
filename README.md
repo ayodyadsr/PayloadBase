@@ -2,7 +2,7 @@
 
 ### About PayloadBase
 
-PayloadBase is a modern payload collection focused on GraphQL, business logic, IDOR, race conditions, OAuth, and JWT. It provides structured payloads for API fuzzing, WAF bypass, injections, client-side exploits, and access control testing.
+PayloadBase is a collection of payloads. It is organized and easy to use, making it a practical resource for researchers and bug hunters. Everything is arranged in a simple and clear way, so it is easy to browse, find, and use. It is designed to be straightforward and useful for anyone who needs it.
 
 Maintained by [ayodyadsr](https://github.com/ayodyadsr)
 
