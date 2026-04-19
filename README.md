@@ -39,30 +39,30 @@ git clone https://github.com/ayodyadsr/PayloadBase.git
 
 | Category | Description |
 |---|---|
-| `api/` | API and JSON fuzzing payloads |
-| `business_logic/` | Business logic abuse — workflow bypass, price manipulation, state tampering |
-| `bypass/` | WAF and filter bypass techniques — method override, header tricks |
-| `cmdi/` | Command Injection — Unix, Windows, blind OOB |
-| `crlf/` | CRLF Injection — header injection, response splitting |
-| `csrf/` | CSRF — token bypass, SameSite tricks |
-| `graphql/` | GraphQL endpoint paths, query/mutation names, sensitive field names, type names, introspection bypass |
-| `hidden_params/` | Debug flags, admin escalation, role injection, price manipulation, validation bypass, framework-specific |
-| `idor/` | IDOR — numeric IDs, UUID variants, object-specific IDs, parameter pollution patterns, indirect reference fields |
-| `jwt/` | JWT — weak secrets, framework defaults, language-specific, year-based patterns |
-| `lfi/` | Local/Remote File Inclusion — path traversal, null byte bypass, Windows |
-| `mobile/` | Mobile attack surface — base paths, push endpoints, deep links, versioning, IAP, sync |
-| `mutation/` | Mutation payloads — XSS (Cloudflare/ModSecurity), SQLi encoding, path traversal variants, CMDi, HTTP smuggling |
-| `nosqli/` | NoSQL Injection — MongoDB, CouchDB, operator injection |
-| `oauth/` | OAuth2/OIDC — core endpoints, SAML, social login callbacks, .well-known, token management |
-| `open_redirect/` | Open Redirect — protocol bypass, @ tricks, header injection |
-| `polyglot/` | Polyglot payloads — multi-context execution (XSS, HTML, JS) |
-| `prototype_pollution/` | Prototype Pollution — client-side and Node.js server-side |
-| `race_condition/` | Race condition — concurrent requests, state desynchronization, double-spend |
-| `sqli/` | SQL Injection — time-based, boolean, error-based, OOB, WAF bypass |
-| `ssrf/` | Server-Side Request Forgery — cloud metadata, bypass, internal services |
-| `ssti/` | Server-Side Template Injection — Jinja2, Twig, Freemarker, ERB, Pebble |
-| `xss/` | Cross-Site Scripting — reflected, stored, DOM, blind, polyglot |
-| `xxe/` | XML External Entity — file read, SSRF, blind OOB, bypass |
+| `API` | API and JSON fuzzing payloads |
+| `Business Logic` | Business logic abuse — workflow bypass, price manipulation, state tampering |
+| `Bypass` | WAF and filter bypass techniques — method override, header tricks |
+| `Command Injection/` | Command Injection — Unix, Windows, blind OOB |
+| `CRLF` | CRLF Injection — header injection, response splitting |
+| `CSRF` | CSRF — token bypass, SameSite tricks |
+| `GraphQL` | GraphQL endpoint paths, query/mutation names, sensitive field names, type names, introspection bypass |
+| `Hidden Params` | Debug flags, admin escalation, role injection, price manipulation, validation bypass, framework-specific |
+| `IDOR` | IDOR — numeric IDs, UUID variants, object-specific IDs, parameter pollution patterns, indirect reference fields |
+| `JWT` | JWT — weak secrets, framework defaults, language-specific, year-based patterns |
+| `LFI` | Local/Remote File Inclusion — path traversal, null byte bypass, Windows |
+| `Mobile` | Mobile attack surface — base paths, push endpoints, deep links, versioning, IAP, sync |
+| `Mutation` | Mutation payloads — XSS (Cloudflare/ModSecurity), SQLi encoding, path traversal variants, CMDi, HTTP smuggling |
+| `Nosqli` | NoSQL Injection — MongoDB, CouchDB, operator injection |
+| `OAuth` | OAuth2/OIDC — core endpoints, SAML, social login callbacks, .well-known, token management |
+| `Open Redirect` | Open Redirect — protocol bypass, @ tricks, header injection |
+| `Polyglot` | Polyglot payloads — multi-context execution (XSS, HTML, JS) |
+| `Prototype Pollution` | Prototype Pollution — client-side and Node.js server-side |
+| `Race Condition` | Race condition — concurrent requests, state desynchronization, double-spend |
+| `SQL Injection` | SQL Injection — time-based, boolean, error-based, OOB, WAF bypass |
+| `SSRF` | Server-Side Request Forgery — cloud metadata, bypass, internal services |
+| `SSTI` | Server-Side Template Injection — Jinja2, Twig, Freemarker, ERB, Pebble |
+| `XSS` | Cross-Site Scripting — reflected, stored, DOM, blind, polyglot |
+| `XXE` | XML External Entity — file read, SSRF, blind OOB, bypass |
 
 ---
 
