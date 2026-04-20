@@ -4,8 +4,22 @@
 /server-status
 /server-info
 /nginx_status
+/stub_status
 /.nginx.conf
 /adminer.php
 /phpmyadmin/
 /.htaccess
 /.htpasswd
+/robots.txt
+/crossdomain.xml
+/clientaccesspolicy.xml
+/swagger.json
+/swagger/index.html
+/api-docs
+/openapi.json
+/graphql (introspection)
+/.well-known/openid-configuration
+/health
+/ping
+/version
+/metrics

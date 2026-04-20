@@ -1,3 +1,8 @@
-ARP spoofing (intercept unencrypted channel)
-SSL stripping: HTTPS → HTTP downgrade
-BGP hijack simulation
+GET /api/auth (via HTTP proxy)
+POST /api/login (MitM between client and server)
+X-Forwarded-For: attacker.com
+Via: 1.1 attacker-proxy
+X-Original-URL: /api/admin
+X-Rewrite-URL: /api/admin
+X-Host: internal.corp
+Forwarded: for=attacker.com

@@ -1,4 +1,9 @@
-GET /api/login?username=admin&password=secret HTTP/1.1
-GET /reset?token=abc123secret HTTP/1.1
-GET /api/pay?card=4111111111111111&cvv=123 HTTP/1.1
-GET /oauth/token?client_secret=xxx HTTP/1.1
+GET /api/login?username=admin&password=secret
+GET /api/token?client_secret=abc123
+GET /api/search?ssn=123-45-6789
+GET /api/lookup?credit_card=4111111111111111
+GET /api/auth?api_key=sk-abcdef123456
+GET /api/reset?token=reset_token_xyz
+GET /api/pay?amount=100&card=4111111111111111
+GET /api/verify?otp=123456
+GET /api/user?password=mypassword

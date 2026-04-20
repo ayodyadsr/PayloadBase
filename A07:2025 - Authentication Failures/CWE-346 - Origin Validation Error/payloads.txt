@@ -1,5 +1,11 @@
 Origin: https://evil.com
+Origin: https://trusted.com.evil.com
 Origin: null
-Origin: https://target.com.evil.com
-Origin: https://evil.com.target.com
-Origin: https://eviltarget.com
+Origin: https://sub.trusted.com
+Origin: http://trusted.com
+Origin: https://trustedcom.evil.com
+Origin: https://trusted.com@evil.com
+Origin: https://trusted.com.attacker.com
+Origin: https://127.0.0.1
+Origin: https://localhost
+Origin: *

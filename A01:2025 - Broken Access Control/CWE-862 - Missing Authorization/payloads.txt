@@ -1,6 +1,14 @@
-DELETE /api/user/1 (no Authorization header)
-PUT /api/admin/config {} (no token)
-GET /api/reports (no session cookie)
-POST /admin/create-user {"role":"admin"} (unauthenticated)
-PATCH /api/settings (no auth)
-GET /api/keys (no auth)
+GET /admin (no auth header)
+GET /api/admin/users (no auth)
+DELETE /api/users/1 (no auth)
+PUT /api/config (no auth)
+POST /api/admin/reset (no auth)
+GET /api/reports (no auth)
+GET /api/logs (no auth)
+GET /management/
+GET /api/internal/
+GET /api/v1/users (no auth)
+DELETE /api/v1/posts/1 (no auth)
+PUT /api/v1/settings (no auth)
+GET /actuator/
+GET /actuator/env (no auth)

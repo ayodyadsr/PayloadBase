@@ -1,4 +1,8 @@
-POST /forgot-password {"email":"victim@example.com"}
-GET /reset?token=1234 (short numeric token brute force)
-POST /api/reset {"answer":"blue"} (predictable security question)
-?token=000000&token=000001 (sequential token brute force)
+POST /api/forgot-password {"email":"victim@example.com"}
+GET /api/reset?token=0000000001 (sequential tokens)
+GET /api/reset?token=0000000002
+GET /api/reset?email=victim@example.com (no token)
+POST /api/security-question {"answer":"London"} (guessable)
+POST /api/security-question {"answer":"Blue"}
+POST /api/recovery {"dob":"1990-01-01"} (PII as auth)
+GET /api/reset-link (check expiry - valid for hours?)

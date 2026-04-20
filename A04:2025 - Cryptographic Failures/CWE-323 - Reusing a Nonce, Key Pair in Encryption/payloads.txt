@@ -1,4 +1,8 @@
-IV=000000000000000000000000 (fixed IV)
-nonce=1 (static nonce in GCM)
-AES-CTR with reused nonce
-CBC with predictable IV from previous ciphertext
+POST /api/encrypt {"nonce":"000000000000000000000000"}
+POST /api/sign {"nonce":"1"}
+POST /api/sign {"nonce":"1"} (repeated nonce)
+{"iv":"00000000000000000000000000000000"}
+{"iv":"AAAAAAAAAAAAAAAA"} (repeated IV)
+{"counter":0}
+{"sequence_number":0}
+GET /api/token (observe if same nonce reused)

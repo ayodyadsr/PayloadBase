@@ -1,3 +1,8 @@
-Content-Type: text/html (misleading)
-fake padlock icon in HTML
-data:text/html,<title>https://bank.com - Secure</title>
+https://evil.com/trusted.com (URL confusion)
+https://evil.com?url=https://trusted.com
+data:text/html,<title>Bank Login</title>
+<title>PayPal Login - Sign in to your account</title>
+window.location = 'https://evil.com' (tab hijack)
+<a href="https://evil.com" target="_blank">trusted link</a>
+URL: https://trusted.com.evil.com/login
+javascript:/* trusted.com */ evil_code()

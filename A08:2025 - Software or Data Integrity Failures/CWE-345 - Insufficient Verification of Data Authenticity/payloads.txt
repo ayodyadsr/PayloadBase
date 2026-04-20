@@ -1,5 +1,10 @@
-Unsigned software update
-HTTP (not HTTPS) package download
-Unverified webhook payload
-JWT without signature verification: alg=none
-Unsigned cookie: role=admin
+{"alg":"none","typ":"JWT"}
+{"sig":""}
+{"signature":null}
+X-Signature: 0000000000000000
+X-HMAC: invalid_signature
+{"checksum":""}
+{"hash":"0000000000000000000000000000000000000000"}
+X-Webhook-Signature: sha256=0000000000000000000000000000000000000000000000000000000000000000
+Cookie: integrity=bypassed
+{"verified":true,"sig":"skip"}

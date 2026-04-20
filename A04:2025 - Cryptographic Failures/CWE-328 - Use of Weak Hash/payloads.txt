@@ -1,11 +1,13 @@
+5f4dcc3b5aa765d61d8327deb882cf99 (MD5: password)
+da39a3ee5e6b4b0d3255bfef95601890afd80709 (SHA1: empty)
+21232f297a57a5a743894a0e4a801fc3 (MD5: admin)
+7c4a8d09ca3762af61e59520943dc26494f8941b (SHA1: 123456)
+e10adc3949ba59abbe56e057f20f883e (MD5: 123456)
+d41d8cd98f00b204e9800998ecf8427e (MD5: empty)
+0dbe79f8d0a6bc5a1f6f5e0cdba7b0a2 (MD5: password123)
+MD2
+MD4
 MD5
 SHA1
 CRC32
-Adler32
-MD4
-MD2
-RIPEMD-128
-LM hash
-NTLM v1
-md5(password)
-sha1(username+password)
+HAVAL

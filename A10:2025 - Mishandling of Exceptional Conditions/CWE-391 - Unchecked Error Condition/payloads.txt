@@ -1,3 +1,12 @@
-file = open('/sensitive'); // no error check
-conn.execute(query)  # exception swallowed
-memcpy(dst, src, n); // no bounds check
+{"id":"../../../etc/passwd"}
+{"count":99999999999999999}
+{"date":"not-a-date"}
+{"price":"abc"}
+{"user_id":null}
+GET /api/item/9999999
+POST /api/parse Content-Type: text/xml (send JSON)
+{"nested":{"deeply":{"x":{"y":{"z":null}}}}}
+GET /api/convert?val=NaN
+GET /api/sqrt?n=-1
+POST /api/process (binary data as UTF-8)
+POST /api/import {"file":"/dev/urandom"}

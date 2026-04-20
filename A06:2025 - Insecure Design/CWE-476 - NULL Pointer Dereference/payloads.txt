@@ -1,4 +1,12 @@
-GET /api/user/ HTTP/1.1 (empty ID)
-POST /api/process {} (missing required fields)
-GET /api/order?id= HTTP/1.1
-?callback= (empty callback)
+{"user":null}
+{"id":null}
+{"token":null}
+{"data":null}
+GET /api/user/ (empty segment)
+GET /api/item/null
+Authorization: Bearer null
+Cookie: session=null
+{"nested":{"value":null}}
+POST /api/action (no body)
+GET /api/process?param=null
+{"array":null}

@@ -4,5 +4,10 @@
 /config/database.yml
 /WEB-INF/web.xml
 /config/settings.ini
-grep -r 'password' /etc/ 2>/dev/null
 /etc/ldap/ldap.conf
+/.pgpass
+/root/.my.cnf
+/home/app/.env
+/var/www/.env
+/etc/nginx/.htpasswd
+/var/www/html/wp-config.php

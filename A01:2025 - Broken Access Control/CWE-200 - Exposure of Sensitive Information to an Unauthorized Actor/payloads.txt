@@ -1,19 +1,20 @@
-/api/v1/users
-/api/v1/admin/users
-/api/debug
-/.env
-/.git/config
-/config.php.bak
-/phpinfo.php
-/info.php
-/test.php
-/server-status
-/server-info
-/actuator/env
-/actuator/trace
-/actuator/heapdump
-/swagger.json
-/openapi.json
-/api-docs
-/v2/api-docs
-/.well-known/security.txt
+GET /api/users
+GET /api/users/1
+GET /api/admin/logs
+GET /api/internal/config
+GET /api/reports
+GET /api/audit
+GET /debug/info
+GET /api/v1/users/export
+GET /api/metrics
+GET /health
+GET /status
+GET /info
+GET /api/keys
+GET /api/tokens
+GET /api/secrets
+X-Debug: true
+X-Show-Details: 1
+?verbose=1
+?debug=true
+?format=json&include=all

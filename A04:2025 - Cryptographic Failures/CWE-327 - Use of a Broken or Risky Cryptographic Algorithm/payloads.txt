@@ -1,11 +1,16 @@
 MD5
 SHA1
+SHA-1
 DES
 3DES
 RC4
 RC2
-IDEA
 Blowfish
-ECB mode (any cipher)
-CBC with PKCS7 (padding oracle)
-RSA/ECB/PKCS1Padding
+IDEA
+SEED
+Camellia-128
+MD2
+MD4
+CRC32
+HAVAL
+RIPEMD-128

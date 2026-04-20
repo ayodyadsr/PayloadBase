@@ -1,5 +1,12 @@
-/tmp/ (world-writable sticky-bit)
-mkstemp('/var/www/html/tmp/tmpXXXXXX')
-tmpfile() in web-accessible directory
 /var/www/tmp/
+/var/www/html/tmp/
 /app/storage/tmp/
+/public/tmp/
+/uploads/tmp/
+/public/cache/
+/www/temp/
+GET /tmp/tmpXXXXXX
+GET /var/www/html/upload_123456.php
+GET /uploads/phpXXXXXX
+GET /cache/sess_XXXX
+/app/public/temp/

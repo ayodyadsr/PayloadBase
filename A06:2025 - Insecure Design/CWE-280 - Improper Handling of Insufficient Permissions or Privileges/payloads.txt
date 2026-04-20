@@ -1,3 +1,8 @@
-GET /admin (check error handling when denied)
-DELETE /api/resource/1 (as guest)
-POST /api/admin/reset (as user)
+GET /admin
+DELETE /api/resource/1
+POST /api/admin/reset
+GET /api/admin/users
+PUT /api/user/1/role
+DELETE /api/config
+GET /api/internal
+POST /api/superadmin

@@ -1,6 +1,12 @@
-GET /api/file/123 (check owner)
-PATCH /file/123/permissions {"owner": "attacker"}
+GET /api/order/1 (as different user)
+GET /api/order/2
+GET /api/order/3
 DELETE /api/document/456 (as different user)
-GET /user/1/export
-GET /user/2/export
-POST /api/transfer {"file_id": 99, "new_owner": "attacker"}
+PUT /api/message/1 {"content":"edited"}
+GET /api/invoice/100
+GET /api/invoice/101
+PATCH /api/profile/2 {"email":"attacker@evil.com"}
+POST /api/transfer {"from_account":999,"amount":1000}
+DELETE /api/post/1 (as non-owner)
+GET /api/user/2/private-notes
+GET /api/medical-record/1

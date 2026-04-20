@@ -1,4 +1,15 @@
-GET /api/internal/metrics HTTP/1.1
+GET /api/internal/metrics
+GET /actuator/env
+GET /actuator/heapdump
+GET /actuator/threaddump
+GET /actuator/mappings
+GET /actuator/beans
+GET /internal/health
+GET /internal/stats
+GET /_internal/
+GET /api/debug/vars
+GET /debug/pprof/
 X-Forwarded-For: 10.0.0.1
-GET /internal/health HTTP/1.1
-GET /actuator/env HTTP/1.1
+X-Real-IP: 127.0.0.1
+X-Original-URL: /internal/admin
+Host: internal.corp

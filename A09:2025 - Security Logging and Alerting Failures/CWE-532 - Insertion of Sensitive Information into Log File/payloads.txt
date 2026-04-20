@@ -1,4 +1,10 @@
-GET /api/login?password=secret123 (check access logs)
-POST /api/pay with credit_card in body (check if logged)
-Error log: SQLSTATE[28000]: password=secret
-/var/log/app.log (grep for sensitive data)
+GET /api/login?password=MySecret123
+GET /api/token?api_key=sk-1234567890abcdef
+POST /api/pay?credit_card=4111111111111111
+GET /api/user?ssn=123-45-6789
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoiYWRtaW4ifQ.xxxx
+GET /api/reset?token=reset_token_abcdef
+POST /api/auth {"password":"SuperSecret1!"}
+GET /api/export?key=AKIAIOSFODNN7EXAMPLE
+POST /api/register {"password":"P@ssw0rd123"}
+GET /api/webhook?secret=wh_secret_xyz

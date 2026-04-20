@@ -1,4 +1,9 @@
-GET /elmah.axd HTTP/1.1
-GET /trace.axd HTTP/1.1
-WindowsIdentity.Impersonate()
-GET /app/impersonate?user=DOMAIN\admin HTTP/1.1
+GET /api/admin (with impersonation header)
+X-On-Behalf-Of: admin
+X-Impersonate: administrator
+X-Run-As: DOMAIN\Administrator
+X-Delegate-As: admin@internal.corp
+GET /api/admin/users (with impersonation attempt)
+POST /api/action {"run_as":"admin"}
+Authorization: Negotiate (Kerberos delegation)
+GET /api/restricted (via impersonation path)

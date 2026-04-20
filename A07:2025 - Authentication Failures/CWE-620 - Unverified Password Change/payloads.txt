@@ -1,3 +1,6 @@
-POST /api/user/password {"new_password":"hacked"} (no current password)
-PATCH /profile {"password":"evil"} (no confirmation)
-PUT /api/user/1 {"password":"new"} (as user 2)
+POST /api/change-password {"new":"hacked"} (no current password)
+PUT /api/user/1/password {"password":"hacked"} (no auth check)
+PATCH /api/profile {"password":"hacked"}
+POST /api/account/password {"new_password":"hacked"}
+PUT /api/settings {"password":"newpass"}
+POST /api/update {"pass":"hacked","confirm":"hacked"}

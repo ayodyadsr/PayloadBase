@@ -1,7 +1,14 @@
-/api/exec?cmd=id
-/api/eval?code=alert(1)
-/api/shell?command=ls
-POST /api/run {"command": "id"}
-POST /rpc {"method": "system", "params": ["id"]}
-/api/ping?host=127.0.0.1;id
-/api/debug/execute
+GET /api/exec
+GET /api/eval
+GET /api/system
+POST /api/exec {"cmd":"id"}
+POST /api/shell {"command":"ls"}
+GET /api/debug/eval
+GET /console
+GET /api/invoke
+POST /rpc {"method":"system","params":["id"]}
+GET /api/admin/run
+GET /jmx-console/
+GET /invoker/JMXInvokerServlet
+GET /struts/webconsole.html
+GET /api/script {"script":"os.system('id')"}

@@ -2,3 +2,9 @@
 <script src="//evil.com/tracker.js"></script>
 <link rel="stylesheet" href="http://attacker.com/style.css">
 <img src="http://evil.com/pixel.gif">
+<object data="http://evil.com/payload.swf"></object>
+<embed src="http://evil.com/plugin.swf">
+<frame src="http://evil.com/content">
+POST /api/embed {"url":"http://evil.com/widget"}
+{"cdn_url":"http://attacker.com/jquery.min.js"}
+<meta http-equiv="refresh" content="0;url=http://evil.com">

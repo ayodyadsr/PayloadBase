@@ -1,4 +1,10 @@
-cat /etc/app/database.conf
-cat ~/.netrc
-cat ~/.git-credentials
-find / -name '*.ini' -exec grep -i 'password' {} +
+/.env
+/.env.local
+/config/secrets.txt
+/data/passwords.txt
+/backup/credentials.json
+/storage/keys.txt
+/logs/debug.log (check for secrets)
+/var/log/app.log
+/tmp/debug.txt
+GET /export/users.csv (passwords in CSV?)

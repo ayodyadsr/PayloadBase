@@ -1,0 +1,9 @@
+GET /api/session (PHP mt_rand based)
+GET /api/token (Math.random() based)
+GET /api/otp (rand() based)
+GET /api/uuid (UUID v1 - time-based)
+GET /api/reset-link (weak PRNG token)
+Cookie: session=mt_rand_derived_value
+GET /api/verify?token=weak_random_123
+GET /api/captcha (rand()-based)
+GET /api/invite (weak entropy)

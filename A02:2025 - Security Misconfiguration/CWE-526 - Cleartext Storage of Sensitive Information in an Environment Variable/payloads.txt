@@ -1,6 +1,12 @@
-printenv
-/proc/self/environ
-GET /actuator/env HTTP/1.1
-/api/debug/env
-?debug=true (check response for env dump)
-GET /__env HTTP/1.1
+GET /actuator/env
+GET /debug/vars
+GET /_debug/env
+GET /api/config/env
+GET /api/debug/env
+?debug=env
+GET /proc/self/environ
+GET /env
+GET /api/env
+GET /config
+X-Debug: env
+GET /actuator/configprops

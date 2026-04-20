@@ -1,8 +1,15 @@
-GET /api/invoice?id=1
-GET /api/invoice?id=2
-GET /order?order_id=1001
-GET /order?order_id=1002
-id=1 AND user_id=2
-id=1 OR 1=1
-id=1 UNION SELECT * FROM users--
-record_id=99999
+GET /api/user?id=1
+GET /api/user?id=2
+GET /api/user?id=0
+GET /api/order?id=1
+GET /api/order?id=2
+GET /api/document?id=100
+GET /api/document?id=101
+GET /api/invoice?record_id=1
+GET /api/invoice?record_id=2
+DELETE /api/record?id=1
+PUT /api/data?key=admin_config
+?user_id=1
+?user_id=0
+?account_id=1
+?account_id=admin

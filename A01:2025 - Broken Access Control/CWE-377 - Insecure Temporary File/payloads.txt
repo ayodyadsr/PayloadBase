@@ -1,7 +1,17 @@
-/tmp/sess_XXXXXXXX
-/tmp/*.lock
+/tmp/
+/tmp/sess_
 /tmp/phpXXXXXX
-race: open /tmp/tmpXXXXXX then replace with symlink
-/var/tmp/upload_XXXX
-/dev/shm/sensitive
-mktemp /tmp/test.XXXXXX
+/tmp/upload_
+/tmp/sessions/
+/tmp/app_cache/
+/var/tmp/
+/var/tmp/upload_
+/dev/shm/
+/dev/shm/session_
+../../tmp/
+../../var/tmp/
+../../../../../tmp/
+/proc/self/fd/
+/proc/self/fd/0
+GET /tmp/debug.log
+GET /tmp/error.log

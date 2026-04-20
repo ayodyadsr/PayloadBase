@@ -1,3 +1,8 @@
-Authorization: Basic dXNlcjpwYXNzd29yZA== (base64 only)
-GET /api/login?user=admin&pass=password HTTP/1.1
-Set-Cookie: credentials=user:password
+Authorization: Basic dXNlcjpwYXNzd29yZA== (base64 decoded: user:password)
+Authorization: Basic YWRtaW46YWRtaW4= (admin:admin)
+Authorization: Basic cm9vdDp0b290 (root:toot)
+GET /api/login?user=admin&pass=password (in URL)
+Cookie: auth=user:password (plaintext in cookie)
+X-Auth: admin:secret
+GET /api/config (credentials in response)
+GET /api/token?username=admin&password=secret

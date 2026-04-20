@@ -1,3 +1,10 @@
-hash(password) without salt
-encrypt(data) without integrity check (no MAC)
-sign(message) without hash first
+{"signature":""}
+{"signature":null}
+{"mac":""}
+{"hmac":"skipped"}
+POST /api/verify {"data":"payload","sig":""}
+POST /api/auth {"token":"unsigned_token"}
+{"alg":"none"}
+eyJhbGciOiJub25lIiwidHlwIjoiSldUIn0.eyJ1c2VyIjoiYWRtaW4ifQ.
+POST /api/payment {"amount":100,"verified":false}
+PUT /api/update (no integrity check header)

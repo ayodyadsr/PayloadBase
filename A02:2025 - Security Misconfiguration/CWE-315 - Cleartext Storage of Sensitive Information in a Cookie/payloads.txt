@@ -1,5 +1,9 @@
-Set-Cookie: user=admin
-Set-Cookie: role=superuser
-Set-Cookie: session=username:password
-Set-Cookie: auth=eyJ1c2VyIjoiYWRtaW4ifQ==
-document.cookie
+Cookie: user=admin
+Cookie: role=superuser
+Cookie: session=username:password
+Cookie: auth=eyJ1c2VyIjoiYWRtaW4ifQ==
+Cookie: is_admin=1
+Cookie: user_id=1
+Cookie: email=admin@example.com
+Cookie: token=plaintexttoken123
+Cookie: access_level=5

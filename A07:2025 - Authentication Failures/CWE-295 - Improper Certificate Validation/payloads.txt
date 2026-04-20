@@ -1,5 +1,11 @@
-openssl s_client -connect target:443 -verify 0
-curl -k https://target.com
-requests.get(url, verify=False)
-wget --no-check-certificate https://target.com
-ssl._create_unverified_context()
+https://self-signed.badssl.com/
+https://expired.badssl.com/
+https://wrong.host.badssl.com/
+https://untrusted-root.badssl.com/
+https://revoked.badssl.com/
+{"ssl_verify":false}
+{"tls_verify":0}
+{"verify_peer":false}
+{"verify_host":false}
+{"certificate_check":false}
+X-Forwarded-Proto: https (override HTTP with HTTPS claim)

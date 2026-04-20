@@ -1,5 +1,12 @@
+GET /api/users (returns email, phone, DOB?)
 GET /api/user/1/profile
-GET /api/export/users.csv
-GET /api/search?q=email:*@corp.com
-GET /api/user?include=ssn,dob,address
-POST /graphql {"query": "{ users { email phone ssn } }"}
+GET /api/user/2/profile (as user 1)
+GET /api/profile?id=1
+GET /api/profile?id=2
+GET /api/search?q=john@example.com
+GET /api/lookup?phone=5551234567
+GET /api/export/users
+GET /api/admin/users
+GET /api/user/1/pii
+GET /report/users.csv
+GET /api/members?include=personal

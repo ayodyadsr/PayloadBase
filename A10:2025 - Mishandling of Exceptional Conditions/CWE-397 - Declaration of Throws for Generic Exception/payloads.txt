@@ -1,2 +1,10 @@
-throws Exception (overly broad)
-public void authenticate() throws Exception
+POST /api/upload (no Content-Type)
+POST /api/process (malformed JSON: {key:value})
+POST /api/xml <root><unclosed>
+GET /api/item?id=1;DROP TABLE items--
+POST /api/auth (Content-Length mismatch)
+GET /api/data?format=unknown
+POST /api/parse (binary data as UTF-8)
+PUT /api/config (invalid JSON structure)
+GET /api/item?id=null
+POST /api/action (missing required fields)

@@ -1,0 +1,14 @@
+X-Api-Key: test
+X-Api-Key: demo
+X-Api-Key: 1234567890
+X-Api-Key: aaaaaaaaaaaaaaaa
+X-Api-Key: 0000000000000000
+X-Api-Key: changeme
+X-Api-Key: secret
+Authorization: ApiKey test
+Authorization: ApiKey demo
+api_key=test
+api_key=1234
+apikey=changeme
+token=test
+key=1234567890

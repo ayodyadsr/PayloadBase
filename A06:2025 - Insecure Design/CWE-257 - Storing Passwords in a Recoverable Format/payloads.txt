@@ -1,4 +1,7 @@
-base64 encoded passwords in DB
-ROT13 passwords in config file
-XOR encrypted with static key
-password = decrypt(stored_value, hardcoded_key)
+GET /api/user/1 (password hash reversible?)
+GET /api/recovery/hint
+GET /api/password-hint?user=admin
+GET /api/reset (observe if password emailed in plaintext)
+POST /api/forgot-password (check email contains original password)
+GET /api/account/export (encrypted but decryptable password?)
+GET /api/support/user/1 (can support see password?)

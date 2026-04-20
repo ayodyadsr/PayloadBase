@@ -1,5 +1,8 @@
-cat /etc/passwd
-cat /etc/shadow
-SELECT * FROM users WHERE email='test@test.com'
-cat ~/.bash_history
-/var/log/app.log (check for cleartext passwords)
+GET /api/user/1 (password in response?)
+GET /api/keys (API key in cleartext?)
+GET /storage/users.txt
+GET /data/passwords.txt
+GET /backup/accounts.json
+GET /logs/auth.log (passwords in logs?)
+GET /debug/session (session data in cleartext?)
+GET /api/oauth/clients (client_secret in cleartext?)

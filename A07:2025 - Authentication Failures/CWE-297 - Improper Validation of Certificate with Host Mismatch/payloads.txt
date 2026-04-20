@@ -1,3 +1,6 @@
-openssl s_client -connect target:443 (check CN vs hostname)
-curl --resolve evil.com:443:IP https://evil.com
-SSL certificate CN=*.evil.com presented to app.target.com
+https://wrong.host.badssl.com/
+https://target.com (cert for *.other.com)
+https://192.168.1.1 (cert for hostname, not IP)
+CN=*.evil.com used against target.com
+CN=www.target.com used against api.target.com
+https://sub.target.com (cert for target.com only)

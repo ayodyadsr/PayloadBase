@@ -1,2 +1,6 @@
-POST /api/session {"obj": "serialized_payload"}
-JSESSIONID=rO0ABXNyAA== (Java serialized in cookie)
+Cookie: JSESSIONID=rO0ABXNyAA==
+Cookie: JSESSIONID=rO0ABXNyACpjb20uc3VuLm9yZy5hcGFjaGUueG1sLmludGVybmFsLnNlcmlhbGl6ZXI=
+{"session_data":"rO0ABXNy"}
+Set-Cookie: obj=rO0ABXNyACpjb20uc3VuLm9yZy5hcGFjaGUueG1sLmludGVybmFsLnNlcmlhbGl6ZXI=
+X-Session-Data: rO0ABXNy
+POST /api/session {"data":"rO0ABXNy"}

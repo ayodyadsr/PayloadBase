@@ -1,12 +1,10 @@
-import random, time
-for seed in range(int(time.time())-60, int(time.time())+1):
-    random.seed(seed)
-    token = random.getrandbits(32)
-    # compare with captured token
-
-md5(time())
-sha1(time())
-uniqid()  # PHP - based on microseconds
-rand()
-base64_encode(rand())
-str_replace('.', '', microtime(true))
+mt_rand() PHP - seed from current timestamp
+Math.random() JavaScript - not cryptographically secure
+rand() C - predictable with known seed
+random.random() Python - not cryptographically secure
+java.util.Random - linear congruential generator
+UUID v1 - time-based, machine MAC included
+token = sha1(timestamp) - time-based
+token = md5(user_id + timestamp) - predictable
+session_id = strftime('%Y%m%d%H%M%S') + rand(0,9999) - predictable
+nonce = time.time() - time-based nonce

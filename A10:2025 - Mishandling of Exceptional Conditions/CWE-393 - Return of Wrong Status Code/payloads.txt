@@ -1,4 +1,10 @@
-HTTP 200 on authentication failure
-HTTP 200 on authorization denial
-HTTP 200 on missing resource (should be 404)
-HTTP 500 instead of 400 for bad input
+GET /api/nonexistent-xyz
+POST /api/login {"user":"wrong","pass":"wrong"}
+GET /api/admin
+DELETE /api/protected-resource
+POST /api/duplicate-user {"email":"existing@test.com"}
+POST /api/validate {"email":"invalid"}
+PUT /api/readonly-field {"value":"test"}
+GET /api/rate-limit (exceed rate limit)
+POST /api/unimplemented-endpoint
+GET /api/deprecated-endpoint

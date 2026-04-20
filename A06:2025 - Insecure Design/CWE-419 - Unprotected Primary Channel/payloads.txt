@@ -1,4 +1,7 @@
-telnet target 23
-ftp target 21
-http://target.com (no TLS)
-smtp://mail.target.com:25 (no STARTTLS)
+http://target.com/api/auth (HTTP not HTTPS)
+http://target.com/api/token
+http://target.com/api/session
+ws://target.com/ws (WebSocket without TLS)
+ftp://target.com (FTP without FTPS)
+GET /api/key (HTTP endpoint for key exchange)
+GET /api/cert (HTTP endpoint for certificate)

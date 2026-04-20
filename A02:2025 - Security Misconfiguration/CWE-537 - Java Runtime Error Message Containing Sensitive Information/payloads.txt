@@ -1,4 +1,9 @@
-GET /api/user/ABC HTTP/1.1 (trigger NumberFormatException)
-POST /api/login {"user":null}
-GET /api/order/ HTTP/1.1 (empty path)
-Accept: text/html (check verbose stack trace)
+GET /api/item/abc (expect stack trace with class path)
+POST /api/parse {"date":"not-a-date"} (DateParseException)
+GET /api/db?query=INVALID (SQL exception with DB info)
+GET /api/item?id=9999999999 (NumberFormatException)
+GET /api/file/../../etc/passwd (path disclosure)
+POST /api/xml (malformed XML triggers SAXParseException)
+GET /api/resource/null
+POST /api/json (send XML - triggers Jackson parse exception)
+DELETE /api/locked-resource (constraint violation with table name)

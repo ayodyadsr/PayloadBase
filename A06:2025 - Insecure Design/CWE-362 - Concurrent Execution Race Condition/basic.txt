@@ -1,0 +1,7 @@
+POST /api/transfer {"amount":100} x10 concurrent
+POST /api/withdraw {"amount":balance} x5 concurrent
+POST /api/redeem {"code":"GIFT100"} x10 concurrent
+POST /api/register {"email":"same@test.com"} x5 concurrent
+POST /api/like {"post_id":1} x10 concurrent
+POST /api/purchase {"item":1,"qty":stock_count} x5 concurrent
+POST /api/apply-coupon {"code":"ONCE"} x10 concurrent

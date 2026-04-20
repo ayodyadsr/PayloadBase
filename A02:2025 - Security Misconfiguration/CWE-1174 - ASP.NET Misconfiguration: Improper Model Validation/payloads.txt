@@ -1,4 +1,10 @@
 POST /api/user {"isAdmin":true}
-POST /api/order {"price":0}
-POST /api/register {"role":"admin"}
-PUT /api/profile {"credit":9999999}
+POST /api/user {"role":"admin","isActive":true}
+POST /api/order {"price":0,"discount":100}
+POST /api/register {"role":"admin","confirmed":true}
+PUT /api/profile {"credit":9999999,"subscription":"premium"}
+POST /api/checkout {"amount":0.01}
+POST /api/user {"id":1,"admin":true,"confirmed":true}
+PUT /api/item {"price":-100}
+POST /api/subscription {"plan":"enterprise","cost":0}
+PATCH /api/account {"balance":999999}

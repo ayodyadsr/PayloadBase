@@ -1,7 +1,13 @@
 1+1
-1; system('id')
+7*7
+1; process.exit()
+1; require('child_process').execSync('id')
 __import__('os').system('id')
+__import__('subprocess').getoutput('id')
+exec('import os; os.system("id")')
 require('child_process').execSync('id')
 Process.run('id')
-eval('id')
-exec('import os; os.system("id")')
+system('id')
+`id`
+$(id)
+Runtime.getRuntime().exec("id")

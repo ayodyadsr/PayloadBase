@@ -1,7 +1,9 @@
-localStorage.getItem('token')
-sessionStorage.getItem('password')
-document.cookie
-/var/www/html/user_data.txt
-/tmp/session_XXXX
-/var/log/app.log (plaintext passwords in logs)
-~/.bash_history (plaintext commands with credentials)
+GET /api/user/1 (check if password hash returned)
+GET /api/auth/session (check if token in response)
+GET /api/payment/method (check if full CC number stored)
+GET /api/profile (check if SSN/NIN stored plaintext)
+GET /api/security-questions
+GET /api/user/tokens
+GET /api/oauth/clients (check if client_secret exposed)
+GET /api/keys (check for plaintext API keys)
+GET /api/webhook/configs (check if secrets exposed)

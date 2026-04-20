@@ -1,4 +1,14 @@
-openssl s_client -connect target:443 -verify 0
-curl -k https://target.com
-requests.get(url, verify=False)
---insecure flag in curl
+https://self-signed.badssl.com/
+https://expired.badssl.com/
+https://wrong.host.badssl.com/
+https://untrusted-root.badssl.com/
+https://revoked.badssl.com/
+https://pinning-test.badssl.com/
+X-Forwarded-Proto: http
+X-Original-Proto: http
+{"tls_verify":false}
+{"ssl_verify":0}
+{"verify_peer":false}
+{"verify_host":false}
+{"certificate_verify":false}
+curl -k https://target.com (--insecure)

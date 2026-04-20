@@ -1,6 +1,10 @@
-GET /?token=SECRET&debug=1 HTTP/1.1
-Referer: https://app.local/reset?token=abc123secret
-GET /api/user?password=test HTTP/1.1
-POST /login HTTP/1.1
-Authorization: Basic YWRtaW46cGFzc3dvcmQ=
-GET /track?email=user@corp.com&ssn=123-45-6789 HTTP/1.1
+GET /api/response-with-secret
+Authorization: Bearer token123
+POST /api/login (observe response body for sensitive data)
+GET /api/profile (check if SSN/DOB returned)
+GET /api/payment/history (check if full CC returned)
+GET /api/user/export
+GET /api/reset-token?email=user@example.com
+POST /api/verify {"code":"123456"} (check if token in response)
+GET /api/messages (check for other users' data)
+GET /api/order/1 (check if other user's address returned)

@@ -1,6 +1,11 @@
 ?class=java.lang.Runtime
 ?type=com.evil.MaliciousClass
-?action=../../etc/passwd
 ?handler=evil::method
 ?controller=admin
 ?plugin=../../../evil
+?bean=org.springframework.context.support.ClassPathXmlApplicationContext
+?formatter=com.fasterxml.jackson.databind.node.POJONode
+?strategy=sun.rmi.server.UnicastRef
+?deserializer=com.example.unsafe.Deserializer
+?provider=com.sun.jndi.rmi.object.NamingManager
+?converter=org.apache.commons.collections4.functors.InvokerTransformer

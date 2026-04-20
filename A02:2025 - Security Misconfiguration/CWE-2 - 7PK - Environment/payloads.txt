@@ -1,8 +1,0 @@
-DEBUG=True
-FLASK_ENV=development
-NODE_ENV=development
-RAILS_ENV=development
-APP_DEBUG=1
-X-Debug-Token: 1
-?debug=1
-?env=dev

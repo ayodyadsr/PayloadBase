@@ -1,4 +1,8 @@
-random.seed(0)
-srand(1234567890)
-Random(42).nextInt()
-SecureRandom sr = new SecureRandom(); sr.setSeed(12345);
+GET /api/token (timestamp-seeded)
+GET /api/token?t=1700000000 (time-based seed)
+GET /api/session (PID-seeded PRNG)
+GET /api/otp (check if OTP based on current time)
+GET /api/reset-token (check if reset token = hash(email+timestamp))
+GET /api/captcha?seed=12345
+GET /api/key?seed=1
+GET /api/nonce?t=1700000000

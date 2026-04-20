@@ -1,4 +1,9 @@
-token = str(random.randint(0, 9999))
-session_id = md5(username + timestamp)
-password_reset_token = hex(int(time.time()))
-api_key = base64(username + ':' + str(random.random()))
+GET /api/session (short session ID)
+Cookie: session=abc123 (6 chars - low entropy)
+Cookie: session=1234 (numeric only)
+GET /api/token?length=4
+GET /api/otp (4-digit)
+GET /api/reset?token=00001 (sequential)
+GET /api/key (8-char key)
+GET /api/nonce (32-bit nonce)
+GET /api/csrf-token (low entropy CSRF token)

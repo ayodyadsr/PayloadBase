@@ -1,4 +1,8 @@
-Cache-Control: no-cache (missing on sensitive pages)
-Pragma: no-cache (missing)
-GET /account/statement HTTP/1.1 (check cache headers)
-GET /api/user/profile HTTP/1.1 (no cache-control)
+GET /api/user/profile (Cache-Control: no-store missing?)
+GET /api/payment/history (cached sensitive page)
+GET /api/account/balance (no cache headers)
+GET /api/messages (private messages cached)
+Cache-Control: public (on sensitive endpoint)
+GET /api/token (token cached by browser)
+GET /logout (cached version accessible after logout)
+Pragma: no-cache missing

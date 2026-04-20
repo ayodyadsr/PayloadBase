@@ -1,5 +1,17 @@
-POST /api/register {"password":"1"}
-POST /api/register {"password":"a"}
-POST /api/register {"password":"password"}
-POST /api/register {"password":"123456"}
-POST /api/change-password {"new_password":"a"}
+a
+1
+aa
+12
+abc
+123
+pass
+test
+admin
+password
+12345678
+aaaaaaaa
+qwertyui
+abcdefgh
+password1
+admin1234
+!@#$%^&*

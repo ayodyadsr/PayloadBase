@@ -1,3 +1,7 @@
-Set-Cookie: user_id=123; Expires=2030-01-01
-Set-Cookie: session=token123; Max-Age=2592000
-Set-Cookie: auth=eyJhbGci...; Persistent
+Set-Cookie: user_id=1; Expires=2030-01-01 (persistent)
+Set-Cookie: role=admin; Max-Age=31536000
+Set-Cookie: email=user@example.com; Expires=2030-01-01
+Set-Cookie: auth_token=secret_token; Max-Age=86400
+Set-Cookie: remember_me=eyJ1c2VyIjoiYWRtaW4ifQ==; Expires=2030-01-01
+Cookie: persistent_session=sensitive_data_here
+GET /api/profile (reads from persistent cookie)

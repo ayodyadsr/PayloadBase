@@ -1,4 +1,9 @@
-grep -r 'password' /var/www/ 2>/dev/null
-cat /etc/app/config.ini | grep pass
-SELECT password FROM users WHERE username='admin'
-cat ~/.bash_history | grep password
+GET /api/user/1 (check password field in response)
+GET /api/profile (password in plaintext?)
+GET /api/settings (stored password visible?)
+GET /backup/users.json
+GET /export/accounts.csv
+GET /api/admin/users (passwords in dump?)
+GET /api/debug/user/1
+GET /api/recovery (security questions + answers?)
+GET /api/credentials

@@ -1,6 +1,16 @@
-GET /admin HTTP/1.1 (no auth)
-Cookie: auth=true
-X-Authenticated: yes
+Authorization: Bearer invalid_token
 Authorization: Bearer null
 Authorization: Bearer undefined
-Authorization: Bearer 0
+Authorization: Bearer
+Cookie: session=invalid
+Cookie: session=
+Cookie: session=null
+X-Auth-Token: wrong_token
+Authorization: Basic Og== (base64 of ":")
+{"token":""}
+{"token":null}
+{"token":false}
+{"token":0}
+GET /api/admin (no auth)
+X-Forwarded-User: admin
+X-Remote-User: admin

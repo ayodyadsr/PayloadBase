@@ -1,0 +1,12 @@
+POST /api/checkout {"quantity":-1}
+POST /api/checkout {"quantity":0}
+POST /api/coupon/apply {"code":"EXPIRED2020"}
+POST /api/coupon/apply {"code":"TESTCOUPON"} (reuse 1-time code)
+POST /api/transfer {"amount":0}
+POST /api/transfer {"amount":-100}
+POST /api/order {"price":0}
+POST /api/upgrade {"plan":"free"} (downgrade to free while keeping premium features)
+POST /api/referral (self-referral)
+GET /api/vote?id=1 (vote multiple times)
+POST /api/review {"stars":6}
+POST /api/checkout {"total":0.01}

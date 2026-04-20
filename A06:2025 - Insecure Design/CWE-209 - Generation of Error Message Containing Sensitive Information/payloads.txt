@@ -1,5 +1,13 @@
-GET /api/user/ABC (trigger type error)
-POST /api/login {"user":null} (trigger NPE)
-GET /api/query?id=' (trigger SQL error with schema info)
-Accept: text/html (verbose stack trace)
-X-Debug: 1
+GET /api/user/ABC (force type error with stack trace)
+POST /api/login {"user":null}
+GET /api/query?id=' (SQL error reveals DB schema)
+GET /api/ with Accept: text/html (HTML stack trace)
+GET /nonexistent (full path disclosure in 404)
+POST /api/parse {"date":"invalid-date"}
+GET /api/db?query=INVALID
+GET /api/item?id=9999999999
+POST /api/xml (malformed XML)
+DELETE /api/locked-resource
+GET /api/undefined
+GET /api/null
+GET /api/test/throw

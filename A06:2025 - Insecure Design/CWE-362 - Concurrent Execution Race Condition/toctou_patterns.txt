@@ -1,0 +1,8 @@
+POST /api/withdraw {"amount":100} (send 10 concurrent requests)
+POST /api/use-coupon {"code":"ONCE"} (concurrent use of one-time code)
+POST /api/vote (concurrent votes for same item)
+POST /api/claim-reward (concurrent reward claims)
+POST /api/transfer {"amount":balance} (concurrent transfers > balance)
+POST /api/book-seat {"seat":1} (concurrent same-seat booking)
+GET /api/check-balance then POST /api/withdraw (TOCTOU)
+POST /api/create-account {"email":"dup@test.com"} (concurrent duplicate creation)

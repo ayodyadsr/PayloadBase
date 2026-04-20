@@ -1,3 +1,10 @@
-POST /api/process (HTTP 200 even on failure)
-API returns {"success":true} regardless of outcome
-HTTP 200 with error in body: {"error":"auth failed"}
+POST /api/process {"id":"nonexistent"}
+DELETE /api/item/99999
+PUT /api/user/99999 {"email":"new@test.com"}
+POST /api/email {"to":"invalid@@"}
+POST /api/order {"product_id":0,"qty":-1}
+POST /api/register {"email":"duplicate@existing.com"}
+GET /api/export?format=invalid
+POST /api/upload (empty file body)
+DELETE /api/item/0
+PUT /api/config {"key":"value"} (read-only config)

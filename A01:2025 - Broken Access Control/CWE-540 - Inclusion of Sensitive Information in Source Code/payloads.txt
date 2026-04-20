@@ -1,12 +1,16 @@
+/.git/
 /.git/config
 /.git/HEAD
-/.svn/wc.db
-/source.zip
-/app.tar.gz
-/backup.zip
-/src/config.php
-/includes/database.php
-/.git/COMMIT_EDITMSG
+/.git/index
 /.gitignore
-/Gruntfile.js
-/webpack.config.js
+/.svn/entries
+/.hg/hgrc
+/source.map
+/app.js.map
+/bundle.js.map
+/static/js/main.chunk.js.map
+/static/js/main.chunk.js
+GET /app/src/config.js
+GET /src/config.php
+GET /application.properties
+GET /bootstrap.properties

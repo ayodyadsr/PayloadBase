@@ -1,3 +1,8 @@
 GET /api/user (returns 200 with empty body)
 DELETE /api/resource (returns 200 but resource persists)
 POST /api/order (returns 201 but order not created)
+PUT /api/profile (returns 200 but changes not saved)
+POST /api/payment (returns 200 but payment fails)
+GET /api/item/1 (returns 200 with null data)
+DELETE /api/session (returns 200 but session persists)
+POST /api/email (returns 200 but email not sent)

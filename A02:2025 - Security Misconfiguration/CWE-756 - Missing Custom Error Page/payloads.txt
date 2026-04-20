@@ -1,5 +1,12 @@
-GET /nonexistent_page_xyz HTTP/1.1
-GET /api/v1/../../../etc HTTP/1.1
-GET /' HTTP/1.1
-GET /index.php?id=' HTTP/1.1
-DELETE /api/user/99999 HTTP/1.1
+GET /nonexistent_page_xyz
+GET /api/undefined-route
+GET /'
+GET /"
+GET /api/item?id='
+GET /api/test/../../../etc
+GET /api/item/abc (non-integer ID)
+DELETE /api/locked
+POST /api/parse {"invalid":"json
+GET /api/item/9999999999
+GET /api/null
+GET /api/undefined

@@ -1,5 +1,10 @@
-admin\nGET /admin HTTP/1.1 200
-user\r\nFake-Log-Entry: injected
+admin%0aGET /admin HTTP/1.1 200
+user%0d%0aFake-Log-Entry: injected
 %0aGET /fake HTTP/1.1 200 0
 username=test%0a%0d[2024-01-01] ADMIN LOGIN SUCCESS
-input=\n[ERROR] Authentication bypassed
+input=%0a[ERROR] Authentication bypassed
+%0d%0a[INFO] User admin logged in from 1.2.3.4
+test%0a2024-01-01 00:00:00 INFO Login success admin
+\r\n[CRITICAL] Security check disabled
+user\n127.0.0.1 - admin [01/Jan/2024] GET /admin 200
+%0aX-Admin: true

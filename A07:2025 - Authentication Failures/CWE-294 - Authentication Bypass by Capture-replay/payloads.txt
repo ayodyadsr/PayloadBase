@@ -1,4 +1,5 @@
-Replay captured JWT token
-Cookie: session=captured_session_token
-Authorization: Bearer <captured_token>
-Replay SAML assertion
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiYWRtaW4ifQ.replayedToken
+Cookie: session=captured_session_abc123
+Authorization: Bearer old_token_after_logout
+Cookie: auth_token=expired_but_replayed
+X-Auth-Token: replayed_nonce_12345

@@ -1,7 +1,10 @@
-rand()
-random.random()
-Math.random()
-new Date().getTime() as seed
-srand(time(NULL))
-mt_rand()
-System.currentTimeMillis()
+GET /api/reset-token (observe if token is predictable)
+GET /api/session (observe session ID entropy)
+GET /api/token (request multiple tokens, check for patterns)
+POST /api/otp (observe OTP generation pattern)
+GET /api/captcha (check if challenge is weak/predictable)
+GET /api/nonce (check if nonce is sequential)
+GET /api/invite-code (check if codes are guessable)
+GET /api/verify-email?token=0000000001 (sequential tokens)
+GET /api/verify-email?token=0000000002
+GET /api/verify-email?token=0000000003

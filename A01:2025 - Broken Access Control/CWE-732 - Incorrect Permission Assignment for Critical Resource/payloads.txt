@@ -1,7 +1,14 @@
-find /etc -perm -o+w 2>/dev/null
-find /var/www -perm 777 2>/dev/null
-ls -la /etc/cron.d/
-ls -la ~/.ssh/
-stat /etc/passwd
-stat /etc/sudoers
-find / -perm -4000 -type f 2>/dev/null
+GET /.env (should be 403, check if 200)
+GET /config.php (should be 403)
+GET /wp-config.php (should be 403)
+GET /database.yml (should be 403)
+GET /appsettings.json (should be 403)
+GET /web.config (should be 403)
+GET /.git/config (should be 403)
+GET /.htpasswd (should be 403)
+GET /backup/ (should be 403)
+GET /logs/ (should be 403)
+GET /private/ (should be 403)
+GET /admin/ (should be 403 for non-admin)
+PUT /api/config (as regular user)
+DELETE /api/users (as regular user)

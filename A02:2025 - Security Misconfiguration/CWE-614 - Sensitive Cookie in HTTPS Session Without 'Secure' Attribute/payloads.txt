@@ -1,3 +1,9 @@
-Set-Cookie: session=abc123; HttpOnly (missing Secure)
-Set-Cookie: auth=token123 (no Secure, no HttpOnly)
-Set-Cookie: JSESSIONID=xxx; Path=/ (missing Secure flag)
+Set-Cookie: session=abc123 (no Secure flag)
+Set-Cookie: auth=token (no Secure, no HttpOnly)
+Set-Cookie: remember_me=1 (no Secure)
+Set-Cookie: user_id=42 (no Secure)
+Set-Cookie: csrf_token=xyz (no Secure)
+HTTP GET /api/login (cleartext session cookie transmission)
+HTTP POST /login (session cookie over HTTP)
+Downgrade: HTTPS -> HTTP with session cookie
+Cookie: session=abc123 (sent over plain HTTP)

@@ -1,5 +1,11 @@
-AES_KEY = b'0000000000000000'
-SECRET_KEY = 'hardcoded_secret_key_123'
-HMAC_KEY = 'static_hmac_key'
-RSA_PRIVATE_KEY = '-----BEGIN RSA PRIVATE KEY-----...'
-jwt_secret = 'secret'
+{"alg":"HS256","key":"secret"}
+{"alg":"HS256","key":"password"}
+{"alg":"HS256","key":"changeme"}
+{"alg":"HS256","key":"1234567890"}
+{"alg":"HS256","key":"your_secret_key"}
+{"alg":"HS256","key":"my_secret"}
+{"alg":"HS256","key":"jwt_secret"}
+{"alg":"HS256","key":"supersecret"}
+{"alg":"HS256","key":"token_secret"}
+{"alg":"HS256","key":"app_secret"}
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIn0.rTCH8cLoGxAm_xw68z-zXVKi9ie6xJn9tnVWjd_9ftE (secret="secret")

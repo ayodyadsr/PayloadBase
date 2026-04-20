@@ -1,4 +1,6 @@
-GET /login?PHPSESSID=attacker_controlled_session
-Cookie: session=fixed_session_id_before_login
-GET /app;jsessionid=ATTACKER_SESSION
-POST /login with pre-set session cookie
+GET /login?PHPSESSID=attacker123
+Cookie: session=fixed_before_login
+GET /app;jsessionid=ATTACKER0SESSION
+GET /login?sid=predictable_session_id
+Cookie: JSESSIONID=fixedSessionValue
+Cookie: ASP.NET_SessionId=ATTACKER_SET_VALUE

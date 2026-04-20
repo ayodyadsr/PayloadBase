@@ -1,11 +1,10 @@
-/proc/self/fd/0
-/proc/self/fd/1
-/proc/self/fd/2
-/dev/stdin
-/dev/stderr
-/dev/stdout
-/proc/1/root
-/proc/self/root
-ln -s /etc/passwd /tmp/testlink
+../../etc/passwd (via symlink in upload)
+/var/www/html/uploads/symlink -> /etc/passwd
+filename=symlink_to_passwd
+POST /upload (upload file with symlink)
+PUT /api/file (path containing symlink)
 /proc/self/exe
-/proc/self/maps
+/proc/1/exe
+/proc/self/root/etc/passwd
+/dev/stdin
+/dev/fd/0

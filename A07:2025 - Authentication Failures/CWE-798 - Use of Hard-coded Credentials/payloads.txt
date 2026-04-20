@@ -1,4 +1,12 @@
-username=admin&password=backdoor123
-X-API-Key: hardcoded_master_key_12345
-Authorization: Basic YWRtaW46YmFja2Rvb3IxMjM=
-secret=hardcoded_jwt_secret
+admin:admin
+root:root
+admin:password
+test:test
+guest:guest
+service:service
+api:apikey
+system:system
+debug:debug
+backdoor:backdoor
+admin:changeme
+admin:1234

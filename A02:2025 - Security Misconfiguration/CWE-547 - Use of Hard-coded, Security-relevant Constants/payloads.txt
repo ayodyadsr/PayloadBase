@@ -1,6 +1,15 @@
-secret_key = 'changeme'
-password = 'admin123'
-api_key = 'hardcoded_key_12345'
-AES_KEY = b'0000000000000000'
-HMAC_SECRET = 'secret'
-salt = 'static_salt_value'
+Authorization: Bearer changeme
+Authorization: Bearer secret
+Authorization: Bearer password
+Authorization: Bearer 1234567890
+X-Api-Key: changeme
+X-Api-Key: secret
+X-Api-Key: test
+X-Api-Key: 1234567890abcdef
+X-Api-Key: aaaaaaaaaaaaaaaa
+{"key":"hardcoded_secret_key"}
+{"secret":"my_super_secret"}
+{"api_key":"sk-test-hardcoded"}
+HMAC-SHA256 with key="secret"
+JWT signed with HS256 key="secret"
+JWT signed with HS256 key="password"

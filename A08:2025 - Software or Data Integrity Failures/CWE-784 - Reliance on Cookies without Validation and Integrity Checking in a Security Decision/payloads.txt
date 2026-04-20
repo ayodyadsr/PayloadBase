@@ -1,4 +1,10 @@
-Cookie: is_admin=false → true
-Cookie: account_type=free → premium
-Cookie: access_level=1 → 9
-Cookie: bypass_2fa=false → true
+Cookie: is_admin=1
+Cookie: role=administrator
+Cookie: auth=true
+Cookie: privileged=1
+Cookie: bypass_2fa=true
+Cookie: email_verified=true
+Cookie: subscription=premium
+Cookie: access_level=admin
+Cookie: security_level=0
+Cookie: mfa_complete=true

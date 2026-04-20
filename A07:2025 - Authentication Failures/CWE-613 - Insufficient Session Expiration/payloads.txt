@@ -1,4 +1,6 @@
-Old session token after logout → still valid
-JWT with exp=9999999999 (year 2286)
-Cookie: session=old_token_after_password_change
-Reuse session after account deletion
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjk5OTk5OTk5OTl9.xxxx
+Cookie: session=token_from_6_months_ago
+Cookie: auth=old_token_after_password_change
+Cookie: session=pre_logout_token
+Authorization: Bearer token_post_account_deletion
+JWT exp: 9999999999

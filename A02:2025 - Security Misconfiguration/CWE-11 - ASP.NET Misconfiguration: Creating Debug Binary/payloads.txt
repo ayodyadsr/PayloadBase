@@ -1,4 +1,14 @@
-GET /elmah.axd HTTP/1.1
-GET /trace.axd HTTP/1.1
-GET /ScriptResource.axd HTTP/1.1
-GET /WebResource.axd?d=... HTTP/1.1
+GET /elmah.axd
+GET /trace.axd
+GET /ScriptResource.axd
+GET /WebResource.axd
+GET /Telerik.Web.UI.WebResource.axd
+GET /api/debug
+GET /api/trace
+GET /bundles/config
+GET /web.config
+X-Debug-Token: 1
+X-Debug-Token-Link: /_profiler/
+GET /?debug=true
+GET /_framework/blazor.server.js
+GET /swagger/v1/swagger.json

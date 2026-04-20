@@ -1,4 +1,10 @@
-Origin: https://evil.com
-Host: evil.com (Host header injection)
-X-Forwarded-Host: evil.com
-X-Host: evil.com
+X-Forwarded-For: 127.0.0.1
+X-Forwarded-For: 10.0.0.1
+X-Real-IP: 127.0.0.1
+X-Originating-IP: 127.0.0.1
+X-Remote-Addr: 127.0.0.1
+X-Client-IP: 127.0.0.1
+X-Host: internal.corp
+Forwarded: for=127.0.0.1
+True-Client-IP: 127.0.0.1
+CF-Connecting-IP: 127.0.0.1

@@ -1,5 +1,12 @@
-POST /api/divide {"a":1,"b":0} (division by zero)
-GET /api/convert?val=ABC (NumberFormatException)
-POST /api/parse {"date":"invalid-date"} (ParseException)
-Upload 0-byte file (edge case handling)
-Submit form with empty required field
+POST /api/divide {"a":1,"b":0}
+GET /api/convert?val=ABC
+POST /api/parse {"date":"invalid-date"}
+POST /api/upload (0-byte file)
+POST /api/submit (empty required field)
+GET /api/item/99999999 (out of range)
+POST /api/process {"data":"\xff\xfe"}
+PUT /api/config {"json":"unterminated}
+GET /api/query?limit=-1
+GET /api/page?offset=99999999
+DELETE /api/item/null
+GET /api/item?id=9.9.9

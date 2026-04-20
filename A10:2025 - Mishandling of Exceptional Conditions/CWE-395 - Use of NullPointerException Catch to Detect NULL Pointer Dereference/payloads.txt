@@ -1,2 +1,12 @@
-catch (NullPointerException e) { return false; }
-try { user.isAdmin() } catch(NullPointerException e) { grant(); }
+{"user":null}
+{"id":null}
+{"token":null}
+{"session":null}
+GET /api/user/ (empty user segment)
+Authorization: Bearer null
+Cookie: session=null
+{"obj":{"nested":null}}
+POST /api/auth (no body)
+GET /api/profile?user=null
+{"array":null}
+{"value":null,"action":"admin"}

@@ -1,6 +1,12 @@
-Set-Cookie: session=abc123; HttpOnly
-Set-Cookie: auth=xyz; SameSite=None
-Set-Cookie: token=xxx
-Set-Cookie: remember_me=1; SameSite=Lax
-document.cookie = 'session=evil'
-Set-Cookie: sid=test; SameSite=None; Secure=false
+Set-Cookie: session=abc123; SameSite=None
+Set-Cookie: session=abc123; SameSite=None; Secure
+Set-Cookie: session=abc123 (no SameSite)
+Set-Cookie: auth=token; SameSite=Lax
+Set-Cookie: csrf_token=xyz; SameSite=Strict
+Set-Cookie: remember_me=1; SameSite=None
+Set-Cookie: user_id=1; SameSite=None; Secure; HttpOnly
+POST /api/action (cross-origin with SameSite=None cookie)
+GET /profile?action=delete (CSRF via SameSite=Lax GET)
+<img src="https://target.com/api/change-email?email=attacker@evil.com">
+<form action="https://target.com/api/transfer" method="POST">
+fetch('https://target.com/api/admin', {credentials:'include'})

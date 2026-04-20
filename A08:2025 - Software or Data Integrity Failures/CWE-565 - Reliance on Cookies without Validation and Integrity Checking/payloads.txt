@@ -1,4 +1,10 @@
-Cookie: role=admin (no signature)
-Cookie: is_premium=true (no HMAC)
-Cookie: user_id=1 → change to user_id=2
-Cookie: cart_total=100 → change to cart_total=1
+Cookie: user_id=1
+Cookie: user_id=0
+Cookie: is_admin=true
+Cookie: role=admin
+Cookie: auth_level=99
+Cookie: username=admin
+Cookie: session=forged_session
+Cookie: remember_token=arbitrary_value
+Cookie: cart_total=0
+Cookie: discount=100

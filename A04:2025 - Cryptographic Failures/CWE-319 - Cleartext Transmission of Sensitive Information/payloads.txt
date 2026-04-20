@@ -1,5 +1,12 @@
-http://target.com/login (plaintext login)
-POST /api/auth HTTP/1.0 (cleartext)
-ftp://target.com (plaintext FTP)
-telnet target.com 23
-smtp://mail.target.com:25 (no STARTTLS)
+http://target.com/login
+http://target.com/api/auth
+http://target.com/api/token
+http://target.com/api/password
+http://target.com/checkout
+http://target.com/payment
+ftp://target.com
+telnet://target.com:23
+http://target.com/api/user (with credentials)
+POST http://target.com/login {"user":"admin","pass":"secret"}
+GET http://target.com/api/key?token=abc123
+Upgrade-Insecure-Requests: 0

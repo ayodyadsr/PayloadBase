@@ -1,7 +1,14 @@
-/internal/api/
-/private/files/
-X-Internal: true
-X-Secret-Header: bypass
-/api/internal/config
-GET /admin/export HTTP/1.1
-Host: localhost
+GET /api/internal/health
+GET /api/private/config
+GET /internal/metrics
+GET /api/system/info
+GET /.well-known/security.txt
+GET /crossdomain.xml
+GET /clientaccesspolicy.xml
+GET /.htaccess
+GET /web.config
+GET /robots.txt
+GET /sitemap.xml
+Host: internal.service
+X-Forwarded-Host: internal.service
+X-Original-URL: /internal/admin

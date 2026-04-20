@@ -1,5 +1,10 @@
-CORS: Origin: https://attacker.com
-Access-Control-Allow-Origin: * (sensitive API)
-Content-Security-Policy: default-src *
-GET /api/private HTTP/1.1
-Origin: null
+GET /api/user/1 (CORS allows all origins)
+Origin: https://evil.com
+Access-Control-Request-Headers: Authorization
+OPTIONS /api/sensitive
+GET /api/reports (no auth + permissive CORS)
+GET /api/keys (CORS + no HTTPS enforcement)
+GET /api/tokens?format=json
+Access-Control-Allow-Origin: *
+GET /crossdomain.xml
+GET /clientaccesspolicy.xml

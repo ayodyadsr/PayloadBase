@@ -1,4 +1,14 @@
-GET /nonexistent_xyz HTTP/1.1 (check default error page)
-GET /api/../../../etc/passwd HTTP/1.1 (check error verbosity)
-GET /' HTTP/1.1 (SQL error page?)
-server version/path disclosure in 404/500
+GET /nonexistent_page_xyz
+GET /api/undefined-route-xyz
+GET /api/'
+GET /api/item?id='
+GET /api/test/../../../etc
+GET /api/item/abc
+DELETE /api/locked
+POST /api/parse {"invalid":"json
+GET /api/item/9999999999
+GET /api/null
+GET /api/undefined
+GET /.well-known/undefined
+GET /api/v999/resource
+GET /api/trigger-500

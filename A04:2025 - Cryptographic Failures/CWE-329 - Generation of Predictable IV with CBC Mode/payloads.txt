@@ -1,4 +1,10 @@
-IV = last ciphertext block (TLS 1.0 BEAST)
-IV = 0x00000000000000000000000000000000
-IV = random() seeded with time()
-IV = sequential counter
+{"iv":"00000000000000000000000000000000"}
+{"iv":"AAAAAAAAAAAAAAAAAAAAAA=="}
+{"iv":"AAAAAAAAAAAAAAAA"}
+{"iv":"1234567890123456"}
+{"iv":"0000000000000000"}
+{"iv":"ffffffffffffffffffffffffffffffff"}
+{"counter":0}
+{"nonce":"000000000000"}
+{"nonce":"AAAAAAAAAAAA"}
+POST /api/encrypt (observe if IV is incremental/predictable)

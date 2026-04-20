@@ -1,3 +1,8 @@
-DHE with anonymous DH (ADH)
-ECDH-anon cipher suite
-openssl s_client -cipher 'aNULL' -connect target:443
+GET /api/exchange?dh_params=small_prime
+POST /api/handshake {"dh_group":"1"}
+POST /api/kex {"algorithm":"diffie-hellman-group1-sha1"}
+POST /api/tls {"cipher":"DHE_EXPORT"}
+{"key_exchange":"anonymous_dh"}
+{"kex":"ecdh_anon"}
+Cipher: ADH-AES256-SHA
+Cipher: AECDH-AES256-SHA

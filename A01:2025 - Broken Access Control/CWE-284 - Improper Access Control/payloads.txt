@@ -1,14 +1,19 @@
-GET /admin HTTP/1.1
-X-Original-URL: /admin
-X-Rewrite-URL: /admin
-X-Custom-IP-Authorization: 127.0.0.1
+GET /admin
+GET /admin/
+GET /admin/users
+GET /admin/config
+GET /admin/logs
+GET /api/admin
+GET /api/admin/users
+GET /management
+GET /superadmin
+GET /root
+GET /api/v1/admin
+GET /dashboard/admin
+POST /api/admin/reset-password
+DELETE /api/users/1
+GET /api/internal
+GET /api/private
+X-Admin: true
+X-Role: admin
 X-Forwarded-For: 127.0.0.1
-/%2e%2e/admin
-/%2fadmin
-//admin
-/admin/.
-/admin//
-/ADMIN
-?admin=true
-?role=admin
-?debug=1

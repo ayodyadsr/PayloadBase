@@ -1,14 +1,15 @@
+' OR '1'='1
+"; DROP TABLE users; --
+<script>alert(1)</script>
+../../../etc/passwd
+${7*7}
+{{7*7}}
+; id
+| cat /etc/passwd
 %00
 %0a
-%0d
-%09
+%0d%0a
+\n\r
 \x00
-\n
-\r
-\t
-%2500
-%252e
-%u002e
-\0
-\'
-\"
+CRLF\r\n injection
+null byte: value\x00extension

