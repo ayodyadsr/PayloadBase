@@ -1,12 +1,85 @@
-/session
-/sessions
-/session/new
-/session/create
-/session/destroy
-/sessions/current
 /api/session
 /api/sessions
-/logout
-/signout
-/sign-out
-/sign_out
+/api/session/current
+/api/session/me
+/api/session/info
+/api/session/status
+/api/session/check
+/api/session/verify
+/api/session/validate
+/api/session/refresh
+/api/session/renew
+/api/session/extend
+/api/session/invalidate
+/api/session/destroy
+/api/session/delete
+/api/session/logout
+/api/session/end
+/api/session/terminate
+/api/sessions/all
+/api/sessions/list
+/api/sessions/active
+/api/sessions/recent
+/api/sessions/current
+/api/sessions/other
+/api/sessions/revoke
+/api/sessions/revoke-all
+/api/sessions/revoke-others
+/api/sessions/logout-all
+/api/sessions/logout-others
+/api/auth/session
+/api/auth/sessions
+/api/auth/session/current
+/api/auth/session/info
+/api/auth/session/status
+/api/auth/session/refresh
+/api/auth/session/logout
+/auth/session
+/auth/sessions
+/auth/session/current
+/auth/session/info
+/auth/session/status
+/auth/session/refresh
+/auth/session/logout
+/session
+/sessions
+/session/current
+/session/info
+/session/status
+/session/check
+/session/verify
+/session/refresh
+/session/logout
+/sessions/all
+/sessions/active
+/sessions/recent
+/sessions/revoke-all
+Cookie: PHPSESSID=attacked_session_id
+Cookie: session_id=attacked_session_id
+Cookie: sessionid=attacked_session_id
+Cookie: sessid=attacked_session_id
+Cookie: sess=attacked_session_id
+Cookie: SID=attacked_session_id
+Cookie: JSESSIONID=attacked_session_id
+Cookie: ASP.NET_SessionId=attacked_session_id
+Cookie: _session_id=attacked_session_id
+Cookie: __session=attacked_session_id
+Cookie: connect.sid=s%3Aattacked_session_id
+Cookie: laravel_session=attacked_session_id
+Cookie: ci_session=attacked_session_id
+Cookie: codeigniter_session=attacked_session_id
+Cookie: symfony=attacked_session_id
+Cookie: beaker.session.id=attacked_session_id
+Cookie: rack.session=attacked_session_id
+Cookie: django_session=attacked_session_id
+Cookie: session=attacked_session_id
+Cookie: auth_session=attacked_session_id
+Cookie: user_session=attacked_session_id
+Cookie: login_session=attacked_session_id
+Cookie: admin_session=attacked_session_id
+Cookie: remember_token=attacked_token
+Cookie: remember_me=attacked_token
+Cookie: stay_logged_in=attacked_token
+Cookie: persistent_session=attacked_token
+Cookie: long_term_session=attacked_token
+Cookie: keep_alive=attacked_token

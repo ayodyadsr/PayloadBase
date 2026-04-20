@@ -1,4 +1,20 @@
-{"query":"{ user(id: 1) { id email phone address } }"}
-{"query":"{ user(id: 2) { id email phone address } }"}
-{"query":"{ order(id: 1) { id items total card } }"}
-{"query":"{ invoice(id: \"550e8400-e29b-41d4-a716-446655440000\") { pdf url } }"}
+{"query":"{user(id:1){id username email role password}}"}
+{"query":"{user(id:2){id username email role password}}"}
+{"query":"{user(id:100){id username email role password}}"}
+{"query":"{users{id username email role password}}"}
+{"query":"{allUsers{id username email role}}"}
+{"query":"{order(id:1){id userId amount cardLast4 billingAddress}}"}
+{"query":"{order(id:2){id userId amount cardLast4 billingAddress}}"}
+{"query":"{orders{id userId amount cardLast4}}"}
+{"query":"{document(id:1){id ownerId content isPrivate}}"}
+{"query":"{document(id:2){id ownerId content isPrivate}}"}
+{"query":"{invoice(id:1){id userId amount bankAccount}}"}
+{"query":"{payment(id:1){id userId amount cardNumber cvv}}"}
+{"query":"{file(id:1){id ownerId name path content}}"}
+{"query":"{message(id:1){id senderId receiverId content}}"}
+{"query":"{apiKey(id:1){id userId key secret}}"}
+{"query":"{session(id:"SESSION_ID"){id userId token expiresAt}}"}
+{"query":"{profile(userId:1){id email phone ssn dateOfBirth}}"}
+{"query":"{profile(userId:2){id email phone ssn dateOfBirth}}"}
+{"query":"{adminData(id:1){id data}}"}
+{"query":"{privateNote(id:1){id userId content}}"}

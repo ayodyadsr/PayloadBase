@@ -1,14 +1,113 @@
+X-API-Key: test
+X-API-Key: demo
+X-API-Key: 1234567890
+X-API-Key: aaaaaaaaaaaaaaaa
+X-API-Key: 0000000000000000
+X-API-Key: changeme
+X-API-Key: secret
+X-API-Key: password
+X-API-Key: default
+X-API-Key: admin
+X-API-Key: invalid
+X-API-Key: null
+X-API-Key: undefined
+X-API-Key: 
 X-Api-Key: test
 X-Api-Key: demo
 X-Api-Key: 1234567890
 X-Api-Key: aaaaaaaaaaaaaaaa
-X-Api-Key: 0000000000000000
 X-Api-Key: changeme
 X-Api-Key: secret
+X-Api-Key: password
 Authorization: ApiKey test
 Authorization: ApiKey demo
+Authorization: ApiKey changeme
+Authorization: ApiKey secret
+Authorization: ApiKey invalid
+Authorization: ApiKey null
+Authorization: ApiKey 
+Authorization: Bearer invalid_token
+Authorization: Bearer null
+Authorization: Bearer undefined
+Authorization: Bearer expired
+Authorization: Bearer revoked
+Authorization: Bearer test
+Authorization: Bearer demo
+Authorization: Bearer changeme
+Authorization: Bearer secret
+Authorization: Bearer 
+Authorization: Token test
+Authorization: Token demo
+Authorization: Token changeme
+Authorization: Token secret
+Authorization: Token invalid
+Authorization: Token null
+Authorization: Token 
+Authorization: Basic dXNlcjpwYXNzd29yZA==
+Authorization: Basic YWRtaW46YWRtaW4=
+Authorization: Basic cm9vdDp0b290
+Authorization: Basic dGVzdDp0ZXN0
+Authorization: Basic Z3Vlc3Q6Z3Vlc3Q=
+Authorization: Basic YWRtaW46cGFzc3dvcmQ=
+Authorization: Basic YWRtaW46MTIzNDU2
+Authorization: Basic YWRtaW46YWRtaW4xMjM=
 api_key=test
-api_key=1234
+api_key=demo
+api_key=1234567890
+api_key=changeme
+api_key=secret
+api_key=invalid
+api_key=null
+api_key=
+apikey=test
+apikey=demo
 apikey=changeme
-token=test
+apikey=secret
+apiKey=test
+apiKey=demo
+apiKey=changeme
+apiKey=secret
+key=test
+key=demo
 key=1234567890
+key=changeme
+key=secret
+token=test
+token=demo
+token=1234567890
+token=changeme
+token=secret
+access_token=test
+access_token=demo
+access_token=1234567890
+access_token=changeme
+access_token=secret
+?api_key=test
+?api_key=demo
+?api_key=changeme
+?api_key=secret
+?key=test
+?key=demo
+?key=changeme
+?token=test
+?token=demo
+?token=changeme
+?access_token=test
+?access_token=demo
+?access_token=changeme
+Rotate-Key-Test: true
+X-Custom-Auth: test
+X-Service-Key: test
+X-Service-Secret: test
+X-Internal-Key: test
+X-Internal-Secret: test
+X-System-Key: test
+X-System-Secret: test
+X-Master-Key: test
+X-Root-Key: test
+X-Admin-Key: test
+X-Admin-Secret: test
+X-Super-Key: test
+X-Debug-Key: test
+X-Test-Key: test
+X-Dev-Key: test

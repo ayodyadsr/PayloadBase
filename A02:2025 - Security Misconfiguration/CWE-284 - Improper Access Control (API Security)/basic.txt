@@ -1,2 +1,103 @@
-{"admin":true}
-{"role":"admin"}
+GET /api/v1/ (no auth)
+GET /api/v2/ (no auth)
+GET /api/v3/ (no auth)
+GET /api/v4/ (no auth)
+GET /api/ (no auth)
+GET /api/docs
+GET /api/swagger
+GET /api/openapi
+GET /api/schema
+GET /v1/ (no auth)
+GET /v2/ (no auth)
+GET /v3/ (no auth)
+GET /v1/health
+GET /v2/health
+GET /v3/health
+GET /v1/status
+GET /v2/status
+GET /v1/info
+GET /v2/info
+GET /v1/version
+GET /v2/version
+GET /v1/ping
+GET /v2/ping
+GET /v1/users (unauthenticated)
+GET /v2/users (unauthenticated)
+GET /v1/admin (unauthenticated)
+GET /v2/admin (unauthenticated)
+GET /v1/config (unauthenticated)
+GET /v2/config (unauthenticated)
+GET /v1/settings (unauthenticated)
+GET /v2/settings (unauthenticated)
+GET /v1/secrets (unauthenticated)
+GET /v2/secrets (unauthenticated)
+GET /v1/keys (unauthenticated)
+GET /v2/keys (unauthenticated)
+GET /v1/tokens (unauthenticated)
+GET /v2/tokens (unauthenticated)
+GET /v1/export (unauthenticated)
+GET /v2/export (unauthenticated)
+GET /v1/download (unauthenticated)
+GET /v2/download (unauthenticated)
+GET /v1/reports (unauthenticated)
+GET /v2/reports (unauthenticated)
+GET /v1/logs (unauthenticated)
+GET /v2/logs (unauthenticated)
+GET /v1/audit (unauthenticated)
+GET /v2/audit (unauthenticated)
+GET /v1/metrics (unauthenticated)
+GET /v2/metrics (unauthenticated)
+GET /v1/analytics (unauthenticated)
+GET /v2/analytics (unauthenticated)
+GET /v1/backup (unauthenticated)
+GET /v2/backup (unauthenticated)
+GET /v1/restore (unauthenticated)
+GET /v2/restore (unauthenticated)
+GET /v1/reset (unauthenticated)
+GET /v2/reset (unauthenticated)
+GET /v1/delete (unauthenticated)
+GET /v2/delete (unauthenticated)
+GET /v1/create (unauthenticated)
+GET /v2/create (unauthenticated)
+GET /v1/update (unauthenticated)
+GET /v2/update (unauthenticated)
+GET /v1/import (unauthenticated)
+GET /v2/import (unauthenticated)
+GET /v1/deploy (unauthenticated)
+GET /v2/deploy (unauthenticated)
+GET /v1/debug (unauthenticated)
+GET /v2/debug (unauthenticated)
+GET /v1/test (unauthenticated)
+GET /v2/test (unauthenticated)
+GET /v1/dev (unauthenticated)
+GET /v2/dev (unauthenticated)
+GET /v1/internal (unauthenticated)
+GET /v2/internal (unauthenticated)
+GET /v1/private (unauthenticated)
+GET /v2/private (unauthenticated)
+GET /v1/protected (unauthenticated)
+GET /v2/protected (unauthenticated)
+GET /v1/restricted (unauthenticated)
+GET /v2/restricted (unauthenticated)
+GET /v1/secure (unauthenticated)
+GET /v2/secure (unauthenticated)
+GET /v1/secret (unauthenticated)
+GET /v2/secret (unauthenticated)
+GET /v1/confidential (unauthenticated)
+GET /v2/confidential (unauthenticated)
+GET /v1/sensitive (unauthenticated)
+GET /v2/sensitive (unauthenticated)
+GET /v0/ (old deprecated version)
+GET /v0/users
+GET /v0/admin
+GET /v10/ (future/undocumented version)
+GET /api/v0/users
+GET /api/v0/admin
+GET /api/legacy/users
+GET /api/legacy/admin
+GET /api/old/users
+GET /api/old/admin
+GET /api/mobile/users
+GET /api/mobile/admin
+GET /api/internal/users
+GET /api/internal/admin

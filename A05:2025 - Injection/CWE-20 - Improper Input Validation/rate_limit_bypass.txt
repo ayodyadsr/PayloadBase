@@ -1,5 +1,49 @@
-[
-  {"query":"{ user(id: 1) { id email } }"},
-  {"query":"{ user(id: 2) { id email } }"},
-  {"query":"{ user(id: 3) { id email } }"}
-]
+X-Forwarded-For: 127.0.0.1
+X-Forwarded-For: 1.2.3.4
+X-Forwarded-For: 1.1.1.1, 2.2.2.2
+X-Real-IP: 127.0.0.1
+X-Real-IP: 1.2.3.4
+X-Originating-IP: 127.0.0.1
+X-Remote-Addr: 127.0.0.1
+X-Client-IP: 127.0.0.1
+X-Remote-IP: 127.0.0.1
+X-Host: localhost
+X-Cluster-Client-IP: 127.0.0.1
+True-Client-IP: 127.0.0.1
+CF-Connecting-IP: 127.0.0.1
+Fastly-Client-IP: 127.0.0.1
+X-Forwarded: 127.0.0.1
+Forwarded-For: 127.0.0.1
+X-ProxyUser-Ip: 127.0.0.1
+X-Original-Remote-Addr: 127.0.0.1
+Client-IP: 127.0.0.1
+X-CustomIP: 127.0.0.1
+{"query":"mutation{login(username:"admin",password:"password"){token}}","variables":{"ip":"127.0.0.1"}}
+{"query":"mutation{login(username:"admin",password:"password"){token}}","extensions":{"ip":"127.0.0.1"}}
+{"query":"[{"query":"mutation{login(username:\"admin\",password:\"pass1\"){token}}"},{"query":"mutation{login(username:\"admin\",password:\"pass2\"){token}}"}]"}
+null
+undefined
+1.0.0.1
+2.0.0.1
+3.0.0.1
+4.0.0.1
+5.0.0.1
+10.0.0.1
+10.0.0.2
+10.0.0.3
+10.0.0.4
+10.0.0.5
+192.168.1.1
+192.168.1.2
+192.168.1.3
+192.168.0.1
+172.16.0.1
+172.16.0.2
+169.254.169.254
+100.64.0.1
+::1
+::ffff:127.0.0.1
+::ffff:0.0.0.0
+fe80::1
+fc00::1
+fd00::1

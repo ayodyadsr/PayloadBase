@@ -3,17 +3,127 @@ GET /admin/
 GET /admin/users
 GET /admin/config
 GET /admin/logs
+GET /admin/settings
+GET /admin/reports
+GET /admin/dashboard
+GET /admin/panel
+GET /admin/console
+GET /admin/reset
+GET /admin/export
+GET /admin/import
+GET /admin/backup
+GET /admin/restore
+GET /admin/delete
+GET /admin/create
+GET /admin/update
+GET /admin/manage
+GET /admin/monitor
 GET /api/admin
 GET /api/admin/users
+GET /api/admin/config
+GET /api/admin/logs
+GET /api/admin/settings
+GET /api/admin/reports
+GET /api/admin/dashboard
+GET /api/admin/panel
+GET /api/admin/console
+GET /api/admin/reset
+GET /api/admin/export
+GET /api/admin/import
+GET /api/admin/backup
+GET /api/admin/restore
+GET /api/admin/delete
+GET /api/admin/create
+GET /api/admin/update
+GET /api/admin/manage
+GET /api/admin/monitor
 GET /management
+GET /manage
 GET /superadmin
 GET /root
 GET /api/v1/admin
+GET /api/v2/admin
+GET /v1/admin
+GET /v2/admin
 GET /dashboard/admin
+GET /console/admin
+GET /control
+GET /controlpanel
+GET /cpanel
+GET /wp-admin/
+GET /wp-admin/admin-ajax.php
+GET /wp-admin/admin.php
+GET /wp-login.php
+GET /administrator
+GET /administrator/
+GET /admin123
+GET /admin_panel
+GET /admin-panel
+GET /backend
+GET /backend/admin
+GET /internal
+GET /private
+GET /secret
+GET /restricted
+GET /protected
+GET /staff
+GET /moderator
+GET /manager
+GET /supervisor
+GET /operator
 POST /api/admin/reset-password
 DELETE /api/users/1
+DELETE /api/users/2
 GET /api/internal
 GET /api/private
+GET /api/sensitive
+GET /api/confidential
+GET /api/restricted
+GET /api/protected
+GET /api/staff
+GET /api/moderator
+GET /api/manager
+GET /api/supervisor
+GET /api/operator
+GET /api/superuser
+GET /api/root
+GET /api/system
+GET /api/debug
+GET /api/test
+GET /api/dev
+GET /api/staging
 X-Admin: true
 X-Role: admin
+X-User-Role: admin
 X-Forwarded-For: 127.0.0.1
+X-Real-IP: 127.0.0.1
+X-Originating-IP: 127.0.0.1
+X-Remote-User: admin
+X-Internal: true
+X-Bypass: true
+Authorization: Bearer admin_token
+Authorization: Admin admin_token
+X-Auth: admin
+Cookie: role=admin
+Cookie: is_admin=1
+Cookie: admin=true
+Cookie: admin_session=valid
+Cookie: auth_level=99
+Cookie: access=admin
+Cookie: privilege=superuser
+?admin=1
+?role=admin
+?is_admin=1
+?bypass=1
+?internal=1
+?debug=1
+?dev=1
+?sudo=1
+?override=1
+?grant=admin
+?privilege=admin
+?access=admin
+?level=99
+?tier=admin
+?group=administrators
+?permission=superuser

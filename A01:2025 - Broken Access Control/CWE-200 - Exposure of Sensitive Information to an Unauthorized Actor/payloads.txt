@@ -1,5 +1,6 @@
 GET /api/users
 GET /api/users/1
+GET /api/users/2
 GET /api/admin/logs
 GET /api/internal/config
 GET /api/reports
@@ -18,3 +19,98 @@ X-Show-Details: 1
 ?verbose=1
 ?debug=true
 ?format=json&include=all
+GET /api/admin/users
+GET /api/admin/settings
+GET /api/admin/reports
+GET /api/config
+GET /api/settings
+GET /api/diagnostics
+GET /api/system/info
+GET /api/version
+GET /api/build
+GET /api/env
+GET /actuator/env
+GET /actuator/info
+GET /actuator/metrics
+GET /actuator/configprops
+GET /actuator/beans
+GET /actuator/mappings
+GET /actuator/heapdump
+GET /actuator/threaddump
+GET /.git/config
+GET /.env
+GET /server-status
+GET /server-info
+GET /phpinfo.php
+GET /info.php
+GET /?phpinfo=1
+GET /api/debug
+GET /api/test
+GET /api/internal
+GET /api/private
+GET /console
+GET /debug
+GET /trace
+GET /error
+GET /api/error
+GET /api/stacktrace
+GET /api/logs
+GET /api/admin/logs
+GET /api/audit-log
+GET /api/activity
+GET /api/history
+GET /api/events
+GET /api/webhook/logs
+GET /api/requests
+GET /api/traffic
+GET /api/monitoring
+GET /api/stats
+GET /api/analytics
+GET /api/telemetry
+GET /api/profiler
+GET /api/tracing
+GET /api/performance
+GET /api/health
+GET /api/ping
+GET /api/ready
+GET /api/live
+GET /api/database/info
+GET /api/cache/info
+GET /api/queue/info
+GET /api/redis/info
+GET /api/memcache/info
+GET /api/elasticsearch/info
+GET /api/kafka/info
+GET /api/rabbitmq/info
+GET /api/storage/info
+GET /api/s3/info
+?trace=1
+?log=1
+?debug=1
+?test=1
+?dev=1
+?internal=1
+?admin=1
+?show_sql=1
+?explain=1
+?profile=1
+?benchmark=1
+?verbose=true
+?full=true
+?extended=true
+?raw=true
+?detailed=true
+?expand=true
+?include_metadata=true
+?include_debug=true
+?show_errors=true
+?expose=true
+?dump=true
+GET /api/users?format=csv
+GET /api/users?export=true
+GET /api/users?download=true
+GET /api/users?full=true
+GET /api/users?include=password_hash
+GET /api/users?fields=email,phone,ssn
+GET /api/users?expand=private
+GET /api/users?debug=1

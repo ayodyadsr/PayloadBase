@@ -1,13 +1,65 @@
-;whoami
-|whoami
-||whoami
-&&whoami
-&whoami
-`whoami`
-$(whoami)
-;dir
-;ipconfig
-;type C:\Windows\win.ini
-;net user
-;net localgroup administrators
-;systeminfo
+& dir C:\
+& dir C:\Windows
+& dir C:\inetpub
+& dir C:\Users
+& type C:\Windows\win.ini
+& type C:\boot.ini
+& ipconfig
+& ipconfig /all
+& whoami
+& hostname
+& ver
+& systeminfo
+& net user
+& net localgroup administrators
+& tasklist
+& netstat -an
+& echo %USERNAME%
+& echo %COMPUTERNAME%
+& echo %SYSTEMDRIVE%
+& echo %SystemRoot%
+& echo %TEMP%
+& echo %APPDATA%
+& echo %PATH%
+& echo %USERPROFILE%
+& set
+& env
+& reg query HKCU
+& reg query HKLM
+& wmic os get name
+& wmic computersystem get name
+& wmic useraccount get name
+& wmic process list brief
+& schtasks /query
+& at
+& sc query
+& netsh firewall show state
+& arp -a
+& route print
+& nslookup localhost
+& ping -n 1 localhost
+& tracert 127.0.0.1
+& net share
+& net session
+& net statistics server
+& net view
+& dir /q C:\
+& dir /a C:\Windows\System32
+& findstr /si password C:\inetpub\wwwroot
+& attrib C:\Windows\win.ini
+& cacls C:\Windows\system32
+& icacls C:\Windows\system32
+& cmd /c whoami
+& cmd /c dir C:\
+& powershell whoami
+& powershell dir
+& powershell Get-Process
+& powershell Get-LocalUser
+& powershell Get-Content C:\Windows\win.ini
+%26 whoami
+%7c whoami
+%26%26 whoami
+| dir
+|| dir
+&dir
+|dir

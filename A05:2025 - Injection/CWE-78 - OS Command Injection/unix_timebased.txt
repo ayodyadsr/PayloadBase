@@ -1,7 +1,72 @@
-;sleep 5
-&&sleep 5
-||sleep 5
+; sleep 5
+| sleep 5
 `sleep 5`
 $(sleep 5)
-;sleep 5;
-%0asleep 5
+&& sleep 5
+|| sleep 5
+; sleep 10
+| sleep 10
+; sleep 30
+; ping -c 5 127.0.0.1
+| ping -c 5 127.0.0.1
+`ping -c 5 127.0.0.1`
+$(ping -c 5 127.0.0.1)
+; ping -c 10 127.0.0.1
+; ping -c 15 127.0.0.1
+; sleep 5 &
+; sleep 5 #
+; sleep 5; echo done
+; sleep 5 && echo done
+; sleep 5 || echo done
+;sleep${IFS}5
+;sleep$IFS$9$5
+; /bin/sleep 5
+| /bin/sleep 5
+; /usr/bin/sleep 5
+$(sleep 5 && echo test)
+;${IFS}sleep${IFS}5
+; python3 -c 'import time; time.sleep(5)'
+; perl -e 'sleep(5)'
+; php -r 'sleep(5);'
+; ruby -e 'sleep 5'
+; node -e 'setTimeout(function(){},5000)'
+; java -jar /dev/null 2>/dev/null; sleep 5
+; bash -c 'sleep 5'
+; sh -c 'sleep 5'
+; /bin/bash -c 'sleep 5'
+; /bin/sh -c 'sleep 5'
+;sleep 5;a=
+;sleep 5;x=
+;sleep 5;ls
+;sleep 5;id
+%0asleep%205
+%0a/bin/sleep%205
+
+sleep
+5
+;sleep${IFS}5;
+&sleep 5
+^sleep 5
+;$(sleep 5)
+;`sleep 5`
+|$(sleep 5)
+|`sleep 5`
+; usleep 5000000
+; nanosleep 5 0 2>/dev/null
+; timeout 5 cat /dev/null
+; wait 5
+; sleep 5 && ls
+; sleep 5 || ls
+; sleep 5; ls
+;a=sl;b=eep;$a$b 5
+;s\leep 5
+;sl''eep 5
+;slee'p 5
+;/???/sl??p 5
+;/bin/sl?ep 5
+;/usr/bin/sl?ep 5
+;*sleep* 5
+;\sleep 5
+;a=sle;b=ep;c=5;$a$b $c
+;{sleep,5}
+;sleep${HOME%%[!0]*}5

