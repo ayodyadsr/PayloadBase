@@ -1,0 +1,5 @@
+admin\nGET /admin HTTP/1.1 200
+user\r\nFake-Log-Entry: injected
+%0aGET /fake HTTP/1.1 200 0
+username=test%0a%0d[2024-01-01] ADMIN LOGIN SUCCESS
+input=\n[ERROR] Authentication bypassed

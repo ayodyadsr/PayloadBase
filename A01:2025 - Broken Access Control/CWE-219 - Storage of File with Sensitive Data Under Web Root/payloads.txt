@@ -1,0 +1,15 @@
+/.env
+/config.php
+/database.yml
+/wp-config.php
+/configuration.php
+/config.inc.php
+/.htpasswd
+/web.config
+/appsettings.json
+/secrets.json
+/credentials.xml
+/settings.py
+/db.sqlite3
+/app.db
+/local_settings.py

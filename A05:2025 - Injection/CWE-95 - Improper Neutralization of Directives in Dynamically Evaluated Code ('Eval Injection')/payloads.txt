@@ -1,0 +1,7 @@
+1+1
+1; system('id')
+__import__('os').system('id')
+require('child_process').execSync('id')
+Process.run('id')
+eval('id')
+exec('import os; os.system("id")')

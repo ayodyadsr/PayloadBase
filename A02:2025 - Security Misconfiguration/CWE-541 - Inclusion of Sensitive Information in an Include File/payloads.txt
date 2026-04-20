@@ -1,0 +1,6 @@
+/includes/config.php
+/inc/database.php
+/lib/settings.php
+/_inc/global.php
+/includes/constants.php
+/common/config.inc

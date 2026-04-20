@@ -1,0 +1,4 @@
+Origin: https://evil.com
+Host: evil.com (Host header injection)
+X-Forwarded-Host: evil.com
+X-Host: evil.com

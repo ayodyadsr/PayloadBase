@@ -1,0 +1,9 @@
+find / -perm -o+w -type f 2>/dev/null
+find / -perm -004 -type f -name '*.conf' 2>/dev/null
+find /var/www -perm 777 2>/dev/null
+find /etc -perm -o+r -name '*.key' 2>/dev/null
+find / -perm -2 -not -type l 2>/dev/null
+stat /etc/shadow
+stat ~/.ssh/id_rsa
+ls -la /etc/cron.d/
+ls -la /var/log/

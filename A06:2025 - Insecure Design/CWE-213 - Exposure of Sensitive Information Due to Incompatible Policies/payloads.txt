@@ -1,0 +1,5 @@
+CORS: Origin: https://attacker.com
+Access-Control-Allow-Origin: * (sensitive API)
+Content-Security-Policy: default-src *
+GET /api/private HTTP/1.1
+Origin: null

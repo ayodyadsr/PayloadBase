@@ -1,0 +1,4 @@
+GET /api/user/ HTTP/1.1 (empty ID)
+POST /api/process {} (missing required fields)
+GET /api/order?id= HTTP/1.1
+?callback= (empty callback)

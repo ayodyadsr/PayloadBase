@@ -1,0 +1,8 @@
+/etc/mysql/my.cnf
+/etc/postgresql/pg_hba.conf
+/.env
+/config/database.yml
+/WEB-INF/web.xml
+/config/settings.ini
+grep -r 'password' /etc/ 2>/dev/null
+/etc/ldap/ldap.conf

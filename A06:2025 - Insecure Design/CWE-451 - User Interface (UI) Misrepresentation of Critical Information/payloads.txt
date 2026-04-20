@@ -1,0 +1,3 @@
+Content-Type: text/html (misleading)
+fake padlock icon in HTML
+data:text/html,<title>https://bank.com - Secure</title>

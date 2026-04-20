@@ -1,0 +1,5 @@
+Origin: https://evil.com
+Origin: null
+Origin: https://target.com.evil.com
+Origin: https://evil.com.target.com
+Origin: https://eviltarget.com

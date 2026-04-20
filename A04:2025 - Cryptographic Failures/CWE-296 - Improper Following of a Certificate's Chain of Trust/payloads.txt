@@ -1,0 +1,4 @@
+openssl s_client -connect target:443 -verify 0
+curl -k https://target.com
+requests.get(url, verify=False)
+--insecure flag in curl

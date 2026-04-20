@@ -1,0 +1,5 @@
+Unsigned software update
+HTTP (not HTTPS) package download
+Unverified webhook payload
+JWT without signature verification: alg=none
+Unsigned cookie: role=admin

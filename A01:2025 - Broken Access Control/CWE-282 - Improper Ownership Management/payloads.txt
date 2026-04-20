@@ -1,0 +1,6 @@
+find / -uid 0 -perm -4000 2>/dev/null
+find / -gid 0 -perm -2000 2>/dev/null
+chown www-data:www-data /etc/passwd
+chown -R nobody /root/.ssh
+find / -nouser 2>/dev/null
+find / -nogroup 2>/dev/null

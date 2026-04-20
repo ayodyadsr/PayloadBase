@@ -1,0 +1,4 @@
+Old session token after logout → still valid
+JWT with exp=9999999999 (year 2286)
+Cookie: session=old_token_after_password_change
+Reuse session after account deletion

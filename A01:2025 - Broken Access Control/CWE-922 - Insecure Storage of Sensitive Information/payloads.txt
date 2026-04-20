@@ -1,0 +1,7 @@
+localStorage.getItem('token')
+sessionStorage.getItem('password')
+document.cookie
+/var/www/html/user_data.txt
+/tmp/session_XXXX
+/var/log/app.log (plaintext passwords in logs)
+~/.bash_history (plaintext commands with credentials)

@@ -1,0 +1,12 @@
+/.git/config
+/.git/HEAD
+/.svn/wc.db
+/source.zip
+/app.tar.gz
+/backup.zip
+/src/config.php
+/includes/database.php
+/.git/COMMIT_EDITMSG
+/.gitignore
+/Gruntfile.js
+/webpack.config.js

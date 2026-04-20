@@ -1,0 +1,4 @@
+GET /nonexistent_xyz HTTP/1.1 (check default error page)
+GET /api/../../../etc/passwd HTTP/1.1 (check error verbosity)
+GET /' HTTP/1.1 (SQL error page?)
+server version/path disclosure in 404/500

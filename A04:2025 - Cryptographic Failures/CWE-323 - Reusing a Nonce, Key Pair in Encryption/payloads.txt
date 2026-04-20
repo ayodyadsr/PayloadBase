@@ -1,0 +1,4 @@
+IV=000000000000000000000000 (fixed IV)
+nonce=1 (static nonce in GCM)
+AES-CTR with reused nonce
+CBC with predictable IV from previous ciphertext

@@ -1,0 +1,5 @@
+/tmp/ (world-writable sticky-bit)
+mkstemp('/var/www/html/tmp/tmpXXXXXX')
+tmpfile() in web-accessible directory
+/var/www/tmp/
+/app/storage/tmp/

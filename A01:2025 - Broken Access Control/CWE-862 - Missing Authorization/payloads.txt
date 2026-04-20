@@ -1,0 +1,6 @@
+DELETE /api/user/1 (no Authorization header)
+PUT /api/admin/config {} (no token)
+GET /api/reports (no session cookie)
+POST /admin/create-user {"role":"admin"} (unauthenticated)
+PATCH /api/settings (no auth)
+GET /api/keys (no auth)

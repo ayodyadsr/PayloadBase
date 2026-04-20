@@ -1,0 +1,3 @@
+try { auth() } catch(e) { allow(); }
+if (verify_token() == false) { /* continue anyway */ }
+catch (Exception e) { isAuthenticated = true; }

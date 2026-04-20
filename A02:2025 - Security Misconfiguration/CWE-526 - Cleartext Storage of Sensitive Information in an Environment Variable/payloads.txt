@@ -1,0 +1,6 @@
+printenv
+/proc/self/environ
+GET /actuator/env HTTP/1.1
+/api/debug/env
+?debug=true (check response for env dump)
+GET /__env HTTP/1.1

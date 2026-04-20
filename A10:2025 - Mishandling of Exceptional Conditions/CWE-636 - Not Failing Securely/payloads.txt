@@ -1,0 +1,3 @@
+if (firewall.check() == ERROR) { allow(); }
+try { verify_signature() } catch(e) { proceed(); }
+if (!db.connect()) { skip_auth(); }

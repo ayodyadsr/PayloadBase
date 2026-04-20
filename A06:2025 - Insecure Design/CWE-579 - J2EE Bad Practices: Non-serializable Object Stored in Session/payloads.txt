@@ -1,0 +1,2 @@
+POST /api/session {"obj": "serialized_payload"}
+JSESSIONID=rO0ABXNyAA== (Java serialized in cookie)

@@ -1,0 +1,7 @@
+/internal/api/
+/private/files/
+X-Internal: true
+X-Secret-Header: bypass
+/api/internal/config
+GET /admin/export HTTP/1.1
+Host: localhost

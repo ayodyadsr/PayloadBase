@@ -1,0 +1,5 @@
+?param=value&param=evil
+user[role]=admin
+user%5Brole%5D=admin
+?id=1&id=2
+param[]=1&param[]=2

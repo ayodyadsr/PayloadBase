@@ -1,0 +1,5 @@
+AES_KEY = b'0000000000000000'
+SECRET_KEY = 'hardcoded_secret_key_123'
+HMAC_KEY = 'static_hmac_key'
+RSA_PRIVATE_KEY = '-----BEGIN RSA PRIVATE KEY-----...'
+jwt_secret = 'secret'

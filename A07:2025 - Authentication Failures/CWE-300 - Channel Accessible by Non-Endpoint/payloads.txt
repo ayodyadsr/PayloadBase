@@ -1,0 +1,3 @@
+ARP spoofing (intercept unencrypted channel)
+SSL stripping: HTTPS → HTTP downgrade
+BGP hijack simulation

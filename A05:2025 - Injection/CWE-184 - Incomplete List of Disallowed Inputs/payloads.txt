@@ -1,0 +1,7 @@
+<ScRiPt>alert(1)</ScRiPt>
+SELE/**/CT
+S%45LECT
+&#60;script&#62;
+\x3cscript\x3e
+%3Cscript%3E
+java&#115;cript:alert(1)

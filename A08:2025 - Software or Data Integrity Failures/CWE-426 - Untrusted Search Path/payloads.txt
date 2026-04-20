@@ -1,0 +1,5 @@
+PATH=. command (current dir in PATH)
+LD_PRELOAD=/tmp/evil.so ./app
+PYTHONPATH=/tmp/evil python app.py
+export PATH=/tmp:$PATH
+DLL hijacking: drop evil.dll in application directory

@@ -1,0 +1,3 @@
+GET /api/user/1/data (access user 2 data)
+POST /api/tenant/1/admin (cross-tenant access)
+GET /api/org/A/users (as org B member)

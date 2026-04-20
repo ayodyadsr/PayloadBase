@@ -1,0 +1,5 @@
+eval(JSON.parse(userInput))
+new Function(userInput)()
+vm.runInNewContext(userCode)
+exec(compile(user_code, '<string>', 'exec'))
+require('vm').Script(userInput).runInThisContext()

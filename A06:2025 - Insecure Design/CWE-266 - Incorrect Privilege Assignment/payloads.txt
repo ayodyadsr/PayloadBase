@@ -1,0 +1,4 @@
+chmod 777 /etc/app/config
+usermod -aG sudo www-data
+setuid bit on custom binary: chmod u+s /usr/local/bin/app
+find / -perm -4000 2>/dev/null

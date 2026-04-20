@@ -1,0 +1,6 @@
+GET /admin HTTP/1.1 (no auth)
+Cookie: auth=true
+X-Authenticated: yes
+Authorization: Bearer null
+Authorization: Bearer undefined
+Authorization: Bearer 0

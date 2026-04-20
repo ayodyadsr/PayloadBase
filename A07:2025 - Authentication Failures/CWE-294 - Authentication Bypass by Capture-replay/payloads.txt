@@ -1,0 +1,4 @@
+Replay captured JWT token
+Cookie: session=captured_session_token
+Authorization: Bearer <captured_token>
+Replay SAML assertion

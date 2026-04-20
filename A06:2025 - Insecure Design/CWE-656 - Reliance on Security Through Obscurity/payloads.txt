@@ -1,0 +1,5 @@
+/api/v1/secret_admin_panel
+/hidden-admin/
+?admin_key=12345
+/api/internal-only-endpoint
+X-Secret-Access: true

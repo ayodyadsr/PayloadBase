@@ -1,0 +1,4 @@
+Cookie: is_admin=false → true
+Cookie: account_type=free → premium
+Cookie: access_level=1 → 9
+Cookie: bypass_2fa=false → true

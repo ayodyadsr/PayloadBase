@@ -1,0 +1,4 @@
+Repeated failed logins (no alert triggered)
+SQL injection attempt (not logged)
+Directory traversal (not logged)
+Successful admin login from unknown IP (no alert)

@@ -1,0 +1,4 @@
+POST /forgot-password → token=000000 through 999999
+GET /reset?token=abc (short token)
+Security question: mother_maiden_name=Smith
+POST /api/recover {"dob":"1990-01-01"}

@@ -1,0 +1,3 @@
+GET /admin (check error handling when denied)
+DELETE /api/resource/1 (as guest)
+POST /api/admin/reset (as user)

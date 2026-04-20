@@ -1,0 +1,11 @@
+/phpinfo.php
+/info.php
+/test.php
+/server-status
+/server-info
+/nginx_status
+/.nginx.conf
+/adminer.php
+/phpmyadmin/
+/.htaccess
+/.htpasswd

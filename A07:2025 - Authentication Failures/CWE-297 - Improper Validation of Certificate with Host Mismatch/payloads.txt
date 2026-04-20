@@ -1,0 +1,3 @@
+openssl s_client -connect target:443 (check CN vs hostname)
+curl --resolve evil.com:443:IP https://evil.com
+SSL certificate CN=*.evil.com presented to app.target.com

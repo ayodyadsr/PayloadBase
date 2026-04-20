@@ -1,0 +1,5 @@
+cp /etc/shadow /tmp/
+chmod 777 /var/www/html/uploads/
+umask 0000
+install -m 0777 secret.conf /etc/app/
+tar -xf archive.tar --no-same-permissions

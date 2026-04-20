@@ -1,0 +1,8 @@
+GET /api/invoice?id=1
+GET /api/invoice?id=2
+GET /order?order_id=1001
+GET /order?order_id=1002
+id=1 AND user_id=2
+id=1 OR 1=1
+id=1 UNION SELECT * FROM users--
+record_id=99999

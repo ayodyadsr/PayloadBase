@@ -1,0 +1,4 @@
+POST /forgot-password {"email":"victim@example.com"}
+GET /reset?token=1234 (short numeric token brute force)
+POST /api/reset {"answer":"blue"} (predictable security question)
+?token=000000&token=000001 (sequential token brute force)

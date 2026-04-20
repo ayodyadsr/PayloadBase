@@ -1,0 +1,2 @@
+POST /api/user {"roles": ["admin","superuser"]}
+PUT /api/settings {"permissions": ["read","write","admin"]}

@@ -1,0 +1,5 @@
+eval(userInput)
+require(userControlledPath)
+import(userControlledModule)
+exec(userCode)
+__import__(user_module).run()

@@ -1,0 +1,4 @@
+GET /api/admin/users HTTP/1.1 (no auth required)
+POST /api/admin/reset-all HTTP/1.1 (no auth)
+DELETE /api/database HTTP/1.1 (no auth)
+/actuator/shutdown (Spring Boot no auth)

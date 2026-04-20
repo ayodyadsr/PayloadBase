@@ -1,0 +1,6 @@
+secret_key = 'changeme'
+password = 'admin123'
+api_key = 'hardcoded_key_12345'
+AES_KEY = b'0000000000000000'
+HMAC_SECRET = 'secret'
+salt = 'static_salt_value'

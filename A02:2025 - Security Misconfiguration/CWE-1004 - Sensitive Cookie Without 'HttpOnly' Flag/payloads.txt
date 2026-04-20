@@ -1,0 +1,4 @@
+Set-Cookie: session=abc123; Secure (missing HttpOnly)
+Set-Cookie: auth=token123; Path=/ (no HttpOnly)
+document.cookie (readable from JS if HttpOnly missing)
+Set-Cookie: user=admin (no flags at all)

@@ -1,0 +1,4 @@
+npm install without package-lock.json
+pip install without hashes
+download without checksum verification
+software update over HTTP

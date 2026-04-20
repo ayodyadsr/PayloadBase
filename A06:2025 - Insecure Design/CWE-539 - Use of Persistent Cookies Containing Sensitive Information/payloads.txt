@@ -1,0 +1,3 @@
+Set-Cookie: user_id=123; Expires=2030-01-01
+Set-Cookie: session=token123; Max-Age=2592000
+Set-Cookie: auth=eyJhbGci...; Persistent

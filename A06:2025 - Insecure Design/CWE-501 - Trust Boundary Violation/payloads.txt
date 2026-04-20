@@ -1,0 +1,4 @@
+POST /api/transfer (with user-supplied source account)
+GET /report?userId=1 (trust user-supplied ID)
+Cookie: is_admin=true
+X-User-Role: admin

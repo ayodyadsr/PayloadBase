@@ -1,0 +1,3 @@
+GET /api/user (returns 200 with empty body)
+DELETE /api/resource (returns 200 but resource persists)
+POST /api/order (returns 201 but order not created)

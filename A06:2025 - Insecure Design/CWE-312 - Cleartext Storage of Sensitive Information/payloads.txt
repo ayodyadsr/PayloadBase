@@ -1,0 +1,5 @@
+cat /etc/passwd
+cat /etc/shadow
+SELECT * FROM users WHERE email='test@test.com'
+cat ~/.bash_history
+/var/log/app.log (check for cleartext passwords)

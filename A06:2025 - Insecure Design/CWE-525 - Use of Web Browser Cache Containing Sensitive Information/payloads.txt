@@ -1,0 +1,4 @@
+Cache-Control: no-cache (missing on sensitive pages)
+Pragma: no-cache (missing)
+GET /account/statement HTTP/1.1 (check cache headers)
+GET /api/user/profile HTTP/1.1 (no cache-control)

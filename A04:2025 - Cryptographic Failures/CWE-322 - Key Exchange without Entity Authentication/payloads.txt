@@ -1,0 +1,3 @@
+DHE with anonymous DH (ADH)
+ECDH-anon cipher suite
+openssl s_client -cipher 'aNULL' -connect target:443

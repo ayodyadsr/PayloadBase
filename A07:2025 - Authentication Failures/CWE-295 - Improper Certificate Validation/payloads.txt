@@ -1,0 +1,5 @@
+openssl s_client -connect target:443 -verify 0
+curl -k https://target.com
+requests.get(url, verify=False)
+wget --no-check-certificate https://target.com
+ssl._create_unverified_context()

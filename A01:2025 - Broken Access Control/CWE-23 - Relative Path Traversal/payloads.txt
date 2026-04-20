@@ -1,0 +1,13 @@
+../config.php
+../../../config/database.yml
+./../../../../etc/shadow
+subdir/../../../etc/passwd
+data/../../../etc/hosts
+../wp-config.php
+../../.env
+../../../.git/config
+./../../etc/passwd
+subdir/../../secret.txt
+../../application.properties
+../../../boot.ini
+../conf/application.conf

@@ -1,0 +1,3 @@
+POST /api/user/password {"new_password":"hacked"} (no current password)
+PATCH /profile {"password":"evil"} (no confirmation)
+PUT /api/user/1 {"password":"new"} (as user 2)

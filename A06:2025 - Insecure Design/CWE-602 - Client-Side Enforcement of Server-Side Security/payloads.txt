@@ -1,0 +1,5 @@
+disabled=false (remove disabled attribute in HTML)
+hidden field: <input type='hidden' name='role' value='admin'>
+JavaScript validation bypass: intercept and modify request
+maxlength bypass via Burp
+price manipulation: change product price in POST body

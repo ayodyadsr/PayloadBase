@@ -1,0 +1,2 @@
+throws Exception (overly broad)
+public void authenticate() throws Exception

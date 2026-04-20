@@ -1,0 +1,13 @@
+MD5
+SHA1
+DES
+RC4
+RC2
+ECB mode
+NULL cipher
+export grade cipher
+anonymous DH
+SSL 2.0
+SSL 3.0
+TLS 1.0
+TLS 1.1

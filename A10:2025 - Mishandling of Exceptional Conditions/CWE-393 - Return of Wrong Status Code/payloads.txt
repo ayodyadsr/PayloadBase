@@ -1,0 +1,4 @@
+HTTP 200 on authentication failure
+HTTP 200 on authorization denial
+HTTP 200 on missing resource (should be 404)
+HTTP 500 instead of 400 for bad input

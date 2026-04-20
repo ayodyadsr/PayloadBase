@@ -1,0 +1,4 @@
+Failed login (check if logged)
+Privilege escalation attempt (check if logged)
+Access to sensitive file (check if logged)
+Multiple failed API calls (check for alerting)

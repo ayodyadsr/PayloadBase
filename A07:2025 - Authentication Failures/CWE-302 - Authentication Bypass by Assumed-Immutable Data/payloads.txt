@@ -1,0 +1,4 @@
+Cookie: is_admin=0 → change to is_admin=1
+hidden input: <input name='role' value='user'> → change to admin
+X-User-Role: user → X-User-Role: admin
+?user_type=regular → ?user_type=admin

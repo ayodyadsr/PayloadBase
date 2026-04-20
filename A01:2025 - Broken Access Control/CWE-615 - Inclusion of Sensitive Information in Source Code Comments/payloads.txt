@@ -1,0 +1,6 @@
+<!-- TODO: remove admin password: P@ssw0rd -->
+/* DEBUG: API_KEY = sk-live-xxxxx */
+// TODO: fix auth bypass for internal users
+<!-- admin backdoor: ?internal=1 -->
+<!-- DB_PASS=secret123 -->
+// FIXME: remove hardcoded token: Bearer eyJhbGci...

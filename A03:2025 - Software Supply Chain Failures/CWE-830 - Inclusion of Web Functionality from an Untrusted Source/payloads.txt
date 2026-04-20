@@ -1,0 +1,4 @@
+<iframe src="http://evil.com/frame"></iframe>
+<script src="//evil.com/tracker.js"></script>
+<link rel="stylesheet" href="http://attacker.com/style.css">
+<img src="http://evil.com/pixel.gif">

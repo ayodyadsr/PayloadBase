@@ -1,0 +1,5 @@
+GET /nonexistent_page_xyz HTTP/1.1
+GET /api/v1/../../../etc HTTP/1.1
+GET /' HTTP/1.1
+GET /index.php?id=' HTTP/1.1
+DELETE /api/user/99999 HTTP/1.1

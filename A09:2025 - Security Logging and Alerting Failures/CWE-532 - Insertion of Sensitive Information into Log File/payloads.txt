@@ -1,0 +1,4 @@
+GET /api/login?password=secret123 (check access logs)
+POST /api/pay with credit_card in body (check if logged)
+Error log: SQLSTATE[28000]: password=secret
+/var/log/app.log (grep for sensitive data)

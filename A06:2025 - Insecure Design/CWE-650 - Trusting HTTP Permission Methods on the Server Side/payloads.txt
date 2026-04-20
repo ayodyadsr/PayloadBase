@@ -1,0 +1,5 @@
+OPTIONS /api/admin HTTP/1.1
+TRACE /api/user HTTP/1.1
+PUT /api/resource/new HTTP/1.1
+DELETE /api/user/1 HTTP/1.1
+CONNECT /api HTTP/1.1

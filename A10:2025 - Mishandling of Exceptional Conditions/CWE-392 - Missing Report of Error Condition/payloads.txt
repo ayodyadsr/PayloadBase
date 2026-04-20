@@ -1,0 +1,3 @@
+POST /api/process (HTTP 200 even on failure)
+API returns {"success":true} regardless of outcome
+HTTP 200 with error in body: {"error":"auth failed"}

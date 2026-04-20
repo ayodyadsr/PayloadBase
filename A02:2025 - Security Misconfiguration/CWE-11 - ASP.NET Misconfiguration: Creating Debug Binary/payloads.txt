@@ -1,0 +1,4 @@
+GET /elmah.axd HTTP/1.1
+GET /trace.axd HTTP/1.1
+GET /ScriptResource.axd HTTP/1.1
+GET /WebResource.axd?d=... HTTP/1.1

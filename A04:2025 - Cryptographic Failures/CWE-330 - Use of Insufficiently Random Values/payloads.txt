@@ -1,0 +1,7 @@
+rand()
+random.random()
+Math.random()
+new Date().getTime() as seed
+srand(time(NULL))
+mt_rand()
+System.currentTimeMillis()

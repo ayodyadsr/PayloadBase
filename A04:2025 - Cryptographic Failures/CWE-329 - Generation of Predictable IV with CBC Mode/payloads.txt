@@ -1,0 +1,4 @@
+IV = last ciphertext block (TLS 1.0 BEAST)
+IV = 0x00000000000000000000000000000000
+IV = random() seeded with time()
+IV = sequential counter

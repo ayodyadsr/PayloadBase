@@ -1,0 +1,4 @@
+GET /elmah.axd HTTP/1.1
+GET /trace.axd HTTP/1.1
+WindowsIdentity.Impersonate()
+GET /app/impersonate?user=DOMAIN\admin HTTP/1.1

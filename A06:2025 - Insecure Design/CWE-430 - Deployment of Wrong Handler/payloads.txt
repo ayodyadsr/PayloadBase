@@ -1,0 +1,4 @@
+GET /cgi-bin/test.pl HTTP/1.1
+GET /api/action?handler=evil HTTP/1.1
+GET /.php.bak HTTP/1.1
+GET /config.php~ HTTP/1.1

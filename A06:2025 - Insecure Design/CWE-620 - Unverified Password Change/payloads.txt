@@ -1,0 +1,3 @@
+POST /api/user/password {"new_password":"hacked"}
+POST /account/change-password {"password":"newpass"} (no current password required)
+PATCH /api/profile {"password":"evil"}

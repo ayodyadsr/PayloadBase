@@ -1,0 +1,5 @@
+password = 'admin123'
+DB_PASSWORD = 'hardcoded_db_pass'
+API_SECRET = 'supersecret'
+admin_password = 'P@ssw0rd'
+secret_key = 'my_secret_key'

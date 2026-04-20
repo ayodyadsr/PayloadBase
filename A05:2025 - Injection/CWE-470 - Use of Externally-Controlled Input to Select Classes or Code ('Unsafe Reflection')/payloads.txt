@@ -1,0 +1,6 @@
+?class=java.lang.Runtime
+?type=com.evil.MaliciousClass
+?action=../../etc/passwd
+?handler=evil::method
+?controller=admin
+?plugin=../../../evil

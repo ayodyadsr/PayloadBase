@@ -1,0 +1,5 @@
+/api/v1/users (unauthenticated API path)
+/admin/login (alternate admin login)
+?internal=true
+X-Internal-Request: true
+/auth/bypass

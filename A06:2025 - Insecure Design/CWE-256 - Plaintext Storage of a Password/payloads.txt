@@ -1,0 +1,4 @@
+grep -r 'password' /var/www/ 2>/dev/null
+cat /etc/app/config.ini | grep pass
+SELECT password FROM users WHERE username='admin'
+cat ~/.bash_history | grep password

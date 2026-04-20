@@ -1,0 +1,4 @@
+telnet target 23
+ftp target 21
+http://target.com (no TLS)
+smtp://mail.target.com:25 (no STARTTLS)

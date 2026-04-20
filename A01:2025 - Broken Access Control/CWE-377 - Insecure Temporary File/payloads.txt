@@ -1,0 +1,7 @@
+/tmp/sess_XXXXXXXX
+/tmp/*.lock
+/tmp/phpXXXXXX
+race: open /tmp/tmpXXXXXX then replace with symlink
+/var/tmp/upload_XXXX
+/dev/shm/sensitive
+mktemp /tmp/test.XXXXXX

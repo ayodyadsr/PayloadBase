@@ -1,0 +1,5 @@
+Set-Cookie: user=admin
+Set-Cookie: role=superuser
+Set-Cookie: session=username:password
+Set-Cookie: auth=eyJ1c2VyIjoiYWRtaW4ifQ==
+document.cookie

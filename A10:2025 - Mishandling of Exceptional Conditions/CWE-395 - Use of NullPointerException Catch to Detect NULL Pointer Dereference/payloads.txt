@@ -1,0 +1,2 @@
+catch (NullPointerException e) { return false; }
+try { user.isAdmin() } catch(NullPointerException e) { grant(); }

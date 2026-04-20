@@ -1,0 +1,5 @@
+GET /api/user/1/profile
+GET /api/export/users.csv
+GET /api/search?q=email:*@corp.com
+GET /api/user?include=ssn,dob,address
+POST /graphql {"query": "{ users { email phone ssn } }"}

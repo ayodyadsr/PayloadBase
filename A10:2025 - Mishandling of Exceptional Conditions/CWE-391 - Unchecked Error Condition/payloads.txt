@@ -1,0 +1,3 @@
+file = open('/sensitive'); // no error check
+conn.execute(query)  # exception swallowed
+memcpy(dst, src, n); // no bounds check

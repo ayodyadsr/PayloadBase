@@ -1,0 +1,14 @@
+/proc/version
+/proc/cpuinfo
+/proc/meminfo
+/etc/issue
+/etc/os-release
+/actuator/info
+/actuator/metrics
+/actuator/env
+/server-status
+/server-info
+/?XDEBUG_SESSION_START=1
+/?phpinfo=1
+/diagnostics
+/_ah/admin

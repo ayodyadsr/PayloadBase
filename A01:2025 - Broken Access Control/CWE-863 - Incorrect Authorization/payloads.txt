@@ -1,0 +1,6 @@
+GET /api/user/1/orders (as user id=2)
+POST /api/transfer {"from":"victim","to":"attacker","amount":1000}
+DELETE /api/post/1 (as different author)
+PUT /api/user/1 {"role":"admin"} (as regular user)
+GET /api/admin/logs (as non-admin user)
+PATCH /api/user/1/email (as user id=2)

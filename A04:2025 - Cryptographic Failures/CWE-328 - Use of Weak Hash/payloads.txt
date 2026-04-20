@@ -1,0 +1,11 @@
+MD5
+SHA1
+CRC32
+Adler32
+MD4
+MD2
+RIPEMD-128
+LM hash
+NTLM v1
+md5(password)
+sha1(username+password)

@@ -1,0 +1,4 @@
+POST /api/register (skip email verification)
+POST /api/2fa/verify (skip 2FA step)
+GET /dashboard (skip password confirmation)
+Direct access to step 3 of multi-step auth flow

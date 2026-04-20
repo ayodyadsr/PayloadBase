@@ -1,0 +1,5 @@
+POST /api/login (no rate limit)
+POST /api/forgot-password (no rate limit)
+POST /api/otp/verify (no rate limit)
+GET /api/search?q=test (no rate limit)
+POST /api/register (no CAPTCHA)

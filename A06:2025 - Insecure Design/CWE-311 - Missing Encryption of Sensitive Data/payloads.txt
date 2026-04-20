@@ -1,0 +1,4 @@
+http:// (plaintext over HTTP)
+ftp:// (FTP instead of SFTP)
+SELECT * FROM users (passwords in plaintext column)
+INSERT INTO sessions VALUES ('user','plaintext_token')

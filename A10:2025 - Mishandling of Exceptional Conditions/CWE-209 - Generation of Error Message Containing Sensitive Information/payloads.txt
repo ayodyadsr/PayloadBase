@@ -1,0 +1,5 @@
+GET /api/user/ABC (force type error with stack trace)
+POST /api/login {"user":null} (null pointer in response)
+GET /api/query?id=' (SQL error reveals DB schema)
+GET /api/ with Accept: text/html (HTML stack trace)
+GET /nonexistent (full path disclosure in 404)

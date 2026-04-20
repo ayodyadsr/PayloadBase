@@ -1,0 +1,13 @@
+/.git/
+/.svn/
+/.hg/
+/.bzr/
+/WEB-INF/web.xml
+/WEB-INF/classes/
+/META-INF/MANIFEST.MF
+/web.config
+/.htaccess
+/.DS_Store
+/Thumbs.db
+/.idea/
+/.vscode/

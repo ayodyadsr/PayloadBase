@@ -1,0 +1,4 @@
+random.seed(0)
+srand(1234567890)
+Random(42).nextInt()
+SecureRandom sr = new SecureRandom(); sr.setSeed(12345);

@@ -1,0 +1,15 @@
+/etc/passwd
+/etc/shadow
+/etc/hosts
+/etc/hostname
+C:\Windows\System32\drivers\etc\hosts
+C:\Windows\System32\config\SAM
+/proc/self/environ
+/proc/self/cmdline
+/proc/version
+/var/www/html/.env
+/app/config/secrets.yml
+/home/user/.ssh/id_rsa
+/root/.bash_history
+/etc/mysql/my.cnf
+/var/log/auth.log

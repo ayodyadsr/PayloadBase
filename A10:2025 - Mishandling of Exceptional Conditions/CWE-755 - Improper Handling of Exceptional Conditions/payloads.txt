@@ -1,0 +1,5 @@
+POST /api/divide {"a":1,"b":0} (division by zero)
+GET /api/convert?val=ABC (NumberFormatException)
+POST /api/parse {"date":"invalid-date"} (ParseException)
+Upload 0-byte file (edge case handling)
+Submit form with empty required field

@@ -1,0 +1,6 @@
+<img src=x onerror=alert(1)>
+1; DROP TABLE users--
+../../../etc/passwd
+%00
+\x00
+file:///etc/passwd

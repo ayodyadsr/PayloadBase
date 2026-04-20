@@ -1,0 +1,3 @@
+POST /api/register {"role":"admin"}
+GET /api/user?bypass_auth=1
+debug=true (disables security checks)

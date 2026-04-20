@@ -1,0 +1,4 @@
+GET /api/user/ABC HTTP/1.1 (trigger NumberFormatException)
+POST /api/login {"user":null}
+GET /api/order/ HTTP/1.1 (empty path)
+Accept: text/html (check verbose stack trace)

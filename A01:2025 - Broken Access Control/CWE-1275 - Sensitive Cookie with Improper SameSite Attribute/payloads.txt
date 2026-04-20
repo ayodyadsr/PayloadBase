@@ -1,0 +1,6 @@
+Set-Cookie: session=abc123; HttpOnly
+Set-Cookie: auth=xyz; SameSite=None
+Set-Cookie: token=xxx
+Set-Cookie: remember_me=1; SameSite=Lax
+document.cookie = 'session=evil'
+Set-Cookie: sid=test; SameSite=None; Secure=false

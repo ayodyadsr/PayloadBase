@@ -1,0 +1,4 @@
+token = str(random.randint(0, 9999))
+session_id = md5(username + timestamp)
+password_reset_token = hex(int(time.time()))
+api_key = base64(username + ':' + str(random.random()))

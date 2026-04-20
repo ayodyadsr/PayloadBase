@@ -1,0 +1,15 @@
+/uploads/
+/images/
+/files/
+/backup/
+/static/
+/assets/
+/media/
+/logs/
+/temp/
+/tmp/
+?dir=.
+?path=/
+?folder=/etc
+/ftp/
+/data/

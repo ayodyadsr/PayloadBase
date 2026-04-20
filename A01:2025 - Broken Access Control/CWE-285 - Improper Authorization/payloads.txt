@@ -1,0 +1,7 @@
+GET /api/orders?user_id=1 → change to user_id=2
+GET /api/user/1/profile → change to /api/user/2/profile
+DELETE /api/post/1 (as different user)
+PUT /api/user/1/role {"role": "admin"}
+GET /api/admin/report (as regular user)
+POST /admin/create-user
+GET /api/invoice/1001 → try /api/invoice/1002

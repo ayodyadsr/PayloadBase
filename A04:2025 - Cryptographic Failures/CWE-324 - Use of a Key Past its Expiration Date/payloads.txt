@@ -1,0 +1,3 @@
+openssl x509 -in cert.pem -dates
+openssl s_client -connect target:443 | openssl x509 -noout -dates
+GET / HTTP/1.1 (check certificate expiry in response)

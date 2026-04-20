@@ -1,0 +1,4 @@
+POST /api/login (1000 attempts, no lockout)
+POST /api/otp (brute force 6-digit OTP: 000000-999999)
+X-Forwarded-For: 1.1.1.1 (IP rotation to bypass lockout)
+X-Originating-IP: 2.2.2.2 (bypass IP-based lockout)

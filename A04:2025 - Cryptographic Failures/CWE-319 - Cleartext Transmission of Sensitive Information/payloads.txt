@@ -1,0 +1,5 @@
+http://target.com/login (plaintext login)
+POST /api/auth HTTP/1.0 (cleartext)
+ftp://target.com (plaintext FTP)
+telnet target.com 23
+smtp://mail.target.com:25 (no STARTTLS)

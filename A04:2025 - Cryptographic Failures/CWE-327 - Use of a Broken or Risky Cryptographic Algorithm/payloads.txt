@@ -1,0 +1,11 @@
+MD5
+SHA1
+DES
+3DES
+RC4
+RC2
+IDEA
+Blowfish
+ECB mode (any cipher)
+CBC with PKCS7 (padding oracle)
+RSA/ECB/PKCS1Padding

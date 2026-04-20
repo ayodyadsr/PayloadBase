@@ -1,0 +1,4 @@
+GET /login?PHPSESSID=attacker_controlled_session
+Cookie: session=fixed_session_id_before_login
+GET /app;jsessionid=ATTACKER_SESSION
+POST /login with pre-set session cookie

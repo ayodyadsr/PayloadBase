@@ -1,0 +1,5 @@
+GET /api/user/ABC (trigger type error)
+POST /api/login {"user":null} (trigger NPE)
+GET /api/query?id=' (trigger SQL error with schema info)
+Accept: text/html (verbose stack trace)
+X-Debug: 1

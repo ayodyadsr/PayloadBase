@@ -1,0 +1,4 @@
+GET /api/1 → stack trace
+GET /api/2 → JSON error
+GET /api/3 → empty 500
+GET /api/4 → HTML error page

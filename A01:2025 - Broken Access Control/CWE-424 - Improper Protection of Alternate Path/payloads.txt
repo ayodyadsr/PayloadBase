@@ -1,0 +1,13 @@
+/api/v1/user
+/api/v2/user
+/api/v3/user
+/admin/login
+/login.php
+/auth/admin
+/v1/admin
+/v2/admin
+/api/admin
+?admin=true
+?debug=1
+?internal=1
+/api/user;admin=true

@@ -1,0 +1,6 @@
+base64(password)
+md5(username+password)
+ROT13(password)
+hex(password)
+urlencode(password)
+password stored in base64 cookie

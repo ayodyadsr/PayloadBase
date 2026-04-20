@@ -1,0 +1,5 @@
+User-Agent: <script>alert(1)</script>
+Referer: javascript:alert(1)
+X-Forwarded-For: <script>alert(1)</script>
+Cookie: name=<img onerror=alert(1) src=x>
+Accept-Language: en;<script>alert(1)</script>

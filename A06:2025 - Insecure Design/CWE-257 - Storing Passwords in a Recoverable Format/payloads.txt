@@ -1,0 +1,4 @@
+base64 encoded passwords in DB
+ROT13 passwords in config file
+XOR encrypted with static key
+password = decrypt(stored_value, hardcoded_key)
